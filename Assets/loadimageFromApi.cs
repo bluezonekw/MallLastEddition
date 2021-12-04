@@ -285,47 +285,6 @@ public class loadimageFromApi : MonoBehaviour
         if (StoreRequest.Loaded && !Startassign)
         {
             Startassign = true;
-
-            /// load RightWall RightPostion
-            LoadIntialProduct(Sections[0], StoreRequest.URL1[0], StoreRequest.product1[0], "01", 0, StoreRequest.SectionId[0].ToString());
-
-
-            /// load RightWall CenterPostion
-            LoadIntialProduct(Sections[1], StoreRequest.URL2[0], StoreRequest.product2[0], "01", 0, StoreRequest.SectionId[1].ToString());
-
-            /// load RightWall LeftPostion
-
-            LoadIntialProduct(Sections[2], StoreRequest.URL3[0], StoreRequest.product3[0], "01", 0, StoreRequest.SectionId[2].ToString());
-
-
-
-
-            /// load CenterWall RightPostion
-            LoadIntialProduct(Sections[3], StoreRequest.URL4[0], StoreRequest.product4[0], "01", 1, StoreRequest.SectionId[3].ToString());
-
-
-            /// load CenterWall CenterPostion
-            LoadIntialProduct(Sections[4], StoreRequest.URL5[0], StoreRequest.product5[0], "01", 1, StoreRequest.SectionId[4].ToString());
-
-            /// load CenterWall LeftPostion
-
-            LoadIntialProduct(Sections[5], StoreRequest.URL6[0], StoreRequest.product6[0], "01", 1, StoreRequest.SectionId[5].ToString());
-
-
-
-
-            /// load LeftWall RightPostion
-            LoadIntialProduct(Sections[6], StoreRequest.URL7[0], StoreRequest.product7[0], "01", 2, StoreRequest.SectionId[6].ToString());
-
-
-            /// load LeftWall CenterPostion
-            LoadIntialProduct(Sections[7], StoreRequest.URL8[0], StoreRequest.product8[0], "01", 2, StoreRequest.SectionId[7].ToString());
-
-            /// load LeftWall LeftPostion
-
-            LoadIntialProduct(Sections[8], StoreRequest.URL9[0], StoreRequest.product9[0], "01", 2, StoreRequest.SectionId[8].ToString());
-
-            ///// Load FrontSlidder
             foreach (string s in StoreRequest.sliddderFront)
             {
 
@@ -351,6 +310,51 @@ public class loadimageFromApi : MonoBehaviour
 
             }
 
+            /// load RightWall RightPostion
+            LoadIntialProduct(Sections[0], StoreRequest.URL1[0], StoreRequest.product1[0], "01", 0, StoreRequest.SectionId[0].ToString());
+
+
+            /// load RightWall CenterPostion
+            LoadIntialProduct(Sections[1], StoreRequest.URL2[0], StoreRequest.product2[0], "01", 0, StoreRequest.SectionId[1].ToString());
+
+            /// load RightWall LeftPostion
+
+            LoadIntialProduct(Sections[2], StoreRequest.URL3[0], StoreRequest.product3[0], "01", 0, StoreRequest.SectionId[2].ToString());
+
+
+
+
+            /// load CenterWall RightPostion
+            LoadIntialProduct(Sections[3], StoreRequest.URL4[0], StoreRequest.product4[0], "01", 1, StoreRequest.SectionId[3].ToString());
+
+
+            /// load CenterWall CenterPostion
+            LoadIntialProduct(Sections[4], StoreRequest.URL5[0], StoreRequest.product5[0], "01", 1, StoreRequest.SectionId[4].ToString());
+
+            /// load CenterWall LeftPostion
+            try
+            {
+                LoadIntialProduct(Sections[5], StoreRequest.URL6[0], StoreRequest.product6[0], "01", 1, StoreRequest.SectionId[5].ToString());
+            }
+            catch
+            {
+
+            }
+
+
+
+            /// load LeftWall RightPostion
+            LoadIntialProduct(Sections[6], StoreRequest.URL7[0], StoreRequest.product7[0], "01", 2, StoreRequest.SectionId[6].ToString());
+
+
+            /// load LeftWall CenterPostion
+            LoadIntialProduct(Sections[7], StoreRequest.URL8[0], StoreRequest.product8[0], "01", 2, StoreRequest.SectionId[7].ToString());
+
+            /// load LeftWall LeftPostion
+
+            LoadIntialProduct(Sections[8], StoreRequest.URL9[0], StoreRequest.product9[0], "01", 2, StoreRequest.SectionId[8].ToString());
+
+           
 
         }
 
@@ -436,11 +440,9 @@ public class loadimageFromApi : MonoBehaviour
         if (!string.IsNullOrEmpty(section_Page[sectionIdLocal]))
         {
             request = StoreRequest.LoadSectionImage(StoreRequest.SectionId[sectionIdLocal].ToString(), section_Page[sectionIdLocal]);
-            print("yyyyyyyy   "+ request.statsu.ToString());
 
             if (request.statsu == 1)
             {
-                print("xxxxxxxxxxxxx");
                 if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
                 {
                     foreach (SectionRequestData Product in request.data.data.ToArray())

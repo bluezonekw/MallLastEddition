@@ -9,6 +9,10 @@ using UnityEngine;
 public class StoreProfile
 {
     public int id { get; set; }
+    public int shipping_charges { get; set; }
+    public int delivery_time_days { get; set; }
+    public int delivery_time_hours { get; set; }
+    public int delivery_time_minutes { get; set; }
     public string phone { get; set; }
     public string phone2 { get; set; }
     public string email_contact { get; set; }
@@ -16,9 +20,13 @@ public class StoreProfile
     public string instagram { get; set; }
     public string whatsapp { get; set; }
     public string twitter { get; set; }
+    public bool special_discount { get; set; }
+    public int discount_ratio { get; set; }
+    public int discount_min_price { get; set; }
+    public string how_to_buy { get; set; }
+    public string terms { get; set; }
+    public string retrieval { get; set; }
     public int store_id { get; set; }
-    public DateTime created_at { get; set; }
-    public DateTime updated_at { get; set; }
 }
 
 public class StoreInfo
@@ -57,6 +65,9 @@ public class ProductInfo
     public int id { get; set; }
     public string img { get; set; }
     public int section_id { get; set; }
+    public bool in_favorite { get; set; }
+
+
 }
 
 public class SectionInfo

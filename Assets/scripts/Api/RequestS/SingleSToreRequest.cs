@@ -25,20 +25,35 @@ public class SingleSToreRequest : MonoBehaviour
 
     }
 
+    IEnumerator LoadsectionInfo(string SectionID, string CurrPAge, SectionRequest LoadSectionImage)
+    {
 
-    public SectionRequest LoadSectionImage(string SectionID, string CurrPAge)
+
+        var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreId.ToString() + "&section_id=" + SectionID + "&page=" + CurrPAge + "&limit=" + NumberOFProductPerRequest);
+        client.Timeout = -1;
+        var request = new RestRequest(Method.GET);
+        request.AddHeader("password_api", "mall_2021_m3m");
+        request.AddHeader("lang_api", "en");
+        request.AlwaysMultipartFormData = true;
+        IRestResponse response = client.Execute(request);
+        LoadSectionImage= JsonConvert.DeserializeObject<SectionRequest>(response.Content);
+        yield return response.Content;
+
+    }
+        public SectionRequest LoadSectionImage(string SectionID, string CurrPAge)
     {
         try
         {
-            var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreId.ToString() + "&section_id=" + SectionID + "&page=" + CurrPAge + "&limit=" + NumberOFProductPerRequest);
+           /* var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreId.ToString() + "&section_id=" + SectionID + "&page=" + CurrPAge + "&limit=" + NumberOFProductPerRequest);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("password_api", "mall_2021_m3m");
             request.AddHeader("lang_api", "en");
             request.AlwaysMultipartFormData = true;
-            IRestResponse response = client.Execute(request);
-            Debug.Log(response.Content);
-            return JsonConvert.DeserializeObject<SectionRequest>(response.Content);
+            IRestResponse response = client.Execute(request);*/
+            SectionRequest l = new SectionRequest();
+            StartCoroutine(LoadsectionInfo(SectionID, CurrPAge, l));
+            return l;
         }
         catch
         {
@@ -49,24 +64,48 @@ public class SingleSToreRequest : MonoBehaviour
 
 
     }
+    public string AuthToken()
+    {
+
+        try
+        {
+            return ApiClasses.Register.data.token;
+        }
+        catch
+
+        {
+
+            return ApiClasses.Login.data.original.access_token;
+
+        }
 
 
+    }
+    IEnumerator LoadStoreInfo()
+    {
+
+
+        StoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
+        SectionId.Clear();
+        var client = new RestClient(@"https://mymall-kw.com/api/V1/get-single-store?store_id=" + StoreId.ToString());
+        client.Timeout = -1;
+        var request = new RestRequest(Method.GET);
+        request.AddHeader("password_api", "mall_2021_m3m");
+        request.AddHeader("lang_api", "en");
+        request.AddHeader("auth-token", AuthToken());
+        request.AlwaysMultipartFormData = true;
+        IRestResponse response = client.Execute(request);
+        SingleStore = JsonConvert.DeserializeObject<FirstStoreRequest>(response.Content);
+        yield return response.Content;
+    }
     public void RequestBanneAndLogo()
     {
 
 
         if (CheckEnterShop.EnterShop && CheckEnterShop.EnteredStore == this.gameObject.name)
         {
-            StoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
-            SectionId.Clear();
-            var client = new RestClient(@"https://mymall-kw.com/api/V1/get-single-store?store_id=" + StoreId.ToString());
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("password_api", "mall_2021_m3m");
-            request.AddHeader("lang_api", "en");
-            request.AlwaysMultipartFormData = true;
-            IRestResponse response = client.Execute(request);
-            SingleStore = JsonConvert.DeserializeObject<FirstStoreRequest>(response.Content);
+            
+            StartCoroutine(LoadStoreInfo());
             Loaded = true;
             try
             {
@@ -81,7 +120,6 @@ public class SingleSToreRequest : MonoBehaviour
                 foreach (RightSlidder s in SingleStore.data.sliders.right)
                 {
                     SlidderRight.Add(s.src);
-
 
 
                 }
@@ -209,7 +247,7 @@ public class SingleSToreRequest : MonoBehaviour
             }
             catch (Exception ex)
             {
-
+                print("Ghmolee 3ene");
             }
         }
 

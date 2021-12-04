@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class cartController : MonoBehaviour
 {
-    public GameObject content;
 
     public GameObject cartItem;
     bool finished = true;
@@ -16,7 +15,6 @@ public class cartController : MonoBehaviour
     public GameObject loading;
     public static CartResponse CartResponse;
     public GameObject Cart, Container;
-    public static bool ValueUpdated,ActiveCart,ActiveContainer;
     private double price;
 
 
@@ -34,20 +32,7 @@ public class cartController : MonoBehaviour
     }
     private void Update()
     {
-        Cart.SetActive(ActiveCart);
-        Container.SetActive(ActiveContainer);
-        if (ValueUpdated)
-        {
-            price = 0;
-            ValueUpdated = false;
-            foreach (var i in CartResponse.data)
-            {
-                price+= i.total_price;
-                print(price.ToString() + "         price");
-            }
-            totalPrice.Text = price.ToString()+" K.D";
-
-        }
+      
 
     }
 

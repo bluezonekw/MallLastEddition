@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using RestSharp;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,31 +7,61 @@ using UnityEngine;
     public class CartPopUp : MonoBehaviour
     {
         public GameObject PopExitShop;
+    private GameObject gameObject;
         public UIVirtualJoystick sai;
+    public static float MovementValue;
     // Start is called before the first frame update
     void Start()
     {
-        PopExitShop.SetActive(false);
-
+        MovementValue = 1;
     }
-    public void ResetMove()
-        {
-          sai.magnitudeMultiplier=1;
-        }
-        public void DestroyPop()
-        {
-            PopExitShop.SetActive(false);
-        }
+    
+      
         // Update is called once per frame
         void Update()
-        {
-            if (CheckEnterShop.ExitShop)
-            {
-                PopExitShop.SetActive(true);
-               sai.magnitudeMultiplier=0;
+    {
+        sai.magnitudeMultiplier = MovementValue;
 
-                CheckEnterShop.ExitShop = false;
+        if (CheckEnterShop.ExitShop)
+            {
+            CheckEnterShop.ExitShop = false;
+
+            var client = new RestClient("http://mymall-kw.com/api/V1/carts");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("password-api", "mall_2021_m3m");
+            request.AddHeader("lang-api", "ar");
+            request.AddHeader("auth-token", AuthToken());
+            request.AlwaysMultipartFormData = true;
+            IRestResponse response = client.Execute(request);
+            cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
+            print(response.Content);
+            if (cartController.CartResponse.data.Count >0)
+            {
+                gameObject = GameObject.Instantiate(PopExitShop);
+                MovementValue = 0;
+            }
+            else
+            {
+            }
             }
 
         }
+    public string AuthToken()
+    {
+
+        try
+        {
+            return ApiClasses.Register.data.token;
+        }
+        catch
+
+        {
+
+            return ApiClasses.Login.data.original.access_token;
+
+        }
+
+
     }
+}

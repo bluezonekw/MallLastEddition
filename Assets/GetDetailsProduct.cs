@@ -32,7 +32,8 @@ public class GetDetailsProduct : MonoBehaviour
     public static AddTocart addTocartrequest;
     public GameObject Popup;
 
-
+    public GameObject ToggleExample;
+    
     public ArabicText CostwithDetails;
     // Start is called before the first frame update
     void Start()
@@ -93,7 +94,7 @@ public class GetDetailsProduct : MonoBehaviour
 
 
 
-                isdestroy = false;
+             //   isdestroy = false;
             if(  p.selection_type!= "single")
             {
 
@@ -107,7 +108,7 @@ public class GetDetailsProduct : MonoBehaviour
             }
                 foreach (ProductOption optionss in p.options)
                 {
-                    T = GameObject.Instantiate(g.transform.GetChild(1).gameObject.transform.GetChild(0).transform.GetChild(0).gameObject, g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).transform.parent.transform);
+                    T = GameObject.Instantiate(ToggleExample, g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).transform.parent.transform);
                 T.transform.GetChild(1).GetComponent<ArabicText>().Text = optionss.name;
                 T.transform.GetChild(2).GetComponent<ArabicText>().Text = optionss.price + " K.D";
                     T.name = optionss.id.ToString();
@@ -117,14 +118,14 @@ public class GetDetailsProduct : MonoBehaviour
 
 
 
-
+                /*
                 if (!isdestroy)
                     {
 
                         GameObject.Destroy(g.transform.GetChild(1).gameObject.transform.GetChild(0).transform.GetChild(0).gameObject);
                         isdestroy = true;
                     }
-
+                */
                 }
 
             }

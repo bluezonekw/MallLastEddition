@@ -61,8 +61,8 @@ public class SaveScript : MonoBehaviour
         {
             //SaveLoad.savedGames.Clear();
             File.Delete(savePath);
-            GameEmail = "";
-            GamePassword = "";
+            GameEmail = null;
+            GamePassword = null;
             print( "Data delete in : (       " + savePath + "       )  ");
 
         }

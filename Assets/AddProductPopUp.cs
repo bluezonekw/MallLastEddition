@@ -9,6 +9,7 @@ public class AddProductPopUp : MonoBehaviour
 {
     public GameObject  Message1,Message2;
     public GameObject button;
+    public GameObject Cart;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +55,7 @@ public class AddProductPopUp : MonoBehaviour
         IRestResponse response = client.Execute(request);
         cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
         print(response.Content);
-        cartController.ValueUpdated = true;
-        cartController.ActiveCart=true;
-        cartController.ActiveContainer = true;
+        GameObject.Instantiate(Cart);
         DestroyCurrent();
 
 

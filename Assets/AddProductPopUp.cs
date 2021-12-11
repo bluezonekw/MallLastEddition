@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using RestSharp;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class AddProductPopUp : MonoBehaviour
 {
-    public GameObject  Message1,Message2;
+    public ArabicText Message1,Open,Resume;
     public GameObject button;
     public GameObject Cart;
     // Start is called before the first frame update
@@ -15,11 +15,44 @@ public class AddProductPopUp : MonoBehaviour
     {
         if (GetDetailsProduct.addTocartrequest.statsu == 1)
         {
-            Message1.SetActive(true);
+            button.SetActive(true);
+            if (UPDownMenu.LanguageValue == 1)
+            {
+
+                Message1.Text ="Order Added Sucessfully";
+                Open.Text = "Go To Cart";
+                Resume.Text = "Resume Buying";
+            }
+            else
+            {
+
+                Message1.Text = "تم الاضافة بنجاح";
+
+                Open.Text = "الذهاب الى السلة";
+                Resume.Text = "متابعة الشراء";
+
+
+            }
+            
         }else
         {
-            Message2.SetActive(true);
             button.SetActive(false);
+
+            if (UPDownMenu.LanguageValue == 1)
+            {
+
+                Message1.Text = "Please Try Again !!";
+                Resume.Text = "Resume Buying";
+
+            }
+            else
+            {
+
+                Message1.Text = "من فضلك حاول مرة اخرى ";
+                Resume.Text = "متابعة الشراء";
+
+
+            }
         }
 
     }
@@ -49,13 +82,22 @@ public class AddProductPopUp : MonoBehaviour
         client.Timeout = -1;
         var request = new RestRequest(Method.GET);
         request.AddHeader("password-api", "mall_2021_m3m");
-        request.AddHeader("lang-api", "ar");
+        if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else 
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
+      
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
-        print(response.Content);
-        GameObject.Instantiate(Cart);
+        GameObject.Instantiate(Cart,GameObject.FindGameObjectWithTag("MainCanvas").transform);
         DestroyCurrent();
 
 

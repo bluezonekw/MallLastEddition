@@ -33,7 +33,16 @@ public class favMenu : MonoBehaviour
         client.Timeout = -1;
         var request = new RestRequest(Method.GET);
         request.AddHeader("password-api", "mall_2021_m3m");
-        request.AddHeader("lang-api", "en");
+        if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);

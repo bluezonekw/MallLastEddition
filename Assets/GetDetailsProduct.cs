@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,9 +35,43 @@ public class GetDetailsProduct : MonoBehaviour
     public GameObject ToggleExample;
     
     public ArabicText CostwithDetails;
+
+
+
+    public GameObject MessageObject;
+    public ArabicText MessageErorr;
+    public ArabicText MoreDetails;
+
+
+    public ArabicText Total, Buy, Options;
     // Start is called before the first frame update
     void Start()
     {
+        if (UPDownMenu.LanguageValue == 1)
+        {
+
+            Price.UseHinduNumbers = false;
+            SpecialPrice.UseHinduNumbers = false;
+            MoreDetails.Text = "More Dtails";
+            Buy.Text = "Add To Cart";
+            Total.Text = "Total";
+            Options.Text = "Choose Options";
+            Total.transform.localPosition=new Vector3(-110f,-130f,0f);
+            CostwithDetails.transform.localPosition = new Vector3(70f,-130f,0f);
+
+        }
+        else
+        {
+            Price.UseHinduNumbers = true;
+            SpecialPrice.UseHinduNumbers = true;
+            MoreDetails.Text = "المزيد من التفاصيل";
+            Buy.Text = "أضافة الى حقيبة التسوق";
+            Total.Text = "الأجمالى";
+            Options.Text = "اختر الاضافات المناسبة";
+            Total.transform.localPosition = new Vector3(70f, -130f, 0f);
+            CostwithDetails.transform.localPosition = new Vector3(-110f, -130f, 0f);
+
+        }
         isaddtocart = false;
 
         indedeximage = 0;
@@ -47,24 +81,23 @@ public class GetDetailsProduct : MonoBehaviour
        // Cost.Text = cost.ToString();
         if (loadimageFromApi.ProductRequst.data.in_favorite)
         {
-            print(loadimageFromApi.ProductRequst.data.in_favorite.ToString()+"       ssss");
             signs.selected = true;
         }
         if (loadimageFromApi.ProductRequst.data.sale_price != null)
         {
             spcialPriceobject.SetActive(true);
-            Price.Text= loadimageFromApi.ProductRequst.data.sale_price.ToString() + " ��";
-            SpecialPrice.Text = loadimageFromApi.ProductRequst.data.regular_price.ToString() + " ��";
+            Price.Text= loadimageFromApi.ProductRequst.data.sale_price.ToString() + " K.D";
+            SpecialPrice.Text = loadimageFromApi.ProductRequst.data.regular_price.ToString() + " K.D";
         }
         else
         {
             spcialPriceobject.SetActive(false);
-            Price.Text = loadimageFromApi.ProductRequst.data.regular_price.ToString() + " ��";
+            Price.Text = loadimageFromApi.ProductRequst.data.regular_price.ToString() + " K.D";
         }
         desc.Text= loadimageFromApi.ProductRequst.data.description;
         SecondDesc.Text = desc.Text;
         StartCoroutine(DownLoadImagetexture(loadimageFromApi.ProductRequst.data.img, ImageExample.GetComponent<RawImage>()));
-        PanelLocation.GetComponent<RectTransform>().sizeDelta = new Vector2(3.2431f, 0.5f*(loadimageFromApi.ProductRequst.data.attributes.Capacity ));
+     //   PanelLocation.GetComponent<RectTransform>().sizeDelta = new Vector2(3.2431f, 0.5f*(loadimageFromApi.ProductRequst.data.attributes.Capacity ));
         foreach (string s in loadimageFromApi.ProductRequst.data.slider)
         {
             
@@ -76,12 +109,20 @@ public class GetDetailsProduct : MonoBehaviour
         {
 
             
-                g = GameObject.Instantiate(Panel);
-                g.transform.parent = PanelLocation.transform;
-                g.name = p.id.ToString();
+                g = GameObject.Instantiate(Panel, PanelLocation.transform);
+//g.GetComponent<AspectRatioFitter>().
+         /*   g.GetComponent<RectTransform>().anchorMin.Set(0, 0);
+            g.GetComponent<RectTransform>().anchorMax.Set(1,1);
+            g.GetComponent<RectTransform>().pivot.Set(0.5f, 0.5f);
+            g.GetComponent<RectTransform>().anchoredPosition.Set( 0, 0);
+
+            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 0);
+            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 0);
+            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 0);
+            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 0);
+         */
+            g.name = p.id.ToString();
                 g.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ArabicText>().Text = p.name;
-                g.transform.localPosition = new Vector3(g.transform.localPosition.x, g.transform.localPosition.y, 0);
-                g.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
 
 
 
@@ -101,16 +142,23 @@ public class GetDetailsProduct : MonoBehaviour
 
 
 
-                g.transform.GetChild(1).gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Toggle>().group = null;
+                ToggleExample.GetComponent<Toggle>().group = null;
 
 
 
             }
-                foreach (ProductOption optionss in p.options)
+            else
+            {
+
+                ToggleExample.GetComponent<Toggle>().group = g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).GetComponent<ToggleGroup>();
+
+
+            }
+            foreach (ProductOption optionss in p.options)
                 {
-                    T = GameObject.Instantiate(ToggleExample, g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).transform.parent.transform);
-                T.transform.GetChild(1).GetComponent<ArabicText>().Text = optionss.name;
-                T.transform.GetChild(2).GetComponent<ArabicText>().Text = optionss.price + " K.D";
+                    T = GameObject.Instantiate(ToggleExample, g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0));
+                T.transform.GetChild(2).GetComponent<ArabicText>().Text = optionss.name;
+                T.transform.GetChild(3).GetComponent<ArabicText>().Text = optionss.price + " K.D";
                     T.name = optionss.id.ToString();
                 Toggles.Add(T.GetComponent<Toggle>());
                 T.GetComponent<Toggle>().onValueChanged = toggleEvent;
@@ -118,14 +166,7 @@ public class GetDetailsProduct : MonoBehaviour
 
 
 
-                /*
-                if (!isdestroy)
-                    {
 
-                        GameObject.Destroy(g.transform.GetChild(1).gameObject.transform.GetChild(0).transform.GetChild(0).gameObject);
-                        isdestroy = true;
-                    }
-                */
                 }
 
             }
@@ -161,36 +202,66 @@ public class GetDetailsProduct : MonoBehaviour
             if (Tog.isOn)
             {
                 OptionsId.Add(Tog.gameObject.name);
-                Costdetails += float.Parse(Tog.transform.GetChild(2).GetComponent<ArabicText>().Text.ToString().Replace(" K.D", ""));
+                Costdetails += float.Parse(Tog.transform.GetChild(3).GetComponent<ArabicText>().Text.ToString().Replace(" K.D", ""));
             }
 
         }
-        cost = (cost * int.Parse(Quntity.text.ToString()))+Costdetails;
-   CostText.Text= cost.ToString()+" K.D";
+        cost = (cost + Costdetails) * int.Parse(Quntity.text.ToString());
+        CostText.Text= cost.ToString()+" K.D";
         CostwithDetails.Text = CostText.Text;
      
     }
+    public void MessageDisable()
+    {
+
+        MessageObject.SetActive(false);
+
+    }
     public void AddTocart()
     {
+        if (OptionsId.Count == 0)
+        {
+            MessageObject.SetActive(true);
+            MessageErorr.Text = "من فضلك حدد الخيارات";
+            return;
+
+
+        }
         var client = new RestClient("http://mymall-kw.com/api/V1/carts");
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
         request.AddHeader("password-api", "mall_2021_m3m");
-        request.AddHeader("lang-api", "ar");
+        if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         request.AddParameter("product_id", loadimageFromApi.ProductRequst.data.id.ToString());
         request.AddParameter("quantity",Quntity.text );
-
-        for(int x = 0; x < OptionsId.Count-1; x++)
+        for(int x = 0; x < OptionsId.Count; x++)
         {
-           
+            print(OptionsId[x] + "     id ");
+
             request.AddParameter("options["+x.ToString()+"]", OptionsId[x]);
         }
         IRestResponse response = client.Execute(request);
+        print(response.Content);
         addTocartrequest= JsonConvert.DeserializeObject<AddTocart>(response.Content);
+        if (addTocartrequest.statsu == 0)
+        {
+            MessageObject.SetActive(true);
+            MessageErorr.Text = addTocartrequest.message;
+            return;
 
-        GameObject.Instantiate(Popup);
+        }
+        GameObject.Instantiate(Popup,GameObject.FindGameObjectWithTag("MainCanvas").transform);
         GameObject.Destroy(gameObject);
 
 

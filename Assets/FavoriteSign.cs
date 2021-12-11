@@ -36,7 +36,16 @@ public class FavoriteSign : MonoBehaviour
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
         request.AddHeader("password-api", "mall_2021_m3m");
-        request.AddHeader("lang-api", "en");
+        if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         request.AddParameter("product_id", loadimageFromApi.ProductRequst.data.id.ToString());

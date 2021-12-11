@@ -30,15 +30,24 @@ using UnityEngine;
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("password-api", "mall_2021_m3m");
-            request.AddHeader("lang-api", "ar");
+            if (UPDownMenu.LanguageValue == 1)
+            {
+                request.AddHeader("lang-api", "en");
+            }
+            else
+            {
+
+                request.AddHeader("lang-api", "ar");
+
+            }
             request.AddHeader("auth-token", AuthToken());
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
             cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
             print(response.Content);
-            if (cartController.CartResponse.data.Count >0)
+            if (cartController.CartResponse.data.Carts.Count >0)
             {
-                gameObject = GameObject.Instantiate(PopExitShop);
+                gameObject = GameObject.Instantiate(PopExitShop,GameObject.FindGameObjectWithTag("MainCanvas").transform);
                 MovementValue = 0;
             }
             else

@@ -15,7 +15,7 @@ public class SingleSToreRequest : MonoBehaviour
     public List<int> SectionId;
     public List<String> SlidderRight, slidderLeft, sliddderFront;
     SectionRequest s1;
-
+    public static int StaticStoreId;
     int StoreId;
     public int NumberOFProductPerRequest;
     // Start is called before the first frame update
@@ -44,13 +44,7 @@ public class SingleSToreRequest : MonoBehaviour
     {
         try
         {
-           /* var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreId.ToString() + "&section_id=" + SectionID + "&page=" + CurrPAge + "&limit=" + NumberOFProductPerRequest);
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("password_api", "mall_2021_m3m");
-            request.AddHeader("lang_api", "en");
-            request.AlwaysMultipartFormData = true;
-            IRestResponse response = client.Execute(request);*/
+          
             SectionRequest l = new SectionRequest();
             StartCoroutine(LoadsectionInfo(SectionID, CurrPAge, l));
             return l;
@@ -261,5 +255,6 @@ public class SingleSToreRequest : MonoBehaviour
         {
             RequestBanneAndLogo();
         }
+        StaticStoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
     }
 }

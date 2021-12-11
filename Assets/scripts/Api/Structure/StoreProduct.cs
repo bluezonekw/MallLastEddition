@@ -52,11 +52,17 @@ public class CartData
     public double total_price { get; set; }
     public string name { get; set; }
 }
+public class MainCartData
+{
+    public List<CartData> Carts { get; set; }
 
+    public int shipping_price { get; set; }
+
+}
 public class CartResponse
 {
     public int statsu { get; set; }
     public string message { get; set; }
-    public List<CartData> data { get; set; }
+    public MainCartData data { get; set; }
 }
 

@@ -42,8 +42,31 @@ public class GetDetailsProduct : MonoBehaviour
     public ArabicText MessageErorr;
     public ArabicText MoreDetails;
 
-
     public ArabicText Total, Buy, Options;
+
+    public GameObject Main, More;
+
+    public void OpenMain()
+    {
+
+        More.SetActive(false);
+        Main.SetActive(true);
+        Main.SetActive(false);
+        Main.SetActive(true);
+
+
+
+    }
+    public void OpenMore()
+    {
+        Main.SetActive(false);
+        More.SetActive(true);
+        More.SetActive(false);
+        More.SetActive(true);
+
+
+
+    }
     // Start is called before the first frame update
     void Start()
     {

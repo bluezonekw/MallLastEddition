@@ -8,14 +8,24 @@ public class assignBannerFromApi : MonoBehaviour
 {
     public RequesStoresInHall requesStores;
     private RawImage rawImage;
-    public int NumberBanner;
+    int StoreID;
     // Start is called before the first frame update
     void Start()
     {
+try{
+StoreID=int.Parse( gameObject.name);
         rawImage = GetComponent<RawImage>();
+}
+catch{
+StoreID=0;
+}
         try
         {
-            StartCoroutine(DownloadRawImage(requesStores.Halls_info.data.data.ToArray()[NumberBanner - 1].banner.ToString(), rawImage));
+foreach(DataStore k in requesStores.Halls_info.data){
+if(k.id==StoreID){
+            StartCoroutine(DownloadRawImage(k.banner.ToString(), rawImage));
+}
+}
         }
         catch
         {

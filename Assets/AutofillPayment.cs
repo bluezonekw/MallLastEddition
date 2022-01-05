@@ -140,7 +140,7 @@ public class AutofillPayment : MonoBehaviour
             screenshotscript.Price.Text = orderinfo.data.order_price.ToString()+" K.D";
             screenshotscript.Dateorder.Text = UnixTimeStampToDateTime(orderinfo.data.created_at).ToString();
             screenshotscript.DateArrival.Text = UnixTimeStampToDateTime(orderinfo.data.delivery_time).ToString();
-
+CheckEnterShop.CartEmpty=true;
 
 
                 }

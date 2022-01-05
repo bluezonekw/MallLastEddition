@@ -5,25 +5,37 @@ using UnityEngine;
 
 public class assignspritetomatrialDoors : MonoBehaviour
 {
-    public Material[] mat;
+   public Material DefaultMat;
     public RequesStoresInHall requesStores;
-
+private Material LocalMat;
+ int StoreID;
     // Start is called before the first frame update
     void Start()
     {
-        try
+try{
+StoreID=int.Parse( gameObject.name);}
+catch{
+StoreID=0;
+}
+ GetComponent<MeshRenderer>().materials[0]=new Material(DefaultMat.shader);
+LocalMat=GetComponent<MeshRenderer>().materials[0];
+
+ try
         {
-            for (int x = 0; x < mat.Length - 1; x++)
-            {
-                StartCoroutine(DownloadRawImage(requesStores.Halls_info.data.data.ToArray()[x].banner.ToString(), mat[x]));
-
-            }
-
+foreach(DataStore k in requesStores.Halls_info.data){
+if(k.id==StoreID){
+            StartCoroutine(DownloadRawImage(k.logo.ToString(), LocalMat));
+            
+}
+}
         }
         catch
         {
 
         }
+
+
+       
     }
     IEnumerator DownloadRawImage(string url, Material I)
     {

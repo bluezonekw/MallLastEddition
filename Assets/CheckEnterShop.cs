@@ -7,10 +7,11 @@ public class CheckEnterShop : MonoBehaviour
     CharacterController CC;
     public static bool EnterShop,ExitShop;
     public static string EnteredStore;
+public static bool  CartEmpty;
     // Start is called before the first frame update
     void Start()
     {
-       
+       CartEmpty=true;
             CC = GetComponent<CharacterController>();
        
 

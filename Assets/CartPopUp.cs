@@ -25,7 +25,7 @@ using UnityEngine;
         if (CheckEnterShop.ExitShop)
             {
             CheckEnterShop.ExitShop = false;
-
+	if(!CheckEnterShop.CartEmpty){
             var client = new RestClient("http://mymall-kw.com/api/V1/carts");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -50,10 +50,8 @@ using UnityEngine;
                 gameObject = GameObject.Instantiate(PopExitShop,GameObject.FindGameObjectWithTag("MainCanvas").transform);
                 MovementValue = 0;
             }
-            else
-            {
             }
-            }
+}
 
         }
     public string AuthToken()

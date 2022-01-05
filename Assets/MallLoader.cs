@@ -2,25 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Threading;
 
 public class MallLoader : MonoBehaviour
 {
+    
     public Transform T1;
     bool[] sceneloaded= { false, false, false, false, false, false, false, false, false, false,false} ;
+
+public GameObject s1,s2,s3,s4,s5,s6,s7,s8,s9,s10;
     // Start is called before the first frame update
     void Start()
     {
        
+
+
+       
+    }
+IEnumerator LoadNewScene(string x)
+    {
+        
+        SceneManager.LoadSceneAsync(x, LoadSceneMode.Additive);
+       yield return null;
+       
     }
 
+
+
+IEnumerator UnLoadNewScene(string x)
+    {
+SceneManager.UnloadSceneAsync(x);
+        yield return null;
+
+    }
     // Update is called once per frame
     void Update()
     {
+
         if (T1.position.z < 10 )
         {
             try
             {
+//StartCoroutine(UnLoadNewScene("03"));
+
                 SceneManager.UnloadSceneAsync("03");
+
+		//Destroy(GameObject.FindGameObjectWithTag("03"));
                 sceneloaded[03] = false;
             }
             catch
@@ -29,12 +57,18 @@ public class MallLoader : MonoBehaviour
             }
             if (!sceneloaded[01])
             {
-                SceneManager.LoadScene("01", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("01"));
+                SceneManager.LoadSceneAsync("01", LoadSceneMode.Additive);
+
+		//	GameObject.Instantiate(s1);
+
                 sceneloaded[01] = true;
             }
             if (!sceneloaded[02])
             {
-                SceneManager.LoadScene("02", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("02"));
+                SceneManager.LoadSceneAsync("02", LoadSceneMode.Additive);
+		//	GameObject.Instantiate(s2);
                 sceneloaded[02] = true;
 
             }
@@ -44,7 +78,10 @@ public class MallLoader : MonoBehaviour
         {
             try
             {
-                SceneManager.UnloadSceneAsync("01");
+            //    StartCoroutine(UnLoadNewScene("01"));
+SceneManager.UnloadSceneAsync("01");
+
+	//	Destroy(GameObject.FindGameObjectWithTag("01"));
                 sceneloaded[01] = false;
 
 
@@ -56,8 +93,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
+//StartCoroutine(UnLoadNewScene("04"));
                 SceneManager.UnloadSceneAsync("04");
-
+		//Destroy(GameObject.FindGameObjectWithTag("04"));
                 sceneloaded[04] = false;
 
             }
@@ -68,7 +106,9 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[03])
             {
-                SceneManager.LoadScene("03", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("03"));
+                SceneManager.LoadSceneAsync("03", LoadSceneMode.Additive);
+		//GameObject.Instantiate(s3);
                 sceneloaded[03] = true;
 
 
@@ -76,17 +116,21 @@ public class MallLoader : MonoBehaviour
             if (!sceneloaded[02])
             {
 
-                SceneManager.LoadScene("02", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("02"));
+                SceneManager.LoadSceneAsync("02", LoadSceneMode.Additive);
+		//GameObject.Instantiate(s2);
                 sceneloaded[02] = true;
 
             }
         }
         else
-            if (T1.position.z > 90 && T1.position.z < 170)
+            if (T1.position.z > 90 && T1.position.z < 170 )
         {
             try
             {
-                SceneManager.UnloadSceneAsync("02");
+               // StartCoroutine(UnLoadNewScene("02"));
+SceneManager.UnloadSceneAsync("02");
+		//Destroy(GameObject.FindGameObjectWithTag("02"));
                 sceneloaded[02] = false;
 
             }
@@ -97,7 +141,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
-                SceneManager.UnloadSceneAsync("05");
+            //StartCoroutine(UnLoadNewScene("05"));
+    SceneManager.UnloadSceneAsync("05");
+		//Destroy(GameObject.FindGameObjectWithTag("05"));
                 sceneloaded[05] = false;
 
             }
@@ -107,15 +153,19 @@ public class MallLoader : MonoBehaviour
             }
             if (!sceneloaded[04])
             {
-                SceneManager.LoadScene("04", LoadSceneMode.Additive);
 
+//StartCoroutine(LoadNewScene("04"));
+                SceneManager.LoadSceneAsync("04", LoadSceneMode.Additive);
+		//GameObject.Instantiate(s4);
                 sceneloaded[04] = true;
 
             }
             if (!sceneloaded[03])
             {
 
-                SceneManager.LoadScene("03", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("03"));
+                SceneManager.LoadSceneAsync("03", LoadSceneMode.Additive);
+		//GameObject.Instantiate(s3);
                 sceneloaded[03] = true;
 
             }
@@ -123,11 +173,13 @@ public class MallLoader : MonoBehaviour
 
 
         else
-            if (T1.position.z > 170 && T1.position.z < 250)
+            if (T1.position.z > 170 && T1.position.z < 250 )
         {
             try
             {
-                SceneManager.UnloadSceneAsync("03");
+//StartCoroutine(UnLoadNewScene("03"));             
+   SceneManager.UnloadSceneAsync("03");
+		//Destroy(GameObject.FindGameObjectWithTag("03"));
                 sceneloaded[03] = false;
 
             }
@@ -138,7 +190,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
-                SceneManager.UnloadSceneAsync("06");
+          //     StartCoroutine(UnLoadNewScene("06"));
+ SceneManager.UnloadSceneAsync("06");
+		//	Destroy(GameObject.FindGameObjectWithTag("06"));
                 sceneloaded[06] = false;
 
             }
@@ -149,7 +203,9 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[05])
             {
-                SceneManager.LoadScene("05", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("05"));
+                SceneManager.LoadSceneAsync("05", LoadSceneMode.Additive);
+//GameObject.Instantiate(s5);
 
                 sceneloaded[05] = true;
 
@@ -157,18 +213,22 @@ public class MallLoader : MonoBehaviour
             if (!sceneloaded[04])
             {
 
-                SceneManager.LoadScene("04", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("04"));
+                SceneManager.LoadSceneAsync("04", LoadSceneMode.Additive);
+//GameObject.Instantiate(s4);
                 sceneloaded[04] = true;
 
             }
         }
 
         else
-            if (T1.position.z > 250 && T1.position.z < 330)
+            if (T1.position.z > 250 && T1.position.z < 330 )
         {
             try
             {
-                SceneManager.UnloadSceneAsync("04");
+//StartCoroutine(UnLoadNewScene("04"));           
+     SceneManager.UnloadSceneAsync("04");
+		//Destroy(GameObject.FindGameObjectWithTag("04"));
                 sceneloaded[04] = false;
 
             }
@@ -179,7 +239,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
-                SceneManager.UnloadSceneAsync("07");
+//StartCoroutine(UnLoadNewScene("07"));             
+   SceneManager.UnloadSceneAsync("07");
+		//Destroy(GameObject.FindGameObjectWithTag("07"));
                 sceneloaded[07] = false;
 
             }
@@ -189,15 +251,17 @@ public class MallLoader : MonoBehaviour
             }
             if (!sceneloaded[06])
             {
-
-                SceneManager.LoadScene("06", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("06"));
+                SceneManager.LoadSceneAsync("06", LoadSceneMode.Additive);
+//GameObject.Instantiate(s6);
                 sceneloaded[06] = true;
 
             }
             if (!sceneloaded[05])
             {
-
-                SceneManager.LoadScene("05", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("05"));
+                SceneManager.LoadSceneAsync("05", LoadSceneMode.Additive);
+//GameObject.Instantiate(s5);
                 sceneloaded[05] = true;
 
             }
@@ -205,11 +269,13 @@ public class MallLoader : MonoBehaviour
 
 
         else
-            if (T1.position.z > 330 && T1.position.z < 410)
+            if (T1.position.z > 330 && T1.position.z < 410 )
         {
             try
             {
-                SceneManager.UnloadSceneAsync("05");
+     //       StartCoroutine(UnLoadNewScene("05"));
+    SceneManager.UnloadSceneAsync("05");
+		//	Destroy(GameObject.FindGameObjectWithTag("05"));
                 sceneloaded[05] = false;
 
             }
@@ -220,7 +286,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
-                SceneManager.UnloadSceneAsync("08");
+//StartCoroutine(UnLoadNewScene("08"));            
+    SceneManager.UnloadSceneAsync("08");
+		//Destroy(GameObject.FindGameObjectWithTag("08"));
                 sceneloaded[08] = false;
 
             }
@@ -231,14 +299,19 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[07])
             {
-                SceneManager.LoadScene("07", LoadSceneMode.Additive);
+
+//StartCoroutine(LoadNewScene("07"));
+               SceneManager.LoadSceneAsync("07", LoadSceneMode.Additive);
+//GameObject.Instantiate(s7);
                 sceneloaded[07] = true;
 
 
             }
             if (!sceneloaded[06])
             {
-                SceneManager.LoadScene("06", LoadSceneMode.Additive);
+          //    StartCoroutine(LoadNewScene("06"));
+  SceneManager.LoadSceneAsync("06", LoadSceneMode.Additive);
+//GameObject.Instantiate(s6);
                 sceneloaded[06] = true;
 
 
@@ -246,11 +319,13 @@ public class MallLoader : MonoBehaviour
         }
 
         else
-            if (T1.position.z > 410 && T1.position.z < 490)
+            if (T1.position.z > 410 && T1.position.z < 490 )
         {
             try
             {
-                SceneManager.UnloadSceneAsync("06");
+//StartCoroutine(UnLoadNewScene("06"));               
+ SceneManager.UnloadSceneAsync("06");
+		//Destroy(GameObject.FindGameObjectWithTag("06"));
                 sceneloaded[06] = false;
 
             }
@@ -261,7 +336,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
+//StartCoroutine(UnLoadNewScene("09"));
                 SceneManager.UnloadSceneAsync("09");
+		//	Destroy(GameObject.FindGameObjectWithTag("09"));
                 sceneloaded[09] = false;
 
             }
@@ -272,15 +349,17 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[08])
             {
-                SceneManager.LoadScene("08", LoadSceneMode.Additive);
-
+//StartCoroutine(LoadNewScene("08"));
+                SceneManager.LoadSceneAsync("08", LoadSceneMode.Additive);
+//GameObject.Instantiate(s8);
                 sceneloaded[08] = true;
 
             }
             if (!sceneloaded[07])
             {
-                SceneManager.LoadScene("07", LoadSceneMode.Additive);
-
+//StartCoroutine(LoadNewScene("07"));
+               SceneManager.LoadSceneAsync("07", LoadSceneMode.Additive);
+//GameObject.Instantiate(s7);
                 sceneloaded[07] = true;
 
             }
@@ -292,7 +371,9 @@ public class MallLoader : MonoBehaviour
         {
             try
             {
+//StartCoroutine(UnLoadNewScene("07"));
                 SceneManager.UnloadSceneAsync("07");
+			//Destroy(GameObject.FindGameObjectWithTag("07"));
                 sceneloaded[07] = false;
 
             }
@@ -303,7 +384,9 @@ public class MallLoader : MonoBehaviour
 
             try
             {
-                SceneManager.UnloadSceneAsync("10");
+//StartCoroutine(UnLoadNewScene("10"));
+               SceneManager.UnloadSceneAsync("10");
+		//Destroy(GameObject.FindGameObjectWithTag("10"));
                 sceneloaded[10] = false;
 
             }
@@ -314,13 +397,17 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[09])
             {
-                SceneManager.LoadScene("09", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("09"));
+                SceneManager.LoadSceneAsync("09", LoadSceneMode.Additive);
+			//GameObject.Instantiate(s9);
                 sceneloaded[09] = true;
 
             }
             if (!sceneloaded[08])
             {
-                SceneManager.LoadScene("08", LoadSceneMode.Additive);
+//StartCoroutine(LoadNewScene("08"));
+                SceneManager.LoadSceneAsync("08", LoadSceneMode.Additive);
+		//GameObject.Instantiate(s8);
                 sceneloaded[08] = true;
 
             }
@@ -331,7 +418,9 @@ public class MallLoader : MonoBehaviour
         {
             try
             {
+//StartCoroutine(UnLoadNewScene("08"));
                 SceneManager.UnloadSceneAsync("08");
+		//Destroy(GameObject.FindGameObjectWithTag("08"));
                 sceneloaded[08] = false;
 
             }
@@ -342,8 +431,9 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[10])
             {
-                SceneManager.LoadScene("10", LoadSceneMode.Additive);
-
+//StartCoroutine(LoadNewScene("10"));
+                SceneManager.LoadSceneAsync("10", LoadSceneMode.Additive);
+		//	GameObject.Instantiate(s10);
                 sceneloaded[10] = true;
 
             }

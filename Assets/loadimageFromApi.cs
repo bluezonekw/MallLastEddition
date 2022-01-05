@@ -27,9 +27,11 @@ public class loadimageFromApi : MonoBehaviour
     public static StoreProduct ProductRequst;
     public GameObject DetailsMenu;
     GameObject MenuCreated;
+bool startAnimation1;
     // Start is called before the first frame update
     void Start()
     {
+startAnimation1=true;
         Rindex = Lindex = Findex = 0;
         StoreRequest = GetComponent<SingleSToreRequest>();
 
@@ -283,10 +285,10 @@ public class loadimageFromApi : MonoBehaviour
 
 
 
+
     // Update is called once per frame
     void Update()
     {
-
         slideRight();
         slideLeft();
         slideLFront();
@@ -318,28 +320,57 @@ public class loadimageFromApi : MonoBehaviour
 
 
             }
-
+try{
             /// load RightWall RightPostion
             LoadIntialProduct(Sections[0], StoreRequest.URL1[0], StoreRequest.product1[0], "01", 0, StoreRequest.SectionId[0].ToString());
+}
+catch{
 
 
+
+}
+
+try{
             /// load RightWall CenterPostion
             LoadIntialProduct(Sections[1], StoreRequest.URL2[0], StoreRequest.product2[0], "01", 0, StoreRequest.SectionId[1].ToString());
+}
+catch{
 
+
+
+}
+try{
             /// load RightWall LeftPostion
 
             LoadIntialProduct(Sections[2], StoreRequest.URL3[0], StoreRequest.product3[0], "01", 0, StoreRequest.SectionId[2].ToString());
 
+}
+catch{
 
 
 
+}
+
+
+try{
             /// load CenterWall RightPostion
             LoadIntialProduct(Sections[3], StoreRequest.URL4[0], StoreRequest.product4[0], "01", 1, StoreRequest.SectionId[3].ToString());
+}
+catch{
 
 
+
+}
+
+try{
             /// load CenterWall CenterPostion
             LoadIntialProduct(Sections[4], StoreRequest.URL5[0], StoreRequest.product5[0], "01", 1, StoreRequest.SectionId[4].ToString());
+}
+catch{
 
+
+
+}
             /// load CenterWall LeftPostion
             try
             {
@@ -351,19 +382,38 @@ public class loadimageFromApi : MonoBehaviour
             }
 
 
-
+try{
             /// load LeftWall RightPostion
             LoadIntialProduct(Sections[6], StoreRequest.URL7[0], StoreRequest.product7[0], "01", 2, StoreRequest.SectionId[6].ToString());
 
+}
+catch{
 
+
+
+}
+try{
             /// load LeftWall CenterPostion
             LoadIntialProduct(Sections[7], StoreRequest.URL8[0], StoreRequest.product8[0], "01", 2, StoreRequest.SectionId[7].ToString());
 
+}
+catch{
+
+
+
+}
+
+try{
             /// load LeftWall LeftPostion
 
             LoadIntialProduct(Sections[8], StoreRequest.URL9[0], StoreRequest.product9[0], "01", 2, StoreRequest.SectionId[8].ToString());
 
-           
+}
+catch{
+
+
+
+}           
 
         }
 
@@ -450,7 +500,7 @@ public class loadimageFromApi : MonoBehaviour
         {
             request = StoreRequest.LoadSectionImage(StoreRequest.SectionId[sectionIdLocal].ToString(), section_Page[sectionIdLocal]);
 
-            if (request.statsu == 1)
+            try
             {
                 if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
                 {
@@ -494,30 +544,16 @@ public class loadimageFromApi : MonoBehaviour
                     section_Page[sectionIdLocal] = (int.Parse(section_Page[sectionIdLocal]) + 1).ToString();
                 }
 
-                /*
-               List<GameObject> listOfGAme=new List<GameObject>();
-                foreach (Transform child in Sections[sectionIdLocal].transform.ch)
-                {
-
-                    listOfGAme.Add(child.gameObject);
-                }
-
-
-
-
-
-                    Products[sectionIdLocal]=listOfGAme.ToArray();
-                */
-
+               
 
             }
-            else
-            {
-                Debug.Log(request.message + "    "+ request.statsu.ToString());
-            }
+catch{
+
+
+
+}
         }
 
-        //   GameObject[] khag = Products[sectionIdLocal];
         try
         {
          

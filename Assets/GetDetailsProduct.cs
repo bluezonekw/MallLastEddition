@@ -8,31 +8,28 @@ using Newtonsoft.Json;
 
 public class GetDetailsProduct : MonoBehaviour
 {
+
     public ArabicText Name, Price, SpecialPrice, desc;
     public GameObject spcialPriceobject;
     public AnimationClip anim1, anim2;
     public GameObject ImageExample;
-    GameObject g,T;
+    GameObject g;
     /// <summary>
     /// Gameobject MainDetailsofProduct
     /// </summary>
     public GameObject Panel;
-    public Transform PanelLocation;
     public ArabicText CostText;
-    bool isdestroy;
     private float cost,Costdetails;
     int indedeximage;
     public ArabicText SecondDesc, SecondName;
     public FavoriteSign signs;
    public List<Toggle> Toggles;
-    public Toggle.ToggleEvent toggleEvent;
     public List<string> OptionsId;
     public static bool isaddtocart;
     public Text Quntity;
     public static AddTocart addTocartrequest;
     public GameObject Popup;
 
-    public GameObject ToggleExample;
     
     public ArabicText CostwithDetails;
 
@@ -46,6 +43,8 @@ public class GetDetailsProduct : MonoBehaviour
 
     public GameObject Main, More;
 
+
+public GameObject CartMenu;
     public void OpenMain()
     {
 
@@ -69,7 +68,7 @@ public class GetDetailsProduct : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {
+    {startAnimation1=true;
         if (UPDownMenu.LanguageValue == 1)
         {
 
@@ -120,7 +119,6 @@ public class GetDetailsProduct : MonoBehaviour
         desc.Text= loadimageFromApi.ProductRequst.data.description;
         SecondDesc.Text = desc.Text;
         StartCoroutine(DownLoadImagetexture(loadimageFromApi.ProductRequst.data.img, ImageExample.GetComponent<RawImage>()));
-     //   PanelLocation.GetComponent<RectTransform>().sizeDelta = new Vector2(3.2431f, 0.5f*(loadimageFromApi.ProductRequst.data.attributes.Capacity ));
         foreach (string s in loadimageFromApi.ProductRequst.data.slider)
         {
             
@@ -128,74 +126,21 @@ public class GetDetailsProduct : MonoBehaviour
                 StartCoroutine(DownLoadImagetexture(s, g.GetComponent<RawImage>()));
             
         }
-        foreach (ProductAttribute p in loadimageFromApi.ProductRequst.data.attributes)
+
+
+
+        if (loadimageFromApi.ProductRequst.data.sale_price != null)
         {
+            cost = float.Parse(loadimageFromApi.ProductRequst.data.sale_price.ToString());
 
-            
-                g = GameObject.Instantiate(Panel, PanelLocation.transform);
-//g.GetComponent<AspectRatioFitter>().
-         /*   g.GetComponent<RectTransform>().anchorMin.Set(0, 0);
-            g.GetComponent<RectTransform>().anchorMax.Set(1,1);
-            g.GetComponent<RectTransform>().pivot.Set(0.5f, 0.5f);
-            g.GetComponent<RectTransform>().anchoredPosition.Set( 0, 0);
+        }
+        else
+        {
+            cost = float.Parse(loadimageFromApi.ProductRequst.data.regular_price.ToString());
 
-            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 0);
-            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 0);
-            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 0);
-            g.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 0);
-         */
-            g.name = p.id.ToString();
-                g.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ArabicText>().Text = p.name;
-
-
-
-
-
-
-
-
-
-
-
-
-             //   isdestroy = false;
-            if(  p.selection_type!= "single")
-            {
-
-
-
-
-                ToggleExample.GetComponent<Toggle>().group = null;
-
-
-
-            }
-            else
-            {
-
-                ToggleExample.GetComponent<Toggle>().group = g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).GetComponent<ToggleGroup>();
-
-
-            }
-            foreach (ProductOption optionss in p.options)
-                {
-                    T = GameObject.Instantiate(ToggleExample, g.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0));
-                T.transform.GetChild(2).GetComponent<ArabicText>().Text = optionss.name;
-                T.transform.GetChild(3).GetComponent<ArabicText>().Text = optionss.price + " K.D";
-                    T.name = optionss.id.ToString();
-                Toggles.Add(T.GetComponent<Toggle>());
-                T.GetComponent<Toggle>().onValueChanged = toggleEvent;
-
-
-
-
-
-                }
-
-            }
-
-
-        Calculate();
+        }
+        CostText.Text = cost.ToString() + " K.D";
+ CostwithDetails.Text = CostText.Text;
     }
     IEnumerator DownLoadImagetexture(string URL, RawImage s)
     {
@@ -207,7 +152,11 @@ public class GetDetailsProduct : MonoBehaviour
 
     public void Calculate()
     {
-        OptionsId.Clear();
+        
+
+        
+
+    OptionsId.Clear();
         Costdetails = 0;
         if (loadimageFromApi.ProductRequst.data.sale_price != null)
         {
@@ -219,17 +168,24 @@ public class GetDetailsProduct : MonoBehaviour
             cost = float.Parse(loadimageFromApi.ProductRequst.data.regular_price.ToString());
 
         }
+foreach(Transform child in transform.GetComponentsInChildren<Transform>(true)){
 
-        foreach (Toggle Tog in Toggles)
-        {
-            if (Tog.isOn)
-            {
-                OptionsId.Add(Tog.gameObject.name);
-                Costdetails += float.Parse(Tog.transform.GetChild(3).GetComponent<ArabicText>().Text.ToString().Replace(" K.D", ""));
-            }
+if(child.gameObject.tag=="OptionToggle")
+{
+if(child.gameObject.GetComponent<Toggle>().isOn){
 
-        }
-        cost = (cost + Costdetails) * int.Parse(Quntity.text.ToString());
+
+ OptionsId.Add(child.gameObject.name);
+Costdetails+=float.Parse(child.gameObject.GetComponent<OptionForAttribute>().PriceOption.Text.ToString().Replace("\n","").Replace(" K.D",""));
+}
+
+}
+
+
+}
+
+
+        cost = (cost + Costdetails) ;
         CostText.Text= cost.ToString()+" K.D";
         CostwithDetails.Text = CostText.Text;
      
@@ -267,10 +223,9 @@ public class GetDetailsProduct : MonoBehaviour
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         request.AddParameter("product_id", loadimageFromApi.ProductRequst.data.id.ToString());
-        request.AddParameter("quantity",Quntity.text );
+        request.AddParameter("quantity","1" );
         for(int x = 0; x < OptionsId.Count; x++)
         {
-            print(OptionsId[x] + "     id ");
 
             request.AddParameter("options["+x.ToString()+"]", OptionsId[x]);
         }
@@ -284,8 +239,14 @@ public class GetDetailsProduct : MonoBehaviour
             return;
 
         }
+try{
         GameObject.Instantiate(Popup,GameObject.FindGameObjectWithTag("MainCanvas").transform);
-        GameObject.Destroy(gameObject);
+}
+catch{
+GameObject.Instantiate(CartMenu,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+}    
+    GameObject.Destroy(gameObject);
+CheckEnterShop.CartEmpty=false;
 
 
     }
@@ -308,13 +269,62 @@ public class GetDetailsProduct : MonoBehaviour
 
 
     }
+ bool startAnimation1;
+
+ IEnumerator ImageAnimation()
+    {
+  	 startAnimation1=false;
+      
+
+     
+        
+ImageExample.transform.parent.GetChild(indedeximage).gameObject.GetComponent<Animation>().Play("02");
+if(indedeximage+1>ImageExample.transform.parent.childCount-1){
+
+ImageExample.transform.parent.GetChild(0).gameObject.GetComponent<Animation>().Play("01");
+indedeximage=0;
+}
+else
+{
+ImageExample.transform.parent.GetChild(indedeximage+1).gameObject.GetComponent<Animation>().Play("01");
+indedeximage++;
+}
+     
+        
+yield return new WaitForSeconds(6);
+
+startAnimation1=true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+ if (startAnimation1)
+        {
+		if(ImageExample.transform.parent.childCount>1){
+					 StartCoroutine(ImageAnimation());
+  				     }
+		else
+		 if(ImageExample.transform.parent.childCount==1){
+ImageExample.transform.parent.GetChild(indedeximage).transform.localPosition = new Vector3(1.5f, 0, 0);
+						
+startAnimation1=false;
+
+				        }       
+
+           
+       }
+      
+
+
+
+       /*
         try
         {
             if (ImageExample.transform.parent.GetChild(indedeximage).transform.localPosition == new Vector3(1.5f, 0, 0))
             {
+                print(indedeximage.ToString() + "    anim1");
 
                 ImageExample.transform.parent.GetChild(indedeximage).gameObject.GetComponent<Animation>().clip = anim1;
                 ImageExample.transform.parent.GetChild(indedeximage).gameObject.GetComponent<Animation>().Play();
@@ -323,6 +333,7 @@ public class GetDetailsProduct : MonoBehaviour
             else
               if (ImageExample.transform.parent.GetChild(indedeximage).transform.localPosition == new Vector3(0, 0, 0) )
             {
+                print(indedeximage.ToString() + "    anim2");
                 ImageExample.transform.parent.GetChild(indedeximage).gameObject.GetComponent<Animation>().clip = anim2;
                 ImageExample.transform.parent.GetChild(indedeximage).gameObject.GetComponent<Animation>().Play();
 
@@ -332,8 +343,9 @@ public class GetDetailsProduct : MonoBehaviour
         }
         catch
         {
+            print(indedeximage.ToString() + "    catch");
             indedeximage = 0;
-        }
+        }*/
     }
     public string FindSubstringStartandEnd(string Full,char start,char end)
     {

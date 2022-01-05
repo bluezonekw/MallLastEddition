@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using RestSharp;
-using Newtonsoft;
+using Newtonsoft.Json;
 
 public class FavItem : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class FavItem : MonoBehaviour
     public ArabicText Name, Price;
     public int PeoductId;
     bool issign;
+public GameObject ProductPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,39 @@ public class FavItem : MonoBehaviour
 
 
     }
+
+public void ProductDetailsMenu ()
+{
+		try{
+			var client = new RestClient("http://mymall-kw.com/api/V1/get-single-product/"+PeoductId.ToString());
+			client.Timeout = -1;
+			var request = new RestRequest(Method.GET);
+			request.AddHeader("password-api", "mall_2021_m3m");
+			 if (UPDownMenu.LanguageValue == 1)
+       							     {
+      							          request.AddHeader("lang-api", "en");
+      							      }
+   							         else
+         								   {
+		
+          								      request.AddHeader("lang-api", "ar");
+
+         													   }
+			request.AddHeader("auth-token",AuthToken());
+			request.AlwaysMultipartFormData = true;
+			IRestResponse response = client.Execute(request);
+
+			loadimageFromApi.ProductRequst=JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+
+GameObject.Instantiate(ProductPanel,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+			}
+		catch{
+
+
+			}
+}
+
+
     public void Addtofav()
     {
         try

@@ -73,7 +73,7 @@ public class DontLeaveShop : MonoBehaviour
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
-        print(response.Content);
+        CheckEnterShop.CartEmpty=true;
         RestMovepMove();
         DestroyThisObject();
 

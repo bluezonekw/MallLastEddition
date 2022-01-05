@@ -1,0 +1,116 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System;
+using RestSharp;
+using Newtonsoft.Json;
+public class FavMenuConfig : MonoBehaviour
+{
+
+public  FavRequest Response;
+public GameObject FavItemExample;
+public Transform locationOfFavItems;
+ public ArabicText Counts;
+GameObject Created;
+FavItem itemscript;
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartCoroutine(GetFavItem()); 
+try{
+Counts.Text=Response.data.data.Count.ToString();
+foreach(FavData f in Response.data.data)
+
+{
+Created=GameObject.Instantiate(FavItemExample, locationOfFavItems);
+itemscript=Created.GetComponent<FavItem>();
+itemscript.PeoductId=f.id;
+itemscript.Name.Text=f.name;
+if(f.sale_price!=null){
+itemscript.Price.Text=f.sale_price.ToString();
+}
+else{
+itemscript.Price.Text=f.regular_price.ToString();
+}
+
+StartCoroutine(DownLoadImagetexture(f.img,itemscript.FavImage));
+
+
+}
+
+}
+catch{
+
+
+}
+    }
+
+  IEnumerator DownLoadImagetexture(string URL, RawImage s)
+    {
+        WWW www = new WWW(URL);
+        yield return www;
+        s.texture = www.texture;
+       
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+   public string AuthToken()
+    {
+
+        try
+        {
+            return ApiClasses.Register.data.token;
+        }
+        catch
+
+        {
+
+            return ApiClasses.Login.data.original.access_token;
+
+        }
+
+
+    }
+
+IEnumerator GetFavItem()
+ 	   {
+	var client = new RestClient("http://mymall-kw.com/api/V1/favorite?limit=1000");
+	client.Timeout = -1;
+	var request = new RestRequest(Method.GET);
+	request.AddHeader("password-api", "mall_2021_m3m");
+	if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
+	request.AddHeader("auth-token", AuthToken());
+	request.AlwaysMultipartFormData = true;
+	IRestResponse response = client.Execute(request);
+ 
+       Response = JsonConvert.DeserializeObject<FavRequest>(response.Content);
+
+yield return response.Content;
+
+	   }
+
+
+public void  DestroyFav()
+    {
+
+
+        GameObject.Destroy(gameObject);
+    }
+
+}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using RestSharp;
 using Newtonsoft;
 using Newtonsoft.Json;
@@ -8,6 +9,7 @@ using System;
 
 public class SingleSToreRequest : MonoBehaviour
 {
+    public GameObject CategoryParent;
     public RequesStoresInHall requesStores;
     public bool Loaded;
     public FirstStoreRequest SingleStore;
@@ -21,7 +23,8 @@ public class SingleSToreRequest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
+StoreId=int.Parse( gameObject.name);
+       StaticStoreId=StoreId;
 
     }
 
@@ -79,7 +82,7 @@ public class SingleSToreRequest : MonoBehaviour
     {
 
 
-        StoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
+       // StoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
         SectionId.Clear();
         var client = new RestClient(@"https://mymall-kw.com/api/V1/get-single-store?store_id=" + StoreId.ToString());
         client.Timeout = -1;
@@ -90,19 +93,36 @@ public class SingleSToreRequest : MonoBehaviour
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         SingleStore = JsonConvert.DeserializeObject<FirstStoreRequest>(response.Content);
+       if (SingleStore.data.store.parent_id == null)
+            {
+
+
+
+                GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
+            }
+            else
+            {
+
+
+                GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
+
+            }
         yield return response.Content;
     }
     public void RequestBanneAndLogo()
     {
 
 
+
         if (CheckEnterShop.EnterShop && CheckEnterShop.EnteredStore == this.gameObject.name)
         {
-            
+           
             StartCoroutine(LoadStoreInfo());
             Loaded = true;
-            try
-            {
+            welc=GameObject.Instantiate(requesStores.WelcomMessage, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+    	    StartCoroutine(WaitWelcomeMessage());
+
+try{
                 foreach (LeftSlidder s in SingleStore.data.sliders.left)
                 {
                     slidderLeft.Add(s.src);
@@ -111,12 +131,29 @@ public class SingleSToreRequest : MonoBehaviour
 
                 }
 
+}
+catch{
+
+
+
+}
+
+try{
                 foreach (RightSlidder s in SingleStore.data.sliders.right)
                 {
                     SlidderRight.Add(s.src);
 
 
                 }
+
+}
+catch{
+
+
+
+}
+
+try{
                 foreach (CenterSlidder s in SingleStore.data.sliders.center)
                 {
                     sliddderFront.Add(s.src);
@@ -124,6 +161,16 @@ public class SingleSToreRequest : MonoBehaviour
 
 
                 }
+
+}
+catch{
+
+
+
+}
+
+try{
+
                 foreach (var sectionms in SingleStore.data.sections.ToArray())
                 {
                     if (sectionms.wall == "right" && sectionms.position == "right")
@@ -228,6 +275,12 @@ public class SingleSToreRequest : MonoBehaviour
 
 
 
+}
+catch{
+
+
+
+}
 
 
 
@@ -237,16 +290,11 @@ public class SingleSToreRequest : MonoBehaviour
 
 
 
-
-            }
-            catch (Exception ex)
-            {
-                print("Ghmolee 3ene");
-            }
+          
         }
 
     }
-
+GameObject welc;
     // Update is called once per frame
     void Update()
     {
@@ -254,7 +302,40 @@ public class SingleSToreRequest : MonoBehaviour
         if (!Loaded)
         {
             RequestBanneAndLogo();
+
+
         }
-        StaticStoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
+       
     }
+
+
+IEnumerator WaitWelcomeMessage(){
+
+welc.GetComponent<WelcomeMessageToShop>().ShopName.Text=SingleStore.data.store.name;
+            StartCoroutine(DownloadRawImage(SingleStore.data.store.logo, welc.GetComponent<WelcomeMessageToShop>().ShopLogo));
+yield return new WaitForSeconds(10);
+Destroy(welc);
+}
+
+
+   IEnumerator DownloadRawImage(string url, RawImage I)
+    {
+
+
+        WWW www = new WWW(url);
+        yield return www;
+        
+try
+        {
+            I.texture=www.texture;
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+
 }

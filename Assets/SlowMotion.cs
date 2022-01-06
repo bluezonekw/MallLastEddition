@@ -13,7 +13,7 @@ public class SlowMotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.y > 3)
+        if (this.transform.position.y > 0)
         {
             stay = false; 
         }

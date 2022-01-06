@@ -27,11 +27,19 @@ public class StoreProfile
     public string terms { get; set; }
     public string retrieval { get; set; }
     public int store_id { get; set; }
+
+
 }
 
 public class StoreInfo
 {
     public int id { get; set; }
+    public int is_active { get; set; }
+    public int category_id { get; set; }
+public string logo{ get; set; }
+    public string parent_id { get; set; }
+  public string name { get; set; }
+  public string welcome_message { get; set; }
     public StoreProfile profile { get; set; }
 }
 

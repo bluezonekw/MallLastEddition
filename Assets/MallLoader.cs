@@ -10,16 +10,12 @@ public class MallLoader : MonoBehaviour
 
     public Transform T1;
     bool[] sceneloaded = { false, false, false, false, false, false, false, false, false, false, false };
-
+public GameObject Loading;
     public GameObject s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadYourAsyncScene("01"));
-        StartCoroutine(LoadYourAsyncScene("02"));
-
-        sceneloaded[01] = true;
-        sceneloaded[02] = true;
+       
     }
 
     IEnumerator LoadYourAsyncScene(string Scene)
@@ -30,12 +26,14 @@ public class MallLoader : MonoBehaviour
         // a sceneBuildIndex of 1 as shown in Build Settings.
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Scene, LoadSceneMode.Additive);
-
+GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
+
             yield return null;
         }
+Destroy(g);
     }
 
 
@@ -49,8 +47,8 @@ public class MallLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (T1.position.z < 54)//Scene1
+print (T1.position.z +"        How DA");
+        if (T1.position.z < -31f  )//Scene1
         {
             try
             {
@@ -190,7 +188,7 @@ public class MallLoader : MonoBehaviour
             }
         }
         else
-        if (T1.position.z > 54 && T1.position.z < 142)//scen2
+        if (T1.position.z > -31f && T1.position.z < 57)//scen2
         {
 
 
@@ -311,7 +309,7 @@ public class MallLoader : MonoBehaviour
 
             if (!sceneloaded[03])
             {
-
+print ("I enter 3");
                 StartCoroutine(LoadYourAsyncScene("03"));
 
                 sceneloaded[03] = true;
@@ -320,7 +318,7 @@ public class MallLoader : MonoBehaviour
             }
         }
         else
-            if (T1.position.z > 142 && T1.position.z < 220)                        //InScen3
+            if (T1.position.z > 57 && T1.position.z < 135)                        //InScen3
         {
 
 
@@ -475,7 +473,7 @@ public class MallLoader : MonoBehaviour
 
 
         else
-            if (T1.position.z > 220 && T1.position.z < 300)			//Scen4
+            if (T1.position.z > 135  && T1.position.z < 215  )			//Scen4
         {
             try
             {
@@ -608,7 +606,7 @@ public class MallLoader : MonoBehaviour
         }
 
         else
-            if (T1.position.z > 300 && T1.position.z < 375)						// Scene5
+            if (T1.position.z > 215  && T1.position.z < 290)						// Scene5
         {
             try
             {
@@ -743,7 +741,7 @@ public class MallLoader : MonoBehaviour
 
 
         else
-            if (T1.position.z > 375 && T1.position.z < 455)			//Scene6
+            if (T1.position.z > 290 && T1.position.z < 370)			//Scene6
         {
 
 
@@ -877,7 +875,7 @@ public class MallLoader : MonoBehaviour
         }
 
         else
-            if (T1.position.z > 455 && T1.position.z < 535)			//Scene7
+            if (T1.position.z > 370 && T1.position.z < 450)			//Scene7
         {
             try
             {
@@ -1000,7 +998,7 @@ public class MallLoader : MonoBehaviour
 
 
         else
-            if (T1.position.z > 535 && T1.position.z < 615)     //Scene8
+            if (T1.position.z > 450  && T1.position.z < 530)     //Scene8
             {
                 try
                 {
@@ -1127,7 +1125,7 @@ public class MallLoader : MonoBehaviour
             }
 
             else
-            if (T1.position.z > 615 && T1.position.z < 695)  //In_Scene_9
+            if (T1.position.z > 530 && T1.position.z < 610)  //In_Scene_9
             {
                 try
                 {
@@ -1250,7 +1248,7 @@ public class MallLoader : MonoBehaviour
 
         }
         else
-            if (T1.position.z > 695  )  //In_Scene_10
+            if (T1.position.z > 610  )  //In_Scene_10
         {
             try
             {

@@ -8,6 +8,7 @@ namespace UI.Pagination
     public List<Vector3> StoreLocation;
     private GameObject Player;
     int storeid;
+public GameObject Loading;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,18 +52,23 @@ try{
 
             Player.GetComponent<CharacterController>().enabled = true;
 
-            LoadStores.isactive = false;
+             StartCoroutine(ExampleCoroutine());
 
-   //  Player.GetComponent<CharacterController>().Move(StoreLocation[storeid]);
-            
-          //  print(Player.transform.localPosition.ToString() + "          After");
-        
-          
-
-           // Player.transform.Translate(StoreLocation[storeid], Space.Self);
-          //  print(Player.transform.localPosition.ToString() + "          lasttry");
-          
+           
         }
+
+
+    IEnumerator ExampleCoroutine()
+    {
+        
+GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+Destroy(g);
+        LoadStores.isactive = false;
+        
+    }
+
     // Update is called once per frame
     void Update()
     {

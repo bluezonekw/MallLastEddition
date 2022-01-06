@@ -12,6 +12,7 @@ public class MallLoader : MonoBehaviour
     bool[] sceneloaded = { false, false, false, false, false, false, false, false, false, false, false };
 public GameObject Loading;
     public GameObject s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
+public static bool Isload;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public GameObject Loading;
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Scene, LoadSceneMode.Additive);
 GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+Isload=true;
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
@@ -34,6 +36,8 @@ GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("M
             yield return null;
         }
 Destroy(g);
+Isload=false
+;
     }
 
 
@@ -47,7 +51,7 @@ Destroy(g);
     // Update is called once per frame
     void Update()
     {
-print (T1.position.z +"        How DA");
+
         if (T1.position.z < -31f  )//Scene1
         {
             try
@@ -309,7 +313,7 @@ print (T1.position.z +"        How DA");
 
             if (!sceneloaded[03])
             {
-print ("I enter 3");
+
                 StartCoroutine(LoadYourAsyncScene("03"));
 
                 sceneloaded[03] = true;

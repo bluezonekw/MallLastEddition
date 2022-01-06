@@ -63,8 +63,22 @@ try{
         
 GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(5);
+yield return new WaitForSeconds(1);
+while (MallLoader.Isload){
+yield return new WaitForSeconds(1);
+}
+       
 Destroy(g);
+  Player.GetComponent<CharacterController>().enabled = false;
+
+try{
+ 	    Player.transform.localPosition=StoreLocation[storeid];
+}catch{
+
+ 	    Player.transform.localPosition=StoreLocation[0];
+}
+
+ Player.GetComponent<CharacterController>().enabled = true;
         LoadStores.isactive = false;
         
     }

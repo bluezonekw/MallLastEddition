@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xsi_file type="SceneTOC" xsi_version="12.1.99.0" syntax_version="2.0">
+   <Models></Models>
+   <Sources>
+      <Image name="noIcon_pic">$XSI_HOME/Application/rsrc/noIcon.pic</Image>
+      <Image name="Gran_Plus_GatosAdutos_Salmao-Arroz_jpg">Scenes\Mock Up Anhambi\Gran_Plus_GatosAdutos_Salmao-Arroz.jpg</Image>
+      <Image name="gazmetal_big_Grama_tga">Pictures\gazmetal_big_Grama.tga</Image>
+      <Image name="FabricPlain0052_2_M_jpg">Pictures\FabricPlain0052_2_M.jpg</Image>
+      <Image name="Piso_de_azulejo_jpg">Pictures\Piso de azulejo.jpg</Image>
+      <Image name="Hambi_cat_-_carne_e_cenoura_8_kg_jpg">Scenes\Mock Up Anhambi\Adulto Carne e Cenoura\Hambi cat - carne e cenoura 8 kg.jpg</Image>
+      <Image name="tamanho_jpg">Scenes\Mock Up Anhambi\Adulto Carne e Cenoura\tamanho.jpg</Image>
+      <Image name="hambi_cat_8_kg_Peixe_e_Arroz_jpg">Scenes\Mock Up Anhambi\Adulto Peixe e Arroz\hambi cat 8 kg Peixe e Arroz.jpg</Image>
+      <Image name="_7_5_kg_Kitten_jpg">C:\Program Files\Autodesk\Softimage 2013\Data\XSI_SAMPLES\Scenes\Mock Up Anhambi\Filhotes\7,5 kg Kitten.jpg</Image>
+      <Image name="textura_tabacoffsfdsfd_jpg">C:\Program Files\Autodesk\Softimage 2013\Data\XSI_SAMPLES\Pictures\textura tabacoffsfdsfd.jpg</Image>
+      <Image name="ASHSEN_2_GIF">C:\Program Files\Autodesk\Softimage 2013\Data\XSI_SAMPLES\Pictures\Wood\ASHSEN_2.GIF</Image>
+      <Image name="CHROMIC_JPG">C:\Program Files\Autodesk\Softimage 2013\Data\XSI_SAMPLES\Pictures\Reflection\CHROMIC.JPG</Image>
+      <Image name="SacoMetalizado_jpg">Scenes\Mock Up Anhambi\SacoMetalizado.jpg</Image>
+      <Image name="medida_jpg">Scenes\Mock Up Anhambi\Adulto Mix de Carnes\medida.jpg</Image>
+      <Image name="_3_Kg_48_alt_24larg_jpg">C:\Program Files\Autodesk\Softimage 2013\Data\XSI_SAMPLES\Scenes\Mock Up Anhambi\Adulto Mix de Carnes\3 Kg 48 alt 24larg.jpg</Image>
+      <Image name="hambi_castrado_8_kg_jpg">Scenes\Mock Up Anhambi\HambiCat\hambi castrado 8 kg.jpg</Image>
+      <Image name="CHICKEN___RICE_ADULT_jpg">Scenes\Mock Up Anhambi\HambiDog\CHICKEN &amp; RICE ADULT.jpg</Image>
+   </Sources>
+   <Passes>
+      <RenderOptions name="RenderOptions">
+         <Renderer>Mental Ray</Renderer>
+         <OutputDir>[Project Path]/Render_Pictures</OutputDir>
+         <FramePadding>1</FramePadding>
+         <ImageFormatPreset>0</ImageFormatPreset>
+         <ImageAspectRatio>1.77778</ImageAspectRatio>
+         <ImageWidth>11000</ImageWidth>
+         <ImageHeight>6188</ImageHeight>
+         <ImagePixelRatio>1</ImagePixelRatio>
+         <ImageLockAspectRatio>1</ImageLockAspectRatio>
+         <FrameRangeSource>0</FrameRangeSource>
+         <FrameStart>3</FrameStart>
+         <FrameEnd>5</FrameEnd>
+         <FrameStep>1</FrameStep>
+         <FrameSet>1-100</FrameSet>
+         <FieldEnable>0</FieldEnable>
+         <FieldOrder>0</FieldOrder>
+         <FieldInterleave>0</FieldInterleave>
+         <MotionBlurShutterSpeed>0.5</MotionBlurShutterSpeed>
+         <MotionBlurShutterOffset>0</MotionBlurShutterOffset>
+         <MotionBlurShutterType>0</MotionBlurShutterType>
+         <MotionBlurDeformation>1</MotionBlurDeformation>
+      </RenderOptions>
+      <RenderOptions name="HardwareRenderer">
+         <RenderType>OpenGL</RenderType>
+         <BackgroundColorRed>0</BackgroundColorRed>
+         <BackgroundColorGreen>0</BackgroundColorGreen>
+         <BackgroundColorBlue>0</BackgroundColorBlue>
+         <BackgroundColorAlpha>0</BackgroundColorAlpha>
+         <Oversampling>7</Oversampling>
+         <ShadowmapEnable>1</ShadowmapEnable>
+         <ShadowmapSize>512</ShadowmapSize>
+      </RenderOptions>
+      <RenderOptions name="mentalray">
+         <RenderType>0</RenderType>
+         <IndirectIllumAlgorithm>0</IndirectIllumAlgorithm>
+         <Scanline>1</Scanline>
+         <SamplesContrastRed>0.2</SamplesContrastRed>
+         <SamplesContrastGreen>0.2</SamplesContrastGreen>
+         <SamplesContrastBlue>0.2</SamplesContrastBlue>
+         <SamplesContrastAlpha>0.2</SamplesContrastAlpha>
+         <SamplesMin>0</SamplesMin>
+         <SamplesMax>2</SamplesMax>
+         <RasterizerShadingSamples>4</RasterizerShadingSamples>
+         <RasterizerPixelSamples>4</RasterizerPixelSamples>
+         <RasterizerMotionSamples>1</RasterizerMotionSamples>
+         <RasterizerMotionFactor>0</RasterizerMotionFactor>
+         <RasterizerMaxDepth>0</RasterizerMaxDepth>
+         <UnifiedSampling>0</UnifiedSampling>
+         <UnifiedSamplesMin>0.5</UnifiedSamplesMin>
+         <UnifiedSamplesMax>5</UnifiedSamplesMax>
+         <UnifiedSamplesQuality>0.5</UnifiedSamplesQuality>
+         <UnifiedSamplesErrorCutoff>0</UnifiedSamplesErrorCutoff>
+         <Trace>1</Trace>
+         <MotionSamples>5</MotionSamples>
+         <SamplesFilterType>3</SamplesFilterType>
+         <SamplesFilterSize>4</SamplesFilterSize>
+         <SamplesJitter>1</SamplesJitter>
+         <FGEnable>1</FGEnable>
+         <AmbientOcclusionEnable>1</AmbientOcclusionEnable>
+         <GPUAmbientOcclusionEnable>0</GPUAmbientOcclusionEnable>
+         <GPUAmbientOcclusionOutput></GPUAmbientOcclusionOutput>
+         <ImportonEnable>0</ImportonEnable>
+         <ImportonTraceThrough>1</ImportonTraceThrough>
+         <GIEnable>0</GIEnable>
+         <CausticEnable>0</CausticEnable>
+         <IPEnable>0</IPEnable>
+      </RenderOptions>
+      <Pass name="Castrado_Arroz_e_Salmao">
+         <Camera>Camera</Camera>
+         <Renderer></Renderer>
+         <ImageFormatOverride>0</ImageFormatOverride>
+         <ImageFormatPreset>0</ImageFormatPreset>
+         <ImageAspectRatio>1.77778</ImageAspectRatio>
+         <ImageWidth>1024</ImageWidth>
+         <ImageHeight>576</ImageHeight>
+         <ImagePixelRatio>1</ImagePixelRatio>
+         <ImageLockAspectRatio>1</ImageLockAspectRatio>
+         <FrameRangeSource>0</FrameRangeSource>
+         <FrameStart>3</FrameStart>
+         <FrameEnd>5</FrameEnd>
+         <FrameStep>1</FrameStep>
+         <FrameSet>1-100</FrameSet>
+         <FrameSkipRendered>0</FrameSkipRendered>
+         <FieldOverride>0</FieldOverride>
+         <FieldEnable>0</FieldEnable>
+         <FieldOrder>0</FieldOrder>
+         <FieldInterleave>0</FieldInterleave>
+         <CropWindowEnabled>0</CropWindowEnabled>
+         <CropWindowOffsetX>0</CropWindowOffsetX>
+         <CropWindowOffsetY>0</CropWindowOffsetY>
+         <CropWindowWidth>11000</CropWindowWidth>
+         <CropWindowHeight>6188</CropWindowHeight>
+         <SelectionTracking>0</SelectionTracking>
+         <SelectionOnly>0</SelectionOnly>
+         <MotionBlur>0</MotionBlur>
+         <MotionBlurOverride>0</MotionBlurOverride>
+         <MotionBlurShutterSpeed>0.5</MotionBlurShutterSpeed>
+         <MotionBlurShutterOffset>0</MotionBlurShutterOffset>
+         <MotionBlurShutterType>0</MotionBlurShutterType>
+         <MotionBlurDeformation>1</MotionBlurDeformation>
+         <FrameBuffers>
+            <FrameBuffer name="Main">
+               <RenderChannel>Main</RenderChannel>
+               <Enabled>1</Enabled>
+               <Filename>[Pass]_[Framebuffer]</Filename>
+               <Format>png</Format>
+               <DataType>RGBA</DataType>
+               <BitDepth>3</BitDepth>
+            </FrameBuffer>
+         </FrameBuffers>
+      </Pass>
+   </Passes>
+   <ParametersValues>
+      <Param name="Passes.current">Passes.Castrado_Arroz_e_Salmao</Param>
+      <Param name="PlayControl.Rate">29.970030</Param>
+   </ParametersValues>
+   <PostLoadScript>
+      <Language>VBScript</Language>
+      <Function></Function>
+      <Script_Content></Script_Content>
+   </PostLoadScript>
+   <SceneInfo>
+      <LicenseRequired>Essential</LicenseRequired>
+   </SceneInfo>
+</xsi_file>

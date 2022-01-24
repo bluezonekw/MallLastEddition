@@ -5,6 +5,18 @@ using UnityEngine.UI;
 
 public class SaveScript : MonoBehaviour
 {
+
+
+
+
+
+
+
+
+
+
+
+
     public static string GamePassword { get; set; }
     public static string GameEmail { get; set; }
 

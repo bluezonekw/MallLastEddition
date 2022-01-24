@@ -16,7 +16,8 @@ public class RequestAds : MonoBehaviour
     public GameObject g;
     public List<GameObject> LeftFront, LeftBack, Rightfront, RightBack;
     // Start is called before the first frame update
-    void Start()
+ 
+ void Awake()
     {
         index0 = index1 = index2 = index3 = 0;
         var client = new RestClient(@"http://mymall-kw.com/api/V1/stands-ads?hall=" + Hall00 + @"&floor=" + Floor00);

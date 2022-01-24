@@ -80,7 +80,8 @@ public GameObject CartMenu;
             Options.Text = "Choose Options";
             Total.transform.localPosition=new Vector3(-110f,-130f,0f);
             CostwithDetails.transform.localPosition = new Vector3(70f,-130f,0f);
-
+desc.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
         }
         else
         {
@@ -92,6 +93,8 @@ public GameObject CartMenu;
             Options.Text = "اختر الاضافات المناسبة";
             Total.transform.localPosition = new Vector3(70f, -130f, 0f);
             CostwithDetails.transform.localPosition = new Vector3(-110f, -130f, 0f);
+desc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
+SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
 
         }
         isaddtocart = false;
@@ -117,12 +120,7 @@ public GameObject CartMenu;
             Price.Text = loadimageFromApi.ProductRequst.data.regular_price.ToString() + " K.D";
         }
         desc.Text= loadimageFromApi.ProductRequst.data.description;
-if (desc.Text.Length > 20)
 
-  { 
- SecondDesc.Text = desc.Text.Substring(0, 20);
-
-}
        
         StartCoroutine(DownLoadImagetexture(loadimageFromApi.ProductRequst.data.img, ImageExample.GetComponent<RawImage>()));
         foreach (string s in loadimageFromApi.ProductRequst.data.slider)

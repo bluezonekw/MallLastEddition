@@ -15,8 +15,10 @@ using UnityEngine.UI;
         public static int LanguageValue;
         public Dropdown D1;
     public GameObject Map;
+public static int coinsnumber;
 public GameObject B1;
 public GameObject FavoriteMenu;
+public GameObject CoinsMenu;
         // Start is called before the first frame update
 public void CreateFavotite(){
 
@@ -24,10 +26,16 @@ GameObject.Instantiate(FavoriteMenu, GameObject.FindGameObjectWithTag("MainCanva
 
 }
 
+public void CreateCoins(){
+
+GameObject.Instantiate(CoinsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+}
+
+
  void Awake()
     {
-
-   Map.SetActive(true);
+coinsnumber=Coins();
+  
 
 }
         void Start()
@@ -35,7 +43,7 @@ GameObject.Instantiate(FavoriteMenu, GameObject.FindGameObjectWithTag("MainCanva
             IsShow = true;
             LanguageValue = 0;
 
-Map.SetActive(false);
+
         }
         public void Show_HidePanel()
         {
@@ -131,4 +139,28 @@ B1.GetComponent<Button>().enabled=true;
 }
 
         }
+public int Coins(){
+
+ try
+            {
+                 return ApiClasses.Login.data.original.user.coins;
+            }
+            catch
+
+            {
+
+ return ApiClasses.Register.data.user.coins;
+              
+
+            }
+
+
+}
     }
+
+
+
+
+
+
+

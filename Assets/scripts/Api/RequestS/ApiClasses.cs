@@ -171,7 +171,7 @@ public class ApiClasses : MonoBehaviour
             msg = Register.message;
             popUpFlag = true;
             SaveScript.SaveData();
-            SceneManager.LoadScene("mall");
+            SceneManager.LoadScene("LoadingScene");
 
         }
 
@@ -218,7 +218,7 @@ public class ApiClasses : MonoBehaviour
         {
 
             SaveScript.SaveData();
-            SceneManager.LoadScene("mall");
+            SceneManager.LoadScene("LoadingScene");
 
         }
 

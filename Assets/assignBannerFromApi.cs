@@ -3,57 +3,141 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Networking;
 public class assignBannerFromApi : MonoBehaviour
 {
     public RequesStoresInHall requesStores;
     private RawImage rawImage;
     int StoreID;
+bool x,loaded;
+GameObject Player;
     // Start is called before the first frame update
-    void Start()
+  
+
+  void Awake()
     {
-try{
+	Player = GameObject.FindWithTag("Player");
+	try{
 StoreID=int.Parse( gameObject.name);
         rawImage = GetComponent<RawImage>();
+
+
+
 }
 catch{
 StoreID=0;
 }
-        try
-        {
-foreach(DataStore k in requesStores.Halls_info.data){
-if(k.id==StoreID){
-            StartCoroutine(DownloadRawImage(k.banner.ToString(), rawImage));
-}
-}
+
+
+
+try{
+
+            StartCoroutine(DownloadRawImage(loadAllshops.d[StoreID-1].banner.ToString(), rawImage));
+
+
         }
         catch
         {
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
     }
     IEnumerator DownloadRawImage(string url, RawImage I)
     {
+ loaded=true; 
 
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
 
-        WWW www = new WWW(url);
-        yield return www;
-        try
-        {
-
-            I.texture = www.texture;
-
+        if (www.result != UnityWebRequest.Result.Success) {
+            Debug.Log(www.error);
         }
+        else {
+ try
+        {
+            I.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+ }
         catch (Exception ex)
         {
 
 
         }
-
+        }
+   
     }
     // Update is called once per frame
     void Update()
     {
         
+/*
+if(StoreID>=1 && StoreID<=110){
+if(Player.transform.localPosition.y<3){
+           x=true;
+}
+	}else
+		if(StoreID>=221){
+
+		if(Player.transform.localPosition.y>10){
+
+
+			x=true;
+
+			}
+
+				}
+				else
+					if(StoreID>=111 && StoreID<=220){
+
+					if(Player.transform.localPosition.y>3&&Player.transform.localPosition.y<10){
+
+
+						x=true;
+
+}
+
+}
+
+if(x&&!loaded){
+
+
+
+        try
+        {
+
+            StartCoroutine(DownloadRawImage(loadAllshops.d[StoreID-1].banner.ToString(), rawImage));
+
+
+        }
+        catch
+        {
+
+        }
+
+
+
+}
+
+
+
+
+
+*/
+
+
     }
+
+
+
+
 }

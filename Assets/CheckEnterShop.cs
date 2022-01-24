@@ -29,13 +29,17 @@ public static bool  CartEmpty;
         {
            EnteredStore=hit.gameObject.transform.parent.name;
            EnterShop = true;
+SingleSToreRequest.StaticStoreId=int.Parse(  EnteredStore);
+hit.gameObject.transform.parent.GetComponent<loadimageFromApi>().enabled = true;
+hit.gameObject.transform.parent.GetComponent<SingleSToreRequest>().enabled = true;
         }
      
         if (EnterShop&& hit.gameObject.tag == "Gate" )
         {
             EnterShop = false;
             ExitShop = true;
-
+hit.gameObject.transform.parent.GetComponent<loadimageFromApi>().enabled = false;
+hit.gameObject.transform.parent.GetComponent<SingleSToreRequest>().enabled = false;
 
         }
                 }

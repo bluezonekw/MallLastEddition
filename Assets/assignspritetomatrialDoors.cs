@@ -2,32 +2,42 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Networking;
 public class assignspritetomatrialDoors : MonoBehaviour
 {
    public Material DefaultMat;
     public RequesStoresInHall requesStores;
 private Material LocalMat;
+bool x,loaded;
  int StoreID;
+GameObject Player;
     // Start is called before the first frame update
-    void Start()
+
+
+
+
+    void Awake()
     {
+Player = GameObject.FindWithTag("Player");
 try{
 StoreID=int.Parse( gameObject.name);}
 catch{
 StoreID=0;
 }
- GetComponent<MeshRenderer>().materials[0]=new Material(DefaultMat.shader);
-LocalMat=GetComponent<MeshRenderer>().materials[0];
 
+
+
+
+ 
  try
         {
-foreach(DataStore k in requesStores.Halls_info.data){
-if(k.id==StoreID){
-            StartCoroutine(DownloadRawImage(k.logo.ToString(), LocalMat));
+
+GetComponent<MeshRenderer>().materials[0]=new Material(DefaultMat.shader);
+LocalMat=GetComponent<MeshRenderer>().materials[0];
+            StartCoroutine(DownloadRawImage(loadAllshops.d[StoreID-1].logo.ToString(), LocalMat));
             
-}
-}
+
+
         }
         catch
         {
@@ -35,30 +45,117 @@ if(k.id==StoreID){
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        
     }
+
+
+
     IEnumerator DownloadRawImage(string url, Material I)
     {
+loaded=true;  
 
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
 
-        WWW www = new WWW(url);
-        yield return www;
-        try
-        {
-
-            I.SetTexture("_MainTex",www.texture);
-
+        if (www.result != UnityWebRequest.Result.Success) {
+            Debug.Log(www.error);
         }
+        else {
+try
+        {
+             I.SetTexture("_MainTex", ((DownloadHandlerTexture)www.downloadHandler).texture);
+
+      }
         catch (Exception ex)
         {
 
 
-        }
+        } 
+ }
 
+ 
+ 
     }
     // Update is called once per frame
     void Update()
-    {
-        
+    {/*
+        if(StoreID>=1 && StoreID<=110){
+if(Player.transform.localPosition.y<3){
+           x=true;
+}
+
+	}else
+		if(StoreID>=221){
+
+		if(Player.transform.localPosition.y>10){
+
+
+			x=true;
+
+			}
+
+				}
+				else
+					if(StoreID>=111 && StoreID<=220){
+
+					if(Player.transform.localPosition.y>3&&Player.transform.localPosition.y<10){
+
+
+						x=true;
+
+}
+
+}
+
+if(x&&!loaded){
+
+
+ GetComponent<MeshRenderer>().materials[0]=new Material(DefaultMat.shader);
+LocalMat=GetComponent<MeshRenderer>().materials[0];
+
+ try
+        {
+
+
+            StartCoroutine(DownloadRawImage(loadAllshops.d[StoreID-1].logo.ToString(), LocalMat));
+            
+
+
+        }
+        catch
+        {
+
+        }
+
+
+
+
+
+
+}
+*/
     }
+
+
+
+
+
+
 }

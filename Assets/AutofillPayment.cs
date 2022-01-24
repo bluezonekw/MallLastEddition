@@ -131,9 +131,10 @@ public class AutofillPayment : MonoBehaviour
         StartCoroutine(createorder());
         
 
+        if (orderinfo.statsu == 1) {
+
         GameObject g = GameObject.Instantiate(Recipt,GameObject.FindGameObjectWithTag("MainCanvas").transform);
         screenshotscript = g.GetComponent<ScreenshotNow>();
-        if (orderinfo.statsu == 1) {
             screenshotscript.Name.Text = NameField.text;
             screenshotscript.Phone.Text = PhoneField.text;
             screenshotscript.OrderNumber.Text = orderinfo.data.id.ToString();
@@ -190,8 +191,11 @@ CheckEnterShop.CartEmpty=true;
         request.AddParameter("note", Notes.text);
         request.AddParameter("coupon_code", discount.text);
         request.AddParameter("payment_method", "cash");
+
         IRestResponse response = client.Execute(request);
+
          orderinfo= JsonConvert.DeserializeObject<Order>(response.Content);
+
         yield return response.Content;
 
     }

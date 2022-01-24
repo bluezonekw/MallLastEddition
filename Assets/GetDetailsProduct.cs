@@ -117,7 +117,13 @@ public GameObject CartMenu;
             Price.Text = loadimageFromApi.ProductRequst.data.regular_price.ToString() + " K.D";
         }
         desc.Text= loadimageFromApi.ProductRequst.data.description;
-        SecondDesc.Text = desc.Text;
+if (desc.Text.Length > 20)
+
+  { 
+ SecondDesc.Text = desc.Text.Substring(0, 20);
+
+}
+       
         StartCoroutine(DownLoadImagetexture(loadimageFromApi.ProductRequst.data.img, ImageExample.GetComponent<RawImage>()));
         foreach (string s in loadimageFromApi.ProductRequst.data.slider)
         {

@@ -1,95 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
-using System.Threading;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.SceneManagement;
-public class MallLoader : MonoBehaviour
+
+public class loadHalls : MonoBehaviour
 {
-private double lastInterval;
-public AssetReference[] Allscene;
-    public Transform T1;
+public GameObject[] Halls; 
+
+
+     Transform T1;
     bool[] sceneloaded = { false, false, false, false, false, false, false, false, false, false, false };
-public GameObject Loading;
-   
-public static bool Isload;
-GameObject g;
+  public static int NumberOfFloor=1;
+
     // Start is called before the first frame update
     void Start()
     {
-       
-    }
+ 
+       T1=this.transform;
 
-    IEnumerator LoadYourAsyncScene(string Scene)
-    {
-      /*
 
-  // The Application loads the Scene in the background as the current Scene runs.
-        // This is particularly good for creating loading screens.
-        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
-        // a sceneBuildIndex of 1 as shown in Build Settings.
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Scene, LoadSceneMode.Additive);
-
-        // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-
-            yield return null;
-        }
-*/
-
-Addressables.LoadSceneAsync(Allscene[int.Parse(Scene)-1],UnityEngine.SceneManagement.LoadSceneMode.Additive).Completed  += SceneLoadComplete;
-lastInterval= Time.realtimeSinceStartup;
-print("The first time   /"+ lastInterval);
-//g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
-Isload=true;
-yield return null;
 
 
     }
-
-private void SceneLoadComplete(AsyncOperationHandle<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance> obj)     {  
-       if (obj.Status == AsyncOperationStatus.Succeeded) 
-{
-lastInterval=-Time.realtimeSinceStartup;
-print("The time after end    /"+lastInterval);
-//Destroy(g);
-Isload=false;
-
-}
-        }   
-
-
-  IEnumerator Load2Sec()
-    {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(10);
-
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
-
-
-
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+if(T1.localPosition.y<3)
+{
+NumberOfFloor=1;
+}else
+if(T1.localPosition.y>3 &&T1.localPosition.y<10)
+{
+NumberOfFloor=2;
+}else
+if(T1.localPosition.y>10 )
+{
+NumberOfFloor=3;
+}
 
         if (T1.position.z < -31f  )//Scene1
         {
+                        
+
             try
             {
 
 
-                SceneManager.UnloadSceneAsync("03");
+                Halls[2].SetActive(false);
                 sceneloaded[3] = false;
             }
             catch
@@ -102,7 +59,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("04");
+                Halls[3].SetActive(false);
                 sceneloaded[4] = false;
             }
             catch
@@ -117,7 +74,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("05");
+                Halls[4].SetActive(false);
                 sceneloaded[5] = false;
             }
             catch
@@ -129,7 +86,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("06");
+               Halls[5].SetActive(false);
                 sceneloaded[6] = false;
 
             }
@@ -142,7 +99,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("07");
+                Halls[6].SetActive(false);
 
 
                 sceneloaded[7] = false;
@@ -158,7 +115,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("08");
+               Halls[7].SetActive(false);
                 sceneloaded[8] = false;
             }
             catch
@@ -172,7 +129,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("09");
+               Halls[8].SetActive(false);
 
 
                 sceneloaded[9] = false;
@@ -188,7 +145,7 @@ Isload=false;
             {
 
 
-                SceneManager.UnloadSceneAsync("10");
+                Halls[9].SetActive(false);
 
 
                 sceneloaded[10] = false;
@@ -205,18 +162,13 @@ Isload=false;
 
             if (!sceneloaded[01])
             {
-
-                StartCoroutine(LoadYourAsyncScene("01"));
-StartCoroutine(Load2Sec());
-
-
-
-                sceneloaded[01] = true;
+Halls[0].SetActive(true);
+                        sceneloaded[01] = true;
             }
             if (!sceneloaded[02])
             {
 
-                StartCoroutine(LoadYourAsyncScene("02"));
+                Halls[1].SetActive(true);
 
                 sceneloaded[02] = true;
 
@@ -230,7 +182,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("04");
+                Halls[3].SetActive(false);
 
                 sceneloaded[04] = false;
 
@@ -244,7 +196,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("05");
+                Halls[4].SetActive(false);
 
 
                 sceneloaded[05] = false;
@@ -257,7 +209,7 @@ StartCoroutine(Load2Sec());
             } try
             {
 
-                SceneManager.UnloadSceneAsync("06");
+                Halls[5].SetActive(false);
 
 
                 sceneloaded[06] = false;
@@ -270,7 +222,7 @@ StartCoroutine(Load2Sec());
             } try
             {
 
-                SceneManager.UnloadSceneAsync("07");
+                Halls[6].SetActive(false);
 
 
                 sceneloaded[07] = false;
@@ -283,7 +235,7 @@ StartCoroutine(Load2Sec());
             } try
             {
 
-                SceneManager.UnloadSceneAsync("08");
+                Halls[7].SetActive(false);
 
 
                 sceneloaded[08] = false;
@@ -296,7 +248,7 @@ StartCoroutine(Load2Sec());
             } try
             {
 
-                SceneManager.UnloadSceneAsync("09");
+                Halls[8].SetActive(false);
 
 
                 sceneloaded[09] = false;
@@ -309,7 +261,7 @@ StartCoroutine(Load2Sec());
             } try
             {
 
-                SceneManager.UnloadSceneAsync("10");
+                Halls[9].SetActive(false);
 
 
                 sceneloaded[10] = false;
@@ -325,7 +277,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("02"));
+                Halls[1].SetActive(true);
 
                 sceneloaded[02] = true;
 
@@ -335,7 +287,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("01"));
+              Halls[0].SetActive(true);
 
                 sceneloaded[01] = true;
 
@@ -345,7 +297,7 @@ StartCoroutine(Load2Sec());
             if (!sceneloaded[03])
             {
 
-                StartCoroutine(LoadYourAsyncScene("03"));
+               Halls[2].SetActive(true);
 
                 sceneloaded[03] = true;
 
@@ -362,7 +314,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("01");
+               Halls[0].SetActive(false);
 
                 sceneloaded[01] = false;
 
@@ -377,7 +329,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("05");
+               Halls[4].SetActive(false);
 
                 sceneloaded[05] = false;
 
@@ -392,7 +344,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("06");
+                Halls[5].SetActive(false);
 
                 sceneloaded[06] = false;
 
@@ -405,7 +357,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("07");
+                Halls[6].SetActive(false);
 
                 sceneloaded[07] = false;
 
@@ -420,7 +372,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("08");
+                Halls[7].SetActive(false);
 
                 sceneloaded[08] = false;
 
@@ -435,7 +387,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("09");
+                Halls[8].SetActive(false);
 
                 sceneloaded[09] = false;
 
@@ -453,7 +405,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("10");
+                Halls[9].SetActive(false);
 
                 sceneloaded[10] = false;
 
@@ -470,7 +422,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("03"));
+               Halls[2].SetActive(true);
 
                 sceneloaded[03] = true;
 
@@ -483,7 +435,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("04"));
+               Halls[3].SetActive(true);
 
                 sceneloaded[04] = true;
 
@@ -497,7 +449,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("02"));
+                Halls[1].SetActive(true);
 
                 sceneloaded[02] = true;
 
@@ -513,7 +465,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("01");
+                Halls[0].SetActive(false);
 
                 sceneloaded[01] = false;
 
@@ -526,7 +478,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("02");
+               Halls[1].SetActive(false);
 
                 sceneloaded[02] = false;
 
@@ -540,7 +492,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("06");
+                Halls[5].SetActive(false);
 
                 sceneloaded[06] = false;
 
@@ -553,7 +505,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("07");
+                Halls[6].SetActive(false);
 
                 sceneloaded[07] = false;
 
@@ -566,7 +518,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("08");
+                Halls[7].SetActive(false);
 
                 sceneloaded[08] = false;
 
@@ -578,7 +530,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("09");
+                Halls[8].SetActive(false);
 
                 sceneloaded[09] = false;
 
@@ -591,7 +543,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("10");
+               Halls[9].SetActive(false);
 
                 sceneloaded[10] = false;
 
@@ -606,7 +558,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("04"));
+                Halls[3].SetActive(true);
 
                 sceneloaded[04] = true;
 
@@ -617,8 +569,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("03"));
-
+                 Halls[2].SetActive(true);
                 sceneloaded[03] = true;
 
             }
@@ -630,7 +581,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("05"));
+                Halls[4].SetActive(true);
 
                 sceneloaded[05] = true;
 
@@ -646,7 +597,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("01");
+                 Halls[0].SetActive(false);
 
                 sceneloaded[01] = false;
 
@@ -659,7 +610,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("02");
+                 Halls[1].SetActive(false);
 
                 sceneloaded[02] = false;
 
@@ -673,7 +624,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("03");
+                 Halls[2].SetActive(false);
 
                 sceneloaded[03] = false;
 
@@ -687,7 +638,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("07");
+                 Halls[6].SetActive(false);
 
                 sceneloaded[07] = false;
 
@@ -701,7 +652,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("08");
+                 Halls[7].SetActive(false);
 
                 sceneloaded[08] = false;
 
@@ -715,7 +666,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("09");
+                 Halls[8].SetActive(false);
 
                 sceneloaded[09] = false;
 
@@ -728,7 +679,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("10");
+                 Halls[9].SetActive(false);
 
                 sceneloaded[10] = false;
 
@@ -741,7 +692,7 @@ StartCoroutine(Load2Sec());
             if (!sceneloaded[05])
             {
 
-                StartCoroutine(LoadYourAsyncScene("05"));
+                 Halls[4].SetActive(true);
 
                 sceneloaded[05] = true;
 
@@ -754,7 +705,7 @@ StartCoroutine(Load2Sec());
             if (!sceneloaded[06])
             {
 
-                StartCoroutine(LoadYourAsyncScene("06"));
+                 Halls[5].SetActive(true);
 
                 sceneloaded[06] = true;
 
@@ -764,7 +715,7 @@ StartCoroutine(Load2Sec());
             if (!sceneloaded[04])
             {
 
-                StartCoroutine(LoadYourAsyncScene("04"));
+                 Halls[3].SetActive(true);
 
                 sceneloaded[04] = true;
 
@@ -783,7 +734,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("01");
+                 Halls[0].SetActive(false);
 
                 sceneloaded[01] = false;
 
@@ -796,7 +747,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("02");
+                 Halls[1].SetActive(false);
 
                 sceneloaded[02] = false;
 
@@ -810,7 +761,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("03");
+                 Halls[2].SetActive(false);
 
                 sceneloaded[03] = false;
 
@@ -824,7 +775,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("04");
+                 Halls[3].SetActive(false);
 
                 sceneloaded[04] = false;
 
@@ -838,7 +789,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("08");
+                 Halls[7].SetActive(false);
 
                 sceneloaded[08] = false;
 
@@ -853,7 +804,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("09");
+                 Halls[8].SetActive(false);
 
                 sceneloaded[09] = false;
 
@@ -866,7 +817,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("10");
+                 Halls[9].SetActive(false);
 
                 sceneloaded[10] = false;
 
@@ -881,7 +832,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("06"));
+                 Halls[5].SetActive(true);
                 sceneloaded[06] = true;
 
 
@@ -892,7 +843,7 @@ StartCoroutine(Load2Sec());
 
 
 
-                StartCoroutine(LoadYourAsyncScene("07"));
+                 Halls[6].SetActive(true);
                 sceneloaded[07] = true;
 
 
@@ -901,7 +852,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("05"));
+                 Halls[4].SetActive(true);
                 sceneloaded[05] = true;
 
 
@@ -915,7 +866,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("01");
+                 Halls[0].SetActive(false);
 
                 sceneloaded[01] = false;
 
@@ -930,7 +881,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("02");
+                     Halls[1].SetActive(false);
 
                     sceneloaded[02] = false;
 
@@ -942,7 +893,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("03");
+                     Halls[2].SetActive(false);
 
                     sceneloaded[03] = false;
 
@@ -954,7 +905,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("04");
+                     Halls[3].SetActive(false);
 
                     sceneloaded[04] = false;
 
@@ -966,7 +917,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("05");
+                     Halls[4].SetActive(false);
 
                     sceneloaded[05] = false;
 
@@ -978,7 +929,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("09");
+                     Halls[8].SetActive(false);
 
                     sceneloaded[09] = false;
 
@@ -990,7 +941,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("10");
+                     Halls[9].SetActive(false);
 
                     sceneloaded[10] = false;
 
@@ -1006,7 +957,7 @@ StartCoroutine(Load2Sec());
                 {
 
 
-                    StartCoroutine(LoadYourAsyncScene("07"));
+                     Halls[6].SetActive(true);
                     sceneloaded[07] = true;
 
                 }
@@ -1015,17 +966,17 @@ StartCoroutine(Load2Sec());
                 {
 
 
-                    StartCoroutine(LoadYourAsyncScene("08"));
+                     Halls[7].SetActive(true);
                     sceneloaded[08] = true;
 
                 }
 
-                if (!sceneloaded[09])
+                if (!sceneloaded[06])
                 {
 
 
-                    StartCoroutine(LoadYourAsyncScene("09"));
-                    sceneloaded[09] = true;
+                     Halls[5].SetActive(true);
+                    sceneloaded[06] = true;
 
                 }
 
@@ -1038,7 +989,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("01");
+                     Halls[0].SetActive(false);
 
                     sceneloaded[01] = false;
 
@@ -1052,7 +1003,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("02");
+                     Halls[1].SetActive(false);
 
                     sceneloaded[02] = false;
 
@@ -1066,7 +1017,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("03");
+                     Halls[2].SetActive(false);
 
                     sceneloaded[03] = false;
 
@@ -1079,7 +1030,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("04");
+                     Halls[3].SetActive(false);
 
                     sceneloaded[04] = false;
 
@@ -1094,7 +1045,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("05");
+                     Halls[4].SetActive(false);
 
                     sceneloaded[05] = false;
 
@@ -1106,7 +1057,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("06");
+                     Halls[5].SetActive(false);
 
                     sceneloaded[06] = false;
 
@@ -1121,7 +1072,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("10");
+                     Halls[9].SetActive(false);
 
                     sceneloaded[10] = false;
 
@@ -1135,26 +1086,26 @@ StartCoroutine(Load2Sec());
                 {
 
 
-                    StartCoroutine(LoadYourAsyncScene("08"));
+                     Halls[7].SetActive(true);
                     sceneloaded[08] = true;
 
                 }
 
 
-                if (!sceneloaded[09])
+                if (!sceneloaded[9])
                 {
 
 
-                    StartCoroutine(LoadYourAsyncScene("09"));
+                     Halls[8].SetActive(true);
                     sceneloaded[09] = true;
 
                 }
-                if (!sceneloaded[10])
+                if (!sceneloaded[7])
                 {
 
 
-                    StartCoroutine(LoadYourAsyncScene("10"));
-                    sceneloaded[10] = true;
+                     Halls[6].SetActive(true);
+                    sceneloaded[7] = true;
 
                 }
             }
@@ -1165,7 +1116,7 @@ StartCoroutine(Load2Sec());
                 try
                 {
 
-                    SceneManager.UnloadSceneAsync("01");
+                     Halls[0].SetActive(false);
 
                     sceneloaded[01] = false;
 
@@ -1178,7 +1129,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("02");
+                 Halls[1].SetActive(false);
 
                 sceneloaded[02] = false;
 
@@ -1190,7 +1141,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("03");
+                 Halls[2].SetActive(false);
 
                 sceneloaded[03] = false;
 
@@ -1202,7 +1153,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("04");
+                 Halls[3].SetActive(false);
 
                 sceneloaded[04] = false;
 
@@ -1214,7 +1165,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("05");
+                 Halls[4].SetActive(false);
 
                 sceneloaded[05] = false;
 
@@ -1226,7 +1177,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("06");
+                 Halls[5].SetActive(false);
 
                 sceneloaded[06] = false;
 
@@ -1238,7 +1189,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("07");
+                 Halls[6].SetActive(false);
 
                 sceneloaded[07] = false;
 
@@ -1255,7 +1206,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("09"));
+                 Halls[8].SetActive(true);
                 sceneloaded[09] = true;
 
             }
@@ -1264,7 +1215,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("09"));
+                 Halls[7].SetActive(true);
                 sceneloaded[08] = true;
 
             }
@@ -1275,7 +1226,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("10"));
+                 Halls[9].SetActive(true);
                 sceneloaded[10] = true;
 
             }
@@ -1288,7 +1239,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("01");
+                 Halls[0].SetActive(false);
 
                 sceneloaded[01] = false;
 
@@ -1301,7 +1252,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("02");
+                 Halls[1].SetActive(false);
 
                 sceneloaded[02] = false;
 
@@ -1313,7 +1264,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("03");
+                 Halls[2].SetActive(false);
 
                 sceneloaded[03] = false;
 
@@ -1325,7 +1276,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("04");
+                 Halls[3].SetActive(false);
 
                 sceneloaded[04] = false;
 
@@ -1337,7 +1288,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("05");
+                 Halls[4].SetActive(false);
 
                 sceneloaded[05] = false;
 
@@ -1349,7 +1300,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("06");
+                 Halls[5].SetActive(false);
 
                 sceneloaded[06] = false;
 
@@ -1361,7 +1312,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("07");
+                 Halls[6].SetActive(false);
 
                 sceneloaded[07] = false;
 
@@ -1373,7 +1324,7 @@ StartCoroutine(Load2Sec());
             try
             {
 
-                SceneManager.UnloadSceneAsync("08");
+                 Halls[7].SetActive(false);
 
                 sceneloaded[08] = false;
 
@@ -1389,7 +1340,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("09"));
+                 Halls[8].SetActive(true);
                 sceneloaded[09] = true;
 
             }
@@ -1400,7 +1351,7 @@ StartCoroutine(Load2Sec());
             {
 
 
-                StartCoroutine(LoadYourAsyncScene("10"));
+                 Halls[9].SetActive(true);
                 sceneloaded[10] = true;
 
             }
@@ -1413,5 +1364,12 @@ StartCoroutine(Load2Sec());
 
     }
 } 
+
+
+
+
+
+
+
 
 

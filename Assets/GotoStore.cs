@@ -6,7 +6,7 @@ namespace UI.Pagination
     public class GotoStore : MonoBehaviour
 {
     public List<Vector3> StoreLocation;
-    private GameObject Player;
+    public GameObject Player;
     int storeid;
 public GameObject Loading;
     // Start is called before the first frame update

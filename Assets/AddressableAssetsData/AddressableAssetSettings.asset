@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
+  m_Name: AddressableAssetSettings
+  m_EditorClassIdentifier: 
+  m_DefaultGroup: 3bff0a3bded658c4eb2623f5e664893e
+  m_OptimizeCatalogSize: 0
+  m_BuildRemoteCatalog: 0
+  m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
+  m_DisableCatalogUpdateOnStart: 0
+  m_IgnoreUnsupportedFilesInBuild: 0
+  m_UniqueBundleIds: 0
+  m_NonRecursiveBuilding: 0
+  m_maxConcurrentWebRequests: 500
+  m_ContiguousBundles: 0
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_MonoScriptBundleCustomNaming: 
+  m_RemoteCatalogBuildPath:
+    m_Id: 8e28e66783e192545a732ac80e31ca13
+  m_RemoteCatalogLoadPath:
+    m_Id: fb2a296faa5f9954692236a9e293c3de
+  m_ContentStateBuildPath: 
+  m_overridePlayerVersion: 
+  m_GroupAssets:
+  - {fileID: 11400000, guid: fca0e638524a4b046843850ca1788308, type: 2}
+  - {fileID: 11400000, guid: 3908fa8cbba22444db37d463cb601810, type: 2}
+  - {fileID: 11400000, guid: 4c534dcafae84ea44aa6477118fe7dff, type: 2}
+  m_BuildSettings:
+    m_CompileScriptsInVirtualMode: 0
+    m_CleanupStreamingAssetsAfterBuilds: 1
+    m_LogResourceManagerExceptions: 1
+    m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
+  m_ProfileSettings:
+    m_Profiles:
+    - m_InheritedParent: 
+      m_Id: d410e26c7ee3274439d989e0ff1bfefa
+      m_ProfileName: Default
+      m_Values:
+      - m_Id: 1fe5557470ab7d7498fc59fb6064aae3
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 8d58a2246eac4f74c9c692903451da3a
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: c49585efe64507344b2a93c8b08842d8
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 8e28e66783e192545a732ac80e31ca13
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: fb2a296faa5f9954692236a9e293c3de
+        m_Value: http://localhost/[BuildTarget]
+      - m_Id: c012cde0e42c8a14cb75a90283c9aeab
+        m_Value: H:/MoustafaMahmoud/BlueZone/LastMall/MallLastEddition/Assets
+      - m_Id: 560547dc73a4d4a47a0ffce2b3422944
+        m_Value: H:/MoustafaMahmoud/BlueZone/LastMall/MallLastEddition/Assets
+      - m_Id: 4b51bdab8eea367468e84d01d8b92cee
+        m_Value: H:/MoustafaMahmoud/BlueZone/LastMall/MallLastEddition/Assets
+      - m_Id: 2f2008aa57a97a44483b46c466a109b8
+        m_Value: H:\MoustafaMahmoud\BlueZone\LastMall\MallLastEddition\Assets\AddressableAssetsData\AssetGroups
+    - m_InheritedParent: 
+      m_Id: 664689f81bd604544a9699b7077fc8bb
+      m_ProfileName: New Profile
+      m_Values:
+      - m_Id: 1fe5557470ab7d7498fc59fb6064aae3
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 8d58a2246eac4f74c9c692903451da3a
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: c49585efe64507344b2a93c8b08842d8
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 8e28e66783e192545a732ac80e31ca13
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: fb2a296faa5f9954692236a9e293c3de
+        m_Value: http://localhost/[BuildTarget]
+      - m_Id: c012cde0e42c8a14cb75a90283c9aeab
+        m_Value: H:/MoustafaMahmoud/BlueZone/LastMall/MallLastEddition/Assets
+      - m_Id: 560547dc73a4d4a47a0ffce2b3422944
+        m_Value: H:/MoustafaMahmoud/BlueZone/LastMall/MallLastEddition/Assets
+      - m_Id: 4b51bdab8eea367468e84d01d8b92cee
+        m_Value: H:/MoustafaMahmoud/BlueZone/LastMall/MallLastEddition/Assets
+      - m_Id: 2f2008aa57a97a44483b46c466a109b8
+        m_Value: H:\MoustafaMahmoud\BlueZone\LastMall\MallLastEddition\Assets\AddressableAssetsData\AssetGroups
+    m_ProfileEntryNames:
+    - m_Id: 1fe5557470ab7d7498fc59fb6064aae3
+      m_Name: BuildTarget
+      m_InlineUsage: 0
+    - m_Id: 8d58a2246eac4f74c9c692903451da3a
+      m_Name: LocalBuildPath
+      m_InlineUsage: 0
+    - m_Id: c49585efe64507344b2a93c8b08842d8
+      m_Name: LocalLoadPath
+      m_InlineUsage: 0
+    - m_Id: 8e28e66783e192545a732ac80e31ca13
+      m_Name: RemoteBuildPath
+      m_InlineUsage: 0
+    - m_Id: fb2a296faa5f9954692236a9e293c3de
+      m_Name: RemoteLoadPath
+      m_InlineUsage: 0
+    - m_Id: c012cde0e42c8a14cb75a90283c9aeab
+      m_Name: Load2
+      m_InlineUsage: 0
+    - m_Id: 560547dc73a4d4a47a0ffce2b3422944
+      m_Name: Load3.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 4b51bdab8eea367468e84d01d8b92cee
+      m_Name: Load3.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 2f2008aa57a97a44483b46c466a109b8
+      m_Name: NewLoad
+      m_InlineUsage: 0
+    m_ProfileVersion: 1
+  m_LabelTable:
+    m_LabelNames:
+    - default
+    - 01
+    - Scenes
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: 11400000, guid: 7ad79fb33ef7ad04797267d2dc55d4e7, type: 2}
+  m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ActivePlayerDataBuilderIndex: 3
+  m_DataBuilders:
+  - {fileID: 11400000, guid: 6e3e2d6d1aa2bfc42b884648aab0f594, type: 2}
+  - {fileID: 11400000, guid: cfa8009ab4e2c4f409adf7585778cfa6, type: 2}
+  - {fileID: 11400000, guid: 3be72496a08a56341b256127c58c71f0, type: 2}
+  - {fileID: 11400000, guid: 07d014ff411681b49a5f4aee31430fd2, type: 2}
+  m_ActiveProfileId: d410e26c7ee3274439d989e0ff1bfefa
+  m_HostingServicesManager:
+    m_HostingServiceInfos: []
+    m_Settings: {fileID: 11400000}
+    m_NextInstanceId: 0
+    m_RegisteredServiceTypeRefs: []

@@ -18,6 +18,8 @@ Empty.SetActive(true);
 }else{
 Full.SetActive(true);
 Empty.SetActive(false);
+var foundCanvasObjects = FindObjectsOfType<UPDownMenu>();
+foundCanvasObjects[0].UpdateCoinsNumber();
      CoinNumber.text=UPDownMenu.coinsnumber.ToString();   
 }
     }

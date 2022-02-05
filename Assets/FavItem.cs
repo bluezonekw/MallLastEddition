@@ -111,7 +111,9 @@ GameObject.Instantiate(ProductPanel,GameObject.FindGameObjectWithTag("MainCanvas
         {
             print("conectionFailed");
         }
-
+var foundCanvasObjects = FindObjectsOfType<FavMenuConfig>();
+foundCanvasObjects[0].Counts.Text=(int.Parse(foundCanvasObjects[0].Counts.Text)-1).ToString();
+Destroy(this.gameObject);
 
     }
     // Update is called once per frame

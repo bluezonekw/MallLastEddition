@@ -173,6 +173,8 @@ cartController.CartResponse=JsonConvert.DeserializeObject<CartResponse>(response
     }
     public void CloseCartPanel()
     {
+var foundCanvasObjects = FindObjectsOfType<UPDownMenu>();
+foundCanvasObjects[0].UpdateCartCount();
         if (ResumeBuying) {
 
           

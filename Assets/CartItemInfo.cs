@@ -64,6 +64,14 @@ public class CartItemInfo : MonoBehaviour
         IRestResponse response = client.Execute(request);
 
 
+if(RealQuntity==0){
+var foundCanvasObjects = FindObjectsOfType<CartInfo>();
+foundCanvasObjects[0].counterController.Text=(int.Parse(foundCanvasObjects[0].counterController.Text)-1).ToString();
+Destroy(this.gameObject);
+
+
+}
+
 
     }
     public string AuthToken()

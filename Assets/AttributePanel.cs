@@ -13,10 +13,34 @@ public class AttributePanel : MonoBehaviour
     public GameObject AttributeCreated,OptionCreated;
     public float intialAttributYpos = 0.8f,intialoptionXpos=4.5f;
     public static List<Toggle> AllToggles;
+public ArabicText NoAttributs;
     // Start is called before the first frame update
     void Start()
     {
-       
+       if(loadimageFromApi.ProductRequst.data.attributes.Count==0)
+
+{
+  if (UPDownMenu.LanguageValue == 1)
+        {
+NoAttributs.Text="No Attributes For This Product";
+}
+
+else
+
+{
+NoAttributs.Text="لايوجد تفاصيل لهذا المنتج";
+
+
+}
+
+
+
+}
+else
+{
+NoAttributs.gameObject.SetActive(false);
+
+}
             numberOfAttribute = loadimageFromApi.ProductRequst.data.attributes.Count;
             foreach (ProductAttribute p in loadimageFromApi.ProductRequst.data.attributes)
             {

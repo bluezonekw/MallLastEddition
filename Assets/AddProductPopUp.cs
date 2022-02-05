@@ -13,8 +13,11 @@ public class AddProductPopUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+ 
         if (GetDetailsProduct.addTocartrequest.statsu == 1)
         {
+var foundObjects = FindObjectsOfType<UPDownMenu>();
+foundObjects[0].UpdateCartCount();
             button.SetActive(true);
             if (UPDownMenu.LanguageValue == 1)
             {

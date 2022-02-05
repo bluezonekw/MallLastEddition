@@ -266,6 +266,104 @@ RectTransform:
   m_AnchoredPosition: {x: 0.872, y: -2.033}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1819507039936288199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6278362843514118079}
+  - component: {fileID: 7670590868454493925}
+  - component: {fileID: 4983216477493512583}
+  - component: {fileID: 1915024196082376461}
+  m_Layer: 5
+  m_Name: NoAttributes
+  m_TagString: Shops
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6278362843514118079
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819507039936288199}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5996816013824458716}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -135.1, y: -39.2}
+  m_SizeDelta: {x: 1255.49, y: 185.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7670590868454493925
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819507039936288199}
+  m_CullTransparentMesh: 1
+--- !u!114 &4983216477493512583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819507039936288199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.1509434, g: 0.1502314, b: 0.1502314, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7b73afc74a99f154d9517154b8cedd51, type: 3}
+    m_FontSize: 150
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\uFE9E\uFE98\uFEE8\uFEE4\uFEDF\u0627 \u0627\uFEAC\uFEEC\uFEDF \u062A\uFE8E\uFED3\uFE8E\uFEBF\u0627
+    \uFEAA\uFE9F\uFEEE\uFEF3 \uFEFB"
+--- !u!114 &1915024196082376461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819507039936288199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696ce2cd40d49484ab618bf74d31d4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: "\u0644\u0627 \u064A\u0648\u062C\u062F \u0627\u0636\u0627\u0641\u0627\u062A
+    \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0646\u062A\u062C"
+  RefrenceInput: {fileID: 0}
+  ShowTashkeel: 0
+  UseHinduNumbers: 0
 --- !u!1 &2242763508750163052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1631,7 @@ MonoBehaviour:
   Text: 
   RefrenceInput: {fileID: 0}
   ShowTashkeel: 0
-  UseHinduNumbers: 1
+  UseHinduNumbers: 0
 --- !u!1 &5996816013081314708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,15 +2181,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_Font: {fileID: 12800000, guid: e9692fe2cf329b44489527c1146fb4be, type: 3}
+    m_FontSize: 120
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -2111,7 +2209,7 @@ MonoBehaviour:
   Text: 
   RefrenceInput: {fileID: 0}
   ShowTashkeel: 0
-  UseHinduNumbers: 1
+  UseHinduNumbers: 0
 --- !u!1 &5996816013319514789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2809,7 @@ RectTransform:
   - {fileID: 1263078577469897905}
   - {fileID: 1462728204814170675}
   - {fileID: 318863119553397446}
+  - {fileID: 6278362843514118079}
   m_Father: {fileID: 5996816013081314709}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2917,10 +3016,9 @@ MonoBehaviour:
   Toggles: []
   OptionsId: []
   Quntity: {fileID: 5996816013816107420}
-  Popup: {fileID: 0}
+  Popup: {fileID: 169438540256213397, guid: 8ce6fd1001bb333418da0d4ef4afbdd9, type: 3}
   CostwithDetails: {fileID: 9009633359613613920}
-  MessageObject: {fileID: 6658311113987476864}
-  MessageErorr: {fileID: 1118878157766871665}
+  MessageObject: {fileID: 3263271564192845684, guid: abc6f9aa10c3c9240af85200506180ab, type: 3}
   MoreDetails: {fileID: 5996816013920975830}
   Total: {fileID: 5170996694442388617}
   Buy: {fileID: 5462375306858135077}
@@ -3434,8 +3532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.04573965, y: -0.09999146}
-  m_SizeDelta: {x: 2999.8, y: 1906.7}
+  m_AnchoredPosition: {x: -0.028116, y: -0.09999146}
+  m_SizeDelta: {x: 2905.2578, y: 1906.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5996816014313657140
 CanvasRenderer:
@@ -3466,15 +3564,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_Font: {fileID: 12800000, guid: e9692fe2cf329b44489527c1146fb4be, type: 3}
+    m_FontSize: 150
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -3494,7 +3592,7 @@ MonoBehaviour:
   Text: 
   RefrenceInput: {fileID: 0}
   ShowTashkeel: 0
-  UseHinduNumbers: 1
+  UseHinduNumbers: 0
 --- !u!1 &6218828993029451739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,6 +3896,7 @@ MonoBehaviour:
   OptionCreated: {fileID: 0}
   intialAttributYpos: 0.8
   intialoptionXpos: 4.5
+  NoAttributs: {fileID: 1915024196082376461}
 --- !u!1 &7395729781866769093
 GameObject:
   m_ObjectHideFlags: 0

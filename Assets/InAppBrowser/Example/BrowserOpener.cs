@@ -1,37 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BrowserOpener : MonoBehaviour
-{
-    public GameObject mall;
-    public GameObject favcartCounter;
-    public string pageToOpen = "https://www.google.com";
+public class BrowserOpener : MonoBehaviour {
 
-    bool IsInAppBrowserOpened = true;
-    // check readme file to find out how to change title, colors etc.
-    public void reopenBrowser(string url) {
-        pageToOpen = url;
+	public string pageToOpen = "";
 
-      
-        InAppBrowser.DisplayOptions options = new InAppBrowser.DisplayOptions();
-        options.displayURLAsPageTitle = false;
-        options.hidesTopBar = false;
-       
-        options.backButtonText = "رجوع";
-        InAppBrowser.OpenURL(pageToOpen, options);
-        IsInAppBrowserOpened = true;
-    }
+public InAppBrowser.DisplayOptions options;
+	
+
+	
+	// check readme file to find out how to change title, colors etc.
+	public void OnButtonClicked() {
+		 options = new InAppBrowser.DisplayOptions();
+		options.displayURLAsPageTitle = true;
+		
+
+		InAppBrowser.OpenURL(pageToOpen, options);
+
+
+	}
+
+
+
 
 	public void OnClearCacheClicked() {
 		InAppBrowser.ClearCache();
-    }
-    public void close()
-    {
-        mall.SetActive(true);
-        IsInAppBrowserOpened = false;
-        favcartCounter.SetActive(false);
-        favcartCounter.SetActive(true);
-        print("close browser");
-        InAppBrowser.CloseBrowser();
-    }
+	}
 }

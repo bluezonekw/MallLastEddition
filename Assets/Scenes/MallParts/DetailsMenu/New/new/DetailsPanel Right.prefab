@@ -795,6 +795,7 @@ MonoBehaviour:
   OptionCreated: {fileID: 0}
   intialAttributYpos: 0.8
   intialoptionXpos: 4.5
+  NoAttributs: {fileID: 2500184786694372410}
 --- !u!1 &5492223430589043127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1760,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8034163657501725579}
   m_CullTransparentMesh: 1
+--- !u!1 &8369204187950037203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4797104391582672527}
+  - component: {fileID: 8479392443050609478}
+  - component: {fileID: 1730575369596687536}
+  - component: {fileID: 2500184786694372410}
+  m_Layer: 5
+  m_Name: NoAttributes
+  m_TagString: Shops
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4797104391582672527
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369204187950037203}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8764670583364715694}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -130.3, y: -50.02}
+  m_SizeDelta: {x: 488.7, y: 62.91}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8479392443050609478
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369204187950037203}
+  m_CullTransparentMesh: 1
+--- !u!114 &1730575369596687536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369204187950037203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.01886791, g: 0.018244913, b: 0.018244913, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7b73afc74a99f154d9517154b8cedd51, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 80
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\uFE9E\uFE98\uFEE8\uFEE4\uFEDF\u0627 \u0627\uFEAC\uFEEC\uFEDF \uFEDE\uFEF4\uFEBB\uFE8E\uFED4\uFE97
+    \uFEAA\uFE9F\uFEEE\uFEF3\uFEFB"
+--- !u!114 &2500184786694372410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369204187950037203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696ce2cd40d49484ab618bf74d31d4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: "\u0644\u0627\u064A\u0648\u062C\u062F \u062A\u0641\u0627\u0635\u064A\u0644
+    \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0646\u062A\u062C"
+  RefrenceInput: {fileID: 0}
+  ShowTashkeel: 0
+  UseHinduNumbers: 0
 --- !u!1 &8574211298041411314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3598,7 @@ RectTransform:
   - {fileID: 4259840472796350403}
   - {fileID: 4527809346070954305}
   - {fileID: 3384016691138689460}
+  - {fileID: 4797104391582672527}
   m_Father: {fileID: 8764670582893739751}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4247,15 +4347,14 @@ MonoBehaviour:
   Quntity: {fileID: 8764670583373196014}
   Popup: {fileID: 3263271564192845684, guid: 3a0e71c7bf9cfb14a8770188d16183e7, type: 3}
   CostwithDetails: {fileID: 6310106986715491346}
-  MessageObject: {fileID: 8574211298041411314}
-  MessageErorr: {fileID: 2674479367937536259}
+  MessageObject: {fileID: 3263271564192845684, guid: abc6f9aa10c3c9240af85200506180ab, type: 3}
   MoreDetails: {fileID: 8764670583729701028}
   Total: {fileID: 7879530275486652411}
   Buy: {fileID: 7013481722067060055}
   Options: {fileID: 6924609658135235406}
   Main: {fileID: 8764670582367078370}
   More: {fileID: 8764670582543249978}
-  CartMenu: {fileID: 0}
+  CartMenu: {fileID: 169438540256213397, guid: 8ce6fd1001bb333418da0d4ef4afbdd9, type: 3}
 --- !u!114 &8764670583723448477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4278,7 +4377,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8764670583723448478
 MonoBehaviour:
   m_ObjectHideFlags: 0

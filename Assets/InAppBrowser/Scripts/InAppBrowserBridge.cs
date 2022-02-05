@@ -27,15 +27,6 @@ public class InAppBrowserBridge : MonoBehaviour {
 	public UnityEvent onAndroidBackButtonPressed = new UnityEvent();
 
 	void OnBrowserJSCallback(string callback) {
-        
-        if (callback == "fail")
-        {
-            PlayerPrefs.SetInt("MallPaymentStatus",0);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("MallPaymentStatus", 1);
-        }
 		Debug.Log("InAppBrowser: JS Message: " + callback);
 		onJSCallback.Invoke(callback);
 	}

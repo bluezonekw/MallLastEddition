@@ -36,7 +36,7 @@ public class GetDetailsProduct : MonoBehaviour
 
 
     public GameObject MessageObject;
-    public ArabicText MessageErorr;
+   
     public ArabicText MoreDetails;
 
     public ArabicText Total, Buy, Options;
@@ -85,8 +85,8 @@ SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
         }
         else
         {
-            Price.UseHinduNumbers = true;
-            SpecialPrice.UseHinduNumbers = true;
+            Price.UseHinduNumbers = false;
+            SpecialPrice.UseHinduNumbers = false;
             MoreDetails.Text = "المزيد من التفاصيل";
             Buy.Text = "أضافة الى حقيبة التسوق";
             Total.Text = "الأجمالى";
@@ -194,18 +194,20 @@ Costdetails+=float.Parse(child.gameObject.GetComponent<OptionForAttribute>().Pri
         CostwithDetails.Text = CostText.Text;
      
     }
-    public void MessageDisable()
-    {
-
-        MessageObject.SetActive(false);
-
-    }
+   
     public void AddTocart()
     {
-        if (OptionsId.Count == 0)
+        if (OptionsId.Count == 0&&loadimageFromApi.ProductRequst.data.attributes.Count!=0)
         {
+	GameObject g= GameObject.Instantiate(MessageObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
             MessageObject.SetActive(true);
-            MessageErorr.Text = "من فضلك حدد الخيارات";
+ if (UPDownMenu.LanguageValue == 1)
+        {
+           g.GetComponent<optionPopUp>().Message.Text = "Please Choose Options";
+}else
+{
+ g.GetComponent<optionPopUp>().Message.Text = "من فضلك حدد الخيارات";
+}
             return;
 
 
@@ -238,8 +240,12 @@ Costdetails+=float.Parse(child.gameObject.GetComponent<OptionForAttribute>().Pri
         addTocartrequest= JsonConvert.DeserializeObject<AddTocart>(response.Content);
         if (addTocartrequest.statsu == 0)
         {
+GameObject g= GameObject.Instantiate(MessageObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
             MessageObject.SetActive(true);
-            MessageErorr.Text = addTocartrequest.message;
+           g.GetComponent<optionPopUp>().Message.Text = addTocartrequest.message;
+
+
+          
             return;
 
         }

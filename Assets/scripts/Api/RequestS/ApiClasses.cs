@@ -82,7 +82,7 @@ public class ApiClasses : MonoBehaviour
     {
         if (string.IsNullOrEmpty(Sign_Up_Password.text) || string.IsNullOrEmpty(Sign_UP_Email.text))
         {
-            msg = "íÌÈ ãáÁ ÇáÍŞæá";
+            msg = "Ã­ÃŒÃˆ Ã£Ã¡Ã Ã‡Ã¡ÃÃÃ¦Ã¡";
             popUpFlag = true;
         }
         else
@@ -102,7 +102,7 @@ public class ApiClasses : MonoBehaviour
     {
         if (!Polcies.isOn)
         {
-            msg = "íÌÈ ÇáãæÇİŞÉ Úáí ÇáÔÑæØ æÇáÇÍßÇã";
+            msg = "ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø´Ø±ÙˆØ· ÙˆØ§Ù„Ø§Ø­ÙƒØ§Ù…";
             popUpFlag = true;
             return;
         }
@@ -198,7 +198,7 @@ public class ApiClasses : MonoBehaviour
 
         if (string.IsNullOrEmpty(Sign_In_Password.text) || string.IsNullOrEmpty(Sign_In_Email.text))
         {
-            msg = "íÌÈ ãáÁ ÇáÍŞæá";
+            msg = " Ù„Ø§ ÙŠÙ…ÙƒÙ† ØªØ±Ùƒ Ø§Ù„Ø­Ù‚ÙˆÙ„ ÙØ§Ø±ØºØ©";
             popUpFlag = true;
             return;
         }

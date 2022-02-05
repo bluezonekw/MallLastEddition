@@ -93,8 +93,8 @@ CheckEnterShop.CartEmpty=true;
             }
             Paytext.Text = "Pay Now";
             ClearaCarttext.Text = "Clear Cart";
-            counterController.UseHinduNumbers = false;
-            totalPrice.UseHinduNumbers = false;
+         
+            
         }
         else
         {
@@ -107,8 +107,8 @@ CheckEnterShop.CartEmpty=true;
             }
             Paytext.Text = "ادفع الان";
             ClearaCarttext.Text = "تفريغ السلة";
-            counterController.UseHinduNumbers = true;
-            totalPrice.UseHinduNumbers = true;
+         
+           
 
 
         }

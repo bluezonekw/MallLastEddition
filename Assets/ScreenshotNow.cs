@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
@@ -13,9 +14,77 @@ public class ScreenshotNow : MonoBehaviour
 
 
     public ArabicText Name, Phone, OrderNumber, Dateorder, DateArrival, Price;
+public Text TName, TPhone, TOrderNumber, TDateorder, TDateArrival, TPrice;
+
+public Text HTName, HTPhone, HTOrderNumber, HTDateorder, HTDateArrival, HTPrice;
+public ArabicText Title,HName, HPhone, HOrderNumber, HDateorder, HDateArrival, HPrice;
     // Use this for initialization
     void Start()
     {
+
+
+if (UPDownMenu.LanguageValue == 1)
+        {
+HTName.alignment= TextAnchor.MiddleLeft;
+HTPhone.alignment= TextAnchor.MiddleLeft;
+HTOrderNumber.alignment= TextAnchor.MiddleLeft;
+HTDateorder.alignment= TextAnchor.MiddleLeft;
+HTDateArrival.alignment= TextAnchor.MiddleLeft;
+HTPrice.alignment= TextAnchor.MiddleLeft;
+Title.Text="Recipt";
+HName.Text="Name:";
+HPhone.Text="Phone:";
+HOrderNumber.Text="Order NO:";
+HDateorder.Text="Order Date:";
+HDateArrival.Text="Order Arrive:";
+HPrice.Text="Price:";
+
+
+
+TName.alignment= TextAnchor.MiddleRight;
+TPhone.alignment= TextAnchor.MiddleRight;
+TOrderNumber.alignment= TextAnchor.MiddleRight;
+TDateorder.alignment= TextAnchor.MiddleRight;
+TDateArrival.alignment= TextAnchor.MiddleRight;
+TPrice.alignment= TextAnchor.MiddleRight;
+
+
+
+  }
+        else
+        {
+HTName.alignment= TextAnchor.MiddleRight;
+HTPhone.alignment= TextAnchor.MiddleRight;
+HTOrderNumber.alignment= TextAnchor.MiddleRight;
+HTDateorder.alignment= TextAnchor.MiddleRight;
+HTDateArrival.alignment= TextAnchor.MiddleRight;
+HTPrice.alignment= TextAnchor.MiddleRight;
+Title.Text="فاتــــــــورة";
+HName.Text="الاسم:";
+HPhone.Text="الهاتف:";
+HOrderNumber.Text="رقم الطلب:";
+HDateorder.Text="تاريخ الطلب:";
+HDateArrival.Text="تاريخ التوصيل:";
+HPrice.Text="السعـــر:";
+
+
+
+
+TName.alignment= TextAnchor.MiddleLeft;
+TPhone.alignment= TextAnchor.MiddleLeft;
+TOrderNumber.alignment= TextAnchor.MiddleLeft;
+TDateorder.alignment= TextAnchor.MiddleLeft;
+TDateArrival.alignment= TextAnchor.MiddleLeft;
+TPrice.alignment= TextAnchor.MiddleLeft;
+
+
+
+
+}
+
+
+
+
         if (Application.platform == RuntimePlatform.Android)
         {
             UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

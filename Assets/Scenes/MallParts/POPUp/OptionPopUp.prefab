@@ -28,6 +28,7 @@ RectTransform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1878742530517233216}
+  - {fileID: 1683289674173995372}
   m_Father: {fileID: 3263271564192845678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,7 +66,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1683289674173995372}
   - {fileID: 1096176186735140831}
   m_Father: {fileID: 4764475712688846598}
   m_RootOrder: 0
@@ -128,9 +128,9 @@ GameObject:
   - component: {fileID: 3263271564192845674}
   - component: {fileID: 3263271564192845675}
   - component: {fileID: 3520924363964206022}
-  - component: {fileID: 312286303240929326}
+  - component: {fileID: 4615311553512854004}
   m_Layer: 5
-  m_Name: DefaultPopUp
+  m_Name: OptionPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,16 +145,16 @@ RectTransform:
   m_GameObject: {fileID: 3263271564192845684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.385956, y: 11.385956, z: 11.385956}
+  m_LocalScale: {x: 13.386079, y: 13.386079, z: 13.386079}
   m_Children:
   - {fileID: 4764475712688846598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18718.02, y: -8502}
-  m_SizeDelta: {x: 3008, y: 1417}
+  m_AnchoredPosition: {x: 1474.9, y: 931.57}
+  m_SizeDelta: {x: -3008, y: -1417}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &3263271564192845679
 Canvas:
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f36d3c60fbed140a4d9c6219d46002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &312286303240929326
+--- !u!114 &4615311553512854004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,14 +264,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3263271564192845684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ebd462d9f7f5f541b493679f981ae34, type: 3}
+  m_Script: {fileID: 11500000, guid: bc87b60803f4ba9489c6faefe9e6cc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Message1: {fileID: 0}
-  Open: {fileID: 0}
-  Resume: {fileID: 0}
-  button: {fileID: 0}
-  Cart: {fileID: 169438540256213397, guid: 420ae2af14b19de48b744893295bafed, type: 3}
+  Message: {fileID: 3104339846523294236}
 --- !u!1 &6487720025545562749
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,15 +334,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e9692fe2cf329b44489527c1146fb4be, type: 3}
+    m_Font: {fileID: 12800000, guid: a0624914594e4f340950ee38873adb46, type: 3}
     m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 300
+    m_MaxSize: 166
     m_Alignment: 4
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -382,12 +378,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4505871141203753086}
-  m_Father: {fileID: 1878742530517233216}
-  m_RootOrder: 0
+  m_Father: {fileID: 4764475712688846598}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 293, y: 132}
+  m_AnchoredPosition: {x: 293.0001, y: 132}
   m_SizeDelta: {x: 126.74, y: 102.1976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3968449102848833051
@@ -411,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -472,9 +468,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312286303240929326}
-        m_TargetAssemblyTypeName: AddProductPopUp, Assembly-CSharp
-        m_MethodName: DestroyCurrent
+      - m_Target: {fileID: 4615311553512854004}
+        m_TargetAssemblyTypeName: optionPopUp, Assembly-CSharp
+        m_MethodName: ClosePopUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -510,16 +506,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7819257679302220782}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1878742530517233216}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.9946, y: -50.7469}
+  m_AnchoredPosition: {x: -2.994609, y: -50.746887}
   m_SizeDelta: {x: 744.8369, y: 231.9477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7876745062786118922
@@ -543,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -551,22 +547,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: a0624914594e4f340950ee38873adb46, type: 3}
+    m_FontSize: 60
     m_FontStyle: 1
-    m_BestFit: 1
-    m_MinSize: 8
+    m_BestFit: 0
+    m_MinSize: 1
     m_MaxSize: 100
     m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_AlignByGeometry: 1
+    m_RichText: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0629\uFEAE\uFEDB \u062A\uFE8E\uFEF3\u0631\uFE8E\uFE92\uFEE3 \u0629\uFEAA\uFEEB\uFE8E\uFEB8\uFEE3
-    \uFEDE\uFEC0\uFED3\u0627 \uFE8E\uFEE7\u0627\n\uFBFD\uFE8B\uFE8E\uFED7\uFEAA\uFEBB\u0627
-    \uFECA\uFEE3 \u062A\uFE8E\uFEF3\u0631\uFE8E\uFE92\uFEE4\uFEDF\u0627 \uFE90\uFECC\uFEDF\u0648
-    \u0645\uFEAA\uFED8\uFEDF\u0627"
+  m_Text: "\u062A\u0627\u0631\uFE8E\uFEF4\uFEA8\uFEDF\u0627 \u062F\uFEAA\uFEA3 \uFEDA\uFEE0\uFEC0\uFED3
+    \uFEE6\uFEE3"
 --- !u!114 &3104339846523294236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,10 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696ce2cd40d49484ab618bf74d31d4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: "\u0627\u0646\u0627 \u0627\u0641\u0636\u0644 \u0645\u0634\u0627\u0647\u062F\u0629
-    \u0645\u0628\u0627\u0631\u064A\u0627\u062A \u0643\u0631\u0629 \u0627\u0644\u0642\u062F\u0645
-    \u0648\u0644\u0639\u0628 \u0627\u0644\u0645\u0628\u0627\u0631\u064A\u0627\u062A
-    \u0645\u0639 \u0627\u0635\u062F\u0642\u0627\u0626\u0649 "
+  Text: "\u0645\u0646 \u0641\u0636\u0644\u0643 \u062D\u062F\u062F \u0627\u0644\u062E\u064A\u0627\u0631\u0627\u062A"
   RefrenceInput: {fileID: 0}
   ShowTashkeel: 0
   UseHinduNumbers: 0

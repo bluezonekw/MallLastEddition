@@ -372,6 +372,50 @@ MonoBehaviour:
   RefrenceInput: {fileID: 0}
   ShowTashkeel: 0
   UseHinduNumbers: 0
+--- !u!1 &337899132895510406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337899132895510404}
+  - component: {fileID: 337899132895510405}
+  m_Layer: 0
+  m_Name: BrowserOpener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &337899132895510404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337899132895510406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7509343200369039631}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &337899132895510405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337899132895510406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92db6939d9e9345199b50c8fc89dd7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pageToOpen: 
 --- !u!1 &398041386203518730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,6 +2576,79 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!1 &2980396813642057616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2980396813641826556}
+  - component: {fileID: 2980396813636043276}
+  m_Layer: 0
+  m_Name: InAppBrowserBridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2980396813641826556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980396813642057616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 598, y: 241.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7509343200369039631}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2980396813636043276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980396813642057616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c3a3e819d2b4adaa0b23283b204ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onJSCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onBrowserFinishedLoading:
+    m_PersistentCalls:
+      m_Calls: []
+  onBrowserStartedLoading:
+    m_PersistentCalls:
+      m_Calls: []
+  onBrowserFinishedLoadingWithError:
+    m_PersistentCalls:
+      m_Calls: []
+  onBrowserClosed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6354810485694379530}
+        m_TargetAssemblyTypeName: AutofillPayment, Assembly-CSharp
+        m_MethodName: backFromWeb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onAndroidBackButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3586677631731932887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,6 +5256,8 @@ RectTransform:
   m_Children:
   - {fileID: 6311974875812619222}
   - {fileID: 7509343199410211271}
+  - {fileID: 337899132895510404}
+  - {fileID: 2980396813641826556}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5176,6 +5295,10 @@ MonoBehaviour:
   Cart: {fileID: 169438540256213397, guid: 8ce6fd1001bb333418da0d4ef4afbdd9, type: 3}
   Messageobject: {fileID: 7132473875325092430}
   MessageErorr: {fileID: 1249022330368651383}
+  BrowserOpenr1: {fileID: 337899132895510405}
+  Qnet: {fileID: 678298240334040943}
+  Visa: {fileID: 7619279653549376529}
+  Cash: {fileID: 8563252656118356730}
 --- !u!1 &7509343200823938043
 GameObject:
   m_ObjectHideFlags: 0

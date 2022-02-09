@@ -16,14 +16,16 @@ public class CartInfo : MonoBehaviour
     public GameObject PaymentPanelAr,PaymentPanelEn;
     public bool ResumeBuying;
     public ArabicText CartText, TotalText,ClearaCarttext,Paytext,ResumeBuyingText;
+
+public GameObject Buybtn,Clearbtn;
     public string AuthToken()
     {
 
-        try
+       if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 
@@ -175,7 +177,7 @@ cartController.CartResponse=JsonConvert.DeserializeObject<CartResponse>(response
     {
 var foundCanvasObjects = FindObjectsOfType<UPDownMenu>();
 foundCanvasObjects[0].UpdateCartCount();
-        if (ResumeBuying) {
+        if (ResumeBuying || cartController.CartResponse.data.Carts.Count == 0) {
 
           
             Destroy(gameObject);
@@ -232,6 +234,31 @@ foundCanvasObjects[0].UpdateCartCount();
     {
         transform.GetChild(1).gameObject.SetActive(Cartvisible);
         totalPrice.Text = price.ToString() + " K.D";
+try{
+
+if (cartController.CartResponse.data.Carts.Count==0){
+
+Buybtn.GetComponent<Button>().enabled=false;
+Clearbtn.GetComponent<Button>().enabled=false;
+
+
+}else
+
+{
+
+Buybtn.GetComponent<Button>().enabled=true;
+Clearbtn.GetComponent<Button>().enabled=true;
+
+
+}
+}
+catch{
+
+Buybtn.GetComponent<Button>().enabled=false;
+Clearbtn.GetComponent<Button>().enabled=false;
+
+
+}
 
     }
 }

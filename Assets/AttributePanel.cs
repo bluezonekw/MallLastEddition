@@ -51,12 +51,12 @@ NoAttributs.gameObject.SetActive(false);
                 AttributeCreated.GetComponent<AttributeForDetailsMenu>().AttributeName.Text = p.name;
                 if (p.selection_type != "single")
                 {
-                    AttributeCreated.GetComponent<AttributeForDetailsMenu>().isMoreSelect = false;
+                    AttributeCreated.GetComponent<AttributeForDetailsMenu>().isMoreSelect = true;
 
                 }
                 else
                 {
-                    AttributeCreated.GetComponent<AttributeForDetailsMenu>().isMoreSelect = true;
+                    AttributeCreated.GetComponent<AttributeForDetailsMenu>().isMoreSelect = false;
                 }
                 AttributeCreated.GetComponent<AttributeForDetailsMenu>().numberofOptions = p.options.Count;
                 foreach (ProductOption optionss in p.options)

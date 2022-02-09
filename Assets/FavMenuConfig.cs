@@ -14,9 +14,34 @@ public Transform locationOfFavItems;
  public ArabicText Counts;
 GameObject Created;
 FavItem itemscript;
+public ArabicText FavTitle;
     // Start is called before the first frame update
     void Start()
     {
+if (UPDownMenu.LanguageValue == 1)
+        {
+
+
+FavTitle.Text="Favourite";
+
+}
+
+
+
+else
+
+
+{
+
+FavTitle.Text="المفضلة";
+
+
+
+
+}
+
+
+
         StartCoroutine(GetFavItem()); 
 try{
 Counts.Text=Response.data.data.Count.ToString();
@@ -64,11 +89,11 @@ catch{
    public string AuthToken()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 

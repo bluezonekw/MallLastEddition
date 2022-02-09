@@ -49,7 +49,7 @@ public class chooseCharacter : MonoBehaviour
 
     private void Awake()
 {
-    try
+    if(UPDownMenu.Login)
     {
       
         if (ApiClasses.Login.data.original.user.gander == 1)
@@ -63,7 +63,7 @@ public class chooseCharacter : MonoBehaviour
                 isChooseChar = true;
             }
     }
-    catch
+    else
     {
         try
         {

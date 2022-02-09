@@ -43,6 +43,36 @@ public class CartItemInfo : MonoBehaviour
         }
         Quntity.text = RealQuntity.ToString();
 
+if(RealQuntity==0){
+  var client = new RestClient("http://mymall-kw.com/api/V1/carts/"+ProductId.ToString());
+        client.Timeout = -1;
+       var request = new RestRequest(Method.DELETE);
+request.AddHeader("password-api", "mall_2021_m3m");
+
+        if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
+        request.AddHeader("auth-token", AuthToken());
+        request.AlwaysMultipartFormData = true;
+        IRestResponse response = client.Execute(request);
+
+
+var foundCanvasObjects = FindObjectsOfType<CartInfo>();
+foundCanvasObjects[0].counterController.Text=(int.Parse(foundCanvasObjects[0].counterController.Text)-1).ToString();
+Destroy(this.gameObject);
+
+
+}
+
+else {
+
         var client = new RestClient("http://mymall-kw.com/api/V1/carts/"+ProductId.ToString());
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
@@ -64,12 +94,6 @@ public class CartItemInfo : MonoBehaviour
         IRestResponse response = client.Execute(request);
 
 
-if(RealQuntity==0){
-var foundCanvasObjects = FindObjectsOfType<CartInfo>();
-foundCanvasObjects[0].counterController.Text=(int.Parse(foundCanvasObjects[0].counterController.Text)-1).ToString();
-Destroy(this.gameObject);
-
-
 }
 
 
@@ -77,11 +101,11 @@ Destroy(this.gameObject);
     public string AuthToken()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 

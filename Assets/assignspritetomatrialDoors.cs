@@ -71,24 +71,13 @@ LocalMat=GetComponent<MeshRenderer>().materials[0];
     {
 loaded=true;  
 
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
-        yield return www.SendWebRequest();
+    
 
-        if (www.result != UnityWebRequest.Result.Success) {
-            Debug.Log(www.error);
-        }
-        else {
-try
-        {
-             I.SetTexture("_MainTex", ((DownloadHandlerTexture)www.downloadHandler).texture);
+ WWW www = new WWW(url);
+        yield return www;
 
-      }
-        catch (Exception ex)
-        {
-
-
-        } 
- }
+       I.SetTexture("_MainTex",  www.texture);
+ 
 
  
  

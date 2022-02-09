@@ -57,23 +57,10 @@ try{
     {
  loaded=true; 
 
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
-        yield return www.SendWebRequest();
+       WWW www = new WWW(url);
+        yield return www;
 
-        if (www.result != UnityWebRequest.Result.Success) {
-            Debug.Log(www.error);
-        }
-        else {
- try
-        {
-            I.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
- }
-        catch (Exception ex)
-        {
-
-
-        }
-        }
+       I.texture = www.texture;
    
     }
     // Update is called once per frame

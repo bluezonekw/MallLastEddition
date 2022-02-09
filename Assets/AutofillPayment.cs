@@ -225,7 +225,7 @@ EmptyFieldMessageAR();
             screenshotscript.Name.Text = NameField.text;
             screenshotscript.Phone.Text = PhoneField.text;
             screenshotscript.OrderNumber.Text = orderinfo.data.id.ToString();
-            screenshotscript.Price.Text = orderinfo.data.order_price.ToString()+" K.D";
+            screenshotscript.Price.Text = orderinfo.data.final_price.ToString()+" K.D";
             screenshotscript.Dateorder.Text = UnixTimeStampToDateTime(orderinfo.data.created_at).ToString();
             screenshotscript.DateArrival.Text = UnixTimeStampToDateTime(orderinfo.data.delivery_time).ToString();
 CheckEnterShop.CartEmpty=true;
@@ -323,7 +323,7 @@ if (UPDownMenu.LanguageValue == 1)
             screenshotscript.Name.Text = NameField.text;
             screenshotscript.Phone.Text = PhoneField.text;
             screenshotscript.OrderNumber.Text = orderinfo.data.id.ToString();
-            screenshotscript.Price.Text = orderinfo.data.order_price.ToString()+" K.D";
+            screenshotscript.Price.Text = orderinfo.data.final_price.ToString()+" K.D";
             screenshotscript.Dateorder.Text = UnixTimeStampToDateTime(orderinfo.data.created_at).ToString();
             screenshotscript.DateArrival.Text = UnixTimeStampToDateTime(orderinfo.data.delivery_time).ToString();
 CheckEnterShop.CartEmpty=true;
@@ -420,11 +420,11 @@ foundObjects[0].UpdateCartCount();
     public string AuthToken()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 
@@ -438,11 +438,11 @@ foundObjects[0].UpdateCartCount();
     public string Email()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.email;
         }
-        catch
+        else
 
         {
 
@@ -457,11 +457,11 @@ foundObjects[0].UpdateCartCount();
     public string Name()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.name;
         }
-        catch
+        else
 
         {
 
@@ -476,11 +476,11 @@ foundObjects[0].UpdateCartCount();
     public string Phone()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.phone;
         }
-        catch
+       else
 
         {
 

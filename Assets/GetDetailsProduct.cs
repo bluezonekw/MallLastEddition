@@ -265,11 +265,11 @@ CheckEnterShop.CartEmpty=false;
     public string AuthToken()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 

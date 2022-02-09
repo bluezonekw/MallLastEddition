@@ -61,22 +61,37 @@ try{
     IEnumerator ExampleCoroutine()
     {
         
-GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
-        //yield on a new YieldInstruction that waits for 5 seconds.
-yield return new WaitForSeconds(1);
-while (MallLoader.Isload){
-yield return new WaitForSeconds(1);
-}
-       
-Destroy(g);
+
   Player.GetComponent<CharacterController>().enabled = false;
 
 try{
  	    Player.transform.localPosition=StoreLocation[storeid];
+if(Player.transform.localPosition.x==19)
+
+{
+
+Player.transform.localPosition+=new  Vector3(-1, 0, 0);
+
+
+}
+if(Player.transform.localPosition.x==-19f)
+
+{
+Player.transform.localPosition+=new  Vector3(1, 0, 0);
+}
 }catch{
 
  	    Player.transform.localPosition=StoreLocation[0];
 }
+GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+        //yield on a new YieldInstruction that waits for 5 seconds.
+yield return new WaitForSeconds(3);
+/*while (MallLoader.Isload){
+yield return new WaitForSeconds(1);
+}
+ */      
+Destroy(g);
+
 
  Player.GetComponent<CharacterController>().enabled = true;
         LoadStores.isactive = false;

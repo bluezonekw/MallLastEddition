@@ -8,9 +8,35 @@ public class CoinsScript : MonoBehaviour
 public Text CoinNumber;
 public GameObject Full,Empty;
 public GameObject AddCoins;
+public ArabicText NoCoin;
     // Start is called before the first frame update
     void Start()
     {
+
+if (UPDownMenu.LanguageValue == 1)
+        {
+
+
+NoCoin.Text="No Coins";
+
+}
+
+
+
+else
+
+
+{
+
+NoCoin.Text="لا يوجد";
+
+
+
+
+}
+
+
+
 if(UPDownMenu.coinsnumber==0){
 Full.SetActive(false);
 Empty.SetActive(true);

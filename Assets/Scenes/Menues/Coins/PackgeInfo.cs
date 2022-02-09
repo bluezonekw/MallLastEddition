@@ -13,20 +13,44 @@ public int id;
 public REsponseMyfatoraah GetInvoicId;
 public BrowserOpener  BrowserOpenr1;
 public GameObject MessageObject;
+public ArabicText BuyBtn;
     // Start is called before the first frame update
     void Start()
     {
         
+if (UPDownMenu.LanguageValue == 1)
+        {
+
+
+BuyBtn.Text="Buy";
+
+}
+
+
+
+else
+
+
+{
+
+BuyBtn.Text="شراء";
+
+
+
+
+}
+
+
+
     }
  public string Email()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.email;
         }
-        catch
-
+       else
         {
 
             return ApiClasses.Login.data.original.user.email;
@@ -40,11 +64,11 @@ public GameObject MessageObject;
     public string Name()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.name;
         }
-        catch
+        else
 
         {
 
@@ -59,11 +83,11 @@ public GameObject MessageObject;
     public string Phone()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.phone;
         }
-        catch
+        else
 
         {
 
@@ -286,12 +310,11 @@ if (UPDownMenu.LanguageValue == 1)
 public string AuthToken()
         {
 
-            try
+            if(!UPDownMenu.Login)
             {
                 return ApiClasses.Register.data.token;
             }
-            catch
-
+            else
             {
 
                 return ApiClasses.Login.data.original.access_token;

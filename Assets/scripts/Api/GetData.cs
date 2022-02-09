@@ -12,11 +12,11 @@ public class GetData : MonoBehaviour
     public string Adress()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.address;
         }
-        catch
+        else
         {
             return ApiClasses.Login.data.original.user.address;
 
@@ -27,7 +27,7 @@ public class GetData : MonoBehaviour
     public void Gender()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             if (ApiClasses.Register.data.user.gander =="0")
             {
@@ -39,19 +39,19 @@ public class GetData : MonoBehaviour
                 Female.isOn = true;
             }
         }
-        catch
+        else
         {
 
             if (ApiClasses.Login.data.original.user.gander == 0)
             {
                 Male.isOn = true;
-                Debug.Log("Male hhhhhhhhhhhhhhhhh");
+              
 
             }
             if (ApiClasses.Login.data.original.user.gander == 1)
             {
                 Female.isOn = true;
-                Debug.Log("FeMale hhhhhhhhhhhhhhhhh");
+              
             }
 
         }
@@ -59,11 +59,11 @@ public class GetData : MonoBehaviour
     }
     public string UserName()
     {
-        try
+       if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.name;
         }
-        catch
+        else
         {
             return ApiClasses.Login.data.original.user.name;
 
@@ -71,11 +71,11 @@ public class GetData : MonoBehaviour
     }
     public string Email()
     {
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.email;
         }
-        catch
+        else
         {
             return ApiClasses.Login.data.original.user.email;
         }
@@ -83,11 +83,11 @@ public class GetData : MonoBehaviour
     public string Phone()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.user.phone;
         }
-        catch
+        else
         {
             return ApiClasses.Login.data.original.user.phone;
         }

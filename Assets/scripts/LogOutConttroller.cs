@@ -20,12 +20,12 @@ public class LogOutConttroller : MonoBehaviour
         request.AddHeader("password_api", "mall_2021_m3m");
         request.AddHeader("lang_api", "ar");
 
-        try
+        if(!UPDownMenu.Login)
         {
             request.AddHeader("auth-token",ApiClasses.Register.data.token);
             IRestResponse response = client.Execute(request);
         }
-        catch
+        else
         {
             request.AddHeader("auth-token", ApiClasses.Login.data.original.access_token);
             IRestResponse response = client.Execute(request);

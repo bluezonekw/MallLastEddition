@@ -13,9 +13,36 @@ public GameObject ItemPackage;
 public Transform ScrollLocation;
 PackgeInfo  singlePackage;
 GameObject g;
+
+public ArabicText CoinTitle;
+
     // Start is called before the first frame update
     void Start()
     {
+if (UPDownMenu.LanguageValue == 1)
+        {
+
+
+CoinTitle.Text="Coins";
+
+}
+
+
+
+else
+
+
+{
+
+CoinTitle.Text="الذهبيات";
+
+
+
+
+}
+
+
+
 var client = new RestClient("http://mymall-kw.com/api/V1/coin-packages");
 client.Timeout = -1;
 var request = new RestRequest(Method.GET);
@@ -58,11 +85,11 @@ Destroy(gameObject);
         public string AuthToken()
         {
 
-            try
+            if(!UPDownMenu.Login)
             {
                 return ApiClasses.Register.data.token;
             }
-            catch
+           else
 
             {
 

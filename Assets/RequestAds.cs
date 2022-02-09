@@ -149,11 +149,11 @@ g.transform.localScale= new Vector3(0, 1, 1);
     public string AuthToken()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 

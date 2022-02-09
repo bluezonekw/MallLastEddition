@@ -42,12 +42,12 @@ fristShow=true;
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         Store = JsonConvert.DeserializeObject<StoreCategory>(response.Content);
-        int x = Store.data.Count / 4;
+        int x = Store.data.Count / 6;
         if (x == 0)
         {
             x = 1;
         }
-        ViewPort.sizeDelta = new Vector2(ViewPort.sizeDelta.x, 400 * x);
+       ViewPort.sizeDelta = new Vector2(ViewPort.sizeDelta.x, (450 * (x+1)));
         foreach (var s in Store.data)
         {
             g = GameObject.Instantiate(Child, ChildLocation);

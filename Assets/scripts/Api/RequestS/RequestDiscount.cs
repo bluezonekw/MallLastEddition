@@ -27,11 +27,11 @@ public class RequestDiscount : MonoBehaviour
     public string AuthToken()
     {
 
-        try
+        if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
-        catch
+        else
 
         {
 

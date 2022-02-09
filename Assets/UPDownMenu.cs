@@ -8,6 +8,7 @@ using System;
 
     public class UPDownMenu : MonoBehaviour
     {
+public static bool Login;
         bool IsShow;
         public AnimationClip Up, Down;
         public Animation A1;
@@ -52,7 +53,7 @@ TCoinsNumber.text=Math.Round(xy, 2).ToString()+"K";
 
 
 public void UpdateCartCount(){
-
+try{
 var client = new RestClient("http://mymall-kw.com/api/V1/carts");
 client.Timeout = -1;
 var request = new RestRequest(Method.GET);
@@ -76,6 +77,13 @@ IRestResponse response = client.Execute(request);
 cartController.CartResponse=JsonConvert.DeserializeObject<CartResponse>(response.Content);
 
 CartCount.text=cartController.CartResponse.data.Carts.Count.ToString();
+
+}catch{
+
+CartCount.text="0";
+
+
+}
 
 }
 
@@ -131,6 +139,7 @@ coinsnumber=Coins();
 }
         void Start()
         {
+UpdateCoinsNumber();
             IsShow = true;
             LanguageValue = 0;
 
@@ -227,11 +236,11 @@ UpdateCartCount();
         public string AuthToken()
         {
 
-            try
+            if(!Login)
             {
                 return ApiClasses.Register.data.token;
             }
-            catch
+            else
 
             {
 
@@ -261,11 +270,11 @@ B1.GetComponent<Button>().enabled=true;
         }
 public int Coins(){
 
- try
+ if(Login)
             {
                  return ApiClasses.Login.data.original.user.coins;
             }
-            catch
+            else
 
             {
 

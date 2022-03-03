@@ -26,15 +26,16 @@ float progress;
     }
   IEnumerator LoadSceneAsync ( string levelName )
     {
+        //yield return new WaitForEndOfFrame();
         AsyncOperation op = SceneManager.LoadSceneAsync(levelName);
 
         while ( !op.isDone )
         {
             progress = Mathf.Clamp01(op.progress / .9f);
 GetComponent<Renderer>().material.SetFloat("_Progress", progress);
-            Debug.Log(op.progress);
+//            Debug.Log(op.progress);
 
-            yield return null;
+           yield return null;
         }
     }
 }

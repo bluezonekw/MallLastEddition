@@ -144,8 +144,12 @@ namespace StarterAssets
 
 			// update animator if using character
 			if (_hasAnimator)
-			{
+			{try {
 				_animator.SetBool(_animIDGrounded, Grounded);
+			}
+			catch{
+
+			}
 			}
 		}
 
@@ -237,8 +241,19 @@ namespace StarterAssets
 				// update animator if using character
 				if (_hasAnimator)
 				{
+					try{
+
 					_animator.SetBool(_animIDJump, false);
+					}
+					catch{
+
+					}
+					try{
 					_animator.SetBool(_animIDFreeFall, false);
+					}
+					catch{
+
+					}
 				}
 
 				// stop our velocity dropping infinitely when grounded
@@ -256,7 +271,12 @@ namespace StarterAssets
 					// update animator if using character
 					if (_hasAnimator)
 					{
+						try{
 						_animator.SetBool(_animIDJump, true);
+						}
+						catch{
+
+						}
 					}
 				}
 
@@ -281,7 +301,13 @@ namespace StarterAssets
 					// update animator if using character
 					if (_hasAnimator)
 					{
+						try{
 						_animator.SetBool(_animIDFreeFall, true);
+						}
+						catch{
+
+							
+						}
 					}
 				}
 

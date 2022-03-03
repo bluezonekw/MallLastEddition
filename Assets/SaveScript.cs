@@ -48,13 +48,13 @@ public class SaveScript : MonoBehaviour
             fileStream = File.Create(savePath);
             bf.Serialize(fileStream, save);
             fileStream.Close();
-            Debug.Log("Data Saved");
+            //Debug.Log("Data Saved");
             FileInfo fileInfo = new FileInfo(fileStream.Name);
-            print( "Data Saved in : (       " + savePath + "       )  " );
+          //  print( "Data Saved in : (       " + savePath + "       )  " );
         }
         catch
         {
-            print("excreate");
+           // print("excreate");
         }
 
 
@@ -75,12 +75,12 @@ public class SaveScript : MonoBehaviour
             File.Delete(savePath);
             GameEmail = null;
             GamePassword = null;
-            print( "Data delete in : (       " + savePath + "       )  ");
+          //  print( "Data delete in : (       " + savePath + "       )  ");
 
         }
         else
         {
-            print("notdelete");
+          //  print("notdelete");
 
         }
     }
@@ -103,22 +103,22 @@ public class SaveScript : MonoBehaviour
                 GamePassword = save.SavedPassword;
                 GameEmail = save.SavedEmail;
 
-                print( "Data loaded from : (       " + savePath + "       )  ");
+              //  print( "Data loaded from : (       " + savePath + "       )  ");
 
             }
             catch
             {
-                print("exOpen");
+              //  print("exOpen");
 
             }
 
 
 
-            Debug.Log("Data Loaded");
+         //   Debug.Log("Data Loaded");
         }
         else
         {
-            Debug.LogWarning("Save file doesn't exist.");
+           // Debug.LogWarning("Save file doesn't exist.");
         }
     }
 }

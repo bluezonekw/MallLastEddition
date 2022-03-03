@@ -35,9 +35,48 @@ startAnimation1=true;
         Rindex = Lindex = Findex = 0;
         StoreRequest = GetComponent<SingleSToreRequest>();
 
+for(int x=0;x>5;x++){
+
+StartCoroutine(ChangeProduct(0));
+StartCoroutine(ChangeProduct(1));
+StartCoroutine(ChangeProduct(2));
+StartCoroutine(ChangeProduct(3));
+StartCoroutine(ChangeProduct(4));
+StartCoroutine(ChangeProduct(5));
+StartCoroutine(ChangeProduct(6));
+StartCoroutine(ChangeProduct(7));
+StartCoroutine(ChangeProduct(8));
 
 
 
+}
+
+ 
+
+    }
+
+    IEnumerator ChangeProduct(int sectionIdLocal)
+
+
+    {
+yield return new WaitForSeconds(3);
+try
+        {
+         
+            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().clip = ProductNext1;
+            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().Play();
+
+            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().clip = ProductNext2;
+            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().Play();
+
+
+            PostionImage[sectionIdLocal]++;
+        }
+        catch
+        {
+
+        }
+yield return new WaitForSeconds(3);
 
     }
     public void LoadProduct(int sectionIdLocal)
@@ -63,7 +102,10 @@ startAnimation1=true;
                 request.AddHeader("lang-api", "ar");
 
             }
+            if(AuthToken()!="0"){
             request.AddHeader("auth-token", AuthToken());
+            print("ProductDetails Guest");
+            }
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
             ProductRequst = JsonConvert.DeserializeObject<StoreProduct>(response.Content);
@@ -143,7 +185,7 @@ startAnimation1=true;
     }
     public string AuthToken()
     {
-
+try{
         if(!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
@@ -155,7 +197,10 @@ startAnimation1=true;
             return ApiClasses.Login.data.original.access_token;
 
         }
-
+}
+catch{
+    return "0";
+}
 
     }
     public void slideRight()

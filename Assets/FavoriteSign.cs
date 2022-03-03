@@ -8,7 +8,7 @@ public class FavoriteSign : MonoBehaviour
 {
     private Button CurrentB;
     public bool selected;
-
+public GameObject loginGameobject;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,10 @@ public class FavoriteSign : MonoBehaviour
     }
     public void addandremoveproductfavorite()
     {
+if(!ApiClasses.Vistor){
+
+
+
         var client = new RestClient("http://mymall-kw.com/api/V1/favorite");
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
@@ -62,7 +66,13 @@ public class FavoriteSign : MonoBehaviour
         {
             CurrentB.GetComponent<Image>().color = Color.white;
         }
+}
+else
+{
 
+
+    GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+}
 
     }
 

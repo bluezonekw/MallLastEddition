@@ -76,13 +76,15 @@ public class USplash : MonoBehaviour
         else if (m_Type == SplashType.Movie)
         {
 #if !UNITY_ANDROID && !UNITY_IPHONE
-            MovieTexture movie = (MovieTexture)Movie.mainTexture;
-            GetComponent<AudioSource>().clip = movie.audioClip;
-            GetComponent<AudioSource>().Play();
-            movie.Play();
+           // MovieTexture movie = (MovieTexture)Movie.mainTexture;
+           // GetComponent<AudioSource>().clip = movie.audioClip;
+           // GetComponent<AudioSource>().Play();
+          //  movie.Play();
 #else
             Debug.LogWarning("IOS and Android doesn't support movie texture!");
 #endif
+        
+       
         }
     }
 
@@ -115,8 +117,8 @@ public class USplash : MonoBehaviour
             float l = 0;
             //Android and IOS not ssuported Movie Texture
 #if !UNITY_ANDROID && !UNITY_IPHONE
-            MovieTexture movie = (MovieTexture)Movie.mainTexture;
-            l = movie.duration;
+            //MovieTexture movie = (MovieTexture)Movie.mainTexture;
+            //l = movie.duration;
 #endif
             return l;
         }

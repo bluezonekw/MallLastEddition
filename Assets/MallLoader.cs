@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Threading;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
+//using UnityEngine.AddressableAssets;
+//using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 public class MallLoader : MonoBehaviour
 {
 private double lastInterval;
-public AssetReference[] Allscene;
+//public AssetReference[] Allscene;
     public Transform T1;
     bool[] sceneloaded = { false, false, false, false, false, false, false, false, false, false, false };
 public GameObject Loading;
@@ -42,7 +42,7 @@ GameObject g;
         }
 */
 
-Addressables.LoadSceneAsync(Allscene[int.Parse(Scene)-1],UnityEngine.SceneManagement.LoadSceneMode.Additive).Completed  += SceneLoadComplete;
+//Addressables.LoadSceneAsync(Allscene[int.Parse(Scene)-1],UnityEngine.SceneManagement.LoadSceneMode.Additive).Completed  += SceneLoadComplete;
 lastInterval= Time.realtimeSinceStartup;
 print("The first time   /"+ lastInterval);
 //g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
@@ -52,7 +52,7 @@ yield return null;
 
     }
 
-private void SceneLoadComplete(AsyncOperationHandle<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance> obj)     {  
+/*private void SceneLoadComplete(AsyncOperationHandle<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance> obj)     {  
        if (obj.Status == AsyncOperationStatus.Succeeded) 
 {
 lastInterval=-Time.realtimeSinceStartup;
@@ -63,7 +63,7 @@ Isload=false;
 }
         }   
 
-
+*/
   IEnumerator Load2Sec()
     {
         //Print the time of when the function is first called.

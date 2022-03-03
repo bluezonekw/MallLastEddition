@@ -197,6 +197,10 @@ Costdetails+=float.Parse(child.gameObject.GetComponent<OptionForAttribute>().Pri
    
     public void AddTocart()
     {
+if(!ApiClasses.Vistor){
+
+
+
         if (OptionsId.Count == 0&&loadimageFromApi.ProductRequst.data.attributes.Count!=0)
         {
 	GameObject g= GameObject.Instantiate(MessageObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
@@ -259,8 +263,16 @@ GameObject.Instantiate(CartMenu,GameObject.FindGameObjectWithTag("MainCanvas").t
 CheckEnterShop.CartEmpty=false;
 
 
-    }
 
+}
+else{
+ GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+
+
+}
+
+    }
+public GameObject loginGameobject;
 
     public string AuthToken()
     {
@@ -301,7 +313,7 @@ indedeximage++;
 }
      
         
-yield return new WaitForSeconds(6);
+yield return new WaitForSeconds(3);
 
 startAnimation1=true;
     }

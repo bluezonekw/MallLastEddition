@@ -30,6 +30,7 @@ public class LogOutConttroller : MonoBehaviour
             request.AddHeader("auth-token", ApiClasses.Login.data.original.access_token);
             IRestResponse response = client.Execute(request);
         }
+        VisitorLogin.logout=true;
         loadSceneWithName("UI");
     }
     public void loadSceneWithName(string scenename)

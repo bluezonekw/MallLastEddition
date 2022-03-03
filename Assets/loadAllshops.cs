@@ -10,6 +10,7 @@ public static DataStore[] d;
     // Start is called before the first frame update
     void Awake()
     {
+        try{
 d=new DataStore[330];
         var client = new RestClient(@"http://mymall-kw.com/api/V1/get-stores-pagination?from=1&to=330");
         client.Timeout = -1;
@@ -41,7 +42,11 @@ d[x]=null;
 
 
 }
+        }
+        catch{
 
+            
+        }
 
     }
 

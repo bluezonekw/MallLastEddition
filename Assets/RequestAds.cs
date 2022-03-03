@@ -19,6 +19,8 @@ public class RequestAds : MonoBehaviour
  
  void Awake()
     {
+        if(!ApiClasses.Vistor){
+
         index0 = index1 = index2 = index3 = 0;
         var client = new RestClient(@"http://mymall-kw.com/api/V1/stands-ads?hall=" + Hall00 + @"&floor=" + Floor00);
         client.Timeout = -1;
@@ -142,7 +144,7 @@ g.transform.localScale= new Vector3(0, 1, 1);
 
 
         startAnimation1=startAnimation2=startAnimation3=startAnimation4 = true;
-
+        }
     }
 
 

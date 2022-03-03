@@ -23,8 +23,10 @@ public class ApiClasses : MonoBehaviour
     public Toggle Polcies,Male,Female;
     public float Waittime;
     public Dropdown dropdown;
+    public  static bool Vistor;
     private void Start()
     {
+        if(!VisitorLogin.logout){
         SaveScript.LoadData();
         if (SaveScript.GameEmail!= null  && SaveScript.GamePassword != null)
         {
@@ -42,6 +44,18 @@ public class ApiClasses : MonoBehaviour
         {
 
         }
+        }
+    }
+    public void LoginAsVisitor(){
+Vistor=true;
+
+ lodaing.SetActive(true);
+ SceneManager.LoadScene("LoadingScene");
+
+
+
+
+
     }
     private void Update()
     {
@@ -70,9 +84,9 @@ public class ApiClasses : MonoBehaviour
     }
     IEnumerator showPopUp(string msg)
     {
-        print("show popup");
+        
         popup.SetActive(true);
-        print("popup : " + popup.active);
+        
 
         popup.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ArabicText>().Text = msg;
         yield return new WaitForSeconds(0.0f);
@@ -82,7 +96,7 @@ public class ApiClasses : MonoBehaviour
     {
         if (string.IsNullOrEmpty(Sign_Up_Password.text) || string.IsNullOrEmpty(Sign_UP_Email.text))
         {
-            msg = "íÌÈ ãáÁ ÇáÍÞæá";
+            msg = "يجب ملئ جميع الحقول";
             popUpFlag = true;
         }
         else
@@ -129,6 +143,7 @@ public class ApiClasses : MonoBehaviour
 
 
         }
+        else
 
         if (Female.isOn)
         {
@@ -136,6 +151,10 @@ public class ApiClasses : MonoBehaviour
 
 
 
+        }
+        else
+        {
+              request.AddParameter("gander", "0");
         }
         lodaing.SetActive(true);
 
@@ -145,38 +164,45 @@ public class ApiClasses : MonoBehaviour
 
         Register = JsonConvert.DeserializeObject<Register>(response.Content);
 
-        print(NameInput.text + "//" + Sign_UP_Email.text + "///" + PhoneInput.text + "///" + Sign_Up_Password.text + "//"+ dropdown.options[dropdown.value].text);
+        
 
 
 
 
 
-        print("REgisterStatues   :" + Register.statsu+"    / MEssage  :   "+Register.message);
+      
 
         if (Register.statsu == 0)
         {
 
 
+msg="";
+foreach(string s in Register.message){
 
-
-            msg = Register.message;
+ msg +="     ,"+s;
+print(s);
+}
+           
             popUpFlag = true;
             lodaing.SetActive(false);
             return;
 
 
-        }
+        }else
         if (Register.statsu == 1)
         {
-            msg = Register.message;
+            msg = Register.message[0];
             popUpFlag = true;
             SaveScript.SaveData();
-UPDownMenu.Login=false;
+            UPDownMenu.Login=false;
+            VisitorLogin.logout=false;
+            Vistor=false;
             SceneManager.LoadScene("LoadingScene");
 
         }
 
     }
+           
 
 
 
@@ -220,6 +246,8 @@ UPDownMenu.Login=false;
 
             SaveScript.SaveData();
 UPDownMenu.Login=true;
+VisitorLogin.logout=false;
+Vistor=false;
             SceneManager.LoadScene("LoadingScene");
 
         }

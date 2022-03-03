@@ -28,7 +28,7 @@ public class DataRegister
 public class Register
 {
     public int statsu { get; set; }
-    public string message { get; set; }
+     public List<string> message { get; set; }
     public DataRegister data { get; set; }
 }
 

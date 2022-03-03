@@ -25,7 +25,17 @@ public Text CartCount;
 public GameObject profile;
 public Text TCoinsNumber;
 public GameObject Cart2;
+public GameObject loginGameobject;
+public void openprofile(){
+ if(!ApiClasses.Vistor){
+    profile.SetActive(true);
+ }else
+ {
+     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
 
+
+}
 public void UpdateCoinsNumber(){
 if(coinsnumber<1000){
 TCoinsNumber.text=coinsnumber.ToString();
@@ -110,20 +120,32 @@ profile.SetActive(false);
 
         // Start is called before the first frame update
 public void CreateFavotite(){
-
+ if(!ApiClasses.Vistor){
 GameObject.Instantiate(FavoriteMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
+ else
+ {
+     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
 
 }
 
 public void CreateCoins(){
-
+ if(!ApiClasses.Vistor){
 GameObject.Instantiate(CoinsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 }
+else
+ {
+     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
 
+}
 
  void Awake()
     {
+         if(!ApiClasses.Vistor){
 UpdateCartCount();
+         
 
 if(cartController.CartResponse.data.Carts.Count>0){
 
@@ -133,13 +155,26 @@ OpenCart2();
 
 
 }
+         
 coinsnumber=Coins();
-  UpdateCoinsNumber();
+}
+else{
+    coinsnumber=0;
+    UpdateCoinsNumber();
+
+CartCount.text="0";
+
+
+}
+
+  
 
 }
         void Start()
         {
+             if(!ApiClasses.Vistor){
 UpdateCoinsNumber();
+             }
             IsShow = true;
             LanguageValue = 0;
 
@@ -180,7 +215,8 @@ UpdateCartCount();
         }
         public void OpenCart()
         {
-
+            try{
+ if(!ApiClasses.Vistor){
 
 
             var client = new RestClient("http://mymall-kw.com/api/V1/carts");
@@ -200,15 +236,28 @@ UpdateCartCount();
             request.AddHeader("auth-token", AuthToken());
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
+            
             cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
             GameObject.Instantiate(Cart, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+
+ }
+
+ else
+ {
+     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
+            }
+            catch{
+
+            }
         }
 
 
 
  public void OpenCart2()
         {
-
+            try{
+ if(!ApiClasses.Vistor){
 
 
             var client = new RestClient("http://mymall-kw.com/api/V1/carts");
@@ -228,8 +277,18 @@ UpdateCartCount();
             request.AddHeader("auth-token", AuthToken());
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
+            print(response.Content);
             cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
             GameObject.Instantiate(Cart2, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
+ else
+ {
+     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
+            }
+            catch{
+                
+            }
         }
 
 
@@ -269,7 +328,7 @@ B1.GetComponent<Button>().enabled=true;
 
         }
 public int Coins(){
-
+try{
  if(Login)
             {
                  return ApiClasses.Login.data.original.user.coins;
@@ -284,6 +343,10 @@ public int Coins(){
             }
 
 
+}
+catch{
+    return 0;
+}
 }
     }
 

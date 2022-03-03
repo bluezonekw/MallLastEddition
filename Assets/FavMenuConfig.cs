@@ -106,6 +106,7 @@ catch{
 
 IEnumerator GetFavItem()
  	   {
+            try{
 	var client = new RestClient("http://mymall-kw.com/api/V1/favorite?limit=1000");
 	client.Timeout = -1;
 	var request = new RestRequest(Method.GET);
@@ -126,8 +127,12 @@ IEnumerator GetFavItem()
  
        Response = JsonConvert.DeserializeObject<FavRequest>(response.Content);
 
-yield return response.Content;
 
+            }
+            catch{
+                
+            }
+           yield return null;
 	   }
 
 

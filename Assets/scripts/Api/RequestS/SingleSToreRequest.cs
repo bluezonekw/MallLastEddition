@@ -63,6 +63,7 @@ StoreId=int.Parse( gameObject.name);
     }
     public string AuthToken()
     {
+        try{
 
         if(!UPDownMenu.Login)
         {
@@ -75,7 +76,10 @@ StoreId=int.Parse( gameObject.name);
             return ApiClasses.Login.data.original.access_token;
 
         }
-
+        }
+        catch{
+            return " ";
+        }
 
     }
     IEnumerator LoadStoreInfo()

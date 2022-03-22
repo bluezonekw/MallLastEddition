@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class chooseCharacter : MonoBehaviour
 {
+    public NetworkManager n1;
     public GameObject  Male1, Male2, Male3, Female,allScene,ChooseScene;
     public GameObject Message;
     public Avatar MaleAvatar1, MaleAvatar2, MaleAvatar3, FemaleAvater;
     public Animator a1;
+    public GameObject CameraPostion;
     public static bool isChooseChar;
+    public GameObject Playerobject;
+     public GameObject cameranimation;
+    //public NetworkManager n1; 
     // Start is called before the first frame update
     void Start()
     {
+        cameranimation.GetComponent<Animation>().Play();
         if(ApiClasses.Vistor){
 
 chooseMale3();
@@ -27,7 +33,10 @@ chooseMale3();
         allScene.SetActive(true);
         Message.SetActive(true);
         isChooseChar = true;
+n1.play();
 
+CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
+Playerobject.SetActive(true);
     }
 
     public void chooseMale2()
@@ -39,6 +48,9 @@ chooseMale3();
         allScene.SetActive(true);
         Message.SetActive(true);
         isChooseChar = true;
+       n1.play();
+       CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
+       Playerobject.SetActive(true);
     }
     public void chooseMale3()
     {
@@ -49,6 +61,12 @@ chooseMale3();
         allScene.SetActive(true);
         Message.SetActive(true);
         isChooseChar = true;
+        if(!ApiClasses.Vistor){
+       n1.play();
+       
+        }
+        CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
+        Playerobject.SetActive(true);
     }
 
     private void Awake()
@@ -65,6 +83,9 @@ chooseMale3();
                 allScene.SetActive(true);
                 Message.SetActive(true);
                 isChooseChar = true;
+                n1.play();
+                CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
+                Playerobject.SetActive(true);
             }
     }
     else
@@ -81,6 +102,9 @@ chooseMale3();
                     allScene.SetActive(true);
                     Message.SetActive(true);
                     isChooseChar = true;
+                    n1.play();
+                    CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
+                    Playerobject.SetActive(true);
                 }
             }
         catch

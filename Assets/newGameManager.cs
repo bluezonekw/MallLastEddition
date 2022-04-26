@@ -2,17 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Voice;
 public class newGameManager : MonoBehaviourPunCallbacks
 {
+
  public  IPunPrefabPool  s ;
     public GameObject playerPerfab;
- public int countRoom=0;
+ public  int countRoom=0;
+
+
+public int ID()
+    {
+       if(!UPDownMenu.Login)
+        {
+            return ApiClasses.Register.data.user.id;
+        }
+        else
+        {
+            return ApiClasses.Login.data.original.user.id;
+
+        }
+    }
+  
  [PunRPC]
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
        
-      
-    PhotonNetwork.InstantiateRoomObject(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
+      print(newPlayer.ToStringFull());
+      createplayer(newPlayer.NickName);
+ //   PhotonNetwork.InstantiateRoomObject(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
       
        
     }
@@ -23,6 +41,15 @@ public class newGameManager : MonoBehaviourPunCallbacks
        
     }
     // Start is called before the first frame update
+    [PunRPC]
+    public void createplayer(string name){
+
+var go= PhotonNetwork.Instantiate(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
+            go.name= name;
+            if(name==ID().ToString()){
+DontDestroyOnLoad(go);
+            }
+    }
     void Start()
     {
       
@@ -36,28 +63,16 @@ if (pool != null && this.playerPerfab != null)
              pool.ResourceCache.Add(playerPerfab.name, playerPerfab);
         }
         }
-        try{
-         
-         if(!PhotonNetwork.IsMasterClient){
-
-            PhotonNetwork.InstantiateRoomObject(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
-            print("Shetan Wal Llabd");
-         }
+   
+         createplayer(ID().ToString());
+   
+        
+       
           countRoom=PhotonNetwork.CurrentRoom.Players.Count;
-foreach(var p in PhotonNetwork.CurrentRoom.Players){
-
-
-   PhotonNetwork.InstantiateRoomObject(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
-
-
-}
-        }
-        catch{
-
-        }
+          
         
      
-      // PhotonNetwork.Instantiate(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
+    
     }
 
     // Update is called once per frame
@@ -65,17 +80,11 @@ foreach(var p in PhotonNetwork.CurrentRoom.Players){
     {
       try{
        
-      if(countRoom<PhotonNetwork.CurrentRoom.Players.Count){
-       
-for(int x=0;x<PhotonNetwork.CurrentRoom.Players.Count-countRoom;x++){
-print("01017800204");
- PhotonNetwork.InstantiateRoomObject(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
-
-}
+    
 
       countRoom=PhotonNetwork.CurrentRoom.Players.Count;
     }
-      }
+      
       catch{
 
       }    

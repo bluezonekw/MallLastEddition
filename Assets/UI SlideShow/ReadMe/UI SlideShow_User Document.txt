@@ -1,0 +1,22 @@
+Dynamic UI SlideShow 
+--------------------
+
+Instructions to create slideshow:
+	-> Add Canvas to the required scene you want to make slideshow.
+	-> Drag and drop the "SlideShow_Root" prefab as a child of the added canvas from Assets->UI Slideshow->Prefabs.
+	-> You can resize and align the SlideShow_Root recttransform as your wish and where you want the slideshow.
+	-> Then add the "SlideImage" prefab as the child of the "Background" gameobject under the SlideShow_Root gameobject.
+	-> Add Or duplicate the multiple SlideImage objects to assign your slideshow images.
+	-> You can assign your images to the Image component of the SlideImage objects as the Source Image.
+	-> Select SlideShow_Root object then you can customize the slideshow using the given properties in the inspector window under "UI Slide Show" component. 
+	-> Finaly play the scene and enjoy your slideshow.
+
+Notes:	
+	* Refer "RuntimeImageLoader" demo scene to load slide images at runtime 
+	  from Assets->UI SlideShow->Scenes->RunTimeImageLoader->Scenes. 
+	* Use equal size slide images to create nice looks without black border.
+	* And also Make sure the size ratio of the SlideShow_Root is equal to the used slide images size ratio to avoid black border.
+	* We have added some of the sample images under the Assets->UI SlideShow->Textures->SampleImageTextures.	
+
+	
+		

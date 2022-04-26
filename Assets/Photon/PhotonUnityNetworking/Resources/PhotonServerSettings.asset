@@ -16,20 +16,20 @@ MonoBehaviour:
     AppIdRealtime: e32d0601-8dd1-43ed-8799-fb5cd1c8a72f
     AppIdFusion: 
     AppIdChat: 335fb047-4f98-42ee-9811-c4fad884de29
-    AppIdVoice: 
+    AppIdVoice: 2181c8eb-1b10-4718-bf8d-3f7891534d52
     AppVersion: V2
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: eu
     Server: 
     Port: 0
     ProxyServer: 
     Protocol: 0
     EnableProtocolFallback: 1
     AuthMode: 0
-    EnableLobbyStatistics: 0
+    EnableLobbyStatistics: 1
     NetworkLogging: 1
   DevRegion: eu
-  PunLogging: 2
+  PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
@@ -38,9 +38,10 @@ MonoBehaviour:
   - DestroyRpc
   - DestroySpaceship
   - Fire
-  - RespawnSpaceship
   - OnPlayerEnteredRoom
   - OnPlayerLeftRoom
+  - RespawnSpaceship
+  - SendChat
   - SharChatColliderOff
   - SharChatColliderOn
   - SharChatOtherColliderOn
@@ -49,6 +50,10 @@ MonoBehaviour:
   - ShareUserProfile
   - ShareVoiceChat
   - ShareVoiceChatOff
+  - createplayer
+  - CantHearYou
+  - ChangeColour
+  - HeresWhy
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 1
+  DevRegionSetOnce: 0

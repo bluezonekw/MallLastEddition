@@ -89,6 +89,7 @@ yield return new WaitForSeconds(3);
             }
            
             var client = new RestClient(@"http://mymall-kw.com/api/V1/get-single-product/" + Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name);
+         print( Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name + "      product id");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("password-api", "mall_2021_m3m");
@@ -104,11 +105,13 @@ yield return new WaitForSeconds(3);
             }
             if(AuthToken()!="0"){
             request.AddHeader("auth-token", AuthToken());
-            print("ProductDetails Guest");
+          
             }
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
+            print(response.Content);
             ProductRequst = JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+            
             if (ProductRequst.statsu == 1)
             {
                 if (sectionIdLocal <= 2 && sectionIdLocal >= 0)

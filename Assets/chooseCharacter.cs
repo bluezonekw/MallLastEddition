@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using NativeFilePickerNamespace;
+
 public class chooseCharacter : MonoBehaviour
 {
+   
+    
     public NetworkManager n1;
     public GameObject  Male1, Male2, Male3, Female,allScene,ChooseScene;
     public GameObject Message;
@@ -17,11 +21,15 @@ public class chooseCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameranimation.GetComponent<Animation>().Play();
+
         if(ApiClasses.Vistor){
 
 chooseMale3();
 
+        }else
+        {
+
+               cameranimation.GetComponent<Animation>().Play();
         }
     }
     public void chooseMale1()

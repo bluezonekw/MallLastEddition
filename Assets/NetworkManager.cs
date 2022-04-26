@@ -5,6 +5,11 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using System;
+#if PLATFORM_ANDROID
+using UnityEngine.Android;
+#endif
+
+
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     
@@ -12,24 +17,36 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public InputField i1;
      public  PhotonView pv;
     // Start is called before the first frame update
-     public string UserName()
+    
+
+ public int ID()
     {
        if(!UPDownMenu.Login)
         {
-            return ApiClasses.Register.data.user.name;
+            return ApiClasses.Register.data.user.id;
         }
         else
         {
-            return ApiClasses.Login.data.original.user.name;
+            return ApiClasses.Login.data.original.user.id;
 
         }
     }
+
+    GameObject dialog = null;
+   
     void Start()
     {
+        #if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+        {
+            Permission.RequestUserPermission(Permission.Camera);
+            dialog = new GameObject();
+            }
+        #endif
         //connect();
         // i1.text="sad"+DateTime.Now.Second.ToString();
         
- ConnectToPhoton(UserName());
+ ConnectToPhoton(ID().ToString());
       // pv.Owner.NickName=i1.text;
   
     }
@@ -71,6 +88,7 @@ public void play(){
     {
         print("joined Room Y--y");
         newgamemanager.SetActive(true);
+        
 //PhotonNetwork.LoadLevel(0);
 
 
@@ -87,6 +105,24 @@ public void play(){
         print(message);
         CreatePhotonRoom("Mymall");
 
+    }
+    public override void OnJoinedLobby()
+    {
+       
+       
+    }
+  
+     public bool FindFriends(string[] friendsUserIds)
+    {
+        return PhotonNetwork.FindFriends(friendsUserIds);
+    }
+    public override void OnFriendListUpdate(List<FriendInfo> friendsInfo)
+    {
+       for(int i=0; i < friendsInfo.Count; i++)
+        {
+            FriendInfo friend = friendsInfo[i];
+            Debug.LogFormat("{0}", friend);
+        }
     }
     // Update is called once per frame
     void Update()

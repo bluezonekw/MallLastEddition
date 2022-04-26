@@ -15,7 +15,7 @@ public class ProductAttribute
     public string name { get; set; }
     public bool has_price { get; set; }
     public string selection_type { get; set; }
-
+ public bool required { get; set; }
     public List<ProductOption> options { get; set; }
 }
 

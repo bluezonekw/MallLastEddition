@@ -16,13 +16,14 @@ public class RequestAds : MonoBehaviour
     public GameObject g;
     public List<GameObject> LeftFront, LeftBack, Rightfront, RightBack;
     // Start is called before the first frame update
- 
+ public string URL=@"http://mymall-kw.com/api/V1/stands-ads?hall=";
  void Awake()
     {
+        try{
         if(!ApiClasses.Vistor){
 
         index0 = index1 = index2 = index3 = 0;
-        var client = new RestClient(@"http://mymall-kw.com/api/V1/stands-ads?hall=" + Hall00 + @"&floor=" + Floor00);
+        var client = new RestClient(URL + Hall00 + @"&floor=" + Floor00);
         client.Timeout = -1;
         var request = new RestRequest(Method.GET);
         request.AddHeader("password_api", "mall_2021_m3m");
@@ -144,6 +145,13 @@ g.transform.localScale= new Vector3(0, 1, 1);
 
 
         startAnimation1=startAnimation2=startAnimation3=startAnimation4 = true;
+        }
+
+
+        }
+        catch{
+
+            
         }
     }
 

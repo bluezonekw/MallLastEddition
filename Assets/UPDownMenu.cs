@@ -8,6 +8,13 @@ using System;
 
     public class UPDownMenu : MonoBehaviour
     {
+bool openchat;
+        public GameObject Chat;
+        public void OpenCloseChat()  {
+            openchat=!openchat;
+Chat.SetActive(openchat);
+
+        }
 public static bool Login;
         bool IsShow;
         public AnimationClip Up, Down;
@@ -26,6 +33,8 @@ public GameObject profile;
 public Text TCoinsNumber;
 public GameObject Cart2;
 public GameObject loginGameobject;
+public  Text RoomMember;
+public  newGameManager mainmanager;
 public void openprofile(){
  if(!ApiClasses.Vistor){
     profile.SetActive(true);
@@ -110,7 +119,7 @@ catch{}
 LoadStores.isactive = false; 
         Map.SetActive(LoadStores.isactive);
 profile.SetActive(false);
-
+Chat.SetActive(false);
 
 
 }
@@ -326,7 +335,10 @@ B1.GetComponent<Button>().enabled=true;
 
 }
 
-        }
+
+RoomMember.text=mainmanager.countRoom.ToString();
+
+   }
 public int Coins(){
 try{
  if(Login)

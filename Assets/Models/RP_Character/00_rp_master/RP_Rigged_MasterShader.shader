@@ -35,11 +35,12 @@ Shader "RP_Rigged_MasterShader"
 
 	SubShader
 	{
-		Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry+0" }
+		Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry+0" "RenderPipeline" = "UniversalRenderPipeline"}
 		Cull Back
 		CGINCLUDE
 		#include "UnityPBSLighting.cginc"
 		#include "Lighting.cginc"
+		
 		#pragma target 3.0
 		#pragma shader_feature _AODIFFUSETOGGLE_ON
 		#pragma shader_feature _MASKCOLORIZETOGGLE_ON

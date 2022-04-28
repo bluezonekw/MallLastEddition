@@ -76,7 +76,7 @@ public string FriendNameInserver;
 
     public RTLTextMeshPro FrinedName;
     public Transform MessageListParent;
-    public Image friendicon;
+    public RawImage friendicon;
     public static bool PrivateChatisOpen;
  public TMP_InputField WriteMessageprivate;
 public GameObject privateChatSend,PrivateChatReciev;
@@ -178,6 +178,7 @@ SendPhoto.onClick.AddListener(this.SendPrivateImage);
         }
 
       FriendNameInserver=EventSystem.current.currentSelectedGameObject.name;
+      friendicon.texture=EventSystem.current.currentSelectedGameObject.GetComponent<MyFriendData>().Icon.texture;
       print( FriendNameInserver+"              00       "+gameObject.name);
      
 

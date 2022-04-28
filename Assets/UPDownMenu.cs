@@ -5,16 +5,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Networking;
 
-    public class UPDownMenu : MonoBehaviour
+public class UPDownMenu : MonoBehaviour
     {
+
+
+
+
+
+
+
+ 
+
 bool openchat;
+public GameObject NotificationPrefab;
+public Text NotificationText;
         public GameObject Chat;
         public void OpenCloseChat()  {
             openchat=!openchat;
 Chat.SetActive(openchat);
 
         }
+        public bool notifiyopen;
+        public void openNotification(){
+notifiyopen=!notifiyopen;
+if(notifiyopen){
+ if(!ApiClasses.Vistor){
+      GameObject.Instantiate(NotificationPrefab, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }else
+ {
+     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ }
+}
+else{
+
+CloseAllMenus();
+
+}
+
+}
 public static bool Login;
         bool IsShow;
         public AnimationClip Up, Down;
@@ -121,7 +151,6 @@ LoadStores.isactive = false;
 profile.SetActive(false);
 Chat.SetActive(false);
 
-
 }
 
 
@@ -154,7 +183,7 @@ else
     {
          if(!ApiClasses.Vistor){
 UpdateCartCount();
-         
+               
 
 if(cartController.CartResponse.data.Carts.Count>0){
 
@@ -181,6 +210,7 @@ CartCount.text="0";
 }
         void Start()
         {
+      
              if(!ApiClasses.Vistor){
 UpdateCoinsNumber();
              }

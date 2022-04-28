@@ -8,8 +8,8 @@ using RestSharp;
 public class MyFriendData : MonoBehaviour
 {
     public RTLTextMeshPro Name;
-    public Image Icon;
-    public GameObject Chat;
+    public RawImage Icon;
+    public string Chat;
     // Start is called before the first frame update
     void Start()
     {

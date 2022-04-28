@@ -4,6 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
+using UnityEngine.UI;
 
 public class getfriendlist : MonoBehaviour
 {
@@ -112,7 +113,7 @@ g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
 g.name=frienddata.id.ToString();
 g.GetComponent<MyFriendData>().Name.text=frienddata.name;
-
+StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
 }
 
 
@@ -161,9 +162,9 @@ g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
 g.name=frienddata.id.ToString()+"$"+frienddata.name;
 g.GetComponent<MyFriendData>().Name.text=frienddata.name;
-g.GetComponent<MyFriendData>().Chat.name=frienddata.id.ToString();
+g.GetComponent<MyFriendData>().Chat=frienddata.id.ToString();
 
-
+StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
 
 }
 
@@ -176,7 +177,21 @@ catch{
 
     }
 
+ IEnumerator GetText(RawImage t,string url)
+    {
+         if(!string.IsNullOrEmpty( url)){
+            url=@"https://mymall-kw.com/assets/users/"+url;
 
+                WWW wWW =new WWW(url);
+       yield return wWW;
+       print(wWW.texture.EncodeToPNG().Length);
+       t.texture=wWW.texture;
+         }else{
+
+        yield  return null;
+         }
+   
+    }
 public void LoadFriendRequests(){
 
 var client = new RestClient("http://mymall-kw.com/api/V1/friends/show-requests");
@@ -215,7 +230,7 @@ g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
 g.name=frienddata.user_send.id.ToString();
 g.GetComponent<MyFriendData>().Name.text=frienddata.user_send.name;
-
+StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.user_send.image));
 
 }
 
@@ -269,7 +284,7 @@ g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
 g.name=frienddata.id.ToString();
 g.GetComponent<MyFriendData>().Name.text=frienddata.name;
-
+StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
 
 }
 
@@ -296,6 +311,7 @@ g.GetComponent<MyFriendData>().Name.text=frienddata.name;
         public object email_verified_at { get; set; }
         public int gander { get; set; }
         public int coins { get; set; }
+         public string image { get; set; }
         public int total_orders_cost { get; set; }
         public int total_coins_spend { get; set; }
      
@@ -321,6 +337,7 @@ g.GetComponent<MyFriendData>().Name.text=frienddata.name;
         public object email_verified_at { get; set; }
         public int gander { get; set; }
         public int coins { get; set; }
+         public string image { get; set; }
         public int total_orders_cost { get; set; }
         public int total_coins_spend { get; set; }
     }

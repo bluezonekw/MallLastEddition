@@ -40,7 +40,8 @@ g.SetActive(true);
 if(slid.file.EndsWith("GIF")||slid.file.EndsWith("gif")){
 
 try{
-StartCoroutine(ViewGifCoroutine(slid.file,g.GetComponent<UniGifImage>()));
+    StartCoroutine(g.GetComponent<UniGifImage>().SetGifFromUrlCoroutine(slid.file));
+
 
 }
 catch{
@@ -81,8 +82,14 @@ if(index==ImageParent.childCount){
 }
 
 ImageParent.GetChild(index).gameObject.GetComponent<Animation>().Play("Show");
+if(ImageParent.GetChild(index).gameObject.GetComponent<UniGifImage>()){
 
-        yield return new WaitForSeconds(10f);
+yield return new WaitForSeconds(10f);
+
+}else{
+
+        yield return new WaitForSeconds(5f);
+}
         isstartanimate=false;
     }
  IEnumerator DownloadRawImage(string url, RawImage I)
@@ -99,12 +106,7 @@ ImageParent.GetChild(index).gameObject.GetComponent<Animation>().Play("Show");
 
     }
 
- private IEnumerator ViewGifCoroutine(string url,UniGifImage m_uniGifImage)
-    {
-        yield return StartCoroutine(m_uniGifImage.SetGifFromUrlCoroutine(url));
-       
-    }
-
+ 
 
 public string AuthToken()
     {

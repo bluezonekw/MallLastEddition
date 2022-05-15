@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 public class loadimageFromApi : MonoBehaviour
 {
+    public bool[] SectionLoaded= {false,false,false,false,false,false,false,false,false};
     public AnimationClip First, Last, ProductNext1, ProductNext2, pervious1, pervious2;
     public GameObject SliddderDefault;
     public GameObject RS, LS, FS;
@@ -22,35 +23,47 @@ public class loadimageFromApi : MonoBehaviour
     public List<GameObject[]> Products;
     public List<int> PostionImage;
     public List<GameObject> LG;
-    SectionRequest request;
+    
+   public SectionRequest request;
     bool firstslide;
     public static StoreProduct ProductRequst;
     public GameObject DetailsMenu;
     GameObject MenuCreated;
 bool startAnimation1;
-    // Start is called before the first frame update
-    void Start()
-    {
-startAnimation1=true;
-        Rindex = Lindex = Findex = 0;
-        StoreRequest = GetComponent<SingleSToreRequest>();
+IEnumerator Load5Image(){
+    
+    for(int x=0;x<5;x++){
 
-for(int x=0;x>5;x++){
 
-StartCoroutine(ChangeProduct(0));
-StartCoroutine(ChangeProduct(1));
-StartCoroutine(ChangeProduct(2));
-StartCoroutine(ChangeProduct(3));
-StartCoroutine(ChangeProduct(4));
-StartCoroutine(ChangeProduct(5));
-StartCoroutine(ChangeProduct(6));
-StartCoroutine(ChangeProduct(7));
-StartCoroutine(ChangeProduct(8));
+  yield return new WaitForSeconds(5);
+    nextSection(0);
+nextSection(1);
+nextSection(2);
+nextSection(3);
+nextSection(4);
+nextSection(5);
+nextSection(6);
+nextSection(7);
+nextSection(8);
+    }
+
 
 
 
 }
+    // Start is called before the first frame update
+    void Start()
+    {
 
+
+
+        
+startAnimation1=true;
+        Rindex = Lindex = Findex = 0;
+        StoreRequest = GetComponent<SingleSToreRequest>();
+
+
+StartCoroutine(Load5Image());
  
 
     }
@@ -59,7 +72,7 @@ StartCoroutine(ChangeProduct(8));
 
 
     {
-yield return new WaitForSeconds(3);
+
 try
         {
          
@@ -76,7 +89,7 @@ try
         {
 
         }
-yield return new WaitForSeconds(3);
+yield return new WaitForSeconds(1);
 
     }
     public void LoadProduct(int sectionIdLocal)
@@ -538,15 +551,44 @@ catch{
 
         }
     }
+int xew=0;
+public void loadMoreProduct(int sectionIdLocal){
 
 
+
+    try{
+        var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreRequest.StoreId.ToString() + "&section_id=" + StoreRequest.SectionId[sectionIdLocal].ToString() + "&page=" + section_Page[sectionIdLocal] + "&limit=5" );
+        client.Timeout = -1;
+        var request1 = new RestRequest(Method.GET);
+        request1.AddHeader("password_api", "mall_2021_m3m");
+        request1.AddHeader("lang_api", "en");
+        request1.AlwaysMultipartFormData = true;
+        IRestResponse response = client.Execute(request1);
+        request= JsonConvert.DeserializeObject<SectionRequest>(response.Content);
+    
+          if(request.data==null){
+                 SectionLoaded[sectionIdLocal]=true;
+          }
+          
+        
+    }
+    catch{
+        SectionLoaded[sectionIdLocal]=true;
+
+    }
+}
     public void nextSection(int sectionIdLocal)
     {
 
 
-        if (!string.IsNullOrEmpty(section_Page[sectionIdLocal]))
+        if (!string.IsNullOrEmpty(section_Page[sectionIdLocal])  && ! SectionLoaded[sectionIdLocal]    )
         {
-            request = StoreRequest.LoadSectionImage(StoreRequest.SectionId[sectionIdLocal].ToString(), section_Page[sectionIdLocal]);
+print(sectionIdLocal+"   "+SectionLoaded[sectionIdLocal]);
+loadMoreProduct(sectionIdLocal);
+if(!SectionLoaded[sectionIdLocal])
+
+
+  {
 
             try
             {
@@ -583,9 +625,12 @@ catch{
 
                     }
                 }
+
+                 
                 if (request.data.next_page_url == null)
                 {
                     section_Page[sectionIdLocal] = null;
+                    print("Enter");
                 }
                 else
                 {
@@ -596,12 +641,12 @@ catch{
 
             }
 catch{
-
+print("Failed");
 
 
 }
         }
-
+        }
         try
         {
          

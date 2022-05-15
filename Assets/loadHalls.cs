@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class loadHalls : MonoBehaviour
 {
 
-    
+    public GameObject[] endofmall;
+
 public GameObject[] Halls; 
 
 
      Transform T1;
     bool[] sceneloaded = { false, false, false, false, false, false, false, false, false, false, false };
   public static int NumberOfFloor=1;
+    public void setfalse()
+    {
+        foreach(var g in endofmall)
+        {
+            g.SetActive(false);
+        }
 
+    }
     // Start is called before the first frame update
     void Start()
     {
- 
+
        T1=this.transform;
 
 
@@ -175,6 +183,8 @@ Halls[0].SetActive(true);
                 sceneloaded[02] = true;
 
             }
+            setfalse();
+            endofmall[1].SetActive(true);
         }
         else
         if (T1.position.z > -31f && T1.position.z < 57)//scen2
@@ -305,6 +315,8 @@ Halls[0].SetActive(true);
 
 
             }
+            setfalse();
+            endofmall[2].SetActive(true);
         }
         else
             if (T1.position.z > 57 && T1.position.z < 135)                        //InScen3
@@ -456,7 +468,8 @@ Halls[0].SetActive(true);
                 sceneloaded[02] = true;
 
             }
-
+            setfalse();
+            endofmall[3].SetActive(true);
 
         }
 
@@ -588,7 +601,8 @@ Halls[0].SetActive(true);
                 sceneloaded[05] = true;
 
             }
-
+            setfalse();
+            endofmall[4].SetActive(true);
 
 
         }
@@ -723,7 +737,8 @@ Halls[0].SetActive(true);
 
             }
 
-
+            setfalse();
+            endofmall[5].SetActive(true);
 
         }
 
@@ -859,7 +874,8 @@ Halls[0].SetActive(true);
 
 
             }
-
+            setfalse();
+            endofmall[6].SetActive(true);
         }
 
         else
@@ -981,8 +997,9 @@ Halls[0].SetActive(true);
                     sceneloaded[06] = true;
 
                 }
-
-            }
+            setfalse();
+            endofmall[7].SetActive(true);
+        }
 
 
         else
@@ -1110,7 +1127,9 @@ Halls[0].SetActive(true);
                     sceneloaded[7] = true;
 
                 }
-            }
+            setfalse();
+            endofmall[8].SetActive(true);
+        }
 
             else
             if (T1.position.z > 530 && T1.position.z < 610)  //In_Scene_9
@@ -1232,7 +1251,7 @@ Halls[0].SetActive(true);
                 sceneloaded[10] = true;
 
             }
-
+           
 
         }
         else

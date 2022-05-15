@@ -141,6 +141,7 @@ g.SetActive(true);
 
 }else
 {
+    
 
     GameObject sad=GameObject.Instantiate(BodyPrivateChat,privateChatPArent.transform);
     sad.SetActive(true);

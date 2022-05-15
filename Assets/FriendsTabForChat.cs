@@ -38,6 +38,13 @@ public static Friends FriendsType;
     {
         
     }
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        ClickOnYourFriends();
+    }
 
 
 public void ClickOnYourFriends()

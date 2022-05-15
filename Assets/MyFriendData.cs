@@ -10,6 +10,7 @@ public class MyFriendData : MonoBehaviour
     public RTLTextMeshPro Name;
     public RawImage Icon;
     public string Chat;
+    public RTLTextMeshPro Description , Time;
     // Start is called before the first frame update
     void Start()
     {

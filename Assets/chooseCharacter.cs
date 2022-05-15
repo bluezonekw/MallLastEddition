@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using NativeFilePickerNamespace;
+using UnityEngine.UI;
 
 public class chooseCharacter : MonoBehaviour
 {
@@ -17,11 +18,14 @@ public class chooseCharacter : MonoBehaviour
     public static bool isChooseChar;
     public GameObject Playerobject;
      public GameObject cameranimation;
+     public Button b,b1,b2;
     //public NetworkManager n1; 
     // Start is called before the first frame update
     void Start()
     {
-
+b.interactable=false;
+b1.interactable=false;
+b2.interactable=false;
         if(ApiClasses.Vistor){
 
 chooseMale3();
@@ -30,7 +34,18 @@ chooseMale3();
         {
 
                cameranimation.GetComponent<Animation>().Play();
+               StartCoroutine(WaitAnimation());
         }
+    }
+    IEnumerator WaitAnimation(){
+
+
+yield return new WaitForSeconds(cameranimation.GetComponent<Animation>().clip.length+1);
+b.interactable=true;
+b1.interactable=true;
+b2.interactable=true;
+
+
     }
     public void chooseMale1()
     {

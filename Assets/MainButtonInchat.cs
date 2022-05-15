@@ -72,7 +72,7 @@ HeaderFriends.SetActive(true);
  HeaderChats.SetActive(false);
  HeaderCalls.SetActive(false);
  HeaderCamera.SetActive(false);
-
+BodyFriends.SetActive(false);
  BodyFriends.SetActive(true);
 BodyChats.SetActive(false);
  BodyCalls.SetActive(false);

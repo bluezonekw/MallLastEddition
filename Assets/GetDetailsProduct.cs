@@ -43,7 +43,7 @@ public class GetDetailsProduct : MonoBehaviour
 
     public GameObject Main, More;
 
-
+ public static StoreProduct ProductRequst;
 public GameObject CartMenu;
     public void OpenMain()
     {
@@ -68,7 +68,10 @@ public GameObject CartMenu;
     }
     // Start is called before the first frame update
     void Start()
-    {startAnimation1=true;
+    {
+        
+        
+        startAnimation1=true;
         if (UPDownMenu.LanguageValue == 1)
         {
 
@@ -100,6 +103,67 @@ SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
         isaddtocart = false;
 
         indedeximage = 0;
+
+
+
+if(loadimageFromApi.ProductRequst==null){
+           Name.Text =ProductRequst.data.name;
+        SecondName.Text =ProductRequst.data.name;
+        cost =ProductRequst.data.regular_price;
+       // Cost.Text = cost.ToString();
+        if (ProductRequst.data.in_favorite)
+        {
+            signs.selected = true;
+        }
+        if (ProductRequst.data.sale_price != null)
+        {
+            spcialPriceobject.SetActive(true);
+            Price.Text=ProductRequst.data.sale_price.ToString() + " K.D";
+            SpecialPrice.Text =ProductRequst.data.regular_price.ToString() + " K.D";
+        }
+        else
+        {
+            spcialPriceobject.SetActive(false);
+            Price.Text =ProductRequst.data.regular_price.ToString() + " K.D";
+        }
+        desc.Text=ProductRequst.data.description;
+
+       
+        StartCoroutine(DownLoadImagetexture(ProductRequst.data.img, ImageExample.GetComponent<RawImage>()));
+        foreach (string s in ProductRequst.data.slider)
+        {
+            
+                g = GameObject.Instantiate(ImageExample, ImageExample.transform.parent.transform);
+                StartCoroutine(DownLoadImagetexture(s, g.GetComponent<RawImage>()));
+            
+        }
+
+
+
+        if (ProductRequst.data.sale_price != null)
+        {
+            cost = float.Parse(ProductRequst.data.sale_price.ToString());
+
+        }
+        else
+        {
+            cost = float.Parse(ProductRequst.data.regular_price.ToString());
+
+        }
+        CostText.Text = cost.ToString() + " K.D";
+ CostwithDetails.Text = CostText.Text;
+
+
+
+
+ ////////////
+            
+        }
+else
+
+
+        {
+       
         Name.Text = loadimageFromApi.ProductRequst.data.name;
         SecondName.Text = loadimageFromApi.ProductRequst.data.name;
         cost = loadimageFromApi.ProductRequst.data.regular_price;
@@ -144,7 +208,7 @@ SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
 
         }
         CostText.Text = cost.ToString() + " K.D";
- CostwithDetails.Text = CostText.Text;
+ CostwithDetails.Text = CostText.Text;}
     }
     IEnumerator DownLoadImagetexture(string URL, RawImage s)
     {
@@ -162,6 +226,23 @@ SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
 
     OptionsId.Clear();
         Costdetails = 0;
+
+if(loadimageFromApi.ProductRequst==null){
+
+    if (ProductRequst.data.sale_price != null)
+        {
+            cost =float.Parse(ProductRequst.data.sale_price.ToString());
+
+        }
+        else
+        {
+            cost = float.Parse(ProductRequst.data.regular_price.ToString());
+
+        }
+
+}
+else{
+
         if (loadimageFromApi.ProductRequst.data.sale_price != null)
         {
             cost =float.Parse(loadimageFromApi.ProductRequst.data.sale_price.ToString());
@@ -172,6 +253,8 @@ SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             cost = float.Parse(loadimageFromApi.ProductRequst.data.regular_price.ToString());
 
         }
+
+}
 foreach(Transform child in transform.GetComponentsInChildren<Transform>(true)){
 
 if(child.gameObject.tag=="OptionToggle")
@@ -180,7 +263,16 @@ if(child.gameObject.GetComponent<Toggle>().isOn){
 
 
  OptionsId.Add(child.gameObject.name);
+
+
+
+try{
 Costdetails+=float.Parse(child.gameObject.GetComponent<OptionForAttribute>().PriceOption.Text.ToString().Replace("\n","").Replace(" K.D",""));
+ }
+ catch{
+
+Costdetails+=float.Parse("0");
+ }
 }
 
 }
@@ -200,7 +292,24 @@ Costdetails+=float.Parse(child.gameObject.GetComponent<OptionForAttribute>().Pri
 if(!ApiClasses.Vistor){
 
 
+if(loadimageFromApi.ProductRequst==null){
+   if (OptionsId.Count == 0&&ProductRequst.data.attributes.Count!=0)
+        {
+	GameObject g= GameObject.Instantiate(MessageObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+            MessageObject.SetActive(true);
+ if (UPDownMenu.LanguageValue == 1)
+        {
+           g.GetComponent<optionPopUp>().Message.Text = "Please Choose Options";
+}else
+{
+ g.GetComponent<optionPopUp>().Message.Text = "من فضلك حدد الخيارات";
+}
+            return;
 
+
+        }
+}
+else{
         if (OptionsId.Count == 0&&loadimageFromApi.ProductRequst.data.attributes.Count!=0)
         {
 	GameObject g= GameObject.Instantiate(MessageObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
@@ -216,6 +325,7 @@ if(!ApiClasses.Vistor){
 
 
         }
+}
         var client = new RestClient("http://mymall-kw.com/api/V1/carts");
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
@@ -232,7 +342,11 @@ if(!ApiClasses.Vistor){
         }
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
-        request.AddParameter("product_id", loadimageFromApi.ProductRequst.data.id.ToString());
+        if(loadimageFromApi.ProductRequst==null){
+             request.AddParameter("product_id", ProductRequst.data.id.ToString());
+        }
+        else{
+        request.AddParameter("product_id", loadimageFromApi.ProductRequst.data.id.ToString());}
         request.AddParameter("quantity","1" );
         for(int x = 0; x < OptionsId.Count; x++)
         {

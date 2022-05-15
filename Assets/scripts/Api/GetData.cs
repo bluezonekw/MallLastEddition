@@ -133,7 +133,9 @@ public class GetData : MonoBehaviour
          }
    
     }
+    
 public void changeProfilePic(){
+   
 if( NativeFilePicker.IsFilePickerBusy() )
 			return;
       
@@ -153,7 +155,7 @@ NativeFilePicker.Permission permission = NativeFilePicker.PickFile( ( paths ) =>
 					path=paths.ToString();
 						Debug.Log( "Picked file: " + paths );
 				}
-			}, new string [] {"*.JPG","*.jpg","*.PNG","*.png","*.JPEG"} );
+			}, new string [] {"image/*"} );
 
 
 var client = new RestClient("http://mymall-kw.com/api/V1/upload-image");

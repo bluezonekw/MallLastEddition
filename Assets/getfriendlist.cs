@@ -10,7 +10,7 @@ public class getfriendlist : MonoBehaviour
 {
    public bool IsLoadFriends;
    public bool IsLoadSearchlist;
-
+public bool isMessageListFriend;
     public FriendListRequest friendList;
     public Transform Prentfriendlist;
     public GameObject Friend;
@@ -66,7 +66,14 @@ LoadSearchlist("");
        FriendsTabForChat.FriendsType=FriendsTabForChat.Friends.SearchFriends;
        LoadSearchlist("");
    }
-   else{
+   else if(isMessageListFriend){
+
+LoadMessageList();
+
+
+   }
+  else 
+   {
      FriendsTabForChat.FriendsType=FriendsTabForChat.Friends.FriendReques;
             LoadFriendRequests();
       
@@ -111,7 +118,7 @@ else{
 foreach(var frienddata in friendList.data){
 g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
-g.name=frienddata.id.ToString();
+g.name=frienddata.id.ToString()+"$"+frienddata.name;
 g.GetComponent<MyFriendData>().Name.text=frienddata.name;
 StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
 }
@@ -184,7 +191,7 @@ catch{
 
                 WWW wWW =new WWW(url);
        yield return wWW;
-       print(wWW.texture.EncodeToPNG().Length);
+      
        t.texture=wWW.texture;
          }else{
 
@@ -228,7 +235,7 @@ else{
 foreach(var frienddata in FriendRequests.data){
 g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
-g.name=frienddata.user_send.id.ToString();
+g.name=frienddata.user_send.id.ToString()+"$"+frienddata.user_send.name;
 g.GetComponent<MyFriendData>().Name.text=frienddata.user_send.name;
 StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.user_send.image));
 
@@ -265,24 +272,25 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-friendList=JsonConvert.DeserializeObject<FriendListRequest>(response.Content);
+UserList UserList=JsonConvert.DeserializeObject<UserList>(response.Content);
 GameObject g=new GameObject();
-if(friendList.statsu==0)
-{return;
+if(UserList.statsu==0)
+{
+    return;
 
 }
 else{
-
+print(UserList.data.Count);
     foreach(Transform child in Prentfriendlist){
         if(child.gameObject.active){
       GameObject.Destroy(child.gameObject);
         }
     }
 }
-foreach(var frienddata in friendList.data){
+foreach(var frienddata in UserList.data){
 g=GameObject.Instantiate(Friend,Prentfriendlist);
 g.SetActive(true);
-g.name=frienddata.id.ToString();
+g.name=frienddata.id.ToString()+"$"+frienddata.name;
 g.GetComponent<MyFriendData>().Name.text=frienddata.name;
 StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
 
@@ -296,8 +304,71 @@ StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
 
 
 
+
+
+
+    }
+
+
+  public void LoadMessageList(){
+
+ var client = new RestClient("http://mymall-kw.com/api/V1/friends/get_new_message");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("password-api", "mall_2021_m3m");
+ if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else 
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
+request.AddHeader("auth-token", AuthToken());
+request.AlwaysMultipartFormData = true;
+IRestResponse response = client.Execute(request);
+MessageListFriend MessageListFriend=JsonConvert.DeserializeObject<MessageListFriend>(response.Content);
+GameObject g=new GameObject();
+if(MessageListFriend.statsu==0)
+{return;
+
+}
+else{
+
+    foreach(Transform child in Prentfriendlist){
+        if(child.gameObject.active){
+      GameObject.Destroy(child.gameObject);
+        }
     }
 }
+foreach(var frienddata in MessageListFriend.data){
+g=GameObject.Instantiate(Friend,Prentfriendlist);
+g.SetActive(true);
+g.name=frienddata.id.ToString()+"$"+frienddata.sender.name;
+g.GetComponent<MyFriendData>().Name.text=frienddata.sender.name;
+StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.sender.image));
+if(frienddata.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]=="Text")
+ {
+
+     g.GetComponent<MyFriendData>().Description.text=frienddata.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[1];
+ }
+ else{
+
+      g.GetComponent<MyFriendData>().Description.text="";
+ }
+
+    g.GetComponent<MyFriendData>().Time.text=frienddata.created_at;
+}
+
+
+
+}
+
+
+}
+
 
  public class DataFrienList
     {
@@ -355,3 +426,41 @@ StartCoroutine(GetText(g.GetComponent<MyFriendData>().Icon,frienddata.image));
         public List<DataFriendRequests> data { get; set; }
     }
 
+    public class UserListData
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string image { get; set; }
+    }
+
+    public class UserList
+    {
+        public int statsu { get; set; }
+        public string message { get; set; }
+        public List<UserListData> data { get; set; }
+    }
+
+  public class SenderMessageListFriend
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string image { get; set; }
+    }
+
+    public class DataMessageListFriend
+    {
+        public int id { get; set; }
+        public string text { get; set; }
+        public string type { get; set; }
+        public string type_user { get; set; }
+        public int is_new { get; set; }
+        public string created_at { get; set; }
+        public SenderMessageListFriend sender { get; set; }
+    }
+
+    public class MessageListFriend
+    {
+        public int statsu { get; set; }
+        public string message { get; set; }
+        public List<DataMessageListFriend> data { get; set; }
+    }

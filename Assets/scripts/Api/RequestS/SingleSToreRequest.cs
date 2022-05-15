@@ -18,50 +18,54 @@ public class SingleSToreRequest : MonoBehaviour
     public List<String> SlidderRight, slidderLeft, sliddderFront;
     SectionRequest s1;
     public static int StaticStoreId;
-    int StoreId;
+    public int StoreId;
     public int NumberOFProductPerRequest;
+
+public Transform[] Childreen;
+private void OnEnable() {
+    for(int i=0;i<Childreen.Length;i++){
+
+if(Childreen[i].tag=="UIShop"){
+    Childreen[i].gameObject.SetActive(true);
+}
+
+
+    }
+}
+
+private void OnDisable() {
+       for(int i=0;i<Childreen.Length;i++){
+
+if(Childreen[i].tag=="UIShop"){
+    Childreen[i].gameObject.SetActive(false);
+}
+
+
+    }
+}
+ void Awake() {
+    Childreen=this.transform.GetComponentsInChildren<Transform>(true);
+}
     // Start is called before the first frame update
+    public GameObject GiftBox;
     void Start()
     {
+        // System.Random random = new System.Random();
+
+          foreach(var gift in loadAllshops.AllGiftBox.data){
+        if(gift.stores.Contains(gameObject.name)){
+GameObject g=GameObject.Instantiate(GiftBox,transform);
+g.GetComponent<BoxGiftcollect>().code=gift.code;
+g.GetComponent<BoxGiftcollect>().coins=0;
+g.GetComponent<BoxGiftcollect>().discount=gift.discount;
+g.GetComponent<BoxGiftcollect>().id=gift.id;
+        }
+        }
 StoreId=int.Parse( gameObject.name);
        StaticStoreId=StoreId;
 
     }
-
-    IEnumerator LoadsectionInfo(string SectionID, string CurrPAge, SectionRequest LoadSectionImage)
-    {
-
-
-        var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreId.ToString() + "&section_id=" + SectionID + "&page=" + CurrPAge + "&limit=" + NumberOFProductPerRequest);
-        client.Timeout = -1;
-        var request = new RestRequest(Method.GET);
-        request.AddHeader("password_api", "mall_2021_m3m");
-        request.AddHeader("lang_api", "en");
-        request.AlwaysMultipartFormData = true;
-        IRestResponse response = client.Execute(request);
-        LoadSectionImage= JsonConvert.DeserializeObject<SectionRequest>(response.Content);
-        yield return response.Content;
-
-    }
-        public SectionRequest LoadSectionImage(string SectionID, string CurrPAge)
-    {
-        try
-        {
-          
-            SectionRequest l = new SectionRequest();
-            StartCoroutine(LoadsectionInfo(SectionID, CurrPAge, l));
-            return l;
-        }
-        catch
-        {
-            Debug.Log("Faild Internet Connection");
-            return null;
-        }
-
-
-
-    }
-    public string AuthToken()
+  public string AuthToken()
     {
         try{
 
@@ -173,69 +177,75 @@ catch{
 
 }
 
-try{
-
-                foreach (var sectionms in SingleStore.data.sections.ToArray())
+                foreach (var sectionms in SingleStore.data.sections)
                 {
+                    
+                    
                     if (sectionms.wall == "right" && sectionms.position == "right")
                     {
-                        SectionId.Add(sectionms.product.section_id);
+                        SectionId.Add(sectionms.id);
 
 
-
+if(sectionms.product!=null)
+{
                         product1.Add(sectionms.product.id.ToString());
                         URL1.Add(sectionms.product.img);
 
-
+}
 
 
                     }
                     if (sectionms.wall == "right" && sectionms.position == "center")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product2.Add(sectionms.product.id.ToString());
                         URL2.Add(sectionms.product.img);
-
+}
                     }
 
                     if (sectionms.wall == "right" && sectionms.position == "left")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product3.Add(sectionms.product.id.ToString());
                         URL3.Add(sectionms.product.img);
-
+}
                     }
 
 
                     if (sectionms.wall == "center" && sectionms.position == "right")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product4.Add(sectionms.product.id.ToString());
                         URL4.Add(sectionms.product.img);
-
+}
                     }
 
                     if (sectionms.wall == "center" && sectionms.position == "center")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product5.Add(sectionms.product.id.ToString());
                         URL5.Add(sectionms.product.img);
-
+}
                     }
 
 
 
                     if (sectionms.wall == "center" && sectionms.position == "left")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product6.Add(sectionms.product.id.ToString());
                         URL6.Add(sectionms.product.img);
-
+}
                     }
 
 
@@ -243,21 +253,23 @@ try{
 
                     if (sectionms.wall == "left" && sectionms.position == "right")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product7.Add(sectionms.product.id.ToString());
                         URL7.Add(sectionms.product.img);
-
+}
                     }
 
 
                     if (sectionms.wall == "left" && sectionms.position == "center")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product8.Add(sectionms.product.id.ToString());
                         URL8.Add(sectionms.product.img);
-
+}
                     }
 
 
@@ -267,11 +279,12 @@ try{
 
                     if (sectionms.wall == "left" && sectionms.position == "left")
                     {
-                        SectionId.Add(sectionms.product.section_id);
-
+                        SectionId.Add(sectionms.id);
+if(sectionms.product!=null)
+{
                         product9.Add(sectionms.product.id.ToString());
                         URL9.Add(sectionms.product.img);
-
+}
                     }
 
 
@@ -279,12 +292,7 @@ try{
 
 
 
-}
-catch{
 
-
-
-}
 
 
 

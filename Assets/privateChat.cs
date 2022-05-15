@@ -176,9 +176,15 @@ SendPhoto.onClick.AddListener(this.SendPrivateImage);
 SendPhoto.onClick.AddListener(this.SendPrivateImage);
  InputMessage.onEndEdit.AddListener(this.SendPrivateMessage);
         }
-
+if(EventSystem.current.currentSelectedGameObject.name.Contains("$"))
+{
       FriendNameInserver=EventSystem.current.currentSelectedGameObject.name;
-      friendicon.texture=EventSystem.current.currentSelectedGameObject.GetComponent<MyFriendData>().Icon.texture;
+       friendicon.texture=EventSystem.current.currentSelectedGameObject.GetComponent<MyFriendData>().Icon.texture;
+}else{
+   FriendNameInserver=EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.name;
+    friendicon.texture=EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.GetComponent<MyFriendData>().Icon.texture;
+}
+     
       print( FriendNameInserver+"              00       "+gameObject.name);
      
 
@@ -356,7 +362,7 @@ NativeFilePicker.Permission permission = NativeFilePicker.PickFile( ( paths ) =>
 					path=paths.ToString();
 						Debug.Log( "Picked file: " + paths );
 				}
-			}, new string [] {"*.JPG","*.jpg","*.PNG","*.png","*.JPEG"} );
+			}, new string [] {"image/*"} );
 
 			Debug.Log( "Permission result: " + permission );
 

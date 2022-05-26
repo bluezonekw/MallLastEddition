@@ -109,7 +109,7 @@ SecondDesc.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
 if(loadimageFromApi.ProductRequst==null){
            Name.Text =ProductRequst.data.name;
         SecondName.Text =ProductRequst.data.name;
-        cost =ProductRequst.data.regular_price;
+        cost =((float)ProductRequst.data.regular_price);
        // Cost.Text = cost.ToString();
         if (ProductRequst.data.in_favorite)
         {
@@ -166,7 +166,7 @@ else
        
         Name.Text = loadimageFromApi.ProductRequst.data.name;
         SecondName.Text = loadimageFromApi.ProductRequst.data.name;
-        cost = loadimageFromApi.ProductRequst.data.regular_price;
+        cost = ((float)loadimageFromApi.ProductRequst.data.regular_price);
        // Cost.Text = cost.ToString();
         if (loadimageFromApi.ProductRequst.data.in_favorite)
         {

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 public class loadimageFromApi : MonoBehaviour
 {
-    public bool[] SectionLoaded= {false,false,false,false,false,false,false,false,false};
+   
     public AnimationClip First, Last, ProductNext1, ProductNext2, pervious1, pervious2;
     public GameObject SliddderDefault;
     public GameObject RS, LS, FS;
@@ -31,8 +31,20 @@ public class loadimageFromApi : MonoBehaviour
     GameObject MenuCreated;
 bool startAnimation1;
 IEnumerator Load5Image(){
-    
-    for(int x=0;x<5;x++){
+        loadMoreProduct(0);
+        loadMoreProduct(1);
+        loadMoreProduct(2);
+        loadMoreProduct(3);
+        loadMoreProduct(4);
+        loadMoreProduct(5);
+        loadMoreProduct(6);
+        loadMoreProduct(0);
+
+        loadMoreProduct(7);
+        loadMoreProduct(8);
+
+
+        for (int x=0;x<5;x++){
 
 
   yield return new WaitForSeconds(5);
@@ -555,9 +567,8 @@ int xew=0;
 public void loadMoreProduct(int sectionIdLocal){
 
 
-
     try{
-        var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreRequest.StoreId.ToString() + "&section_id=" + StoreRequest.SectionId[sectionIdLocal].ToString() + "&page=" + section_Page[sectionIdLocal] + "&limit=5" );
+        var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreRequest.StoreId.ToString() + "&section_id=" + StoreRequest.SectionId[sectionIdLocal].ToString() + "&page=1 &limit=1000" );
         client.Timeout = -1;
         var request1 = new RestRequest(Method.GET);
         request1.AddHeader("password_api", "mall_2021_m3m");
@@ -565,15 +576,12 @@ public void loadMoreProduct(int sectionIdLocal){
         request1.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request1);
         request= JsonConvert.DeserializeObject<SectionRequest>(response.Content);
-    
-          if(request.data==null){
-                 SectionLoaded[sectionIdLocal]=true;
-          }
-          
+
+            print(response.Content);
         
     }
     catch{
-        SectionLoaded[sectionIdLocal]=true;
+       
 
     }
 }
@@ -581,20 +589,16 @@ public void loadMoreProduct(int sectionIdLocal){
     {
 
 
-        if (!string.IsNullOrEmpty(section_Page[sectionIdLocal])  && ! SectionLoaded[sectionIdLocal]    )
-        {
-print(sectionIdLocal+"   "+SectionLoaded[sectionIdLocal]);
-loadMoreProduct(sectionIdLocal);
-if(!SectionLoaded[sectionIdLocal])
+    
 
 
-  {
+
 
             try
             {
                 if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
                 {
-                    foreach (SectionRequestData Product in request.data.data.ToArray())
+                    foreach (Dataforproduct Product in request.data.data.ToArray())
                     {
                         LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 0);
 
@@ -606,7 +610,7 @@ if(!SectionLoaded[sectionIdLocal])
 
                 if (sectionIdLocal <= 5 && sectionIdLocal >= 3)
                 {
-                    foreach (SectionRequestData Product in request.data.data.ToArray())
+                    foreach (Dataforproduct Product in request.data.data.ToArray())
                     {
                         LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 1);
 
@@ -618,7 +622,7 @@ if(!SectionLoaded[sectionIdLocal])
 
                 if (sectionIdLocal >= 5 && sectionIdLocal <= 8)
                 {
-                    foreach (SectionRequestData Product in request.data.data.ToArray())
+                    foreach (Dataforproduct Product in request.data.data.ToArray())
                     {
                         LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 2);
 
@@ -627,15 +631,7 @@ if(!SectionLoaded[sectionIdLocal])
                 }
 
                  
-                if (request.data.next_page_url == null)
-                {
-                    section_Page[sectionIdLocal] = null;
-                    print("Enter");
-                }
-                else
-                {
-                    section_Page[sectionIdLocal] = (int.Parse(section_Page[sectionIdLocal]) + 1).ToString();
-                }
+              
 
                
 
@@ -644,8 +640,7 @@ catch{
 print("Failed");
 
 
-}
-        }
+
         }
         try
         {

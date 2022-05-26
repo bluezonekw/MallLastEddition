@@ -77,6 +77,7 @@ StartCoroutine(LoadCoins());
 if(code!=null){
 GameObject g=  GameObject.Instantiate(Code, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 g.GetComponent<optionPopUp>().Message.Text=code;
+            g.GetComponent<AudioSource>().Play();
 Destroy(gameObject);
 
 
@@ -92,7 +93,8 @@ Destroy(gameObject);
 
 
  GameObject g=  GameObject.Instantiate(coinCollect, GameObject.FindGameObjectWithTag("MainCanvas").transform);
-yield return new WaitForSeconds(6);
+        g.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(6);
 Destroy(g);
 Destroy(gameObject);
     }

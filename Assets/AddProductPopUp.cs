@@ -59,17 +59,7 @@ foundObjects[0].UpdateCartCount();
         }
 
     }
-    IEnumerator DownLoadSprite(string URL, RawImage s)
-    {
-
-        WWW www = new WWW(URL);
-        yield return www;
-
-
-
-        s.texture = www.texture;
-
-    }
+  
     // Update is called once per frame
     void Update()
     {

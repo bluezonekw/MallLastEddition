@@ -215,7 +215,7 @@ EmptyFieldMessageAR();
 
 }else{
 
-        StartCoroutine(createorder());
+       createorder();
         
 
         if (orderinfo.statsu == 1) {
@@ -313,7 +313,7 @@ if (UPDownMenu.LanguageValue == 1)
 }
 
 
-  StartCoroutine(createorder());
+ createorder();
         
 
         if (orderinfo.statsu == 1) {
@@ -347,7 +347,7 @@ CheckEnterShop.CartEmpty=true;
         Messageobject.SetActive(false);
 
     }
-    IEnumerator createorder()
+    public void createorder()
     {
 
 var client = new RestClient("http://mymall-kw.com/api/V1/orders");
@@ -406,7 +406,7 @@ if(Qnet.isOn){
   IRestResponse response = client.Execute(request);
 print(response.Content);
          orderinfo= JsonConvert.DeserializeObject<Order>(response.Content);
-        yield return response.Content;
+       
 
 
     }

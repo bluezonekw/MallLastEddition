@@ -36,17 +36,24 @@ public class NetworkManager : MonoBehaviourPunCallbacks
    
     void Start()
     {
-        #if PLATFORM_ANDROID
-        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
-        {
-            Permission.RequestUserPermission(Permission.Camera);
-            dialog = new GameObject();
+        
+#if PLATFORM_ANDROID
+            if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+            {
+                Permission.RequestUserPermission(Permission.Camera);
+                dialog = new GameObject();
             }
-        #endif
+#endif
         //connect();
         // i1.text="sad"+DateTime.Now.Second.ToString();
-        
- ConnectToPhoton(ID().ToString());
+        try
+        {
+            ConnectToPhoton(ID().ToString());
+        }
+        catch
+        {
+
+        }
       // pv.Owner.NickName=i1.text;
   
     }
@@ -64,7 +71,7 @@ PhotonNetwork.CreateRoom(RoomName,ro,TypedLobby.Default);
 private void ConnectToPhoton(string nickname){
 
 try{
-Debug.Log($"connect to photon as {nickname}");
+
 PhotonNetwork.AuthValues=new AuthenticationValues(nickname);
 PhotonNetwork.AutomaticallySyncScene=true;
 PhotonNetwork.NickName=nickname;

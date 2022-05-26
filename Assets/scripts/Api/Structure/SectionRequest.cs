@@ -5,21 +5,32 @@ using UnityEngine;
 
 public class SectionRequestData
 {
-    public int id ;
-    public string img ;
-      public string name ; 
-        public object sale_price  ; 
-        public int regular_price ; 
-    public bool in_favorite ;
-    public int current_page ;
-    public List<SectionRequestData> data ;
-    public string first_page_url ;
-    public int from ;
-    public string next_page_url ;
-    public string path ;
-    public string per_page ;
-    public string prev_page_url ;
-    public int to ;
+    public object current_page;
+    public object first_page_url;
+    public object from;
+    public object next_page_url;
+    public object path;
+    public object per_page;
+    public object prev_page_url;
+    public object to;
+    public List<Dataforproduct> data;
+
+
+
+
+
+
+  
+}
+public class Dataforproduct
+{
+    public int id;
+    public string img;
+    public int? sale_price;
+    public double regular_price;
+    public bool in_favorite;
+    public string name;
+    public string description;
 }
 
 public class SectionRequest

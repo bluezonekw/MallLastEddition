@@ -76,20 +76,28 @@ public void openprofile(){
 
 }
 public void UpdateCoinsNumber(){
-if(coinsnumber<1000){
-TCoinsNumber.text=coinsnumber.ToString();
-
+if(coinsnumber>1000 && coinsnumber < 1000000)
+        {
+            double xy = coinsnumber / 1000;
+            TCoinsNumber.text=Math.Round(xy, 2).ToString()+"K";
 
 
 
 }
-else{
-double xy=coinsnumber/1000;
+else if(coinsnumber > 1000000)
+        {
+
+            double xy = coinsnumber / 1000000;
+            TCoinsNumber.text = Math.Round(xy, 2).ToString() + "M";
+        }
+else
+        {
 
 
-TCoinsNumber.text=Math.Round(xy, 2).ToString()+"K";
 
 
+
+TCoinsNumber.text=coinsnumber.ToString();
 
 }
 
@@ -181,7 +189,37 @@ else
 
  void Awake()
     {
-         if(!ApiClasses.Vistor){
+        var client = new RestClient("http://mymall-kw.com/api/V1/notifications");
+        client.Timeout = -1;
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("password-api", "mall_2021_m3m");
+        if (UPDownMenu.LanguageValue == 1)
+        {
+            request.AddHeader("lang-api", "en");
+        }
+        else
+        {
+
+            request.AddHeader("lang-api", "ar");
+
+        }
+        request.AddHeader("auth-token", AuthToken());
+        request.AlwaysMultipartFormData = true;
+        IRestResponse response = client.Execute(request);
+        NotificationResponse notification = JsonConvert.DeserializeObject<NotificationResponse>(response.Content);
+        NotificationText.text = notification.data.Count.ToString();
+
+
+
+
+
+
+
+
+
+
+
+        if (!ApiClasses.Vistor){
 UpdateCartCount();
                
 

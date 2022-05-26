@@ -1,0 +1,457 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.31f1 (6b54b7616050) revision 7034039'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'en' Physical Memory: 16130 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\unity\2020.3.31f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Unity Projects/LastMall/MallLastEddition
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49174
+Successfully changed project path to: D:/Unity Projects/LastMall/MallLastEddition
+D:/Unity Projects/LastMall/MallLastEddition
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 186.58 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.31f1 (6b54b7616050)
+[Subsystems] Discovering subsystems at path D:/unity/2020.3.31f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity Projects/LastMall/MallLastEddition/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2560)
+    Vendor:   
+    VRAM:     6023 MB
+    Driver:   30.0.15.1179
+Initialize mono
+Mono path[0] = 'D:/unity/2020.3.31f1/Editor/Data/Managed'
+Mono path[1] = 'D:/unity/2020.3.31f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/unity/2020.3.31f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56552
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/unity/2020.3.31f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/unity/2020.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001358 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 172.44 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.660 seconds
+Domain Reload Profiling:
+	ReloadAssembly (661ms)
+		BeginReloadAssembly (53ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (553ms)
+			LoadAssemblies (53ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (120ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (275ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (172ms)
+				BeforeProcessingInitializeOnLoad (13ms)
+				ProcessInitializeOnLoadAttributes (64ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.020687 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 167.12 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.402 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1403ms)
+		BeginReloadAssembly (131ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (1228ms)
+			LoadAssemblies (146ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (369ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (91ms)
+			SetupLoadedEditorAssemblies (532ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (167ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (250ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (3ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 2.52 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4838 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 231.3 MB.
+System memory in use after: 231.8 MB.
+
+Unloading 111 unused Assets to reduce memory usage. Loaded Objects now: 5355.
+Total: 3.778900 ms (FindLiveObjects: 0.373700 ms CreateObjectMapping: 0.173400 ms MarkObjects: 3.087700 ms  DeleteObjects: 0.143200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Scenes/MallParts/Map/Page 1.prefab
+  artifactKey: Guid(50c0144ac15000644bfb7e27a3707ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Map/Page 1.prefab using Guid(50c0144ac15000644bfb7e27a3707ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a17955ae2f1e6926a453743ec0284854') in 0.122642 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 206.156585 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Code/Editor/PunSceneSettingsFile.asset
+  artifactKey: Guid(d0aacb83307022d449e90a09d28222ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Code/Editor/PunSceneSettingsFile.asset using Guid(d0aacb83307022d449e90a09d28222ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89d0567937afb26372eb768db0d9b0e4') in 0.011836 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.922150 seconds.
+  path: Assets/Furniture/clothes-large/clothes-large.FBX
+  artifactKey: Guid(53f4922aa815f1d4a9bcf40d4d8faee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Furniture/clothes-large/clothes-large.FBX using Guid(53f4922aa815f1d4a9bcf40d4d8faee2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dca516a2117af01793de75e0aac9a70e') in 4.918464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000446 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter Tall Corner_01.prefab
+  artifactKey: Guid(6c75fc051962c8549b66fd9ea196529c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter Tall Corner_01.prefab using Guid(6c75fc051962c8549b66fd9ea196529c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d6f9c4669ffbf0f7bc7e7d476967bb6') in 0.097807 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_01/Ext_C&T_01_Wall_Window_01.prefab
+  artifactKey: Guid(8f902c14128bfdf42875753c38822ce7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_01/Ext_C&T_01_Wall_Window_01.prefab using Guid(8f902c14128bfdf42875753c38822ce7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72c7a22c228ebf0cebe6bf79877bf257') in 0.050432 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000456 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Materials/Signs & Pictures/Misc/Coffee Sign Small Drop Off.mat
+  artifactKey: Guid(8ccba1b79af45aa4599f8e0017598c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Materials/Signs & Pictures/Misc/Coffee Sign Small Drop Off.mat using Guid(8ccba1b79af45aa4599f8e0017598c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ba52cb7b86b524fc0a8d481dedd10aa') in 0.052222 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000351 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01NM.png
+  artifactKey: Guid(3a61d210ec33af842b04fb198e713489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01NM.png using Guid(3a61d210ec33af842b04fb198e713489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e16817f09c69f0ca7099d1079725bdd') in 0.049201 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001154 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Materials/Signs & Pictures/Misc/Coffee Sign Small Pick Up.mat
+  artifactKey: Guid(58442c9d81e238849a7889f5b63bf42c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Materials/Signs & Pictures/Misc/Coffee Sign Small Pick Up.mat using Guid(58442c9d81e238849a7889f5b63bf42c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6692ad789aaf65a1eef6937b8a8cf0d7') in 0.031241 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000473 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01_AO.png
+  artifactKey: Guid(cdb7a79c6818be446b42fe9e63fd0aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01_AO.png using Guid(cdb7a79c6818be446b42fe9e63fd0aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c52ed4d698bbba8092b14e607bb8774') in 0.025321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01_Metallic.png
+  artifactKey: Guid(782ded22f58c7c94998feae43aab1708) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01_Metallic.png using Guid(782ded22f58c7c94998feae43aab1708) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0963818a1054924f2d7537080235c3b') in 0.031510 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000333 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Models/Build Kit C&T - 03.fbx
+  artifactKey: Guid(658ae5ab2f8585c4797692b6737ee2b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Models/Build Kit C&T - 03.fbx using Guid(658ae5ab2f8585c4797692b6737ee2b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2a97bc72b4cca9e084c7fcdd60300f8') in 0.415427 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000523 seconds.
+  path: Assets/Soja Exiles/NY Style Pizza SE/Prefabs/PZ Build Kit/Exteriors/Ext_01/Ext_PZ_01_Wall_01.prefab
+  artifactKey: Guid(62edbdad0847b034c8d3ecadbf53e8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/NY Style Pizza SE/Prefabs/PZ Build Kit/Exteriors/Ext_01/Ext_PZ_01_Wall_01.prefab using Guid(62edbdad0847b034c8d3ecadbf53e8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b33452d4b5fb90f390e6483556f4359') in 0.060754 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000519 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone02_2.prefab
+  artifactKey: Guid(ed95147cec382284b9b9e730f8ea995f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone02_2.prefab using Guid(ed95147cec382284b9b9e730f8ea995f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03ea1b8324671086ab052c8b7723e6c5') in 0.080383 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000438 seconds.
+  path: Assets/Soja Exiles/NY Style Pizza SE/Prefabs/PZ Build Kit/Exteriors/Ext_03/Ext_PZ_03_Wall_01.prefab
+  artifactKey: Guid(bb6bda4f880250e4ca1ce9f0c1fdc01b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/NY Style Pizza SE/Prefabs/PZ Build Kit/Exteriors/Ext_03/Ext_PZ_03_Wall_01.prefab using Guid(bb6bda4f880250e4ca1ce9f0c1fdc01b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0dac42cd56fd8ba684c6778d340d79b') in 0.054020 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000522 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Textures/Signs & Pictures/Coffee Signs Small Pick Up.png
+  artifactKey: Guid(402f7b819c023a44ebd0c5d68ea004a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Textures/Signs & Pictures/Coffee Signs Small Pick Up.png using Guid(402f7b819c023a44ebd0c5d68ea004a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0de8c156e8533f0af1162d3591fcb21d') in 0.021965 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000371 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone02_1.FBX
+  artifactKey: Guid(ed26ce63dcd714e468ac36fae91d13cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone02_1.FBX using Guid(ed26ce63dcd714e468ac36fae91d13cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ac867aaeb54d392534b8f9234c4a94') in 0.044550 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000556 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/Chaser01_Metallic.png
+  artifactKey: Guid(acac784c62c1f034b9fdd3c176bcd679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/Chaser01_Metallic.png using Guid(acac784c62c1f034b9fdd3c176bcd679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db8dda082dd209635f015e65ddf38a9d') in 0.029149 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000418 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Textures/Signs & Pictures/Coffee Signs Small.png
+  artifactKey: Guid(5a561deea46c60146a3345591feda439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Textures/Signs & Pictures/Coffee Signs Small.png using Guid(5a561deea46c60146a3345591feda439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b75bd3b8361bb361d763159fc7b11b7') in 0.032937 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000410 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter_Stone Tall Corner_01.prefab
+  artifactKey: Guid(77883127d77824144a6b78eb5c3b572d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter_Stone Tall Corner_01.prefab using Guid(77883127d77824144a6b78eb5c3b572d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b6bcb7d0ac55631e31bcac45c288029') in 0.078916 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000361 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01.png
+  artifactKey: Guid(692fb692a2c08834eb8b2c9e5fded73a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallones01.png using Guid(692fb692a2c08834eb8b2c9e5fded73a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72a3c06bb1eb8af8159ad49bda4ec4fe') in 0.025038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/Soja Exiles/NY Style Pizza SE/Materials/Exteriors/EXT_PZ_WallRoof_01.mat
+  artifactKey: Guid(86d73c5eeb949704bbbe2beedebcddf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/NY Style Pizza SE/Materials/Exteriors/EXT_PZ_WallRoof_01.mat using Guid(86d73c5eeb949704bbbe2beedebcddf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6028aa10e5f9ea7bc4a83d8b324b1d1') in 0.029979 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000385 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone02_2.FBX
+  artifactKey: Guid(c410de2667c6b704eb78458bd14fbe41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone02_2.FBX using Guid(c410de2667c6b704eb78458bd14fbe41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36868e4c014268a8f90f8b3bf1d076f5') in 0.041571 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02_Metallic.png
+  artifactKey: Guid(ba17278b5302a0f46b9a0dc2025e35d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02_Metallic.png using Guid(ba17278b5302a0f46b9a0dc2025e35d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d8d641682d1160416635921a4fff5ab') in 0.022752 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/CommonWoodPlanks01_Metallic.png
+  artifactKey: Guid(a071c710920d06f41a0578c84091dedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/CommonWoodPlanks01_Metallic.png using Guid(a071c710920d06f41a0578c84091dedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b33b9c1ab12a9eede070eee85fc39e13') in 0.030481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000392 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter Tall.prefab
+  artifactKey: Guid(de08c4b3d45f2a8409637a565d8304ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter Tall.prefab using Guid(de08c4b3d45f2a8409637a565d8304ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2227767ae1caa9e42e545151904318d') in 0.032553 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000361 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter_Stone Tall Corner_02.prefab
+  artifactKey: Guid(abbe9d5a102605a47ada66bb520e2359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter_Stone Tall Corner_02.prefab using Guid(abbe9d5a102605a47ada66bb520e2359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53340ed5c411911f879fe6d3bfbf1959') in 0.051273 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000515 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/clothes/3/textures/crocs_render_lambert1_Metallic.png
+  artifactKey: Guid(9aa73751aa18c6e488c55be5ff9fb697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/clothes/3/textures/crocs_render_lambert1_Metallic.png using Guid(9aa73751aa18c6e488c55be5ff9fb697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e75276aecaf090fc8f8668d166dd964') in 0.038424 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone02_1.prefab
+  artifactKey: Guid(65d8feec756ffd64f87e650efb5e24ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone02_1.prefab using Guid(65d8feec756ffd64f87e650efb5e24ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dd2ec36e9f28470eac4874c34b4d829') in 0.032665 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000412 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_01/Ext_C&T_01_Wall_01.prefab
+  artifactKey: Guid(d86061372840f2f449ea01a84c2cd45f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_01/Ext_C&T_01_Wall_01.prefab using Guid(d86061372840f2f449ea01a84c2cd45f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0f42179a0fecbe72d5582fe7eb306f3') in 0.029458 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000543 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_02/Ext_C&T_02_Wall_Window_01.prefab
+  artifactKey: Guid(fe9120baf7cd24544b00a11e98f9a600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_02/Ext_C&T_02_Wall_Window_01.prefab using Guid(fe9120baf7cd24544b00a11e98f9a600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3643796e08c3c5985e32483afb0443cc') in 0.053294 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000491 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Models/Coffee House Furniture.fbx
+  artifactKey: Guid(237de1205bc280c449aaba69a61529e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Models/Coffee House Furniture.fbx using Guid(237de1205bc280c449aaba69a61529e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd69b1bcb3cac1319a01d087dbceb70dd') in 0.319923 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000421 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/sport/uploads_files_2499648_FootballOnGrass.fbx
+  artifactKey: Guid(68a51213e2a41c24bbcd3ef7a0e0d180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/sport/uploads_files_2499648_FootballOnGrass.fbx using Guid(68a51213e2a41c24bbcd3ef7a0e0d180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfb171e385f07d3564756fd38fec1de7') in 0.090987 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Materials/Signs & Pictures/Misc/Coffee Sign Small Sign.mat
+  artifactKey: Guid(e1e483a4df75f334b98ff42181de70a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Materials/Signs & Pictures/Misc/Coffee Sign Small Sign.mat using Guid(e1e483a4df75f334b98ff42181de70a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f29274c9db61dc2d145c3dd40d804638') in 0.032473 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000510 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/hospital/First Aid/Textures/1k/Cube_low_1001_Metallic.png
+  artifactKey: Guid(c13fe26e9ff18fd4c9e660c1d9a799e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/hospital/First Aid/Textures/1k/Cube_low_1001_Metallic.png using Guid(c13fe26e9ff18fd4c9e660c1d9a799e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e10e3b3fa6ebd07a98851218f9b4e32') in 0.023940 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/Soja Exiles/NY Style Pizza SE/Prefabs/PZ Build Kit/Exteriors/Ext_02/Ext_PZ_02_Wall_01.prefab
+  artifactKey: Guid(2b58ece687a81114c86ff453cea4858f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/NY Style Pizza SE/Prefabs/PZ Build Kit/Exteriors/Ext_02/Ext_PZ_02_Wall_01.prefab using Guid(2b58ece687a81114c86ff453cea4858f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b57a40254a85a0b135bef7fc2a68aab') in 0.045100 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000337 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Textures/Signs & Pictures/Coffee Signs Small Drop Off.png
+  artifactKey: Guid(ded82225352b4ac4fb6a2375a76fe6b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Textures/Signs & Pictures/Coffee Signs Small Drop Off.png using Guid(ded82225352b4ac4fb6a2375a76fe6b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b22f400ef251a8c779eaace40870fe4') in 0.020197 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone01_2.FBX
+  artifactKey: Guid(b9fe99ddae0a1a54f9c8d45771329ed4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone01_2.FBX using Guid(b9fe99ddae0a1a54f9c8d45771329ed4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e91f60c2a58e861a40f6b25e38e09c09') in 0.041762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000316 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02.png
+  artifactKey: Guid(f7570fd21f94a60419ed0880fd067500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02.png using Guid(f7570fd21f94a60419ed0880fd067500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0b3c2ec48d9230f9adef3b085859360') in 0.024299 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000464 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/Materials/GasBallone02.mat
+  artifactKey: Guid(de318f35b9a37694cabda0158ccabd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/Materials/GasBallone02.mat using Guid(de318f35b9a37694cabda0158ccabd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '829cc109834ccd4f962c26dfa938cc56') in 0.033206 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000555 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone01_2.prefab
+  artifactKey: Guid(165ab2869bca9a64ba3ac97dce24eaed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone01_2.prefab using Guid(165ab2869bca9a64ba3ac97dce24eaed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6089324b0f843cb5c80d06519ffd0922') in 0.040076 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone01_1.prefab
+  artifactKey: Guid(f0e357e33ed07bf4cb5109cd11eafffe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Prefabs/GasBallone01_1.prefab using Guid(f0e357e33ed07bf4cb5109cd11eafffe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41e3753ab7068cdcd9e1497ce1b2a7bf') in 0.030860 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000372 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/Materials/GasBallone01.mat
+  artifactKey: Guid(fd1334f210eec9748a0222e6d5c720db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/Materials/GasBallone01.mat using Guid(fd1334f210eec9748a0222e6d5c720db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa223d9560dbb71cfaae89c014b0c763') in 0.033410 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000678 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone01_1.FBX
+  artifactKey: Guid(c8d2bd87ee1cce34a902399f9cd80316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/GasBallone01_1.FBX using Guid(c8d2bd87ee1cce34a902399f9cd80316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3d953988b5de09edd13b6ca5c166243') in 0.027858 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000618 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02_NM.png
+  artifactKey: Guid(daca450d55308d841966896ecd53ca8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02_NM.png using Guid(daca450d55308d841966896ecd53ca8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a65271efaf046ce7bbf1636aa2515c3e') in 0.032745 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/Materials/GasBallones01.mat
+  artifactKey: Guid(4a3feff9a769c3943879f87176daec71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Models/Materials/GasBallones01.mat using Guid(4a3feff9a769c3943879f87176daec71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7577262c71b93c9454f4cf50854ace9') in 0.021935 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000315 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter_Stone Tall.prefab
+  artifactKey: Guid(fbe1dd4d241ef974cb701469be924515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter_Stone Tall.prefab using Guid(fbe1dd4d241ef974cb701469be924515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0576680ad07c5b198d937555805e1f30') in 0.037425 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter Tall Corner_02.prefab
+  artifactKey: Guid(5013e374ece6f67458ae3440f0225d6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/Furniture/Counter/Counter Tall Corner_02.prefab using Guid(5013e374ece6f67458ae3440f0225d6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c902623a8c1d0dff104a3b99475b7268') in 0.035093 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000290 seconds.
+  path: Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_02/Ext_C&T_02_Wall_01.prefab
+  artifactKey: Guid(db55c77b41ec85b4e975abf4a4436bf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Soja Exiles/Coffee Or Tea/Prefabs/C&T Bulid Kit/Exteriors/Ext_02/Ext_C&T_02_Wall_01.prefab using Guid(db55c77b41ec85b4e975abf4a4436bf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7c80af9b2a5da49d0a74cff70c6ac6c') in 0.078625 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000427 seconds.
+  path: Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02_AO.png
+  artifactKey: Guid(99407dd45f6b54849b6a48531a300112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Fruntiture/PBRWorkShop/Models/PBRTools/Textures/GasBallone02_AO.png using Guid(99407dd45f6b54849b6a48531a300112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd23bbaa33016b3fa19983a5bb877f3eb') in 0.024737 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.131750 seconds.
+  path: Assets/Scenes/New Animation.anim
+  artifactKey: Guid(bda40b1584798bc4090064ac28b5ee90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/New Animation.anim using Guid(bda40b1584798bc4090064ac28b5ee90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a62d027c87b064b5478120b4b465b208') in 0.010690 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.213049 seconds.
+  path: Assets/Scenes/mall.unity
+  artifactKey: Guid(fccec76d33ba552489db0b46e3605e65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/mall.unity using Guid(fccec76d33ba552489db0b46e3605e65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a0b8260c0a923a9ce80fc9043eea33c') in 0.053220 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.405434 seconds.
+  path: Assets/Scenes/AllInOneScen.unity
+  artifactKey: Guid(f11cfcaf1b0ad5545b46c03b02e53e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/AllInOneScen.unity using Guid(f11cfcaf1b0ad5545b46c03b02e53e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '079dd0b10e2634e260f0fc65901e5e91') in 0.046450 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.173135 seconds.
+  path: Assets/Scenes/MallParts/01
+  artifactKey: Guid(4b47ae03cecd7f24bba2c3d461bfa745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/01 using Guid(4b47ae03cecd7f24bba2c3d461bfa745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce6fe1702b0b0c83c7905eecadb0b4e8') in 0.050590 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.435719 seconds.
+  path: Assets/Scenes/MallParts/Materials
+  artifactKey: Guid(7aef0ab78f526514180e2ad7ee72e03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MallParts/Materials using Guid(7aef0ab78f526514180e2ad7ee72e03a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df5bef58f7337cc0e7f8e9161edc3bd3') in 0.050363 seconds 

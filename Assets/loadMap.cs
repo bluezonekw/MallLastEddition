@@ -20,38 +20,45 @@ namespace UI.Pagination
  
     void Awake()
     {
-            
-            var client = new RestClient("http://mymall-kw.com/api/V1/get-all-categories");
-            client.Timeout = -1;
-        var request = new RestRequest(Method.GET);
-        request.AddHeader("password-api", "mall_2021_m3m");
-             if (UPDownMenu.LanguageValue == 1)
-              {
-                  request.AddHeader("lang-api", "en");
-              }
-              else
-              {
-                  request.AddHeader("lang-api", "ar"); 
+            try
+            {
+                var client = new RestClient("http://mymall-kw.com/api/V1/get-all-categories");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("password-api", "mall_2021_m3m");
+                if (UPDownMenu.LanguageValue == 1)
+                {
+                    request.AddHeader("lang-api", "en");
+                }
+                else
+                {
+                    request.AddHeader("lang-api", "ar");
 
 
-              }
+                }
 
 
-            request.AlwaysMultipartFormData = true;
-        IRestResponse response = client.Execute(request);
-        category = JsonConvert.DeserializeObject<CategoryRequest>(response.Content);
+                request.AlwaysMultipartFormData = true;
+                IRestResponse response = client.Execute(request);
+                category = JsonConvert.DeserializeObject<CategoryRequest>(response.Content);
 
-            for (int index= 0;index < category.data.Count;index++)
-        {
-            g= GameObject.Instantiate(TabExample, TabLocation);
-            g.name = category.data[index].id.ToString();
-            g.GetComponent<Page>().PageTitle = category.data[index].name.Trim();
+                for (int index = 0; index < category.data.Count; index++)
+                {
+                    g = GameObject.Instantiate(TabExample, TabLocation);
+                    g.name = category.data[index].id.ToString();
+                    g.GetComponent<Page>().PageTitle = ArabicFixerTool.FixLine( category.data[index].name.Trim() );
+                   
+                }
 
-        }
+            }
+            catch
+            {
+                category = null;
 
-
+            }
 
     }
+
         IEnumerator LoadIcon(string url, RawImage s)
         {
             

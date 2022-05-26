@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RestSharp;
 using Newtonsoft.Json;
+using System.Linq;
 
 public class RequesStoresInHall : MonoBehaviour
 {
@@ -17,12 +18,24 @@ public GameObject Parent;
 
     void Start()
     {
+        try
+        {
+            var ILoadImages = transform.GetComponentsInChildren<ILoadImage>(false);
+      
+        foreach (var i in ILoadImages)
+        {
 
+           
+                StartCoroutine(i.DownloadMatrial());
+                StartCoroutine(i.DownloadRawImage());
+          
 
+        }
+        }
+        catch
+        {
 
-
-
-
+        }
 
         foreach (Transform child in Parent.transform)
         {

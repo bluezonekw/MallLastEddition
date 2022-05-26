@@ -6,6 +6,7 @@ using RestSharp;
 using Newtonsoft;
 using Newtonsoft.Json;
 using System;
+using System.IO;
 
 public class SingleSToreRequest : MonoBehaviour
 {
@@ -34,14 +35,7 @@ if(Childreen[i].tag=="UIShop"){
 }
 
 private void OnDisable() {
-       for(int i=0;i<Childreen.Length;i++){
 
-if(Childreen[i].tag=="UIShop"){
-    Childreen[i].gameObject.SetActive(false);
-}
-
-
-    }
 }
  void Awake() {
     Childreen=this.transform.GetComponentsInChildren<Transform>(true);
@@ -51,15 +45,25 @@ if(Childreen[i].tag=="UIShop"){
     void Start()
     {
         // System.Random random = new System.Random();
+        try
+        {
+            foreach (var gift in loadAllshops.AllGiftBox.data)
+            {
+                if (gift.stores.Contains(gameObject.name))
+                {
 
-          foreach(var gift in loadAllshops.AllGiftBox.data){
-        if(gift.stores.Contains(gameObject.name)){
-GameObject g=GameObject.Instantiate(GiftBox,transform);
-g.GetComponent<BoxGiftcollect>().code=gift.code;
-g.GetComponent<BoxGiftcollect>().coins=0;
-g.GetComponent<BoxGiftcollect>().discount=gift.discount;
-g.GetComponent<BoxGiftcollect>().id=gift.id;
+                    GameObject g = GameObject.Instantiate(GiftBox, transform);
+                    g.GetComponent<BoxGiftcollect>().code = gift.code;
+                    g.GetComponent<BoxGiftcollect>().coins = 0;
+                    g.GetComponent<BoxGiftcollect>().discount = gift.discount;
+                    g.GetComponent<BoxGiftcollect>().id = gift.id;
+                }
+            }
+             
         }
+        catch
+        {
+
         }
 StoreId=int.Parse( gameObject.name);
        StaticStoreId=StoreId;
@@ -324,28 +328,29 @@ GameObject welc;
 IEnumerator WaitWelcomeMessage(){
 
 welc.GetComponent<WelcomeMessageToShop>().ShopName.Text=SingleStore.data.store.name;
-            StartCoroutine(DownloadRawImage(SingleStore.data.store.logo, welc.GetComponent<WelcomeMessageToShop>().ShopLogo));
+            StartCoroutine(DownloadRawImage( welc.GetComponent<WelcomeMessageToShop>().ShopLogo));
 yield return new WaitForSeconds(10);
 Destroy(welc);
 }
 
 
-   IEnumerator DownloadRawImage(string url, RawImage I)
+   IEnumerator DownloadRawImage( RawImage I)
     {
 
+        if (File.Exists(Application.persistentDataPath + "/Door/" + gameObject.name + ".png"))
 
-        WWW www = new WWW(url);
-        yield return www;
-        
-try
         {
-            I.texture=www.texture;
 
+            byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
+            yield return byteArray;
+            Texture2D texture = new Texture2D(8, 8);
+            texture.LoadImage(byteArray);
+            I.texture = texture;
         }
-        catch (Exception ex)
+        else
         {
 
-
+            yield return 0;
         }
 
     }

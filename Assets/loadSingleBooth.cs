@@ -10,24 +10,31 @@ public class loadSingleBooth : MonoBehaviour
 {
     public BoothResponse booth;
     public RawImage B1,B2;
-     public List<SectionRequestData> AllProduct =new List<SectionRequestData>(); 
+     public List<Dataforproduct> AllProduct =new List<Dataforproduct>(); 
      public GameObject productExample;
     // Start is called before the first frame update
     void Start()
     {
-
-        var client = new RestClient("http://mymall-kw.com/api/V1/get-single-booth?booth_id="+gameObject.name);
-client.Timeout = -1;
-var request = new RestRequest(Method.GET);
-request.AddHeader("password_api", "mall_2021_m3m");
-request.AddHeader("lang_api", "en");
-request.AlwaysMultipartFormData = true;
-IRestResponse response = client.Execute(request);
-booth=JsonConvert.DeserializeObject<BoothResponse>(response.Content);
+        try
+        {
+            var client = new RestClient("http://mymall-kw.com/api/V1/get-single-booth?booth_id=" + gameObject.name);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("password_api", "mall_2021_m3m");
+            request.AddHeader("lang_api", "en");
+            request.AlwaysMultipartFormData = true;
+            IRestResponse response = client.Execute(request);
+            booth = JsonConvert.DeserializeObject<BoothResponse>(response.Content);
+         
+        }
+        catch
+        {
+            booth = new BoothResponse();
+        }
 if(booth.data==null ||booth.data.booth.is_active!=1){
 
-    gameObject.SetActive(false);
-    print(gameObject.name+"  is Empty");
+            GameObject.Destroy(gameObject);
+  
 }else{
  StartCoroutine(GetTexture(booth.data.booth.logo));
 foreach (var section in booth.data.sections){
@@ -46,7 +53,7 @@ GameObject g=new GameObject();
 if(AllProduct.Count!=0){
 
 foreach(var product in AllProduct){
-      print( product.id+ "   product");
+    
  g=GameObject.Instantiate(productExample,productExample.transform.parent);
  StartCoroutine(loadTexture(product.img, g.GetComponent<LoadBoothProduct>().Icon));
  g.gameObject.name=product.id.ToString();
@@ -55,9 +62,9 @@ foreach(var product in AllProduct){
  g.gameObject.GetComponent<LoadBoothProduct>().Name.text=product.name;
  
  if(product.sale_price==null){
-g.gameObject.GetComponent<LoadBoothProduct>().Price.text=product.regular_price.ToString();
+g.gameObject.GetComponent<LoadBoothProduct>().Price.text=product.regular_price.ToString()+" KWD";
  }else{
-g.gameObject.GetComponent<LoadBoothProduct>().Price.text=product.sale_price.ToString();
+g.gameObject.GetComponent<LoadBoothProduct>().Price.text=product.sale_price.ToString()+ " KWD";
 
  }
   
@@ -165,13 +172,15 @@ if (www.result == UnityWebRequest.Result.Success) {
 
     public class BoothProduct
     {
-        public int id { get; set; }
-        public string img { get; set; }
-        public int section_id { get; set; }
-        public bool in_favorite { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-    }
+    public int id { get; set; }
+    public string img { get; set; }
+    public string name { get; set; }
+    public int sale_price { get; set; }
+    public int regular_price { get; set; }
+    public int section_id { get; set; }
+    public bool in_favorite { get; set; }
+    public string description { get; set; }
+}
 
     public class BoothProfile
     {

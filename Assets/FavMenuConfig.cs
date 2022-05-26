@@ -42,7 +42,7 @@ FavTitle.Text="المفضلة";
 
 
 
-        StartCoroutine(GetFavItem()); 
+        GetFavItem(); 
 try{
 Counts.Text=Response.data.data.Count.ToString();
 foreach(FavData f in Response.data.data)
@@ -104,7 +104,7 @@ catch{
 
     }
 
-IEnumerator GetFavItem()
+public void GetFavItem()
  	   {
             try{
 	var client = new RestClient("http://mymall-kw.com/api/V1/favorite?limit=1000");
@@ -132,7 +132,7 @@ IEnumerator GetFavItem()
             catch{
                 
             }
-           yield return null;
+       
 	   }
 
 

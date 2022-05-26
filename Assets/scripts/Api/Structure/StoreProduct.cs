@@ -23,7 +23,7 @@ public class ProductData
 {
     public int id { get; set; }
     public string img { get; set; }
-    public int regular_price { get; set; }
+    public double regular_price { get; set; }
     public object sale_price { get; set; }
     public int quantity { get; set; }
     public List<string> slider { get; set; }

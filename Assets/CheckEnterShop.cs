@@ -8,9 +8,11 @@ public class CheckEnterShop : MonoBehaviour
     public static bool EnterShop,ExitShop;
     public static string EnteredStore;
 public static bool  CartEmpty;
+
     // Start is called before the first frame update
     void Start()
     {
+
        CartEmpty=true;
             CC = GetComponent<CharacterController>();
        
@@ -27,11 +29,15 @@ public static bool  CartEmpty;
     {
         if (hit.gameObject.tag == "FloorShop"&&!ExitShop)
         {
+
+           
+
            EnteredStore=hit.gameObject.transform.parent.name;
            EnterShop = true;
 SingleSToreRequest.StaticStoreId=int.Parse(  EnteredStore);
 hit.gameObject.transform.parent.GetComponent<loadimageFromApi>().enabled = true;
 hit.gameObject.transform.parent.GetComponent<SingleSToreRequest>().enabled = true;
+
         }
      
         if (EnterShop&& hit.gameObject.tag == "Gate" )

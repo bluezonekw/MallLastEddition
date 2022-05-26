@@ -56,15 +56,22 @@ if(SceneManager.GetActiveScene().buildIndex!=3){
 DestroyImmediate(this.gameObject);
 
 
-}
-if(p1.IsMine){
+            }
+            try
+            {
+                if (p1.IsMine)
+                {
 
-character.SetActive(false);
-}else{
+
+                    character.SetActive(false);
+                }
+                else
+                {
 
 
-      character.SetActive(true);
-}
+                    character.SetActive(true);
+                }
+          
 
          if (transform.hasChanged)
         { transform.hasChanged=false;
@@ -93,7 +100,12 @@ transform.position=MainPlayer.transform.position;
 transform.rotation=MainPlayer.transform.rotation;
 
 }
-    }
+            }
+            catch
+            {
+
+            }
+        }
       void OnApplicationQuit()
     {
      

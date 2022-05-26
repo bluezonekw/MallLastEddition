@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using RestSharp;
 using Newtonsoft.Json;
+using System.IO;
+
 public class LoadStores : MonoBehaviour
 {
     public StoreCategory Store;
@@ -53,7 +55,7 @@ fristShow=true;
             g = GameObject.Instantiate(Child, ChildLocation);
             g.name = s.id.ToString();
             g.transform.GetChild(1).GetComponent<ArabicText>().Text = s.name;
-            StartCoroutine(LoadIcon(s.logo, g.transform.GetChild(0).GetComponent<RawImage>()));
+            StartCoroutine(LoadIcon(s.id.ToString(), g.transform.GetChild(0).GetComponent<RawImage>()));
 
 
         }
@@ -65,15 +67,30 @@ fristShow=true;
 
 
 }
-    IEnumerator LoadIcon(string url, RawImage s)
+    public IEnumerator LoadIcon(string storelogo, RawImage s)
     {
 
 
-        WWW www = new WWW(url);
-        yield return www;
-        s.texture = www.texture;
 
+
+        if (File.Exists(Application.persistentDataPath + "/Door/" + storelogo + ".png"))
+
+        {
+
+            byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
+
+            Texture2D texture = new Texture2D(8, 8);
+            texture.LoadImage(byteArray);
+
+            s.texture = texture;
+
+        }
+      
+            yield return 0;
+        
     }
+
+    
     // Update is called once per frame
     void Update()
     {

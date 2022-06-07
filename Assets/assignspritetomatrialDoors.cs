@@ -26,10 +26,13 @@ private Material LocalMat;
             {
                 byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
                
-                Texture2D texture = new Texture2D(8, 8);
-                texture.LoadImage(byteArray);
+                Texture2D texture = new Texture2D(1, 1);
 
+                texture.LoadImage(byteArray);
+                texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
+                texture.Apply();
                 LocalMat.SetTexture("_BaseMap", texture);
+                texture = null;
             }
             catch
             {

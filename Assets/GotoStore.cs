@@ -5,7 +5,7 @@ namespace UI.Pagination
 {
     public class GotoStore : MonoBehaviour
 {
-    public List<Vector3> StoreLocation;
+
     public GameObject Player;
     int storeid;
 public GameObject Loading;
@@ -38,16 +38,17 @@ public GameObject Loading;
                 //actually move the character.
             }
         }
+        public GameObject g;
             public void Gotostore()
     {
-            
 
-	    Player.GetComponent<CharacterController>().enabled = false;
+             g = GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+            Player.GetComponent<CharacterController>().enabled = false;
 try{
- 	    Player.transform.localPosition=StoreLocation[storeid];
+ 	    Player.transform.localPosition=UPDownMenu.instance.StoreLocation[storeid];
 }catch{
 
- 	    Player.transform.localPosition=StoreLocation[0];
+ 	    Player.transform.localPosition= UPDownMenu.instance.StoreLocation[0];
 }
 
             Player.GetComponent<CharacterController>().enabled = true;
@@ -65,7 +66,7 @@ try{
   Player.GetComponent<CharacterController>().enabled = false;
 
 try{
- 	    Player.transform.localPosition=StoreLocation[storeid];
+ 	    Player.transform.localPosition= UPDownMenu.instance.StoreLocation[storeid];
 if(Player.transform.localPosition.x==19)
 
 {
@@ -81,16 +82,16 @@ Player.transform.localPosition+=new  Vector3(1, 0, 0);
 }
 }catch{
 
- 	    Player.transform.localPosition=StoreLocation[0];
+ 	    Player.transform.localPosition= UPDownMenu.instance.StoreLocation[0];
 }
-GameObject g=GameObject.Instantiate(Loading, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+
         //yield on a new YieldInstruction that waits for 5 seconds.
 yield return new WaitForSeconds(3);
-/*while (MallLoader.Isload){
-yield return new WaitForSeconds(1);
-}
- */      
-Destroy(g);
+            /*while (MallLoader.Isload){
+            yield return new WaitForSeconds(1);
+            }
+             */
+            Destroy(g);
 
 
  Player.GetComponent<CharacterController>().enabled = true;

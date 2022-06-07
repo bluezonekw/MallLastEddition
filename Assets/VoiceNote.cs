@@ -50,7 +50,7 @@ pauseAudio();
     // Start is called before the first frame update
     void Start()
     {
-        audioSlider.direction = Slider.Direction.LeftToRight;
+      audioSlider.direction = Slider.Direction.LeftToRight;
          audioSlider.minValue = 0;
          audioSlider.maxValue = clip.length;
         Button.sprite=Play;
@@ -60,11 +60,22 @@ pauseAudio();
     // Update is called once per frame
     void Update()
     {
+      
         if(audioSource.clip==clip){
            audioSlider.value = audioSource.time;
+
         }
-        if(audioSlider.value==audioSlider.maxValue){
-            pauseAudio();
+        else
+        {
+            Button.sprite = Play;
+            audioSlider.value = 0;
+
         }
+       
+            if (audioSlider.value == audioSlider.maxValue)
+            {
+                pauseAudio();
+            }
+      
     }
 }

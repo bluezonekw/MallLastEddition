@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class chooseCharacter : MonoBehaviour
 {
-   
+    
     
     public NetworkManager n1;
     public GameObject  Male1, Male2, Male3, Female,allScene,ChooseScene;
@@ -18,35 +18,84 @@ public class chooseCharacter : MonoBehaviour
     public static bool isChooseChar;
     public GameObject Playerobject;
      public GameObject cameranimation;
-     public Button b,b1,b2;
+     
     //public NetworkManager n1; 
     // Start is called before the first frame update
     void Start()
     {
-b.interactable=false;
-b1.interactable=false;
-b2.interactable=false;
-        if(ApiClasses.Vistor){
 
-chooseMale3();
-
-        }else
+        if (ApiClasses.Vistor)
         {
 
-               cameranimation.GetComponent<Animation>().Play();
-               StartCoroutine(WaitAnimation());
+            chooseMale3();
+
+        }
+        else
+        {
+
+
+
+
+
+            if (UPDownMenu.Login)
+            {
+
+                if (ApiClasses.Login.data.original.user.gander == 1)
+                {
+
+                    Female.SetActive(true);
+                    a1.avatar = FemaleAvater;
+                    ChooseScene.SetActive(false);
+                    allScene.SetActive(true);
+                    Message.SetActive(true);
+                    isChooseChar = true;
+                    n1.play();
+                    CameraPostion.transform.localPosition = new Vector3(-0.05f, 1.375f, 0);
+                    Playerobject.SetActive(true);
+                }
+                else
+                {
+                    cameranimation.GetComponent<Animation>().Play();
+
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    if (ApiClasses.Register.data.user.gander == "1")
+                    {
+
+                        Female.SetActive(true);
+                        a1.avatar = FemaleAvater;
+                        ChooseScene.SetActive(false);
+                        allScene.SetActive(true);
+                        Message.SetActive(true);
+                        isChooseChar = true;
+                        n1.play();
+                        CameraPostion.transform.localPosition = new Vector3(-0.05f, 1.375f, 0);
+                        Playerobject.SetActive(true);
+                    }
+                    else
+                    {
+                        cameranimation.GetComponent<Animation>().Play();
+
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+
+
+
+
+
         }
     }
-    IEnumerator WaitAnimation(){
-
-
-yield return new WaitForSeconds(cameranimation.GetComponent<Animation>().clip.length+1);
-b.interactable=true;
-b1.interactable=true;
-b2.interactable=true;
-
-
-    }
+  
     public void chooseMale1()
     {
 
@@ -92,50 +141,7 @@ Playerobject.SetActive(true);
         Playerobject.SetActive(true);
     }
 
-    private void Awake()
-{
-    if(UPDownMenu.Login)
-    {
-      
-        if (ApiClasses.Login.data.original.user.gander == 1)
-        {
-                
-            Female.SetActive(true);
-            a1.avatar = FemaleAvater;
-                ChooseScene.SetActive(false);
-                allScene.SetActive(true);
-                Message.SetActive(true);
-                isChooseChar = true;
-                n1.play();
-                CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
-                Playerobject.SetActive(true);
-            }
-    }
-    else
-    {
-        try
-        {
-            
-       if (ApiClasses.Register.data.user.gander == "1")
-            {
-
-                Female.SetActive(true);
-                a1.avatar = FemaleAvater;
-                    ChooseScene.SetActive(false);
-                    allScene.SetActive(true);
-                    Message.SetActive(true);
-                    isChooseChar = true;
-                    n1.play();
-                    CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
-                    Playerobject.SetActive(true);
-                }
-            }
-        catch
-        {
-          
-        }
-    }
-}
+   
 
 // Update is called once per frame
 void Update()

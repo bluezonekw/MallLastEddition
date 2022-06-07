@@ -17,7 +17,7 @@ public class RequestAds : MonoBehaviour
     public List<GameObject> LeftFront, LeftBack, Rightfront, RightBack;
     // Start is called before the first frame update
  public string URL=@"http://mymall-kw.com/api/V1/stands-ads?hall=";
- void Awake()
+ void Start()
     {
         try{
         if(!ApiClasses.Vistor){

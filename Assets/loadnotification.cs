@@ -10,10 +10,7 @@ public class loadnotification : MonoBehaviour
     public NotificationResponse notification;
     public GameObject item;
     public Text NumberofNotification;
-    private void Awake()
-    {
-     
-    }
+  
      void OnEnable()
     {
         var client = new RestClient("http://mymall-kw.com/api/V1/notifications");
@@ -34,17 +31,18 @@ public class loadnotification : MonoBehaviour
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         notification = JsonConvert.DeserializeObject<NotificationResponse>(response.Content);
-        print(response.Content);
-        NumberofNotification.text = notification.data.Count.ToString();
+      
         foreach (var n in notification.data)
         {
             GameObject g = GameObject.Instantiate(item, item.transform.parent);
             g.name = n.id.ToString();
             g.GetComponent<NotifictionItem>().text.text = n.title_general;
             StartCoroutine(DownloadRawImage(n.image, g.GetComponent<NotifictionItem>().Icon));
-            g.GetComponent<NotifictionItem>().Time.text = "";
+            g.GetComponent<NotifictionItem>().Time.text = n.created_at;
+            g.GetComponent<NotifictionItem>().typeid = n.type_id.ToString();
+            g.GetComponent<NotifictionItem>().type = n.type;
 
-          g.SetActive(true);
+            g.SetActive(true);
         }
     }
     public string AuthToken()
@@ -100,7 +98,7 @@ public class NotificationData
     public int is_new;
     public List<NotificationTranslation> translations;
     public object updated_at;
-    public object created_at;
+    public string created_at;
 }
 public class NotificationResponse
 {

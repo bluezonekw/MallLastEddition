@@ -32,9 +32,12 @@ public class assignBannerFromApi : MonoBehaviour, ILoadImage
                 byte[] byteArray = File.ReadAllBytes(Path.Combine(Application.persistentDataPath + "/Banner/" + int.Parse(gameObject.name).ToString() + ".png"));
 
 
-                Texture2D texture = new Texture2D(8, 8);
+                Texture2D texture = new Texture2D(1, 1);
+                texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
+                texture.Apply();
                 texture.LoadImage(byteArray);
                 GetComponent<RawImage>().texture = texture;
+                texture = null;
             }
             catch
             {

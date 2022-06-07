@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class loadSingleBooth : MonoBehaviour
 {
+    public List<TextMesh> TextMesh;
     public BoothResponse booth;
     public RawImage B1,B2;
      public List<Dataforproduct> AllProduct =new List<Dataforproduct>(); 
@@ -15,6 +16,7 @@ public class loadSingleBooth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject g = new GameObject();
         try
         {
             var client = new RestClient("http://mymall-kw.com/api/V1/get-single-booth?booth_id=" + gameObject.name);
@@ -37,74 +39,53 @@ if(booth.data==null ||booth.data.booth.is_active!=1){
   
 }else{
  StartCoroutine(GetTexture(booth.data.booth.logo));
-foreach (var section in booth.data.sections){
-
-if(section.product!=null){
-  
-loadSectionProduct(gameObject.name,section.id.ToString());
-
+foreach (var product in booth.data.products){
+                g = GameObject.Instantiate(productExample, productExample.transform.parent);
+                StartCoroutine(loadTexture(product.img, g.GetComponent<LoadBoothProduct>().Icon));
+                g.gameObject.name = product.id.ToString();
 
 
+                g.gameObject.GetComponent<LoadBoothProduct>().Name.text = product.name;
 
-}
+                if (product.sale_price == null)
+                {
+                    g.gameObject.GetComponent<LoadBoothProduct>().Price.text = product.regular_price.ToString() + " KWD";
+                }
+                else
+                {
+                    g.gameObject.GetComponent<LoadBoothProduct>().Price.text = product.sale_price.ToString() + " KWD";
 
-}
-GameObject g=new GameObject();
-if(AllProduct.Count!=0){
+                }
 
-foreach(var product in AllProduct){
-    
- g=GameObject.Instantiate(productExample,productExample.transform.parent);
- StartCoroutine(loadTexture(product.img, g.GetComponent<LoadBoothProduct>().Icon));
- g.gameObject.name=product.id.ToString();
+                g.SetActive(true);
 
- 
- g.gameObject.GetComponent<LoadBoothProduct>().Name.text=product.name;
- 
- if(product.sale_price==null){
-g.gameObject.GetComponent<LoadBoothProduct>().Price.text=product.regular_price.ToString()+" KWD";
- }else{
-g.gameObject.GetComponent<LoadBoothProduct>().Price.text=product.sale_price.ToString()+ " KWD";
 
- }
-  
- g.SetActive(true);
+
+
+
+            }
+        
 
 
 
 
 }
+        try
+        {
+            foreach (var t in TextMesh)
+            {
 
+                t.text = booth.data.booth.name;
+            }
+        }
+        catch
+        {
 
-
-}
-
-
-
-}
+        }
     }
 
 
-    public void loadSectionProduct(string StoreId,string SectionId){
-var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreId + "&section_id=" + SectionId + "&page=1&limit=10000" );
-        client.Timeout = -1;
-        var request1 = new RestRequest(Method.GET);
-        request1.AddHeader("password_api", "mall_2021_m3m");
-        request1.AddHeader("lang_api", "en");
-        request1.AlwaysMultipartFormData = true;
-        IRestResponse response = client.Execute(request1);
-      SectionRequest  request= JsonConvert.DeserializeObject<SectionRequest>(response.Content);
-    
-foreach(var product in request.data.data ){
-
-    AllProduct.Add(product);
-}
-
-   
-
-
-
-    }
+  
 
     // Update is called once per frame
     void Update()
@@ -167,7 +148,7 @@ if (www.result == UnityWebRequest.Result.Success) {
     {
         public Booth booth { get; set; }
         public BoothSliders sliders { get; set; }
-        public List<BoothSection> sections { get; set; }
+        public List<BoothProduct> products { get; set; }
     }
 
     public class BoothProduct
@@ -175,11 +156,17 @@ if (www.result == UnityWebRequest.Result.Success) {
     public int id { get; set; }
     public string img { get; set; }
     public string name { get; set; }
-    public int sale_price { get; set; }
-    public int regular_price { get; set; }
+    public int? sale_price { get; set; }
+    public double regular_price { get; set; }
     public int section_id { get; set; }
     public bool in_favorite { get; set; }
     public string description { get; set; }
+
+
+
+
+
+
 }
 
     public class BoothProfile
@@ -212,14 +199,7 @@ if (www.result == UnityWebRequest.Result.Success) {
         public BoothData data { get; set; }
     }
 
-    public class BoothSection
-    {
-        public int id { get; set; }
-        public string wall { get; set; }
-        public string position { get; set; }
-        public BoothProduct product { get; set; }
-    }
-
+    
     public class BoothSliders
     {
         public List<object> right { get; set; }

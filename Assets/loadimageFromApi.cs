@@ -30,33 +30,38 @@ public class loadimageFromApi : MonoBehaviour
     public GameObject DetailsMenu;
     GameObject MenuCreated;
 bool startAnimation1;
-IEnumerator Load5Image(){
-        loadMoreProduct(0);
-        loadMoreProduct(1);
-        loadMoreProduct(2);
-        loadMoreProduct(3);
-        loadMoreProduct(4);
-        loadMoreProduct(5);
-        loadMoreProduct(6);
-        loadMoreProduct(0);
+public IEnumerator Load5Image(){
+      
+          
+            loadSectionProduct(0);
+            loadSectionProduct(1);
+            loadSectionProduct(2);
+            loadSectionProduct(3);
+            loadSectionProduct(4);
+            loadSectionProduct(5);
+            loadSectionProduct(6);
+            loadSectionProduct(0);
 
-        loadMoreProduct(7);
-        loadMoreProduct(8);
+            loadSectionProduct(7);
+            loadSectionProduct(8);
+           
+
+       
 
 
         for (int x=0;x<5;x++){
 
 
   yield return new WaitForSeconds(5);
-    nextSection(0);
-nextSection(1);
-nextSection(2);
-nextSection(3);
-nextSection(4);
-nextSection(5);
-nextSection(6);
-nextSection(7);
-nextSection(8);
+            ChangeProduct(0);
+            ChangeProduct(1);
+            ChangeProduct(2);
+            ChangeProduct(3);
+            ChangeProduct(4);
+            ChangeProduct(5);
+            ChangeProduct(6);
+            ChangeProduct(7);
+            ChangeProduct(8);
     }
 
 
@@ -74,17 +79,17 @@ startAnimation1=true;
         Rindex = Lindex = Findex = 0;
         StoreRequest = GetComponent<SingleSToreRequest>();
 
-
-StartCoroutine(Load5Image());
+        
+       
  
 
     }
-
+    bool loadproduct;
     IEnumerator ChangeProduct(int sectionIdLocal)
-
+        
 
     {
-
+       
 try
         {
          
@@ -163,7 +168,7 @@ yield return new WaitForSeconds(1);
         }
         catch
         {
-            Debug.Log("Ana msh fadelkom");
+            Debug.Log("FailedTolaod");
         }
     }
     public void Loadslidders(GameObject Parent, string Url, int Rotation)
@@ -368,6 +373,7 @@ catch{
 
         if (StoreRequest.Loaded && !Startassign)
         {
+            StartCoroutine(Load5Image());
             Startassign = true;
             foreach (string s in StoreRequest.sliddderFront)
             {
@@ -564,80 +570,86 @@ catch{
         }
     }
 int xew=0;
-public void loadMoreProduct(int sectionIdLocal){
+public void loadSectionProduct(int sectionIdLocal){
 
 
-    try{
-        var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreRequest.StoreId.ToString() + "&section_id=" + StoreRequest.SectionId[sectionIdLocal].ToString() + "&page=1 &limit=1000" );
-        client.Timeout = -1;
-        var request1 = new RestRequest(Method.GET);
-        request1.AddHeader("password_api", "mall_2021_m3m");
-        request1.AddHeader("lang_api", "en");
-        request1.AlwaysMultipartFormData = true;
-        IRestResponse response = client.Execute(request1);
-        request= JsonConvert.DeserializeObject<SectionRequest>(response.Content);
 
-            print(response.Content);
-        
-    }
-    catch{
-       
+        if (StoreRequest.SectionId.ContainsKey(sectionIdLocal))
+        {
+           
+            var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreRequest.StoreId.ToString() + "&section_id=" + StoreRequest.SectionId[sectionIdLocal].ToString() + "&page=1 &limit=1000");
+            client.Timeout = -1;
+            var request1 = new RestRequest(Method.GET);
+            request1.AddHeader("password_api", "mall_2021_m3m");
+            request1.AddHeader("lang_api", "en");
+            request1.AlwaysMultipartFormData = true;
+            IRestResponse response = client.Execute(request1);
+            request = JsonConvert.DeserializeObject<SectionRequest>(response.Content);
 
-    }
+           
+        }
+        else
+        {
+            foreach (var i in StoreRequest.SectionId) {
+                print(i.Key+" key  "+i.Value);
+                    }
+        }
+    
 }
     public void nextSection(int sectionIdLocal)
     {
 
 
-    
 
 
 
 
-            try
+
+        try
+        {
+            if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
             {
-                if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
+                foreach (Dataforproduct Product in request.data.data.ToArray())
                 {
-                    foreach (Dataforproduct Product in request.data.data.ToArray())
-                    {
-                        LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 0);
+                    LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 0);
 
 
-                    }
                 }
-
-
-
-                if (sectionIdLocal <= 5 && sectionIdLocal >= 3)
-                {
-                    foreach (Dataforproduct Product in request.data.data.ToArray())
-                    {
-                        LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 1);
-
-
-                    }
-                }
-
-
-
-                if (sectionIdLocal >= 5 && sectionIdLocal <= 8)
-                {
-                    foreach (Dataforproduct Product in request.data.data.ToArray())
-                    {
-                        LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 2);
-
-
-                    }
-                }
-
-                 
-              
-
-               
-
             }
-catch{
-print("Failed");
+
+
+
+            if (sectionIdLocal <= 5 && sectionIdLocal >= 3)
+            {
+                foreach (Dataforproduct Product in request.data.data.ToArray())
+                {
+                    LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 1);
+
+
+                }
+            }
+
+
+
+            if (sectionIdLocal >= 5 && sectionIdLocal <= 8)
+            {
+                foreach (Dataforproduct Product in request.data.data.ToArray())
+                {
+                    LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 2);
+
+
+                }
+            }
+
+
+
+
+
+
+        }
+        catch
+        {
+            print("Failed");
 
 
 

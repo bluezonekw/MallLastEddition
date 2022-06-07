@@ -110,8 +110,8 @@ public static string privateplayername;
 
 
 public void openPrivateChat(){
-privateplayername= EventSystem.current.currentSelectedGameObject.name;
-
+privateplayername= EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.name.Split('$')[0];
+        
 HeaderAllChats.SetActive(false);
 HeaderPrivateChat.SetActive(true);
 HeaderGroupChat.SetActive(false);
@@ -279,7 +279,7 @@ FooterGroupChat.SetActive(true);
         try{
 
         
-GameObject.Find(sender).GetComponent<privateChat>().iGetPrivateMessagelocal(message.ToString());
+GameObject.Find(sender).GetComponent<privateChat>().iGetPrivateMessagelocal(message.ToString(),"send");
  print(sender+"   sssss   "+ message.ToString());
      }
     catch{

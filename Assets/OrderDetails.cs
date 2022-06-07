@@ -14,13 +14,19 @@ public ArabicText MainTitle,SubTitle,Items,Amount,Total,TotalHeader,Currency;
 public Text TMainTitle,TSubTitle,TTotal,TPrice,TCurrency;
 public GameObject ArabicOrder,EnOrder;
 GameObject g;
+
+
+     void Awake()
+    {
+    
+    }
     // Start is called before the first frame update
     void Start()
     {
         
     }
 public void DisableMenu(){
- this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+ this.gameObject.SetActive(false);
 
 
 
@@ -67,7 +73,7 @@ TCurrency.alignment= TextAnchor.MiddleLeft;
 }
 public void LoadDetails(){
 
-print(id+"               10");
+
 try{
 foreach (Transform child in Item.transform) {
      GameObject.Destroy(child.gameObject);

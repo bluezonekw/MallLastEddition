@@ -49,14 +49,14 @@ return aa;
          List<float> test=new List<float>();
      foreach(var number in s){
 test.Add(float.Parse( number));
-
-
+          
 
      }
+        clipLength = test.Count;
      return test.ToArray();
     }
 
-
+    public int clipLength;
 
  [Header("VoiceChat")]
  public AudioClip recordingNew;
@@ -67,7 +67,7 @@ public NewButton VoiceButton;
  AudioClip recording;
  bool isplay;
 bool isdown;
-private float startRecordingTime;
+private float startRecordingTime=0;
     public Button SendPhoto;
     public ChatTabForChat MainChat;
     public TMP_InputField InputMessage;
@@ -88,20 +88,24 @@ public float privatesizescroll;
  public RawImage SendImage,RecievImage;
 
 
-public void Create_Recieve_Voice(string MessageVoice){
-   AudioClip recordingNew = AudioClip.Create(recording.name, (int)((Time.time - startRecordingTime) * recording.frequency), recording.channels, recording.frequency, false);
-        float[] data =  stringtoarrayoffloat(MessageVoice);
-  recordingNew.SetData(data,0);
-           var createdtext = GameObject.Instantiate(RecieveVoiceNote);
-           createdtext.GetComponent<VoiceNote>().clip=recordingNew;
+public void Create_Recieve_Voice(string MessageVoice,string id){
+        float[] data = stringtoarrayoffloat(MessageVoice);
+      
+            //  recordingNew = AudioClip.Create(recording.name, (int)((Time.time - startRecordingTime) * recording.frequency), recording.channels, recording.frequency, false);
+            recordingNew = AudioClip.Create(id, clipLength, 1, 8000, false);
+            recordingNew.SetData(data, 0);
+
+            var createdtext = GameObject.Instantiate(RecieveVoiceNote);
+            createdtext.GetComponent<VoiceNote>().clip = recordingNew;
             createdtext.transform.parent = MessageListParent;
-             createdtext.transform.localScale = new Vector3(1f, 1f, 1f);
-          createdtext.SetActive(true);
+            createdtext.transform.localScale = new Vector3(1f, 1f, 1f);
+            createdtext.SetActive(true);
+      
 }
 
 
 public void Create_Recieve_Image(Texture message){
- SendImage.texture=message;
+ RecievImage.texture=message;
            var createdtext = GameObject.Instantiate(RecievImageGameobj);
             createdtext.transform.parent = MessageListParent;
              createdtext.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -111,7 +115,7 @@ public void Create_Recieve_Image(Texture message){
 public void Create_Recieve_Text(string message){
 
 
- privateSend.text=message;
+ PrivateRecieve.text=message;
            var createdtext = GameObject.Instantiate(PrivateChatReciev);
             createdtext.transform.parent = MessageListParent;
              createdtext.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -127,7 +131,7 @@ public void Create_Recieve_Text(string message){
 
 
 
-public void iGetPrivateMessagelocal(string Message){
+public void iGetPrivateMessagelocal(string Message,string id){
  if(Message.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]=="Image")
  {
 byte[] bytes;
@@ -144,9 +148,17 @@ Create_Recieve_Text(Message.Split(new string[] { "$$$" }, StringSplitOptions.Non
  }
  else  if(Message.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]=="Voice")
  {
-Create_Recieve_Voice(Message.Split(new string[] { "$$$" }, StringSplitOptions.None)[1]);
-   
- }
+
+         
+          
+Create_Recieve_Voice(Message.Split(new string[] { "$$$" }, StringSplitOptions.None)[1],id);
+         
+          
+
+
+         
+
+        }
      
 
 
@@ -224,7 +236,7 @@ if(EventSystem.current.currentSelectedGameObject.name.Contains("$"))
     void Start()
     {
           
-try{
+
 
 
 var client = new RestClient("http://mymall-kw.com/api/V1/friends/chat");
@@ -247,6 +259,7 @@ request.AddParameter("paginat", "100");
 request.AddParameter("friend_id",gameObject.name);
 IRestResponse response = client.Execute(request);
 ChatHistory chatHistory=JsonConvert.DeserializeObject<ChatHistory>(response.Content);
+            print(response.Content);
 if(chatHistory.statsu==1){
 foreach(var message in chatHistory.data){
 
@@ -270,11 +283,11 @@ Create_Send_Text(message.text.Split(new string[] { "$$$" }, StringSplitOptions.N
  {
      
       float[] data =  stringtoarrayoffloat(message.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[1]);
-recordingNew= AudioClip.Create (gameObject.name, data.Length, 1, 8000,false);
-     
-  recordingNew.SetData(data,0);
-Create_Send_Voice(recordingNew);
-print((message.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]));
+                        recordingNew = AudioClip.Create(message.id.ToString(), clipLength, 1, 8000, false);
+
+                        recordingNew.SetData(data,0);
+Create_Send_Voice(recordingNew, message.id.ToString());
+
    
  }else{
 
@@ -284,7 +297,7 @@ print((message.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]));
 
 
 }else{
-iGetPrivateMessagelocal(message.text);
+iGetPrivateMessagelocal(message.text,message.id.ToString());
 
 
 
@@ -309,12 +322,12 @@ iGetPrivateMessagelocal(message.text);
 
 
      
-         
 
-}
-catch{
-print("Faild to load Messages");
-}
+
+
+
+
+
     }
 
     // Update is called once per frame
@@ -438,7 +451,7 @@ public void SendPrivateVoice(){
        
 
         //Trim the audioclip by the length of the recording
-        AudioClip recordingNew = AudioClip.Create(recording.name, (int)((Time.time - startRecordingTime) * recording.frequency), recording.channels, recording.frequency, false);
+         recordingNew = AudioClip.Create(recording.name, (int)((Time.time - startRecordingTime) * recording.frequency), recording.channels, recording.frequency, false);
         float[] data = new float[(int)((Time.time - startRecordingTime) * recording.frequency)];
         recording.GetData(data, 0);
        recordingNew.SetData(data, 0);
@@ -453,7 +466,7 @@ print(data.Length.ToString());
 
          return;
        }
-      Create_Send_Voice(recordingNew);
+      Create_Send_Voice(recordingNew,"Send");
          GetComponent<AudioSource>().clip=EndRecords;
 GetComponent<AudioSource>().Play();
 
@@ -475,10 +488,12 @@ GetComponent<AudioSource>().Play();
 
 
 
-public void Create_Send_Voice(AudioClip message){
+public void Create_Send_Voice(AudioClip message,string id){
  
            var createdtext = GameObject.Instantiate(sendVoiceNote);
            createdtext.GetComponent<VoiceNote>().clip=message;
+        createdtext.GetComponent<VoiceNote>().clip.name = id;
+        print(id);
             createdtext.transform.parent = MessageListParent;
              createdtext.transform.localScale = new Vector3(1f, 1f, 1f);
           createdtext.SetActive(true);
@@ -531,7 +546,7 @@ IRestResponse response = client.Execute(request);
 Console.WriteLine(response.Content);
 
 AcceptRequest a=JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
-
+        print(response.Content);
 if(a.statsu==0){
   return false;
 }
@@ -555,17 +570,18 @@ return true;
         {
        MainChat.SendPrivateMessageslocal("Text$$$"+WriteMessageprivate.text,FriendNameInserver);
           if(!SendMessageInMallServer("Text$$$"+WriteMessageprivate.text,FriendNameInserver,"Text")){
-
+                    print("failed  " + "Text$$$" + WriteMessageprivate.text+"  "+ FriendNameInserver);
          return;
        }
 
-       Create_Send_Text(WriteMessageprivate.text);    
-         WriteMessageprivate.text="";
+       Create_Send_Text(WriteMessageprivate.text);
+                print("success  " + "Text$$$" + WriteMessageprivate.text + "  " + FriendNameInserver);
+                WriteMessageprivate.text="";
         }
     }
     catch{
-
-    }
+            print("catch  " + "Text$$$" + WriteMessageprivate.text + "  " + FriendNameInserver);
+        }
     }
 }
 
@@ -598,13 +614,27 @@ return true;
         public List<DataFriendNameById> data { get; set; }
     }
 
-    public class DataChatHistory
+
+public class SenderHistory
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public string image { get; set; }
+}
+
+
+
+
+public class DataChatHistory
     {
         public int id { get; set; }
         public string text { get; set; }
         public string type { get; set; }
         public string type_user { get; set; }
-    }
+    public int is_new { get; set; }
+    public string created_at { get; set; }
+    public SenderHistory sender { get; set; }
+}
 
     public class ChatHistory
     {

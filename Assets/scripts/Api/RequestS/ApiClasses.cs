@@ -8,11 +8,15 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class ApiClasses : MonoBehaviour
 {
-
-
+    public GameObject forgetPasswordgameobject;
+    public GameObject changePassword, CheckCode;
+  
+    public InputField VertificationCode, CheckEmilepassword, CheckEmilecode, NewPasswordIF;
+    public int isforget;
+    public InputField ForgetEmail;
     bool popUpFlag, failed, splashfinished;
     public static Login Login;
     public static Register Register;
@@ -26,7 +30,11 @@ public class ApiClasses : MonoBehaviour
     public  static bool Vistor;
     private void Start()
     {
-        if(!VisitorLogin.logout){
+      
+  
+      
+        isforget = PlayerPrefs.GetInt("isForgetPassword", 0);
+        if (!VisitorLogin.logout){
         SaveScript.LoadData();
         if (SaveScript.GameEmail!= null  && SaveScript.GamePassword != null)
         {
@@ -69,7 +77,19 @@ Vistor=true;
         {            splashfinished = true;
 
             splash.SetActive(false);
-            LoginObj.SetActive(true);
+
+
+            if (isforget == 0)
+            {
+                LoginObj.SetActive(true);
+            }
+            else
+            {
+                CheckEmilecode.text = PlayerPrefs.GetString("ForgetEmail", " ");
+                CheckCode.SetActive(true);
+
+
+            }
         }
         else if (Waittime > 0 )
         {
@@ -202,11 +222,107 @@ print(s);
         }
 
     }
+
+
+
+    public CheckEmailResponse checkEmail;
+    public void forgetPassword()
+    {
+
+        var client = new RestClient("http://mymall-kw.com/api/V1/check-phone");
+        client.Timeout = -1;
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("password-api", "mall_2021_m3m");
+        request.AddHeader("lang-api", "en");
+        request.AlwaysMultipartFormData = true;
+        request.AddParameter("email", ForgetEmail.text);
+        IRestResponse response = client.Execute(request);
+      
+         checkEmail= JsonConvert.DeserializeObject<CheckEmailResponse>(response.Content);
+        if (checkEmail.statsu == 1)
+        {
+            msg = "تم ارسال اللينك عبر البريد الالكترونى";
+
            
+            PlayerPrefs.SetInt("isForgetPassword", 1);
+            PlayerPrefs.SetInt("Forgetid", checkEmail.data.Value);
+            PlayerPrefs.SetString("ForgetEmail", ForgetEmail.text);
+            forgetPasswordgameobject.SetActive(false);
+            CheckEmilecode.text = PlayerPrefs.GetString("ForgetEmail", " ");
+            CheckCode.SetActive(true);
+        }
+        else
+        {
+            msg = "البريد الالكترونى غير مسجل";
+        }
+      
+        popUpFlag = true;
+    }
 
 
 
+    public void VerifiyEmail()
+    {
 
+        var client = new RestClient("http://mymall-kw.com/api/V1/check-code");
+        client.Timeout = -1;
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("password-api", "mall_2021_m3m");
+        request.AddHeader("lang-api", "ar");
+        request.AlwaysMultipartFormData = true;
+        request.AddParameter("user_id", PlayerPrefs.GetInt("Forgetid", 0));
+        request.AddParameter("code", VertificationCode.text);
+        IRestResponse response = client.Execute(request);
+        print(PlayerPrefs.GetInt("Forgetid", 0) + "   " + VertificationCode.text);
+        print(response.Content);
+        checkEmail = JsonConvert.DeserializeObject<CheckEmailResponse>(response.Content);
+        if (checkEmail.statsu == 1)
+        {
+            msg = "تم التحقق بنجاح";
+
+            CheckEmilepassword.text = PlayerPrefs.GetString("ForgetEmail", " ");
+            changePassword.SetActive(true);
+ CheckCode.SetActive(false);
+        }
+        else
+        {
+            msg = "هناك خطأ فى رمز التحقق";
+        }
+
+        popUpFlag = true;
+
+    }
+
+
+    public void ResetPassword()
+    {
+
+
+
+        var client = new RestClient("http://mymall-kw.com/api/V1/forgot-password");
+        client.Timeout = -1;
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("password-api", "mall_2021_m3m");
+        request.AddHeader("lang-api", "ar");
+        request.AlwaysMultipartFormData = true;
+        request.AddParameter("user_id", PlayerPrefs.GetInt("Forgetid", 0));
+        request.AddParameter("password", NewPasswordIF.text);
+        IRestResponse response = client.Execute(request);
+        ResetPasswordResponse ResetPasswordResponse = JsonConvert.DeserializeObject<ResetPasswordResponse>(response.Content);
+        if (ResetPasswordResponse.statsu == 1)
+        {
+            msg = "تم تعديل كلمة المرور بنجاح";
+            PlayerPrefs.SetInt("isForgetPassword", 0);
+            changePassword.SetActive(false);
+            LoginObj.SetActive(true);
+        }
+        else
+        {
+            msg = "فشل فى تعديل كلمة المرور";
+        }
+
+        popUpFlag = true;
+    }
     public void Login_To_Mall()
     {
 
@@ -243,7 +359,7 @@ print(s);
 
         if (Login.statsu == 1)
         {
-
+            PlayerPrefs.SetInt("isForgetPassword", 0);
             SaveScript.SaveData();
 UPDownMenu.Login=true;
 VisitorLogin.logout=false;
@@ -261,4 +377,23 @@ Vistor=false;
 
 
     }
+}
+
+
+[Serializable]
+public class CheckEmailResponse
+{
+    public int statsu;
+ 
+    public int? data;
+}
+
+
+
+
+public class ResetPasswordResponse
+{
+    public int statsu { get; set; }
+    
+    public object data { get; set; }
 }

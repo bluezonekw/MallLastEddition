@@ -9,19 +9,20 @@ public ArabicText Id,Price;
 public RawImage Icon;
 public ArabicText DateArrive;
 public int idnumber;
+    public  OrderDetails OrderDetailsObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        OrderDetailsObject = UPDownMenu.instance.OrderDetailsObject;
     }
 
 public void OpenOrderDetails()
 {
-     var OrderDetailsObject = FindObjectsOfType<OrderDetails>();
 
-OrderDetailsObject[0].gameObject.transform.GetChild(0).gameObject.SetActive(true);
-OrderDetailsObject[0].id=idnumber.ToString();
-OrderDetailsObject[0].LoadDetails();
+
+        OrderDetailsObject.gameObject.SetActive(true);
+        OrderDetailsObject.id=idnumber.ToString();
+        OrderDetailsObject.LoadDetails();
 
 
 

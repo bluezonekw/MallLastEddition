@@ -6,19 +6,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.Networking;
+public class CountNotification
+{
 
+    public int statsu;
+    public string message;
+    public int data;
+}
 public class UPDownMenu : MonoBehaviour
     {
 
 
+    public static UPDownMenu instance;
+    public List<Vector3> StoreLocation;
 
 
 
 
 
- 
 
-bool openchat;
+    bool openchat;
 public GameObject NotificationPrefab;
 public Text NotificationText;
         public GameObject Chat;
@@ -65,7 +72,9 @@ public GameObject Cart2;
 public GameObject loginGameobject;
 public  Text RoomMember;
 public  newGameManager mainmanager;
-public void openprofile(){
+    public OrderDetails OrderDetailsObject;
+
+    public void openprofile(){
  if(!ApiClasses.Vistor){
     profile.SetActive(true);
  }else
@@ -187,9 +196,12 @@ else
 
 }
 
- void Awake()
+    public  void UpdateNotificationCount()
     {
-        var client = new RestClient("http://mymall-kw.com/api/V1/notifications");
+
+
+
+        var client = new RestClient("http://mymall-kw.com/api/V1/notifications/count");
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
         request.AddHeader("password-api", "mall_2021_m3m");
@@ -206,10 +218,24 @@ else
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
-        NotificationResponse notification = JsonConvert.DeserializeObject<NotificationResponse>(response.Content);
-        NotificationText.text = notification.data.Count.ToString();
+        CountNotification notification = JsonConvert.DeserializeObject<CountNotification>(response.Content);
+        NotificationText.text = notification.data.ToString();
+    }
+ void Awake()
+    {
+        instance = this;
+
+}
 
 
+
+
+
+
+        void Start()
+        {
+        
+        UpdateNotificationCount();
 
 
 
@@ -245,9 +271,18 @@ CartCount.text="0";
 
   
 
-}
-        void Start()
-        {
+
+
+
+
+
+
+
+
+
+
+
+
       
              if(!ApiClasses.Vistor){
 UpdateCoinsNumber();

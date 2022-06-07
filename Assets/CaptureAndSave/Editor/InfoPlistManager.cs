@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class InfoPlistManager : MonoBehaviour
 {
-
+/*
 #if UNITY_IOS
     [PostProcessBuild]
     static void OnPostprocessBuild(BuildTarget buildTarget, string path)
@@ -26,4 +26,5 @@ public class InfoPlistManager : MonoBehaviour
         File.WriteAllText(plistPath, plist.WriteToString());
     }
 #endif
+*/
 }

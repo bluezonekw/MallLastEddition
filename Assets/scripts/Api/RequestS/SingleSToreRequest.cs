@@ -15,35 +15,41 @@ public class SingleSToreRequest : MonoBehaviour
     public bool Loaded;
     public FirstStoreRequest SingleStore;
     public List<string> product1, URL1, product2, URL2, product3, URL3, product4, URL4, product5, URL5, product6, URL6, product7, URL7, product8, URL8, product9, URL9;
-    public List<int> SectionId;
+    public Dictionary<int, int> SectionId= new Dictionary<int, int>(9);
     public List<String> SlidderRight, slidderLeft, sliddderFront;
     SectionRequest s1;
     public static int StaticStoreId;
     public int StoreId;
     public int NumberOFProductPerRequest;
 
-public Transform[] Childreen;
-private void OnEnable() {
-    for(int i=0;i<Childreen.Length;i++){
-
-if(Childreen[i].tag=="UIShop"){
-    Childreen[i].gameObject.SetActive(true);
-}
-
-
-    }
-}
+//public List<Transform> Childreen;
 
 private void OnDisable() {
 
 }
- void Awake() {
-    Childreen=this.transform.GetComponentsInChildren<Transform>(true);
-}
+ 
     // Start is called before the first frame update
     public GameObject GiftBox;
     void Start()
     {
+      /*  Childreen.AddRange( this.transform.GetComponentsInChildren<Transform>(true));
+     
+        for (int x=0;x< Childreen.Count;x++)
+        {
+            print(Childreen[x].gameObject.name);
+
+            if (Childreen[x].gameObject.tag != "UIShop")
+            {
+                Childreen.RemoveAt(x);
+            }
+            else
+            {
+                Childreen[x].gameObject.SetActive(true);
+            }
+
+
+        }
+    */
         // System.Random random = new System.Random();
         try
         {
@@ -94,8 +100,7 @@ StoreId=int.Parse( gameObject.name);
     {
 
 
-       // StoreId = requesStores.Halls_info.data.data.ToArray()[int.Parse(gameObject.name) - 1].id;
-        SectionId.Clear();
+      
         var client = new RestClient(@"https://mymall-kw.com/api/V1/get-single-store?store_id=" + StoreId.ToString());
         client.Timeout = -1;
         var request = new RestRequest(Method.GET);
@@ -128,13 +133,14 @@ StoreId=int.Parse( gameObject.name);
 
         if (CheckEnterShop.EnterShop && CheckEnterShop.EnteredStore == this.gameObject.name)
         {
-           
+              welc=GameObject.Instantiate(requesStores.WelcomMessage, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+    	    StartCoroutine(WaitWelcomeMessage());
             StartCoroutine(LoadStoreInfo());
             Loaded = true;
-            welc=GameObject.Instantiate(requesStores.WelcomMessage, GameObject.FindGameObjectWithTag("MainCanvas").transform);
-    	    StartCoroutine(WaitWelcomeMessage());
+           
 
-try{
+            try
+            {
                 foreach (LeftSlidder s in SingleStore.data.sliders.left)
                 {
                     slidderLeft.Add(s.src);
@@ -187,10 +193,10 @@ catch{
                     
                     if (sectionms.wall == "right" && sectionms.position == "right")
                     {
-                        SectionId.Add(sectionms.id);
+                        SectionId.Add(0,sectionms.id);
+       
 
-
-if(sectionms.product!=null)
+if (sectionms.product!=null)
 {
                         product1.Add(sectionms.product.id.ToString());
                         URL1.Add(sectionms.product.img);
@@ -201,8 +207,9 @@ if(sectionms.product!=null)
                     }
                     if (sectionms.wall == "right" && sectionms.position == "center")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(1, sectionms.id);
+
+                    if (sectionms.product!=null)
 {
                         product2.Add(sectionms.product.id.ToString());
                         URL2.Add(sectionms.product.img);
@@ -211,8 +218,9 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "right" && sectionms.position == "left")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(2, sectionms.id);
+        
+                    if (sectionms.product!=null)
 {
                         product3.Add(sectionms.product.id.ToString());
                         URL3.Add(sectionms.product.img);
@@ -222,8 +230,9 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "center" && sectionms.position == "right")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(3, sectionms.id);
+  
+                    if (sectionms.product!=null)
 {
                         product4.Add(sectionms.product.id.ToString());
                         URL4.Add(sectionms.product.img);
@@ -232,8 +241,9 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "center" && sectionms.position == "center")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(4, sectionms.id);
+                   
+                    if (sectionms.product!=null)
 {
                         product5.Add(sectionms.product.id.ToString());
                         URL5.Add(sectionms.product.img);
@@ -244,8 +254,9 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "center" && sectionms.position == "left")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(5, sectionms.id);
+                  
+                    if (sectionms.product!=null)
 {
                         product6.Add(sectionms.product.id.ToString());
                         URL6.Add(sectionms.product.img);
@@ -257,8 +268,9 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "left" && sectionms.position == "right")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(6, sectionms.id);
+                   
+                    if (sectionms.product!=null)
 {
                         product7.Add(sectionms.product.id.ToString());
                         URL7.Add(sectionms.product.img);
@@ -268,8 +280,9 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "left" && sectionms.position == "center")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(7, sectionms.id);
+                  
+                    if (sectionms.product!=null)
 {
                         product8.Add(sectionms.product.id.ToString());
                         URL8.Add(sectionms.product.img);
@@ -283,15 +296,16 @@ if(sectionms.product!=null)
 
                     if (sectionms.wall == "left" && sectionms.position == "left")
                     {
-                        SectionId.Add(sectionms.id);
-if(sectionms.product!=null)
+                        SectionId.Add(8, sectionms.id);
+                   
+                    if (sectionms.product!=null)
 {
                         product9.Add(sectionms.product.id.ToString());
                         URL9.Add(sectionms.product.img);
 }
                     }
 
-
+               
                 }
 
 
@@ -326,10 +340,10 @@ GameObject welc;
 
 
 IEnumerator WaitWelcomeMessage(){
-
-welc.GetComponent<WelcomeMessageToShop>().ShopName.Text=SingleStore.data.store.name;
-            StartCoroutine(DownloadRawImage( welc.GetComponent<WelcomeMessageToShop>().ShopLogo));
-yield return new WaitForSeconds(10);
+        StartCoroutine(DownloadRawImage(welc.GetComponent<WelcomeMessageToShop>().ShopLogo));
+        welc.GetComponent<WelcomeMessageToShop>().ShopName.Text= loadAllshops.s.NameShop[int.Parse(gameObject.name)];
+         
+yield return new WaitForSeconds(5);
 Destroy(welc);
 }
 
@@ -343,9 +357,13 @@ Destroy(welc);
 
             byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
             yield return byteArray;
-            Texture2D texture = new Texture2D(8, 8);
+            Texture2D texture = new Texture2D(1, 1);
+            texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
+            texture.Apply();
             texture.LoadImage(byteArray);
+
             I.texture = texture;
+            texture = null;
         }
         else
         {

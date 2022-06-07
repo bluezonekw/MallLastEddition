@@ -211,15 +211,15 @@ QualitySettings:
     maximumLODLevel: 0
     streamingMipmapsActive: 1
     streamingMipmapsAddAllCameras: 1
-    streamingMipmapsMemoryBudget: 256
-    streamingMipmapsRenderersPerFrame: 256
+    streamingMipmapsMemoryBudget: 64
+    streamingMipmapsRenderersPerFrame: 64
     streamingMipmapsMaxLevelReduction: 2
-    streamingMipmapsMaxFileIORequests: 512
-    particleRaycastBudget: 1024
+    streamingMipmapsMaxFileIORequests: 64
+    particleRaycastBudget: 64
     asyncUploadTimeSlice: 8
     asyncUploadBufferSize: 2
     asyncUploadPersistentBuffer: 1
-    resolutionScalingFixedDPIFactor: 128
+    resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: c496661bba0bd3248971eea0d4f96124,
       type: 2}
     excludedTargetPlatforms: []

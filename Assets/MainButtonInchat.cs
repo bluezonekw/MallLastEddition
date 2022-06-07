@@ -51,6 +51,15 @@ public Image MainFooterCameraImage;
 public Color Blue;
 public Color Black;
 
+
+
+    public GameObject CreateRoom;
+
+    public void opengroupmenue()
+    {
+        CreateRoom.SetActive(true);
+    }
+
  void OnEnable() {
   ClickOnChats();
 }
@@ -100,6 +109,7 @@ MainFooterCallsImage.color=Black;
 MainFooterCameraText.color= Black;
 MainFooterCameraImage.color=Black;
 
+        CreateRoom.SetActive(false);
 
 
 
@@ -108,8 +118,7 @@ MainFooterCameraImage.color=Black;
 
 
 
-
-}
+    }
 
 
 
@@ -152,13 +161,13 @@ MainFooterCameraImage.color=Black;
 
 
 
+        CreateRoom.SetActive(false);
 
 
 
 
 
-
-}
+    }
 
 
 public void ClickOnCalls(){
@@ -197,14 +206,14 @@ MainFooterCameraImage.color=Black;
 
 
 
+        CreateRoom.SetActive(false);
 
 
 
 
 
 
-
-}
+    }
 
 
 public void ClickOnCamera(){
@@ -244,13 +253,13 @@ MainFooterCameraImage.color=Blue;
 
 
 
+        CreateRoom.SetActive(false);
 
 
 
 
 
-
-}
+    }
 
 
 

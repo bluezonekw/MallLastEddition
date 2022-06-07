@@ -15,9 +15,8 @@ public class loadAllshops : MonoBehaviour
     public Material Day,Night;
  public static Hall Halls_info;
 public static DataStore[] d;
-    public ShopData s;
-
- 
+    public static ShopData s;
+  
 
     // Start is called before the first frame update
     void Awake()

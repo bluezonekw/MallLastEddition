@@ -61,13 +61,48 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 RoomOptions  ro=new RoomOptions();
 ro.IsOpen=true;
 ro.IsVisible=true;
-ro.MaxPlayers=10;
+ro.MaxPlayers=255;
 PhotonNetwork.CreateRoom(RoomName,ro,TypedLobby.Default);
 
+      
 
 
+    }
+    public void JoinOrcreateRoom(string RoomName)
+    {
 
-}
+        if (PhotonNetwork.CurrentRoom != null)
+        {
+          
+            if (PhotonNetwork.LeaveRoom()) {
+
+                print("ssssssssssssssss      ");
+            }
+        }
+
+
+       
+
+        RoomOptions ro = new RoomOptions();
+        ro.IsOpen = true;
+        ro.IsVisible = true;
+        ro.MaxPlayers = 255;
+
+        if (PhotonNetwork.CurrentRoom == null)
+        {
+           
+                if (!PhotonNetwork.JoinRoom(RoomName))
+                {
+                    CreatePhotonRoom(RoomName);
+                    PhotonNetwork.JoinRoom(RoomName);
+                }
+               
+
+                print("aaaaaaaaaaaaaaaaaSS      " + PhotonNetwork.CurrentRoom);
+            
+        }
+
+    }
 private void ConnectToPhoton(string nickname){
 
 try{
@@ -84,7 +119,14 @@ catch(Exception ex){
 }
 
 public void play(){
-  PhotonNetwork.JoinRoom("Mymall");
+        try
+        {
+            PhotonNetwork.JoinRoom("Mymall");
+        }
+        catch
+        {
+            PhotonNetwork.JoinRoom("Mymall2");
+        }
 //PhotonNetwork.JoinLobby();
 
 
@@ -93,7 +135,7 @@ public void play(){
   
     public override void OnJoinedRoom()
     {
-        print("joined Room Y--y");
+        print(PhotonNetwork.CurrentRoom);
         newgamemanager.SetActive(true);
         
 //PhotonNetwork.LoadLevel(0);
@@ -110,7 +152,14 @@ public void play(){
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         print(message);
-        CreatePhotonRoom("Mymall");
+        try
+        {
+            CreatePhotonRoom("Mymall");
+        }
+        catch
+        {
+            CreatePhotonRoom("Mymall2");
+        }
 
     }
     public override void OnJoinedLobby()

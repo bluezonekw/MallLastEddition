@@ -18,14 +18,14 @@ public class TestBanner : MonoBehaviour
     public Image textureImage;
     private void Awake()
     {
-        StartCoroutine(LoadStore());
+      
     }
    
     // Start is called before the first frame update
     void Start()
     {
         
-
+  StartCoroutine(LoadStore());
         
         for(int x=0;x< Hall.data.Count; x++)
         {

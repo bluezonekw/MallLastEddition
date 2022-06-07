@@ -84,13 +84,13 @@ TPrice.alignment= TextAnchor.MiddleLeft;
 
 
 
-
+/*
         if (Application.platform == RuntimePlatform.Android)
         {
             UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             context = currentActivity.Call<AndroidJavaObject>("getApplicationContext");
-        }
+        }*/
     }
     public void showToastOnUiThread(string toastString)
     {

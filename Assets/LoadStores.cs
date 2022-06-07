@@ -77,13 +77,16 @@ fristShow=true;
 
         {
 
-            byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
+            byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + storelogo + ".png");
 
-            Texture2D texture = new Texture2D(8, 8);
+            Texture2D texture = new Texture2D(1, 1);
             texture.LoadImage(byteArray);
+            texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
+            texture.Apply();
+          
 
             s.texture = texture;
-
+            texture = null;
         }
       
             yield return 0;

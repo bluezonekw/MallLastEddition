@@ -327,7 +327,7 @@ if (UPDownMenu.LanguageValue == 1)
             screenshotscript.Dateorder.Text = UnixTimeStampToDateTime(orderinfo.data.created_at).ToString();
             screenshotscript.DateArrival.Text = UnixTimeStampToDateTime(orderinfo.data.delivery_time).ToString();
 CheckEnterShop.CartEmpty=true;
-
+            UPDownMenu.instance.UpdateNotificationCount();
 
                 }
         else

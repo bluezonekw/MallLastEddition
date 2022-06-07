@@ -16,10 +16,9 @@ namespace UI.Pagination
         
     public GameObject TabExample;
     GameObject g;
-    // Start is called before the first frame update
- 
-    void Awake()
-    {
+        // Start is called before the first frame update
+         void Start()
+        {
             try
             {
                 var client = new RestClient("http://mymall-kw.com/api/V1/get-all-categories");
@@ -46,8 +45,8 @@ namespace UI.Pagination
                 {
                     g = GameObject.Instantiate(TabExample, TabLocation);
                     g.name = category.data[index].id.ToString();
-                    g.GetComponent<Page>().PageTitle = ArabicFixerTool.FixLine( category.data[index].name.Trim() );
-                   
+                    g.GetComponent<Page>().PageTitle = ArabicFixerTool.FixLine(category.data[index].name.Trim());
+
                 }
 
             }
@@ -56,8 +55,8 @@ namespace UI.Pagination
                 category = null;
 
             }
-
-    }
+        }
+    
 
         IEnumerator LoadIcon(string url, RawImage s)
         {

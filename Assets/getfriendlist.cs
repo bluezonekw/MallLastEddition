@@ -330,6 +330,7 @@ request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
 MessageListFriend MessageListFriend=JsonConvert.DeserializeObject<MessageListFriend>(response.Content);
+        print(response.Content);
 GameObject g=new GameObject();
 if(MessageListFriend.statsu==0)
 {return;

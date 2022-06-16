@@ -520,4 +520,10 @@ startAnimation1=false;
 
 
     }
+
+    public void CLoseMenue()
+    {
+
+        GameObject.Destroy(gameObject);
+    }
 }

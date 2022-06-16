@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 public class loadimageFromApi : MonoBehaviour
 {
-   
+
     public AnimationClip First, Last, ProductNext1, ProductNext2, pervious1, pervious2;
     public GameObject SliddderDefault;
     public GameObject RS, LS, FS;
@@ -23,76 +23,78 @@ public class loadimageFromApi : MonoBehaviour
     public List<GameObject[]> Products;
     public List<int> PostionImage;
     public List<GameObject> LG;
-    
-   public SectionRequest request;
+
+    public SectionRequest request;
     bool firstslide;
     public static StoreProduct ProductRequst;
     public GameObject DetailsMenu;
     GameObject MenuCreated;
-bool startAnimation1;
-public IEnumerator Load5Image(){
+    bool startAnimation1;
+    public IEnumerator Load5Image()
+    {
+
+
+        //loadallProductinsections(0);
+        //loadallProductinsections(1);
+        //loadallProductinsections(2);
+        //loadallProductinsections(3);
+        //loadallProductinsections(4);
+        //loadallProductinsections(5);
+        //loadallProductinsections(6);
+        //loadallProductinsections(0);
+
+        //loadallProductinsections(7);
+        //loadallProductinsections(8);
+
       
-          
-            loadSectionProduct(0);
-            loadSectionProduct(1);
-            loadSectionProduct(2);
-            loadSectionProduct(3);
-            loadSectionProduct(4);
-            loadSectionProduct(5);
-            loadSectionProduct(6);
-            loadSectionProduct(0);
-
-            loadSectionProduct(7);
-            loadSectionProduct(8);
-           
-
+       
        
 
+        for (int x = 0; x < 5; x++)
+        {
 
-        for (int x=0;x<5;x++){
+
+            yield return new WaitForSeconds(5);
+            nextSection(0);
+            nextSection(1);
+            nextSection(2);
+            nextSection(3);
+            nextSection(4);
+            nextSection(5);
+            nextSection(6);
+            nextSection(7);
+            nextSection(8);
+        }
 
 
-  yield return new WaitForSeconds(5);
-            ChangeProduct(0);
-            ChangeProduct(1);
-            ChangeProduct(2);
-            ChangeProduct(3);
-            ChangeProduct(4);
-            ChangeProduct(5);
-            ChangeProduct(6);
-            ChangeProduct(7);
-            ChangeProduct(8);
+
+
     }
-
-
-
-
-}
     // Start is called before the first frame update
     void Start()
     {
 
 
 
-        
-startAnimation1=true;
+
+        startAnimation1 = true;
         Rindex = Lindex = Findex = 0;
         StoreRequest = GetComponent<SingleSToreRequest>();
 
-        
-       
- 
+
+
+
 
     }
     bool loadproduct;
     IEnumerator ChangeProduct(int sectionIdLocal)
-        
+
 
     {
-       
-try
+
+        try
         {
-         
+
             Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().clip = ProductNext1;
             Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().Play();
 
@@ -106,11 +108,16 @@ try
         {
 
         }
-yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1);
 
     }
     public void LoadProduct(int sectionIdLocal)
     {
+
+
+
+
+        print(Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name + "      product id");
 
         try
         {
@@ -119,7 +126,7 @@ yield return new WaitForSeconds(1);
             }
            
             var client = new RestClient(@"http://mymall-kw.com/api/V1/get-single-product/" + Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name);
-         print( Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name + "      product id");
+        
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("password-api", "mall_2021_m3m");
@@ -139,37 +146,25 @@ yield return new WaitForSeconds(1);
             }
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
-            print(response.Content);
+           
             ProductRequst = JsonConvert.DeserializeObject<StoreProduct>(response.Content);
             
             if (ProductRequst.statsu == 1)
             {
-                if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
-                {
-                     MenuCreated = GameObject.Instantiate(DetailsMenu, RS.transform.parent.transform);
+            
+                     MenuCreated = GameObject.Instantiate(DetailsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 
 
-                }
-
-                else
-
-                if (sectionIdLocal <= 5 && sectionIdLocal >= 3)
-                {
-                     MenuCreated = GameObject.Instantiate(DetailsMenu, FS.transform.parent.transform);
-                }
-
-                else
-
-                if (sectionIdLocal <= 8  && sectionIdLocal >= 5  )
-                {
-                     MenuCreated = GameObject.Instantiate(DetailsMenu, LS.transform.parent.transform);
-                }
+               
             }
         }
         catch
         {
             Debug.Log("FailedTolaod");
         }
+
+
+       
     }
     public void Loadslidders(GameObject Parent, string Url, int Rotation)
     {
@@ -211,29 +206,31 @@ yield return new WaitForSeconds(1);
         WWW www = new WWW(URL);
         yield return www;
 
-       
-            
-            s.texture = www.texture;
-     
+
+
+        s.texture = www.texture;
+
     }
     public string AuthToken()
     {
-try{
-        if(!UPDownMenu.Login)
+        try
         {
-            return ApiClasses.Register.data.token;
-        }
-        else
+            if (!UPDownMenu.Login)
+            {
+                return ApiClasses.Register.data.token;
+            }
+            else
 
+            {
+
+                return ApiClasses.Login.data.original.access_token;
+
+            }
+        }
+        catch
         {
-
-            return ApiClasses.Login.data.original.access_token;
-
+            return "0";
         }
-}
-catch{
-    return "0";
-}
 
     }
     public void slideRight()
@@ -399,61 +396,89 @@ catch{
 
 
             }
-try{
-            /// load RightWall RightPostion
-            LoadIntialProduct(Sections[0], StoreRequest.URL1[0], StoreRequest.product1[0], "01", 0, StoreRequest.SectionId[0].ToString());
-}
-catch{
+            try
+            {
+
+                for (int i = 0; i < StoreRequest.URL1.Count; i++)
+                {
+                    LoadIntialProduct(Sections[0], StoreRequest.URL1[i], StoreRequest.product1[i], "01", 0, StoreRequest.SectionId[0].ToString());
+                }
+
+            }
+            catch
+            {
 
 
 
-}
+            }
 
-try{
-            /// load RightWall CenterPostion
-            LoadIntialProduct(Sections[1], StoreRequest.URL2[0], StoreRequest.product2[0], "01", 0, StoreRequest.SectionId[1].ToString());
-}
-catch{
-
-
-
-}
-try{
-            /// load RightWall LeftPostion
-
-            LoadIntialProduct(Sections[2], StoreRequest.URL3[0], StoreRequest.product3[0], "01", 0, StoreRequest.SectionId[2].ToString());
-
-}
-catch{
+            try
+            {
+                for (int i = 0; i < StoreRequest.URL2.Count; i++)
+                {
+                    /// load RightWall CenterPostion
+                    LoadIntialProduct(Sections[1], StoreRequest.URL2[i], StoreRequest.product2[i], "01", 0, StoreRequest.SectionId[1].ToString());
+                }
+            }
+            catch
+            {
 
 
 
-}
+            }
+            try
+            {
+                for (int i = 0; i < StoreRequest.URL3.Count; i++)
+                {
+                    /// load RightWall LeftPostion
 
-
-try{
-            /// load CenterWall RightPostion
-            LoadIntialProduct(Sections[3], StoreRequest.URL4[0], StoreRequest.product4[0], "01", 1, StoreRequest.SectionId[3].ToString());
-}
-catch{
-
-
-
-}
-
-try{
-            /// load CenterWall CenterPostion
-            LoadIntialProduct(Sections[4], StoreRequest.URL5[0], StoreRequest.product5[0], "01", 1, StoreRequest.SectionId[4].ToString());
-}
-catch{
+                    LoadIntialProduct(Sections[2], StoreRequest.URL3[i], StoreRequest.product3[i], "01", 0, StoreRequest.SectionId[2].ToString());
+                }
+            }
+            catch
+            {
 
 
 
-}
+            }
+
+
+            try
+            {
+                for (int i = 0; i < StoreRequest.URL4.Count; i++)
+                {
+                    /// load CenterWall RightPostion
+                    LoadIntialProduct(Sections[3], StoreRequest.URL4[i], StoreRequest.product4[i], "01", 1, StoreRequest.SectionId[3].ToString());
+                }
+            }
+            catch
+            {
+
+
+
+            }
+
+            try
+            {
+                for (int i = 0; i < StoreRequest.URL5.Count; i++)
+                {
+                    /// load CenterWall CenterPostion
+                    LoadIntialProduct(Sections[4], StoreRequest.URL5[i], StoreRequest.product5[i], "01", 1, StoreRequest.SectionId[4].ToString());
+                }
+            }
+            catch
+            {
+
+
+
+            }
             /// load CenterWall LeftPostion
             try
             {
-                LoadIntialProduct(Sections[5], StoreRequest.URL6[0], StoreRequest.product6[0], "01", 1, StoreRequest.SectionId[5].ToString());
+                for (int i = 0; i < StoreRequest.URL6.Count; i++)
+                {
+                    LoadIntialProduct(Sections[5], StoreRequest.URL6[i], StoreRequest.product6[i], "01", 1, StoreRequest.SectionId[5].ToString());
+                }
             }
             catch
             {
@@ -461,38 +486,49 @@ catch{
             }
 
 
-try{
-            /// load LeftWall RightPostion
-            LoadIntialProduct(Sections[6], StoreRequest.URL7[0], StoreRequest.product7[0], "01", 2, StoreRequest.SectionId[6].ToString());
-
-}
-catch{
-
-
-
-}
-try{
-            /// load LeftWall CenterPostion
-            LoadIntialProduct(Sections[7], StoreRequest.URL8[0], StoreRequest.product8[0], "01", 2, StoreRequest.SectionId[7].ToString());
-
-}
-catch{
+            try
+            {
+                for (int i = 0; i < StoreRequest.URL7.Count; i++)
+                {
+                    /// load LeftWall RightPostion
+                    LoadIntialProduct(Sections[6], StoreRequest.URL7[i], StoreRequest.product7[i], "01", 2, StoreRequest.SectionId[6].ToString());
+                }
+            }
+            catch
+            {
 
 
 
-}
+            }
+            try
+            {
+                for (int i = 0; i < StoreRequest.URL8.Count; i++)
+                {
+                    /// load LeftWall CenterPostion
+                    LoadIntialProduct(Sections[7], StoreRequest.URL8[i], StoreRequest.product8[i], "01", 2, StoreRequest.SectionId[7].ToString());
+                }
+            }
+            catch
+            {
 
-try{
-            /// load LeftWall LeftPostion
-
-            LoadIntialProduct(Sections[8], StoreRequest.URL9[0], StoreRequest.product9[0], "01", 2, StoreRequest.SectionId[8].ToString());
-
-}
-catch{
 
 
+            }
 
-}           
+            try
+            {
+                /// load LeftWall LeftPostion
+                for (int i = 0; i < StoreRequest.URL9.Count; i++)
+                {
+                    LoadIntialProduct(Sections[8], StoreRequest.URL9[i], StoreRequest.product9[i], "01", 2, StoreRequest.SectionId[8].ToString());
+                }
+            }
+            catch
+            {
+
+
+
+            }
 
         }
 
@@ -553,49 +589,32 @@ catch{
 
     public void PerviousSection(int sectionIdLocal)
     {
-        try
+        if (Sections[sectionIdLocal].transform.childCount > 1)
+        {
+            if (PostionImage[sectionIdLocal] == 0)
+        {
+            Sections[sectionIdLocal].transform.GetChild(Sections[sectionIdLocal].transform.childCount - 1).gameObject.GetComponent<Animation>().clip = pervious1;
+            Sections[sectionIdLocal].transform.GetChild(Sections[sectionIdLocal].transform.childCount - 1).gameObject.GetComponent<Animation>().Play();
+        }
+        else
         {
             Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] - 1).gameObject.GetComponent<Animation>().clip = pervious1;
             Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] - 1).gameObject.GetComponent<Animation>().Play();
 
-            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().clip = pervious2;
-            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().Play();
-
-
-            PostionImage[sectionIdLocal]--;
         }
-        catch
+        Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().clip = pervious2;
+        Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().Play();
+
+
+        PostionImage[sectionIdLocal]--;
+
+        if (PostionImage[sectionIdLocal] == -1)
         {
-
+            PostionImage[sectionIdLocal] = Sections[sectionIdLocal].transform.childCount - 1;
         }
+
     }
-int xew=0;
-public void loadSectionProduct(int sectionIdLocal){
-
-
-
-        if (StoreRequest.SectionId.ContainsKey(sectionIdLocal))
-        {
-           
-            var client = new RestClient("http://mymall-kw.com/api/V1/get-products-pagination?store_id=" + StoreRequest.StoreId.ToString() + "&section_id=" + StoreRequest.SectionId[sectionIdLocal].ToString() + "&page=1 &limit=1000");
-            client.Timeout = -1;
-            var request1 = new RestRequest(Method.GET);
-            request1.AddHeader("password_api", "mall_2021_m3m");
-            request1.AddHeader("lang_api", "en");
-            request1.AlwaysMultipartFormData = true;
-            IRestResponse response = client.Execute(request1);
-            request = JsonConvert.DeserializeObject<SectionRequest>(response.Content);
-
-           
-        }
-        else
-        {
-            foreach (var i in StoreRequest.SectionId) {
-                print(i.Key+" key  "+i.Value);
-                    }
-        }
-    
-}
+    }
     public void nextSection(int sectionIdLocal)
     {
 
@@ -605,74 +624,175 @@ public void loadSectionProduct(int sectionIdLocal){
 
 
 
-        try
+        if (Sections[sectionIdLocal].transform.childCount > 1)
         {
-            if (sectionIdLocal <= 2 && sectionIdLocal >= 0)
+
+            if (PostionImage[sectionIdLocal] + 1 < Sections[sectionIdLocal].transform.childCount)
             {
-                foreach (Dataforproduct Product in request.data.data.ToArray())
-                {
-                    LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 0);
-
-
-                }
+                Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().clip = ProductNext1;
+                Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().Play();
             }
-
-
-
-            if (sectionIdLocal <= 5 && sectionIdLocal >= 3)
+            else
             {
-                foreach (Dataforproduct Product in request.data.data.ToArray())
-                {
-                    LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 1);
+                Sections[sectionIdLocal].transform.GetChild(0).gameObject.GetComponent<Animation>().clip = ProductNext1;
+                Sections[sectionIdLocal].transform.GetChild(0).gameObject.GetComponent<Animation>().Play();
 
-
-                }
             }
-
-
-
-            if (sectionIdLocal >= 5 && sectionIdLocal <= 8)
-            {
-                foreach (Dataforproduct Product in request.data.data.ToArray())
-                {
-                    LoadSectionProducts(Sections[sectionIdLocal], Product.img, Product.id.ToString(), 2);
-
-
-                }
-            }
-
-
-
-
-
-
-        }
-        catch
-        {
-            print("Failed");
-
-
-
-        }
-        try
-        {
-         
-            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().clip = ProductNext1;
-            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] + 1).gameObject.GetComponent<Animation>().Play();
-
             Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().clip = ProductNext2;
             Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().Play();
 
 
             PostionImage[sectionIdLocal]++;
-        }
-        catch
-        {
 
+
+            if (PostionImage[sectionIdLocal] == Sections[sectionIdLocal].transform.childCount)
+            {
+
+                PostionImage[sectionIdLocal] = 0;
+            }
         }
 
     }
 
+
+
+    //bool loadAllProduct;
+    //public void loadallProductinsections(int sectionIdLocal)
+    //{
+    //    if (loadAllProduct)
+    //    {
+
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        loadAllProduct = true;
+    //        try
+    //        {
+    //            switch (sectionIdLocal)
+    //            {
+    //                case 0:
+    //                    for (int i = 0; i < StoreRequest.URL1.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL1[i], StoreRequest.product1[i], 0);
+
+
+    //                    }
+
+    //                    break;
+    //                case 1:
+    //                    for (int i = 0; i < StoreRequest.URL2.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL2[i], StoreRequest.product2[i], 0);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+    //                case 2:
+    //                    for (int i = 0; i < StoreRequest.URL3.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL3[i], StoreRequest.product3[i], 0);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+    //                case 3:
+    //                    for (int i = 0; i < StoreRequest.URL4.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL4[i], StoreRequest.product4[i], 1);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+
+
+    //                case 4:
+    //                    for (int i = 0; i < StoreRequest.URL5.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL5[i], StoreRequest.product5[i], 1);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+    //                case 5:
+    //                    for (int i = 0; i < StoreRequest.URL6.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL6[i], StoreRequest.product6[i], 1);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+    //                case 6:
+    //                    for (int i = 0; i < StoreRequest.URL7.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL7[i], StoreRequest.product7[i], 2);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+    //                case 7:
+    //                    for (int i = 0; i < StoreRequest.URL8.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL8[i], StoreRequest.product8[i], 2);
+
+
+    //                    }
+
+    //                    break;
+
+
+
+    //                case 8:
+    //                    for (int i = 0; i < StoreRequest.URL9.Count; i++)
+    //                    {
+    //                        LoadSectionProducts(Sections[sectionIdLocal], StoreRequest.URL9[i], StoreRequest.product9[i], 2);
+
+
+    //                    }
+
+    //                    break;
+    //            }
+
+
+
+
+
+
+
+    //        }
+    //        catch
+    //        {
+    //            print("Failed");
+
+
+
+    //        }
+    //    }
+    //}
 
 
 

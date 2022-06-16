@@ -1,0 +1,3231 @@
+bitter.jnibridge.JNIBridge -> bitter.jnibridge.JNIBridge:
+    void <init>() -> <init>
+    java.lang.Object invoke(long,java.lang.Class,java.lang.reflect.Method,java.lang.Object[]) -> invoke
+    void delete(long) -> delete
+    java.lang.Object newInterfaceProxy(long,java.lang.Class[]) -> newInterfaceProxy
+    void disableInterfaceProxy(java.lang.Object) -> disableInterfaceProxy
+bitter.jnibridge.JNIBridge$a -> bitter.jnibridge.JNIBridge$a:
+    java.lang.Object a -> a
+    long b -> b
+    java.lang.reflect.Constructor c -> c
+    void <init>(long) -> <init>
+    java.lang.Object a(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> a
+    java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> invoke
+    void finalize() -> finalize
+    void a() -> a
+com.google.android.play.core.appupdate.a -> com.google.android.play.core.a.a:
+    void <init>(android.content.Context) -> <init>
+    void a(android.content.Context,android.content.Intent) -> a
+com.google.android.play.core.appupdate.d -> com.google.android.play.core.a.b:
+com.google.android.play.core.appupdate.f -> com.google.android.play.core.a.c:
+    android.content.Context a -> a
+    android.content.Context a() -> a
+com.google.android.play.core.appupdate.g -> com.google.android.play.core.a.d:
+    com.google.android.play.core.internal.ce a -> a
+    int b -> b
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.internal.ce,short[]) -> <init>
+    com.google.android.play.core.appupdate.g b(com.google.android.play.core.internal.ce) -> a
+com.google.android.play.core.appupdate.h -> com.google.android.play.core.a.e:
+    com.google.android.play.core.appupdate.f a -> a
+    android.content.Context b() -> b
+    java.lang.Object a() -> a
+com.google.android.play.core.appupdate.q -> com.google.android.play.core.a.f:
+    android.content.Context a -> a
+    void <init>(android.content.Context) -> <init>
+com.google.android.play.core.assetpacks.AssetPackException -> com.google.android.play.core.assetpacks.a:
+    int a -> a
+    void <init>(int) -> <init>
+com.google.android.play.core.assetpacks.AssetPackExtractionService -> com.google.android.play.core.assetpacks.AssetPackExtractionService:
+    com.google.android.play.core.assetpacks.b a -> a
+    void <init>() -> <init>
+    void onCreate() -> onCreate
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+com.google.android.play.core.assetpacks.AssetPackLocation -> com.google.android.play.core.assetpacks.b:
+    com.google.android.play.core.assetpacks.AssetPackLocation a -> a
+    void <init>() -> <init>
+    int packStorageMethod() -> a
+    java.lang.String path() -> b
+    java.lang.String assetsPath() -> c
+    void <clinit>() -> <clinit>
+    com.google.android.play.core.assetpacks.AssetPackLocation a() -> d
+    com.google.android.play.core.assetpacks.AssetPackLocation b(java.lang.String,java.lang.String) -> a
+com.google.android.play.core.assetpacks.AssetPackManager -> com.google.android.play.core.assetpacks.c:
+    void registerListener(com.google.android.play.core.assetpacks.AssetPackStateUpdateListener) -> a
+    void unregisterListener(com.google.android.play.core.assetpacks.AssetPackStateUpdateListener) -> b
+    com.google.android.play.core.tasks.Task getPackStates(java.util.List) -> a
+    com.google.android.play.core.tasks.Task fetch(java.util.List) -> b
+    com.google.android.play.core.assetpacks.AssetPackLocation getPackLocation(java.lang.String) -> a
+    com.google.android.play.core.assetpacks.AssetPackStates cancel(java.util.List) -> c
+    com.google.android.play.core.tasks.Task removePack(java.lang.String) -> b
+    com.google.android.play.core.tasks.Task showCellularDataConfirmation(android.app.Activity) -> a
+com.google.android.play.core.assetpacks.AssetPackManagerFactory -> com.google.android.play.core.assetpacks.d:
+    com.google.android.play.core.assetpacks.AssetPackManager getInstance(android.content.Context) -> a
+com.google.android.play.core.assetpacks.AssetPackState -> com.google.android.play.core.assetpacks.e:
+    void <init>() -> <init>
+    java.lang.String name() -> a
+    int status() -> b
+    int errorCode() -> c
+    long bytesDownloaded() -> d
+    long totalBytesToDownload() -> e
+    int transferProgressPercentage() -> f
+    int a() -> g
+    java.lang.String b() -> h
+    com.google.android.play.core.assetpacks.AssetPackState c(java.lang.String,int,int,long,long,double,int,java.lang.String) -> a
+    com.google.android.play.core.assetpacks.AssetPackState d(android.os.Bundle,java.lang.String,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.assetpacks.as) -> a
+com.google.android.play.core.assetpacks.AssetPackStateUpdateListener -> com.google.android.play.core.assetpacks.f:
+com.google.android.play.core.assetpacks.AssetPackStates -> com.google.android.play.core.assetpacks.g:
+    void <init>() -> <init>
+    long totalBytes() -> a
+    java.util.Map packStates() -> b
+    com.google.android.play.core.assetpacks.AssetPackStates a(long,java.util.Map) -> a
+    com.google.android.play.core.assetpacks.AssetPackStates b(android.os.Bundle,com.google.android.play.core.assetpacks.bo) -> a
+    com.google.android.play.core.assetpacks.AssetPackStates c(android.os.Bundle,com.google.android.play.core.assetpacks.bo,java.util.List) -> a
+    com.google.android.play.core.assetpacks.AssetPackStates d(android.os.Bundle,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.assetpacks.as) -> a
+    com.google.android.play.core.assetpacks.AssetPackStates e(android.os.Bundle,com.google.android.play.core.assetpacks.bo,java.util.List,com.google.android.play.core.assetpacks.as) -> a
+com.google.android.play.core.assetpacks.ExtractionForegroundService -> com.google.android.play.core.assetpacks.ExtractionForegroundService:
+    com.google.android.play.core.internal.ag d -> d
+    android.content.Context a -> a
+    com.google.android.play.core.assetpacks.i b -> b
+    android.app.NotificationManager c -> c
+    void <init>() -> <init>
+    void onCreate() -> onCreate
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    void a(android.content.Intent) -> a
+    void b() -> a
+    void c(java.lang.String) -> a
+com.google.android.play.core.assetpacks.a -> com.google.android.play.core.assetpacks.h:
+    com.google.android.play.core.assetpacks.AssetPackManager a() -> a
+    void b(com.google.android.play.core.assetpacks.AssetPackExtractionService) -> a
+    void c(com.google.android.play.core.assetpacks.ExtractionForegroundService) -> a
+com.google.android.play.core.assetpacks.aa -> com.google.android.play.core.assetpacks.i:
+    java.util.List a -> a
+    java.util.Map b -> b
+    com.google.android.play.core.tasks.i c -> c
+    com.google.android.play.core.assetpacks.as d -> d
+    com.google.android.play.core.assetpacks.an e -> e
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,java.util.List,java.util.Map,com.google.android.play.core.tasks.i,com.google.android.play.core.assetpacks.as) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.ab -> com.google.android.play.core.assetpacks.j:
+    int a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    int d -> d
+    com.google.android.play.core.tasks.i e -> e
+    com.google.android.play.core.assetpacks.an f -> f
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,int,java.lang.String,java.lang.String,int,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.ac -> com.google.android.play.core.assetpacks.k:
+    int a -> a
+    java.lang.String b -> b
+    com.google.android.play.core.tasks.i c -> c
+    int d -> d
+    com.google.android.play.core.assetpacks.an e -> e
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,int,java.lang.String,com.google.android.play.core.tasks.i,int) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.ad -> com.google.android.play.core.assetpacks.l:
+    int a -> a
+    com.google.android.play.core.tasks.i b -> b
+    com.google.android.play.core.assetpacks.an c -> c
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,int,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.ae -> com.google.android.play.core.assetpacks.m:
+    int a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    int d -> d
+    com.google.android.play.core.tasks.i e -> e
+    com.google.android.play.core.assetpacks.an f -> f
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,int,java.lang.String,java.lang.String,int,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.af -> com.google.android.play.core.assetpacks.n:
+    com.google.android.play.core.tasks.i a -> a
+    com.google.android.play.core.assetpacks.an b -> b
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.ag -> com.google.android.play.core.assetpacks.o:
+    com.google.android.play.core.tasks.i a -> a
+    com.google.android.play.core.assetpacks.an b -> b
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i) -> <init>
+    void b(int,android.os.Bundle) -> a
+    void c(java.util.List) -> a
+    void d(android.os.Bundle,android.os.Bundle) -> a
+    void e(android.os.Bundle,android.os.Bundle) -> b
+    void f(android.os.Bundle,android.os.Bundle) -> c
+    void g(android.os.Bundle) -> a
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,byte[]) -> <init>
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,char[]) -> <init>
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,short[]) -> <init>
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,int[]) -> <init>
+    void h(int) -> a
+    void i() -> a
+    void j(int) -> b
+    void k(android.os.Bundle) -> b
+    void l(android.os.Bundle) -> c
+    void m(android.os.Bundle) -> d
+    void n() -> b
+com.google.android.play.core.assetpacks.ah -> com.google.android.play.core.assetpacks.p:
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i) -> <init>
+    void e(android.os.Bundle,android.os.Bundle) -> b
+com.google.android.play.core.assetpacks.ai -> com.google.android.play.core.assetpacks.q:
+    com.google.android.play.core.assetpacks.an c -> c
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i) -> <init>
+    void c(java.util.List) -> a
+com.google.android.play.core.assetpacks.aj -> com.google.android.play.core.assetpacks.r:
+    com.google.android.play.core.assetpacks.an c -> c
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i) -> <init>
+    void d(android.os.Bundle,android.os.Bundle) -> a
+com.google.android.play.core.assetpacks.ak -> com.google.android.play.core.assetpacks.s:
+    int c -> c
+    java.lang.String d -> d
+    int e -> e
+    com.google.android.play.core.assetpacks.an f -> f
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,int,java.lang.String,int) -> <init>
+    void g(android.os.Bundle) -> a
+com.google.android.play.core.assetpacks.al -> com.google.android.play.core.assetpacks.t:
+    com.google.android.play.core.assetpacks.bo c -> c
+    com.google.android.play.core.assetpacks.as d -> d
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.assetpacks.as) -> <init>
+    void f(android.os.Bundle,android.os.Bundle) -> c
+com.google.android.play.core.assetpacks.am -> com.google.android.play.core.assetpacks.u:
+    java.util.List c -> c
+    com.google.android.play.core.assetpacks.bo d -> d
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,com.google.android.play.core.assetpacks.bo,java.util.List) -> <init>
+    void b(int,android.os.Bundle) -> a
+com.google.android.play.core.assetpacks.an -> com.google.android.play.core.assetpacks.v:
+    com.google.android.play.core.internal.ag a -> a
+    android.content.Intent b -> b
+    java.lang.String c -> c
+    com.google.android.play.core.assetpacks.bo d -> d
+    com.google.android.play.core.internal.aq e -> e
+    com.google.android.play.core.internal.aq f -> f
+    java.util.concurrent.atomic.AtomicBoolean g -> g
+    void <init>(android.content.Context,com.google.android.play.core.assetpacks.bo) -> <init>
+    com.google.android.play.core.tasks.Task a(java.util.List,java.util.List,java.util.Map) -> a
+    void b(java.util.List) -> a
+    com.google.android.play.core.tasks.Task c(java.util.Map) -> a
+    com.google.android.play.core.tasks.Task d(java.util.List,com.google.android.play.core.assetpacks.as,java.util.Map) -> a
+    void e(int,java.lang.String,java.lang.String,int) -> a
+    void f(int,java.lang.String) -> a
+    void y(int,java.lang.String,int) -> a
+    void g(int) -> a
+    com.google.android.play.core.tasks.Task h(int,java.lang.String,java.lang.String,int) -> b
+    void j() -> a
+    void i(java.lang.String) -> a
+    com.google.android.play.core.tasks.Task z() -> d
+    android.os.Bundle A(int,java.lang.String) -> c
+    android.os.Bundle B(int) -> c
+    android.os.Bundle C() -> e
+    java.util.ArrayList k(java.util.Collection) -> a
+    java.lang.String l(com.google.android.play.core.assetpacks.an) -> a
+    android.os.Bundle m(java.util.Map) -> b
+    com.google.android.play.core.assetpacks.bo n(com.google.android.play.core.assetpacks.an) -> b
+    com.google.android.play.core.internal.aq o(com.google.android.play.core.assetpacks.an) -> c
+    com.google.android.play.core.internal.ag p() -> b
+    android.os.Bundle q() -> c
+    android.os.Bundle r(int,java.lang.String,java.lang.String,int) -> c
+    android.os.Bundle s(int,java.lang.String) -> b
+    android.os.Bundle t(int) -> b
+    com.google.android.play.core.internal.aq u(com.google.android.play.core.assetpacks.an) -> d
+    java.util.List v(com.google.android.play.core.assetpacks.an,java.util.List) -> a
+    void w(com.google.android.play.core.assetpacks.an,int,java.lang.String,int) -> a
+    java.util.concurrent.atomic.AtomicBoolean x(com.google.android.play.core.assetpacks.an) -> e
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.ao -> com.google.android.play.core.assetpacks.w:
+    com.google.android.play.core.assetpacks.ar a -> a
+    com.google.android.play.core.assetpacks.AssetPackState b -> b
+    void <init>(com.google.android.play.core.assetpacks.ar,com.google.android.play.core.assetpacks.AssetPackState) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.ap -> com.google.android.play.core.assetpacks.x:
+    com.google.android.play.core.assetpacks.ar a -> a
+    android.os.Bundle b -> b
+    com.google.android.play.core.assetpacks.AssetPackState c -> c
+    void <init>(com.google.android.play.core.assetpacks.ar,android.os.Bundle,com.google.android.play.core.assetpacks.AssetPackState) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.aq -> com.google.android.play.core.assetpacks.y:
+    com.google.android.play.core.assetpacks.ar a -> a
+    android.os.Bundle b -> b
+    void <init>(com.google.android.play.core.assetpacks.ar,android.os.Bundle) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.ar -> com.google.android.play.core.assetpacks.z:
+    com.google.android.play.core.assetpacks.ca c -> c
+    com.google.android.play.core.assetpacks.bl d -> d
+    com.google.android.play.core.internal.ca e -> e
+    com.google.android.play.core.assetpacks.be f -> f
+    com.google.android.play.core.assetpacks.bo g -> g
+    com.google.android.play.core.internal.ca h -> h
+    com.google.android.play.core.internal.ca i -> i
+    android.os.Handler j -> j
+    void <init>(android.content.Context,com.google.android.play.core.assetpacks.ca,com.google.android.play.core.assetpacks.bl,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.assetpacks.be,com.google.android.play.core.internal.ca,com.google.android.play.core.internal.ca) -> <init>
+    void a(android.content.Context,android.content.Intent) -> a
+    void b(com.google.android.play.core.assetpacks.AssetPackState) -> a
+    void c(android.os.Bundle) -> a
+    void d(android.os.Bundle,com.google.android.play.core.assetpacks.AssetPackState) -> a
+com.google.android.play.core.assetpacks.as -> com.google.android.play.core.assetpacks.aa:
+    int a(int,java.lang.String) -> a
+com.google.android.play.core.assetpacks.at -> com.google.android.play.core.assetpacks.ab:
+    com.google.android.play.core.assetpacks.as a -> a
+    int c -> c
+    com.google.android.play.core.assetpacks.as b -> b
+    void <init>() -> <init>
+    int a(int,java.lang.String) -> a
+    void <clinit>() -> <clinit>
+    void <init>(byte[]) -> <init>
+com.google.android.play.core.assetpacks.au -> com.google.android.play.core.assetpacks.ac:
+    com.google.android.play.core.internal.ag a -> a
+    long b -> b
+    long c -> c
+    android.content.Context d -> d
+    com.google.android.play.core.assetpacks.cv e -> e
+    void <init>(android.content.Context,com.google.android.play.core.assetpacks.cv) -> <init>
+    boolean a(java.lang.String) -> a
+    java.util.Map b() -> a
+    java.util.Map c() -> b
+    com.google.android.play.core.assetpacks.AssetPackLocation d(java.lang.String) -> b
+    java.lang.String e(java.lang.String) -> c
+    java.io.File f(java.lang.String,int,long) -> a
+    java.io.File D(java.lang.String,int) -> a
+    java.io.File E(java.lang.String) -> g
+    java.io.File g(java.lang.String,int,long) -> b
+    java.io.File h(java.lang.String,int,long,java.lang.String) -> a
+    java.io.File i(java.lang.String,int,long,java.lang.String) -> b
+    java.io.File j(java.lang.String,int,long) -> c
+    java.io.File F(java.lang.String,int,long) -> i
+    int k(java.lang.String,int,long) -> d
+    void l(java.lang.String,int,long,int) -> a
+    java.io.File m(java.lang.String,int,long,java.lang.String) -> c
+    java.io.File n(java.lang.String,int,long,java.lang.String) -> d
+    java.io.File o(java.lang.String,int,long,java.lang.String) -> e
+    java.io.File p(java.lang.String,int,long) -> e
+    boolean q(java.lang.String) -> d
+    void r(java.lang.String,int,long) -> f
+    void s() -> c
+    void G(java.io.File) -> a
+    int t(java.lang.String) -> e
+    long u(java.lang.String) -> f
+    long H(java.io.File) -> b
+    long I(java.io.File,boolean) -> a
+    long J(java.io.File) -> c
+    void v() -> d
+    void w() -> e
+    void x() -> f
+    void A(java.util.List) -> a
+    java.util.List L() -> g
+    java.io.File M(java.lang.String,int,long) -> j
+    java.io.File N() -> h
+    java.io.File O() -> i
+    boolean P(java.io.File) -> d
+    void <clinit>() -> <clinit>
+    void B(java.lang.String,int,long) -> g
+    void C(java.lang.String,int,long) -> h
+com.google.android.play.core.assetpacks.av -> com.google.android.play.core.assetpacks.ad:
+    java.io.InputStream a -> a
+    long b -> b
+    void <init>(java.io.InputStream,long) -> <init>
+    int read() -> read
+    int read(byte[],int,int) -> read
+    void close() -> close
+com.google.android.play.core.assetpacks.aw -> com.google.android.play.core.assetpacks.ae:
+    java.io.File a -> a
+    java.io.File b -> b
+    java.util.NavigableMap c -> c
+    void <init>(java.io.File,java.io.File) -> <init>
+    long a() -> a
+    java.io.InputStream b(long,long) -> a
+    java.io.InputStream d(long,java.lang.Long) -> a
+    void close() -> close
+com.google.android.play.core.assetpacks.ay -> com.google.android.play.core.assetpacks.af:
+    int a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    void <init>(int,java.lang.String,java.lang.String) -> <init>
+    int packStorageMethod() -> a
+    java.lang.String path() -> b
+    java.lang.String assetsPath() -> c
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+com.google.android.play.core.assetpacks.az -> com.google.android.play.core.assetpacks.ag:
+    java.lang.String a -> a
+    int b -> b
+    int c -> c
+    long d -> d
+    long e -> e
+    int f -> f
+    int g -> g
+    java.lang.String h -> h
+    void <init>(java.lang.String,int,int,long,long,int,int,java.lang.String) -> <init>
+    java.lang.String name() -> a
+    int status() -> b
+    int errorCode() -> c
+    long bytesDownloaded() -> d
+    long totalBytesToDownload() -> e
+    int transferProgressPercentage() -> f
+    int a() -> g
+    java.lang.String b() -> h
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+com.google.android.play.core.assetpacks.b -> com.google.android.play.core.assetpacks.ah:
+    com.google.android.play.core.internal.ag a -> a
+    android.content.Context b -> b
+    com.google.android.play.core.assetpacks.au c -> c
+    void <init>(android.content.Context,com.google.android.play.core.assetpacks.au) -> <init>
+    void b(android.os.Bundle,com.google.android.play.core.internal.z) -> a
+    void d(android.os.Bundle) -> a
+    void c(com.google.android.play.core.internal.z) -> a
+com.google.android.play.core.assetpacks.ba -> com.google.android.play.core.assetpacks.ai:
+    long a -> a
+    java.util.Map b -> b
+    void <init>(long,java.util.Map) -> <init>
+    long totalBytes() -> a
+    java.util.Map packStates() -> b
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+com.google.android.play.core.assetpacks.bc -> com.google.android.play.core.assetpacks.aj:
+    com.google.android.play.core.internal.ca a -> a
+    void <init>(com.google.android.play.core.internal.ca) -> <init>
+    java.io.InputStream a(int,java.lang.String,java.lang.String,int) -> a
+com.google.android.play.core.assetpacks.bd -> com.google.android.play.core.assetpacks.ak:
+    com.google.android.play.core.assetpacks.cm a -> a
+    byte[] b -> b
+    long c -> c
+    boolean d -> d
+    boolean e -> e
+    void <init>(java.io.InputStream) -> <init>
+    com.google.android.play.core.assetpacks.de a() -> a
+    boolean e(int) -> a
+    boolean b() -> b
+    boolean c() -> c
+    long d() -> d
+    int read(byte[]) -> read
+    int read(byte[],int,int) -> read
+    int f(byte[],int,int) -> a
+com.google.android.play.core.assetpacks.be -> com.google.android.play.core.assetpacks.al:
+    android.app.PendingIntent a -> a
+    void <init>() -> <init>
+    void a(android.app.PendingIntent) -> a
+    android.app.PendingIntent b() -> a
+com.google.android.play.core.assetpacks.bf -> com.google.android.play.core.assetpacks.am:
+    com.google.android.play.core.assetpacks.s a -> a
+    void <clinit>() -> <clinit>
+    com.google.android.play.core.assetpacks.s a() -> a
+com.google.android.play.core.assetpacks.bg -> com.google.android.play.core.assetpacks.an:
+    com.google.android.play.core.assetpacks.l a -> a
+    void <init>() -> <init>
+    com.google.android.play.core.assetpacks.a a() -> a
+    void <init>(byte[]) -> <init>
+    void b(com.google.android.play.core.assetpacks.l) -> a
+com.google.android.play.core.assetpacks.bh -> com.google.android.play.core.assetpacks.ao:
+    com.google.android.play.core.assetpacks.l a -> a
+    com.google.android.play.core.internal.ce b -> b
+    com.google.android.play.core.internal.ce c -> c
+    com.google.android.play.core.internal.ce d -> d
+    com.google.android.play.core.internal.ce e -> e
+    com.google.android.play.core.internal.ce f -> f
+    com.google.android.play.core.internal.ce g -> g
+    com.google.android.play.core.internal.ce h -> h
+    com.google.android.play.core.internal.ce i -> i
+    com.google.android.play.core.internal.ce j -> j
+    com.google.android.play.core.internal.ce k -> k
+    com.google.android.play.core.internal.ce l -> l
+    com.google.android.play.core.internal.ce m -> m
+    com.google.android.play.core.internal.ce n -> n
+    com.google.android.play.core.internal.ce o -> o
+    com.google.android.play.core.internal.ce p -> p
+    com.google.android.play.core.internal.ce q -> q
+    com.google.android.play.core.internal.ce r -> r
+    com.google.android.play.core.internal.ce s -> s
+    com.google.android.play.core.internal.ce t -> t
+    com.google.android.play.core.internal.ce u -> u
+    com.google.android.play.core.internal.ce v -> v
+    com.google.android.play.core.internal.ce w -> w
+    com.google.android.play.core.internal.ce x -> x
+    com.google.android.play.core.internal.ce y -> y
+    com.google.android.play.core.internal.ce z -> z
+    com.google.android.play.core.internal.ce A -> A
+    com.google.android.play.core.assetpacks.AssetPackManager a() -> a
+    void b(com.google.android.play.core.assetpacks.AssetPackExtractionService) -> a
+    void c(com.google.android.play.core.assetpacks.ExtractionForegroundService) -> a
+    void <init>(com.google.android.play.core.assetpacks.l) -> <init>
+com.google.android.play.core.assetpacks.bi -> com.google.android.play.core.assetpacks.ap:
+    int a -> a
+    long b -> b
+    java.lang.String c -> c
+    int d -> d
+    int e -> e
+    int f -> f
+    long g -> g
+    int h -> h
+    java.io.InputStream i -> i
+    void <init>(int,java.lang.String,int,long,java.lang.String,int,int,int,long,int,java.io.InputStream) -> <init>
+    boolean a() -> a
+com.google.android.play.core.assetpacks.bj -> com.google.android.play.core.assetpacks.aq:
+    com.google.android.play.core.internal.ag a -> a
+    byte[] b -> b
+    com.google.android.play.core.assetpacks.au c -> c
+    com.google.android.play.core.internal.ca d -> d
+    com.google.android.play.core.internal.ca e -> e
+    com.google.android.play.core.assetpacks.bo f -> f
+    void <init>(com.google.android.play.core.assetpacks.au,com.google.android.play.core.internal.ca,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.bo) -> <init>
+    void a(com.google.android.play.core.assetpacks.bi) -> a
+    java.io.File b(com.google.android.play.core.assetpacks.bi) -> b
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.bk -> com.google.android.play.core.assetpacks.ar:
+    int a -> a
+    void <init>(java.lang.String) -> <init>
+    void <init>(java.lang.String,int) -> <init>
+    void <init>(java.lang.String,java.lang.Exception) -> <init>
+    void <init>(java.lang.String,java.lang.Exception,int) -> <init>
+com.google.android.play.core.assetpacks.bl -> com.google.android.play.core.assetpacks.as:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.ca b -> b
+    com.google.android.play.core.assetpacks.bj c -> c
+    com.google.android.play.core.assetpacks.dd d -> d
+    com.google.android.play.core.assetpacks.co e -> e
+    com.google.android.play.core.assetpacks.ct f -> f
+    com.google.android.play.core.assetpacks.cx g -> g
+    com.google.android.play.core.internal.ca h -> h
+    com.google.android.play.core.assetpacks.cd i -> i
+    java.util.concurrent.atomic.AtomicBoolean j -> j
+    void <init>(com.google.android.play.core.assetpacks.ca,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.bj,com.google.android.play.core.assetpacks.dd,com.google.android.play.core.assetpacks.co,com.google.android.play.core.assetpacks.ct,com.google.android.play.core.assetpacks.cx,com.google.android.play.core.assetpacks.cd) -> <init>
+    void a() -> a
+    void b(int,java.lang.Exception) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.bm -> com.google.android.play.core.assetpacks.at:
+    com.google.android.play.core.internal.ce a -> a
+    com.google.android.play.core.internal.ce b -> b
+    com.google.android.play.core.internal.ce c -> c
+    com.google.android.play.core.internal.ce d -> d
+    com.google.android.play.core.internal.ce e -> e
+    com.google.android.play.core.internal.ce f -> f
+    com.google.android.play.core.internal.ce g -> g
+    com.google.android.play.core.internal.ce h -> h
+    int i -> i
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,byte[]) -> <init>
+com.google.android.play.core.assetpacks.bn -> com.google.android.play.core.assetpacks.au:
+    com.google.android.play.core.assetpacks.cm a -> a
+    java.io.File b -> b
+    com.google.android.play.core.assetpacks.cz c -> c
+    long d -> d
+    long e -> e
+    java.io.FileOutputStream f -> f
+    com.google.android.play.core.assetpacks.de g -> g
+    void <init>(java.io.File,com.google.android.play.core.assetpacks.cz) -> <init>
+    void write(int) -> write
+    void write(byte[]) -> write
+    void write(byte[],int,int) -> write
+com.google.android.play.core.assetpacks.bo -> com.google.android.play.core.assetpacks.av:
+    java.util.Map a -> a
+    void <init>() -> <init>
+    void a(java.lang.String) -> a
+    double b(java.lang.String) -> b
+    double c(java.lang.String,com.google.android.play.core.assetpacks.cc) -> a
+com.google.android.play.core.assetpacks.bp -> com.google.android.play.core.assetpacks.aw:
+    com.google.android.play.core.assetpacks.s a -> a
+    void <clinit>() -> <clinit>
+    com.google.android.play.core.assetpacks.s a() -> a
+com.google.android.play.core.assetpacks.bq -> com.google.android.play.core.assetpacks.ax:
+    com.google.android.play.core.assetpacks.ca a -> a
+    android.os.Bundle b -> b
+    int c -> c
+    void <init>(com.google.android.play.core.assetpacks.ca,android.os.Bundle) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.assetpacks.ca,android.os.Bundle,byte[]) -> <init>
+com.google.android.play.core.assetpacks.br -> com.google.android.play.core.assetpacks.ay:
+    com.google.android.play.core.assetpacks.ca a -> a
+    java.lang.String b -> b
+    int c -> c
+    long d -> d
+    void <init>(com.google.android.play.core.assetpacks.ca,java.lang.String,int,long) -> <init>
+    java.lang.Object a() -> a
+com.google.android.play.core.assetpacks.bs -> com.google.android.play.core.assetpacks.az:
+    com.google.android.play.core.assetpacks.ca a -> a
+    int b -> b
+    int c -> c
+    void <init>(com.google.android.play.core.assetpacks.ca,int) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.assetpacks.ca,int,byte[]) -> <init>
+com.google.android.play.core.assetpacks.bt -> com.google.android.play.core.assetpacks.ba:
+    com.google.android.play.core.assetpacks.ca a -> a
+    java.util.List b -> b
+    int c -> c
+    void <init>(com.google.android.play.core.assetpacks.ca,java.util.List) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.assetpacks.ca,java.util.List,byte[]) -> <init>
+com.google.android.play.core.assetpacks.bu -> com.google.android.play.core.assetpacks.bb:
+    com.google.android.play.core.assetpacks.ca a -> a
+    com.google.android.play.core.assetpacks.bx b -> b
+    void <init>(com.google.android.play.core.assetpacks.ca,com.google.android.play.core.assetpacks.bx) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.bv -> com.google.android.play.core.assetpacks.bc:
+    boolean a -> a
+    void <init>(boolean) -> <init>
+com.google.android.play.core.assetpacks.bw -> com.google.android.play.core.assetpacks.bd:
+    java.lang.String a -> a
+    long b -> b
+    int c -> c
+    long d -> d
+    java.util.List e -> e
+    void <init>(java.lang.String,long,int,long,java.util.List) -> <init>
+com.google.android.play.core.assetpacks.bx -> com.google.android.play.core.assetpacks.be:
+    int a -> a
+    int b -> b
+    com.google.android.play.core.assetpacks.bw c -> c
+    void <init>(int,int,com.google.android.play.core.assetpacks.bw) -> <init>
+com.google.android.play.core.assetpacks.by -> com.google.android.play.core.assetpacks.bf:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    long c -> c
+    java.util.List d -> d
+    int e -> e
+    int f -> f
+    void <init>(java.lang.String,java.lang.String,long,java.util.List,int,int) -> <init>
+com.google.android.play.core.assetpacks.bz -> com.google.android.play.core.assetpacks.bg:
+    java.lang.Object a() -> a
+com.google.android.play.core.assetpacks.c -> com.google.android.play.core.assetpacks.bh:
+    com.google.android.play.core.assetpacks.i a -> a
+    void <init>(com.google.android.play.core.assetpacks.i) -> <init>
+    int a(int,java.lang.String) -> a
+com.google.android.play.core.assetpacks.ca -> com.google.android.play.core.assetpacks.bi:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.au b -> b
+    com.google.android.play.core.internal.ca c -> c
+    com.google.android.play.core.assetpacks.bo d -> d
+    com.google.android.play.core.internal.ca e -> e
+    java.util.Map f -> f
+    java.util.concurrent.locks.ReentrantLock g -> g
+    void <init>(com.google.android.play.core.assetpacks.au,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.internal.ca) -> <init>
+    void a() -> a
+    void b() -> b
+    java.util.Map c() -> c
+    boolean d(android.os.Bundle) -> a
+    boolean e(android.os.Bundle) -> b
+    void f(java.lang.String,int,long) -> a
+    java.util.Map q(java.util.List) -> d
+    void g(int) -> a
+    java.util.Map h(java.util.List) -> a
+    java.lang.Object r(com.google.android.play.core.assetpacks.bz) -> a
+    com.google.android.play.core.assetpacks.bx s(int) -> e
+    java.lang.String t(android.os.Bundle) -> e
+    java.util.List u(java.util.List) -> e
+    java.util.Map i(java.util.List) -> b
+    java.util.Map j(java.util.List) -> c
+    java.lang.Boolean k(android.os.Bundle) -> c
+    java.lang.Boolean l(android.os.Bundle) -> d
+    void <clinit>() -> <clinit>
+    void m(java.lang.String,int,long) -> b
+    void n(int) -> b
+    void o(int) -> c
+    void p(int) -> d
+com.google.android.play.core.assetpacks.cb -> com.google.android.play.core.assetpacks.bj:
+    com.google.android.play.core.internal.ce a -> a
+    com.google.android.play.core.internal.ce b -> b
+    com.google.android.play.core.internal.ce c -> c
+    com.google.android.play.core.internal.ce d -> d
+    int e -> e
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,byte[]) -> <init>
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,char[]) -> <init>
+com.google.android.play.core.assetpacks.cc -> com.google.android.play.core.assetpacks.bk:
+    int j -> j
+    java.lang.String k -> k
+    void <init>(int,java.lang.String) -> <init>
+    void <init>(int,java.lang.String,byte[]) -> <init>
+com.google.android.play.core.assetpacks.cd -> com.google.android.play.core.assetpacks.bl:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.ca b -> b
+    com.google.android.play.core.assetpacks.au c -> c
+    com.google.android.play.core.assetpacks.bc d -> d
+    com.google.android.play.core.common.a e -> e
+    void <init>(com.google.android.play.core.assetpacks.ca,com.google.android.play.core.assetpacks.au,com.google.android.play.core.assetpacks.bc,com.google.android.play.core.common.a) -> <init>
+    com.google.android.play.core.assetpacks.cc a() -> a
+    boolean b(com.google.android.play.core.assetpacks.bx,com.google.android.play.core.assetpacks.by) -> a
+    boolean c(com.google.android.play.core.assetpacks.by) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.ce -> com.google.android.play.core.assetpacks.bm:
+    com.google.android.play.core.assetpacks.cj a -> a
+    java.util.List b -> b
+    com.google.android.play.core.tasks.i c -> c
+    java.util.List d -> d
+    void <init>(com.google.android.play.core.assetpacks.cj,java.util.List,com.google.android.play.core.tasks.i,java.util.List) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.cf -> com.google.android.play.core.assetpacks.bn:
+    com.google.android.play.core.assetpacks.cj a -> a
+    java.util.List b -> b
+    com.google.android.play.core.assetpacks.as c -> c
+    com.google.android.play.core.tasks.i d -> d
+    void <init>(com.google.android.play.core.assetpacks.cj,java.util.List,com.google.android.play.core.assetpacks.as,com.google.android.play.core.tasks.i) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.cg -> com.google.android.play.core.assetpacks.bo:
+    com.google.android.play.core.assetpacks.cj a -> a
+    int b -> b
+    java.lang.String c -> c
+    void <init>(com.google.android.play.core.assetpacks.cj,int,java.lang.String) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.ch -> com.google.android.play.core.assetpacks.bp:
+    java.lang.String a -> a
+    void <init>(java.lang.String) -> <init>
+    boolean accept(java.io.File,java.lang.String) -> accept
+com.google.android.play.core.assetpacks.ci -> com.google.android.play.core.assetpacks.bq:
+    com.google.android.play.core.assetpacks.cj a -> a
+    android.content.Intent b -> b
+    void <init>(com.google.android.play.core.assetpacks.cj,android.content.Intent) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.cj -> com.google.android.play.core.assetpacks.br:
+    com.google.android.play.core.internal.ag a -> a
+    java.lang.String b -> b
+    com.google.android.play.core.assetpacks.ar c -> c
+    com.google.android.play.core.assetpacks.bo d -> d
+    android.content.Context e -> e
+    com.google.android.play.core.assetpacks.cv f -> f
+    com.google.android.play.core.internal.ca g -> g
+    java.util.concurrent.atomic.AtomicInteger h -> h
+    android.os.Handler i -> i
+    void <init>(java.io.File,com.google.android.play.core.assetpacks.ar,com.google.android.play.core.assetpacks.bo,android.content.Context,com.google.android.play.core.assetpacks.cv,com.google.android.play.core.internal.ca) -> <init>
+    com.google.android.play.core.tasks.Task a(java.util.List,java.util.List,java.util.Map) -> a
+    void b(java.util.List) -> a
+    com.google.android.play.core.tasks.Task c(java.util.Map) -> a
+    com.google.android.play.core.tasks.Task d(java.util.List,com.google.android.play.core.assetpacks.as,java.util.Map) -> a
+    void e(int,java.lang.String,java.lang.String,int) -> a
+    void f(int,java.lang.String) -> a
+    void g(int) -> a
+    com.google.android.play.core.tasks.Task h(int,java.lang.String,java.lang.String,int) -> b
+    void i(java.lang.String) -> a
+    void j() -> a
+    com.google.android.play.core.assetpacks.AssetPackState p(java.lang.String,int) -> a
+    java.io.File[] q(java.lang.String) -> b
+    java.lang.String r(java.io.File) -> a
+    long k(int,long) -> a
+    void l(android.content.Intent) -> a
+    void m(int,java.lang.String) -> b
+    void n(java.util.List,com.google.android.play.core.assetpacks.as,com.google.android.play.core.tasks.i) -> a
+    void o(java.util.List,com.google.android.play.core.tasks.i,java.util.List) -> a
+    void <clinit>() -> <clinit>
+    void s(int,java.lang.String,int) -> a
+com.google.android.play.core.assetpacks.ck -> com.google.android.play.core.assetpacks.bs:
+    com.google.android.play.core.assetpacks.a a -> a
+    java.lang.String a(java.util.List) -> a
+    long d(byte[],int) -> a
+    int e(byte[],int) -> b
+    boolean f(int) -> a
+    boolean g(int) -> b
+    boolean h(int) -> c
+    boolean i(int,int) -> a
+    com.google.android.play.core.assetpacks.a j(android.content.Context) -> a
+com.google.android.play.core.assetpacks.cl -> com.google.android.play.core.assetpacks.bt:
+    java.util.Enumeration a -> a
+    java.io.InputStream b -> b
+    void <init>(java.util.Enumeration) -> <init>
+    int read() -> read
+    int read(byte[],int,int) -> read
+    void a() -> a
+    void close() -> close
+com.google.android.play.core.assetpacks.cm -> com.google.android.play.core.assetpacks.bu:
+    byte[] a -> a
+    int b -> b
+    long c -> c
+    long d -> d
+    int e -> e
+    int f -> f
+    int g -> g
+    boolean h -> h
+    java.lang.String i -> i
+    void <init>() -> <init>
+    int a(byte[],int,int) -> a
+    int e(int,byte[],int,int) -> a
+    com.google.android.play.core.assetpacks.de b() -> a
+    int c() -> b
+    void d() -> c
+com.google.android.play.core.assetpacks.cn -> com.google.android.play.core.assetpacks.bv:
+    int a -> a
+    long b -> b
+    java.lang.String c -> c
+    void <init>(int,java.lang.String,int,long,java.lang.String) -> <init>
+com.google.android.play.core.assetpacks.co -> com.google.android.play.core.assetpacks.bw:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.au b -> b
+    void <init>(com.google.android.play.core.assetpacks.au) -> <init>
+    void a(com.google.android.play.core.assetpacks.cn) -> a
+    void b(java.io.File,java.io.File) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.cp -> com.google.android.play.core.assetpacks.bx:
+    com.google.android.play.core.internal.ce a -> a
+    int b -> b
+    void <init>(com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.internal.ce,byte[]) -> <init>
+    void <init>(com.google.android.play.core.internal.ce,char[]) -> <init>
+    void <init>(com.google.android.play.core.internal.ce,short[]) -> <init>
+com.google.android.play.core.assetpacks.cq -> com.google.android.play.core.assetpacks.by:
+    int a -> a
+    long b -> b
+    void <init>(int,java.lang.String,int,long) -> <init>
+com.google.android.play.core.assetpacks.cr -> com.google.android.play.core.assetpacks.bz:
+    com.google.android.play.core.assetpacks.ct a -> a
+    com.google.android.play.core.assetpacks.cq b -> b
+    void <init>(com.google.android.play.core.assetpacks.ct,com.google.android.play.core.assetpacks.cq) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.cs -> com.google.android.play.core.assetpacks.ca:
+    com.google.android.play.core.assetpacks.au a -> a
+    void <init>(com.google.android.play.core.assetpacks.au) -> <init>
+    java.lang.Runnable a(com.google.android.play.core.assetpacks.au) -> a
+    void run() -> run
+com.google.android.play.core.assetpacks.ct -> com.google.android.play.core.assetpacks.cb:
+    com.google.android.play.core.assetpacks.au a -> a
+    com.google.android.play.core.internal.ca b -> b
+    com.google.android.play.core.assetpacks.ca c -> c
+    com.google.android.play.core.internal.ca d -> d
+    com.google.android.play.core.assetpacks.bo e -> e
+    com.google.android.play.core.common.a f -> f
+    void <init>(com.google.android.play.core.assetpacks.au,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.ca,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.common.a) -> <init>
+    void a(com.google.android.play.core.assetpacks.cq) -> a
+    void b(com.google.android.play.core.assetpacks.cq) -> b
+com.google.android.play.core.assetpacks.cu -> com.google.android.play.core.assetpacks.cc:
+    com.google.android.play.core.internal.ce a -> a
+    com.google.android.play.core.internal.ce b -> b
+    com.google.android.play.core.internal.ce c -> c
+    com.google.android.play.core.internal.ce d -> d
+    com.google.android.play.core.internal.ce e -> e
+    com.google.android.play.core.internal.ce f -> f
+    int g -> g
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,byte[]) -> <init>
+com.google.android.play.core.assetpacks.cv -> com.google.android.play.core.assetpacks.cd:
+    com.google.android.play.core.internal.ag a -> a
+    android.content.Context b -> b
+    int c -> c
+    void <init>(android.content.Context) -> <init>
+    int a() -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.cw -> com.google.android.play.core.assetpacks.ce:
+    int a -> a
+    long b -> b
+    int c -> c
+    long d -> d
+    int e -> e
+    java.lang.String f -> f
+    long g -> g
+    java.io.InputStream h -> h
+    void <init>(int,java.lang.String,int,long,int,long,int,java.lang.String,long,java.io.InputStream) -> <init>
+com.google.android.play.core.assetpacks.cx -> com.google.android.play.core.assetpacks.cf:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.au b -> b
+    com.google.android.play.core.internal.ca c -> c
+    void <init>(com.google.android.play.core.assetpacks.au,com.google.android.play.core.internal.ca) -> <init>
+    void a(com.google.android.play.core.assetpacks.cw) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.cy -> com.google.android.play.core.assetpacks.cg:
+    int a -> a
+    java.lang.String b -> b
+    long c -> c
+    long d -> d
+    int e -> e
+    void <init>() -> <init>
+    void <init>(int,java.lang.String,long,long,int) -> <init>
+    int a() -> a
+    java.lang.String b() -> b
+    long c() -> c
+    long d() -> d
+    int e() -> e
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+com.google.android.play.core.assetpacks.cz -> com.google.android.play.core.assetpacks.ch:
+    com.google.android.play.core.internal.ag a -> a
+    byte[] b -> b
+    com.google.android.play.core.assetpacks.au c -> c
+    java.lang.String d -> d
+    int e -> e
+    long f -> f
+    java.lang.String g -> g
+    int h -> h
+    void <init>(com.google.android.play.core.assetpacks.au,java.lang.String,int,long,java.lang.String) -> <init>
+    void a(java.lang.String,long,long,int) -> a
+    void b(byte[],int) -> a
+    void c(int) -> a
+    void d(int) -> b
+    com.google.android.play.core.assetpacks.cy e() -> a
+    void f(java.io.InputStream,long) -> a
+    void g(byte[]) -> a
+    void h(byte[],java.io.InputStream) -> a
+    void i(long,byte[],int,int) -> a
+    java.io.File j() -> b
+    int k() -> c
+    boolean l() -> d
+    java.io.File n() -> e
+    java.io.File o() -> f
+    void <clinit>() -> <clinit>
+    void m(byte[],int) -> b
+com.google.android.play.core.assetpacks.d -> com.google.android.play.core.assetpacks.ci:
+    com.google.android.play.core.assetpacks.i a -> a
+    java.lang.String b -> b
+    com.google.android.play.core.tasks.i c -> c
+    void <init>(com.google.android.play.core.assetpacks.i,java.lang.String,com.google.android.play.core.tasks.i) -> <init>
+    void run() -> run
+com.google.android.play.core.assetpacks.da -> com.google.android.play.core.assetpacks.cj:
+    java.io.FilenameFilter a -> a
+    void <init>() -> <init>
+    boolean accept(java.io.File,java.lang.String) -> accept
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.db -> com.google.android.play.core.assetpacks.ck:
+    java.util.regex.Pattern a -> a
+    java.util.List a(java.io.File,java.io.File) -> a
+    void <clinit>() -> <clinit>
+    boolean b(java.lang.String) -> a
+com.google.android.play.core.assetpacks.dc -> com.google.android.play.core.assetpacks.cl:
+    int a -> a
+    long b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    void <init>(int,java.lang.String,int,long,java.lang.String,java.lang.String) -> <init>
+com.google.android.play.core.assetpacks.dd -> com.google.android.play.core.assetpacks.cm:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.au b -> b
+    void <init>(com.google.android.play.core.assetpacks.au) -> <init>
+    void a(com.google.android.play.core.assetpacks.dc) -> a
+    void b(com.google.android.play.core.assetpacks.dc,java.io.File) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.de -> com.google.android.play.core.assetpacks.cn:
+    java.lang.String a -> a
+    long b -> b
+    int c -> c
+    boolean d -> d
+    boolean e -> e
+    byte[] f -> f
+    void <init>() -> <init>
+    com.google.android.play.core.assetpacks.de a(java.lang.String,long,int,boolean,byte[],boolean) -> a
+    boolean b() -> a
+    boolean c() -> b
+    void <init>(java.lang.String,long,int,boolean,boolean,byte[]) -> <init>
+    java.lang.String d() -> c
+    long e() -> d
+    int f() -> e
+    boolean g() -> f
+    boolean h() -> g
+    byte[] i() -> h
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+com.google.android.play.core.assetpacks.e -> com.google.android.play.core.assetpacks.co:
+    com.google.android.play.core.assetpacks.i a -> a
+    int b -> b
+    void <init>(com.google.android.play.core.assetpacks.i) -> <init>
+    void run() -> run
+    void <init>(com.google.android.play.core.assetpacks.i,byte[]) -> <init>
+com.google.android.play.core.assetpacks.f -> com.google.android.play.core.assetpacks.cp:
+    com.google.android.play.core.assetpacks.au a -> a
+    void <init>(com.google.android.play.core.assetpacks.au) -> <init>
+    com.google.android.play.core.tasks.OnSuccessListener a(com.google.android.play.core.assetpacks.au) -> a
+    void onSuccess(java.lang.Object) -> onSuccess
+com.google.android.play.core.assetpacks.g -> com.google.android.play.core.assetpacks.cq:
+    com.google.android.play.core.tasks.OnFailureListener a -> a
+    void <init>() -> <init>
+    void onFailure(java.lang.Exception) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.h -> com.google.android.play.core.assetpacks.cr:
+    com.google.android.play.core.tasks.i a -> a
+    com.google.android.play.core.assetpacks.i b -> b
+    void <init>(com.google.android.play.core.assetpacks.i,android.os.Handler,com.google.android.play.core.tasks.i) -> <init>
+    void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
+com.google.android.play.core.assetpacks.i -> com.google.android.play.core.assetpacks.cs:
+    com.google.android.play.core.internal.ag a -> a
+    com.google.android.play.core.assetpacks.au b -> b
+    com.google.android.play.core.internal.ca c -> c
+    com.google.android.play.core.assetpacks.ar d -> d
+    com.google.android.play.core.splitinstall.p e -> e
+    com.google.android.play.core.assetpacks.ca f -> f
+    com.google.android.play.core.assetpacks.bo g -> g
+    com.google.android.play.core.assetpacks.be h -> h
+    com.google.android.play.core.internal.ca i -> i
+    com.google.android.play.core.common.a j -> j
+    android.os.Handler k -> k
+    boolean l -> l
+    void <init>(com.google.android.play.core.assetpacks.au,com.google.android.play.core.internal.ca,com.google.android.play.core.assetpacks.ar,com.google.android.play.core.splitinstall.p,com.google.android.play.core.assetpacks.ca,com.google.android.play.core.assetpacks.bo,com.google.android.play.core.assetpacks.be,com.google.android.play.core.internal.ca,com.google.android.play.core.common.a) -> <init>
+    void registerListener(com.google.android.play.core.assetpacks.AssetPackStateUpdateListener) -> a
+    void unregisterListener(com.google.android.play.core.assetpacks.AssetPackStateUpdateListener) -> b
+    com.google.android.play.core.tasks.Task getPackStates(java.util.List) -> a
+    com.google.android.play.core.tasks.Task fetch(java.util.List) -> b
+    com.google.android.play.core.assetpacks.AssetPackLocation getPackLocation(java.lang.String) -> a
+    com.google.android.play.core.assetpacks.AssetPackStates cancel(java.util.List) -> c
+    com.google.android.play.core.tasks.Task removePack(java.lang.String) -> b
+    com.google.android.play.core.tasks.Task showCellularDataConfirmation(android.app.Activity) -> a
+    void a(boolean) -> a
+    void h() -> c
+    void i() -> d
+    int b(int,java.lang.String) -> a
+    void c() -> a
+    void d() -> b
+    void e(java.lang.Exception) -> a
+    void f(java.lang.String,com.google.android.play.core.tasks.i) -> a
+    com.google.android.play.core.assetpacks.be g(com.google.android.play.core.assetpacks.i) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.j -> com.google.android.play.core.assetpacks.ct:
+    com.google.android.play.core.internal.ce a -> a
+    com.google.android.play.core.internal.ce b -> b
+    com.google.android.play.core.internal.ce c -> c
+    com.google.android.play.core.internal.ce d -> d
+    com.google.android.play.core.internal.ce e -> e
+    com.google.android.play.core.internal.ce f -> f
+    com.google.android.play.core.internal.ce g -> g
+    com.google.android.play.core.internal.ce h -> h
+    com.google.android.play.core.internal.ce i -> i
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+com.google.android.play.core.assetpacks.k -> com.google.android.play.core.assetpacks.cu:
+    java.util.concurrent.ThreadFactory a -> a
+    int c -> c
+    java.util.concurrent.ThreadFactory b -> b
+    void <init>() -> <init>
+    java.lang.Thread newThread(java.lang.Runnable) -> newThread
+    void <clinit>() -> <clinit>
+    void <init>(byte[]) -> <init>
+com.google.android.play.core.assetpacks.l -> com.google.android.play.core.assetpacks.cv:
+    android.content.Context a -> a
+    void <init>(android.content.Context) -> <init>
+    android.content.Context a() -> a
+    java.lang.String b(android.content.Context) -> a
+com.google.android.play.core.assetpacks.m -> com.google.android.play.core.assetpacks.cw:
+    com.google.android.play.core.assetpacks.s a -> a
+    void <clinit>() -> <clinit>
+    com.google.android.play.core.assetpacks.s a() -> a
+com.google.android.play.core.assetpacks.model.a -> com.google.android.play.core.assetpacks.a.a:
+    java.util.Map a -> a
+    java.util.Map b -> b
+    java.lang.String a(int) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.n -> com.google.android.play.core.assetpacks.cx:
+    com.google.android.play.core.internal.ce a -> a
+    com.google.android.play.core.internal.ce b -> b
+    int c -> c
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,byte[]) -> <init>
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,char[]) -> <init>
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,short[]) -> <init>
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,int[]) -> <init>
+com.google.android.play.core.assetpacks.o -> com.google.android.play.core.assetpacks.cy:
+    com.google.android.play.core.internal.ce a -> a
+    com.google.android.play.core.internal.ce b -> b
+    com.google.android.play.core.internal.ce c -> c
+    void <init>(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+com.google.android.play.core.assetpacks.p -> com.google.android.play.core.assetpacks.cz:
+    com.google.android.play.core.assetpacks.l a -> a
+    void <init>(com.google.android.play.core.assetpacks.l) -> <init>
+    android.content.Context b() -> b
+    android.content.Context c(com.google.android.play.core.assetpacks.l) -> a
+    java.lang.Object a() -> a
+com.google.android.play.core.assetpacks.q -> com.google.android.play.core.assetpacks.da:
+    com.google.android.play.core.internal.ce a -> a
+    void <init>(com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+com.google.android.play.core.assetpacks.r -> com.google.android.play.core.assetpacks.db:
+    com.google.android.play.core.assetpacks.s a -> a
+    com.google.android.play.core.assetpacks.s a() -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.assetpacks.s -> com.google.android.play.core.assetpacks.dc:
+    int a -> a
+    void <init>() -> <init>
+    java.util.concurrent.Executor b() -> b
+    java.lang.Object a() -> a
+    void <init>(byte[]) -> <init>
+    java.util.concurrent.Executor c() -> c
+    void <init>(char[]) -> <init>
+    com.google.android.play.core.assetpacks.be d() -> d
+    void <init>(short[]) -> <init>
+    com.google.android.play.core.assetpacks.bo e() -> e
+com.google.android.play.core.assetpacks.t -> com.google.android.play.core.assetpacks.dd:
+    com.google.android.play.core.tasks.Task a(java.util.List,java.util.List,java.util.Map) -> a
+    void b(java.util.List) -> a
+    com.google.android.play.core.tasks.Task c(java.util.Map) -> a
+    com.google.android.play.core.tasks.Task d(java.util.List,com.google.android.play.core.assetpacks.as,java.util.Map) -> a
+    void e(int,java.lang.String,java.lang.String,int) -> a
+    void f(int,java.lang.String) -> a
+    void g(int) -> a
+    com.google.android.play.core.tasks.Task h(int,java.lang.String,java.lang.String,int) -> b
+    void i(java.lang.String) -> a
+    void j() -> a
+com.google.android.play.core.assetpacks.u -> com.google.android.play.core.assetpacks.de:
+    com.google.android.play.core.internal.am a -> a
+    int c -> c
+    com.google.android.play.core.internal.am b -> b
+    void <init>() -> <init>
+    java.lang.Object a(android.os.IBinder) -> a
+    void <clinit>() -> <clinit>
+    void <init>(byte[]) -> <init>
+com.google.android.play.core.assetpacks.v -> com.google.android.play.core.assetpacks.df:
+    com.google.android.play.core.assetpacks.an a -> a
+    void <init>(com.google.android.play.core.assetpacks.an) -> <init>
+    void onSuccess(java.lang.Object) -> onSuccess
+com.google.android.play.core.assetpacks.w -> com.google.android.play.core.assetpacks.dg:
+    java.lang.String a -> a
+    com.google.android.play.core.tasks.i b -> b
+    com.google.android.play.core.assetpacks.an c -> c
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,java.lang.String,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.x -> com.google.android.play.core.assetpacks.dh:
+    java.util.List a -> a
+    java.util.Map b -> b
+    com.google.android.play.core.tasks.i c -> c
+    java.util.List d -> d
+    com.google.android.play.core.assetpacks.an e -> e
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,java.util.List,java.util.Map,com.google.android.play.core.tasks.i,java.util.List) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.y -> com.google.android.play.core.assetpacks.di:
+    java.util.List a -> a
+    com.google.android.play.core.tasks.i b -> b
+    com.google.android.play.core.assetpacks.an c -> c
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,java.util.List,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.assetpacks.z -> com.google.android.play.core.assetpacks.dj:
+    java.util.Map a -> a
+    com.google.android.play.core.tasks.i b -> b
+    com.google.android.play.core.assetpacks.an c -> c
+    void <init>(com.google.android.play.core.assetpacks.an,com.google.android.play.core.tasks.i,java.util.Map,com.google.android.play.core.tasks.i) -> <init>
+    void a() -> a
+com.google.android.play.core.common.LocalTestingException -> com.google.android.play.core.common.a:
+    void <init>(java.lang.String) -> <init>
+    void <init>(java.lang.String,java.lang.Throwable) -> <init>
+com.google.android.play.core.common.PlayCoreDialogWrapperActivity -> com.google.android.play.core.common.PlayCoreDialogWrapperActivity:
+    android.os.ResultReceiver a -> a
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void a(android.content.Context) -> a
+com.google.android.play.core.common.a -> com.google.android.play.core.common.b:
+    java.util.Map a -> a
+    java.util.concurrent.atomic.AtomicBoolean b -> b
+    void <init>() -> <init>
+    void b() -> b
+    boolean a() -> a
+com.google.android.play.core.common.b -> com.google.android.play.core.common.c:
+    com.google.android.play.core.common.c a -> a
+    com.google.android.play.core.common.c a() -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.common.c -> com.google.android.play.core.common.d:
+    void <init>() -> <init>
+    com.google.android.play.core.common.c b() -> b
+    com.google.android.play.core.common.a c() -> c
+    java.lang.Object a() -> a
+com.google.android.play.core.install.InstallState -> com.google.android.play.core.b.a:
+    void <init>() -> <init>
+    int installStatus() -> a
+    long bytesDownloaded() -> b
+    long totalBytesToDownload() -> c
+    int installErrorCode() -> d
+    java.lang.String packageName() -> e
+    com.google.android.play.core.install.InstallState a(int,long,long,int,java.lang.String) -> a
+com.google.android.play.core.install.a -> com.google.android.play.core.b.b:
+    int a -> a
+    long b -> b
+    long c -> c
+    int d -> d
+    java.lang.String e -> e
+    void <init>(int,long,long,int,java.lang.String) -> <init>
+    int installStatus() -> a
+    long bytesDownloaded() -> b
+    long totalBytesToDownload() -> c
+    int installErrorCode() -> d
+    java.lang.String packageName() -> e
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+com.google.android.play.core.internal.ag -> com.google.android.play.core.c.a:
+    java.lang.String a -> a
+    void <init>(java.lang.String) -> <init>
+    int f(int,java.lang.String,java.lang.Object[]) -> a
+    java.lang.String g(java.lang.String,java.lang.String,java.lang.Object[]) -> a
+    void a(java.lang.String,java.lang.Object[]) -> a
+    void b(java.lang.String,java.lang.Object[]) -> b
+    void c(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> a
+    void d(java.lang.String,java.lang.Object[]) -> c
+    void e(java.lang.String,java.lang.Object[]) -> d
+com.google.android.play.core.internal.ah -> com.google.android.play.core.c.b:
+    com.google.android.play.core.tasks.i a -> a
+    void <init>() -> <init>
+    void <init>(com.google.android.play.core.tasks.i) -> <init>
+    void run() -> run
+    void b(java.lang.Exception) -> a
+    com.google.android.play.core.tasks.i c() -> b
+    void a() -> a
+com.google.android.play.core.internal.ai -> com.google.android.play.core.c.c:
+    com.google.android.play.core.internal.aq a -> a
+    void <init>(com.google.android.play.core.internal.aq) -> <init>
+    void binderDied() -> binderDied
+com.google.android.play.core.internal.aj -> com.google.android.play.core.c.d:
+    com.google.android.play.core.internal.ah a -> a
+    com.google.android.play.core.internal.aq b -> b
+    void <init>(com.google.android.play.core.internal.aq,com.google.android.play.core.tasks.i,com.google.android.play.core.internal.ah) -> <init>
+    void a() -> a
+com.google.android.play.core.internal.ak -> com.google.android.play.core.c.e:
+    com.google.android.play.core.internal.aq a -> a
+    void <init>(com.google.android.play.core.internal.aq) -> <init>
+    void a() -> a
+com.google.android.play.core.internal.al -> com.google.android.play.core.c.f:
+    void a() -> a
+com.google.android.play.core.internal.am -> com.google.android.play.core.c.g:
+    java.lang.Object a(android.os.IBinder) -> a
+com.google.android.play.core.internal.an -> com.google.android.play.core.c.h:
+    android.os.IBinder a -> a
+    com.google.android.play.core.internal.ap b -> b
+    void <init>(com.google.android.play.core.internal.ap,android.os.IBinder) -> <init>
+    void a() -> a
+com.google.android.play.core.internal.ao -> com.google.android.play.core.c.i:
+    com.google.android.play.core.internal.ap a -> a
+    void <init>(com.google.android.play.core.internal.ap) -> <init>
+    void a() -> a
+com.google.android.play.core.internal.ap -> com.google.android.play.core.c.j:
+    com.google.android.play.core.internal.aq a -> a
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    void <init>(com.google.android.play.core.internal.aq) -> <init>
+com.google.android.play.core.internal.aq -> com.google.android.play.core.c.k:
+    java.util.Map a -> a
+    android.content.Context b -> b
+    com.google.android.play.core.internal.ag c -> c
+    java.lang.String d -> d
+    java.util.List e -> e
+    boolean f -> f
+    android.content.Intent g -> g
+    com.google.android.play.core.internal.am h -> h
+    java.lang.ref.WeakReference i -> i
+    android.os.IBinder$DeathRecipient j -> j
+    android.content.ServiceConnection k -> k
+    android.os.IInterface l -> l
+    void <init>(android.content.Context,com.google.android.play.core.internal.ag,java.lang.String,android.content.Intent,com.google.android.play.core.internal.am) -> <init>
+    void a(com.google.android.play.core.internal.ah) -> a
+    void b() -> a
+    android.os.IInterface c() -> b
+    void r(com.google.android.play.core.internal.ah) -> b
+    void d(com.google.android.play.core.internal.aq,com.google.android.play.core.internal.ah) -> a
+    android.os.IInterface e(com.google.android.play.core.internal.aq) -> a
+    com.google.android.play.core.internal.ag f(com.google.android.play.core.internal.aq) -> b
+    android.content.ServiceConnection g(com.google.android.play.core.internal.aq) -> c
+    android.content.Context h(com.google.android.play.core.internal.aq) -> d
+    com.google.android.play.core.internal.am i(com.google.android.play.core.internal.aq) -> e
+    void j(com.google.android.play.core.internal.aq) -> f
+    java.util.List k(com.google.android.play.core.internal.aq) -> g
+    void l(com.google.android.play.core.internal.aq,com.google.android.play.core.internal.ah) -> b
+    void m(com.google.android.play.core.internal.aq) -> h
+    void n() -> c
+    void <clinit>() -> <clinit>
+    void o(com.google.android.play.core.internal.aq,android.os.IInterface) -> a
+    void p(com.google.android.play.core.internal.aq) -> i
+    void q(com.google.android.play.core.internal.aq) -> j
+com.google.android.play.core.internal.ar -> com.google.android.play.core.c.l:
+    void <init>() -> <init>
+com.google.android.play.core.internal.ax -> com.google.android.play.core.c.m:
+    java.lang.String b(java.io.File) -> a
+    void c(boolean,java.lang.Object) -> a
+    void d(java.lang.Object,java.lang.Object) -> a
+com.google.android.play.core.internal.bh -> com.google.android.play.core.c.n:
+    void h(android.content.pm.PackageManager,android.content.ComponentName,int) -> a
+    void i(java.lang.Object,java.lang.Class) -> a
+    void j(java.lang.Object) -> a
+    void k(java.lang.Object) -> b
+    void p(byte[],java.io.DataInputStream,java.io.OutputStream,int,long) -> a
+    void q(byte[],com.google.android.play.core.internal.br,java.io.OutputStream,long,int,long) -> a
+    void l(com.google.android.play.core.internal.br,java.io.InputStream,java.io.OutputStream,long) -> a
+com.google.android.play.core.internal.bp -> com.google.android.play.core.c.o:
+    com.google.android.play.core.internal.ag a -> a
+    boolean a(android.content.Context) -> a
+    boolean b(android.content.Context) -> b
+    void <clinit>() -> <clinit>
+com.google.android.play.core.internal.bq -> com.google.android.play.core.c.p:
+    void <init>(java.lang.String) -> <init>
+com.google.android.play.core.internal.br -> com.google.android.play.core.c.q:
+    void <init>() -> <init>
+    long a() -> a
+    java.io.InputStream c() -> b
+    java.io.InputStream b(long,long) -> a
+com.google.android.play.core.internal.bs -> com.google.android.play.core.c.r:
+    com.google.android.play.core.internal.br a -> a
+    long b -> b
+    long c -> c
+    void <init>(com.google.android.play.core.internal.br,long,long) -> <init>
+    java.io.InputStream b(long,long) -> a
+    long a() -> a
+    long d(long) -> a
+    void close() -> close
+com.google.android.play.core.internal.bt -> com.google.android.play.core.c.s:
+    void <init>() -> <init>
+    void a(java.lang.Throwable,java.lang.Throwable) -> a
+com.google.android.play.core.internal.bu -> com.google.android.play.core.c.t:
+    int a -> a
+    void <init>(java.lang.Throwable,java.lang.ref.ReferenceQueue) -> <init>
+    int hashCode() -> hashCode
+    boolean equals(java.lang.Object) -> equals
+com.google.android.play.core.internal.bv -> com.google.android.play.core.c.u:
+    java.util.concurrent.ConcurrentHashMap a -> a
+    java.lang.ref.ReferenceQueue b -> b
+    void <init>() -> <init>
+    java.util.List a(java.lang.Throwable) -> a
+com.google.android.play.core.internal.bw -> com.google.android.play.core.c.v:
+    com.google.android.play.core.internal.bv a -> a
+    void <init>() -> <init>
+    void a(java.lang.Throwable,java.lang.Throwable) -> a
+com.google.android.play.core.internal.bx -> com.google.android.play.core.c.w:
+    void <init>() -> <init>
+    void a(java.lang.Throwable,java.lang.Throwable) -> a
+com.google.android.play.core.internal.by -> com.google.android.play.core.c.x:
+    void <init>() -> <init>
+    void a(java.lang.Throwable,java.lang.Throwable) -> a
+com.google.android.play.core.internal.bz -> com.google.android.play.core.c.y:
+    com.google.android.play.core.internal.bt a -> a
+    void a(java.lang.Throwable,java.lang.Throwable) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.internal.ca -> com.google.android.play.core.c.z:
+    java.lang.Object a() -> a
+com.google.android.play.core.internal.cb -> com.google.android.play.core.c.aa:
+    com.google.android.play.core.internal.ce a -> a
+    void <init>() -> <init>
+    java.lang.Object a() -> a
+    void b(com.google.android.play.core.internal.ce,com.google.android.play.core.internal.ce) -> a
+com.google.android.play.core.internal.cc -> com.google.android.play.core.c.ab:
+    java.lang.Object a -> a
+    com.google.android.play.core.internal.ce b -> b
+    java.lang.Object c -> c
+    void <init>(com.google.android.play.core.internal.ce) -> <init>
+    java.lang.Object a() -> a
+    com.google.android.play.core.internal.ce b(com.google.android.play.core.internal.ce) -> a
+    com.google.android.play.core.internal.ca c(com.google.android.play.core.internal.ce) -> b
+    void <clinit>() -> <clinit>
+com.google.android.play.core.internal.cd -> com.google.android.play.core.c.ac:
+    void <init>() -> <init>
+com.google.android.play.core.internal.ce -> com.google.android.play.core.c.ad:
+    java.lang.Object a() -> a
+com.google.android.play.core.internal.i -> com.google.android.play.core.c.ae:
+    java.lang.String e(java.lang.String,java.lang.String) -> a
+    java.lang.String f(java.lang.String,java.lang.String,java.lang.String) -> a
+com.google.android.play.core.internal.j -> com.google.android.play.core.c.af:
+    android.os.IBinder a -> a
+    java.lang.String b -> b
+    void <init>(android.os.IBinder,java.lang.String) -> <init>
+    android.os.IBinder asBinder() -> asBinder
+    android.os.Parcel a() -> a
+    void b(int,android.os.Parcel) -> a
+com.google.android.play.core.internal.k -> com.google.android.play.core.c.ag:
+    void <init>(java.lang.String) -> <init>
+    android.os.IBinder asBinder() -> asBinder
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+    boolean a(int,android.os.Parcel) -> a
+com.google.android.play.core.internal.l -> com.google.android.play.core.c.ah:
+    void <init>() -> <init>
+    android.os.Parcelable a(android.os.Parcel,android.os.Parcelable$Creator) -> a
+    void b(android.os.Parcel,android.os.Parcelable) -> a
+    void c(android.os.Parcel,android.os.IInterface) -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.internal.r -> com.google.android.play.core.c.ai:
+    void <init>(android.os.IBinder) -> <init>
+    void c(java.lang.String,java.util.List,android.os.Bundle,com.google.android.play.core.internal.v) -> a
+    void d(java.lang.String,java.util.List,android.os.Bundle,com.google.android.play.core.internal.v) -> b
+    void e(java.lang.String,android.os.Bundle,com.google.android.play.core.internal.v) -> a
+    void f(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> a
+    void g(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> b
+    void h(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> c
+    void i(java.lang.String,android.os.Bundle,com.google.android.play.core.internal.v) -> b
+    void j(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> d
+    void k(java.lang.String,java.util.List,android.os.Bundle,com.google.android.play.core.internal.v) -> c
+    void l(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> e
+com.google.android.play.core.internal.s -> com.google.android.play.core.c.aj:
+    com.google.android.play.core.internal.t b(android.os.IBinder) -> a
+com.google.android.play.core.internal.t -> com.google.android.play.core.c.ak:
+    void c(java.lang.String,java.util.List,android.os.Bundle,com.google.android.play.core.internal.v) -> a
+    void d(java.lang.String,java.util.List,android.os.Bundle,com.google.android.play.core.internal.v) -> b
+    void e(java.lang.String,android.os.Bundle,com.google.android.play.core.internal.v) -> a
+    void f(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> a
+    void g(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> b
+    void h(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> c
+    void i(java.lang.String,android.os.Bundle,com.google.android.play.core.internal.v) -> b
+    void j(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> d
+    void k(java.lang.String,java.util.List,android.os.Bundle,com.google.android.play.core.internal.v) -> c
+    void l(java.lang.String,android.os.Bundle,android.os.Bundle,com.google.android.play.core.internal.v) -> e
+com.google.android.play.core.internal.u -> com.google.android.play.core.c.al:
+    void <init>() -> <init>
+    boolean a(int,android.os.Parcel) -> a
+com.google.android.play.core.internal.v -> com.google.android.play.core.c.am:
+    void b(int,android.os.Bundle) -> a
+    void c(java.util.List) -> a
+    void d(android.os.Bundle,android.os.Bundle) -> a
+    void e(android.os.Bundle,android.os.Bundle) -> b
+    void f(android.os.Bundle,android.os.Bundle) -> c
+    void g(android.os.Bundle) -> a
+    void h(int) -> a
+    void i() -> a
+    void j(int) -> b
+    void k(android.os.Bundle) -> b
+    void l(android.os.Bundle) -> c
+    void m(android.os.Bundle) -> d
+    void n() -> b
+com.google.android.play.core.internal.w -> com.google.android.play.core.c.an:
+    void <init>() -> <init>
+    boolean a(int,android.os.Parcel) -> a
+com.google.android.play.core.internal.x -> com.google.android.play.core.c.ao:
+    void b(android.os.Bundle,com.google.android.play.core.internal.z) -> a
+    void c(com.google.android.play.core.internal.z) -> a
+com.google.android.play.core.internal.y -> com.google.android.play.core.c.ap:
+    void <init>(android.os.IBinder) -> <init>
+    void c(android.os.Bundle,android.os.Bundle) -> a
+    void d(android.os.Bundle) -> a
+    void e(android.os.Bundle) -> b
+com.google.android.play.core.internal.z -> com.google.android.play.core.c.aq:
+    void c(android.os.Bundle,android.os.Bundle) -> a
+    void d(android.os.Bundle) -> a
+    void e(android.os.Bundle) -> b
+com.google.android.play.core.listener.StateUpdatedListener -> com.google.android.play.core.d.a:
+    void onStateUpdate(java.lang.Object) -> onStateUpdate
+com.google.android.play.core.listener.a -> com.google.android.play.core.d.b:
+    com.google.android.play.core.listener.b a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void <init>(com.google.android.play.core.listener.b) -> <init>
+com.google.android.play.core.listener.b -> com.google.android.play.core.d.c:
+    com.google.android.play.core.internal.ag a -> a
+    android.content.IntentFilter c -> c
+    android.content.Context d -> d
+    java.util.Set b -> b
+    com.google.android.play.core.listener.a e -> e
+    boolean f -> f
+    void <init>(com.google.android.play.core.internal.ag,android.content.IntentFilter,android.content.Context) -> <init>
+    void e(boolean) -> a
+    void f(com.google.android.play.core.listener.StateUpdatedListener) -> a
+    void g(com.google.android.play.core.listener.StateUpdatedListener) -> b
+    void a(android.content.Context,android.content.Intent) -> a
+    void i(java.lang.Object) -> a
+    void b() -> b
+    boolean j() -> a
+com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity -> com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity:
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.content.DialogInterface,int) -> onClick
+    java.lang.String a() -> a
+    void b(java.lang.String) -> a
+com.google.android.play.core.splitcompat.p -> com.google.android.play.core.e.a:
+    java.lang.String b(byte[]) -> a
+    android.content.Context c(android.content.Context) -> a
+com.google.android.play.core.splitinstall.n -> com.google.android.play.core.f.a:
+    java.util.Set a() -> a
+com.google.android.play.core.splitinstall.o -> com.google.android.play.core.f.b:
+    java.util.concurrent.atomic.AtomicReference a -> a
+    com.google.android.play.core.splitinstall.n a() -> a
+    void <clinit>() -> <clinit>
+com.google.android.play.core.splitinstall.p -> com.google.android.play.core.f.c:
+    com.google.android.play.core.internal.ag a -> a
+    android.content.Context b -> b
+    java.lang.String c -> c
+    void <init>(android.content.Context) -> <init>
+    java.util.Set a() -> a
+    java.util.Set f() -> b
+    android.os.Bundle g() -> c
+    boolean d(java.lang.String) -> a
+    boolean e(java.lang.String) -> b
+    void <clinit>() -> <clinit>
+com.google.android.play.core.tasks.OnCompleteListener -> com.google.android.play.core.g.a:
+    void onComplete(com.google.android.play.core.tasks.Task) -> onComplete
+com.google.android.play.core.tasks.OnFailureListener -> com.google.android.play.core.g.b:
+    void onFailure(java.lang.Exception) -> a
+com.google.android.play.core.tasks.OnSuccessListener -> com.google.android.play.core.g.c:
+    void onSuccess(java.lang.Object) -> onSuccess
+com.google.android.play.core.tasks.RuntimeExecutionException -> com.google.android.play.core.g.d:
+    void <init>(java.lang.Throwable) -> <init>
+    int getErrorCode() -> a
+com.google.android.play.core.tasks.Task -> com.google.android.play.core.g.e:
+    void <init>() -> <init>
+    boolean isComplete() -> a
+    boolean isSuccessful() -> b
+    java.lang.Object getResult() -> c
+    java.lang.Exception getException() -> d
+    com.google.android.play.core.tasks.Task addOnSuccessListener(com.google.android.play.core.tasks.OnSuccessListener) -> a
+    com.google.android.play.core.tasks.Task addOnSuccessListener(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnSuccessListener) -> a
+    com.google.android.play.core.tasks.Task addOnFailureListener(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnFailureListener) -> a
+    com.google.android.play.core.tasks.Task addOnCompleteListener(com.google.android.play.core.tasks.OnCompleteListener) -> a
+com.google.android.play.core.tasks.TaskExecutors -> com.google.android.play.core.g.f:
+    java.util.concurrent.Executor MAIN_THREAD -> a
+    java.util.concurrent.Executor a -> b
+    void <clinit>() -> <clinit>
+com.google.android.play.core.tasks.Tasks -> com.google.android.play.core.g.g:
+    java.lang.Object await(com.google.android.play.core.tasks.Task) -> a
+    com.google.android.play.core.tasks.Task a(java.lang.Object) -> a
+    com.google.android.play.core.tasks.Task b(java.lang.Exception) -> a
+    java.lang.Object c(com.google.android.play.core.tasks.Task) -> b
+    void d(com.google.android.play.core.tasks.Task,com.google.android.play.core.tasks.n) -> a
+com.google.android.play.core.tasks.a -> com.google.android.play.core.g.h:
+    com.google.android.play.core.tasks.Task a -> a
+    com.google.android.play.core.tasks.b b -> b
+    void <init>(com.google.android.play.core.tasks.b,com.google.android.play.core.tasks.Task) -> <init>
+    void run() -> run
+com.google.android.play.core.tasks.b -> com.google.android.play.core.g.i:
+    java.util.concurrent.Executor a -> a
+    java.lang.Object b -> b
+    com.google.android.play.core.tasks.OnCompleteListener c -> c
+    void <init>(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnCompleteListener) -> <init>
+    void a(com.google.android.play.core.tasks.Task) -> a
+    java.lang.Object b(com.google.android.play.core.tasks.b) -> a
+    com.google.android.play.core.tasks.OnCompleteListener c(com.google.android.play.core.tasks.b) -> b
+com.google.android.play.core.tasks.c -> com.google.android.play.core.g.j:
+    com.google.android.play.core.tasks.Task a -> a
+    com.google.android.play.core.tasks.d b -> b
+    void <init>(com.google.android.play.core.tasks.d,com.google.android.play.core.tasks.Task) -> <init>
+    void run() -> run
+com.google.android.play.core.tasks.d -> com.google.android.play.core.g.k:
+    java.util.concurrent.Executor a -> a
+    java.lang.Object b -> b
+    com.google.android.play.core.tasks.OnFailureListener c -> c
+    void <init>(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnFailureListener) -> <init>
+    void a(com.google.android.play.core.tasks.Task) -> a
+    java.lang.Object b(com.google.android.play.core.tasks.d) -> a
+    com.google.android.play.core.tasks.OnFailureListener c(com.google.android.play.core.tasks.d) -> b
+com.google.android.play.core.tasks.e -> com.google.android.play.core.g.l:
+    com.google.android.play.core.tasks.Task a -> a
+    com.google.android.play.core.tasks.f b -> b
+    void <init>(com.google.android.play.core.tasks.f,com.google.android.play.core.tasks.Task) -> <init>
+    void run() -> run
+com.google.android.play.core.tasks.f -> com.google.android.play.core.g.m:
+    java.util.concurrent.Executor a -> a
+    java.lang.Object b -> b
+    com.google.android.play.core.tasks.OnSuccessListener c -> c
+    void <init>(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnSuccessListener) -> <init>
+    void a(com.google.android.play.core.tasks.Task) -> a
+    java.lang.Object b(com.google.android.play.core.tasks.f) -> a
+    com.google.android.play.core.tasks.OnSuccessListener c(com.google.android.play.core.tasks.f) -> b
+com.google.android.play.core.tasks.g -> com.google.android.play.core.g.n:
+    void a(com.google.android.play.core.tasks.Task) -> a
+com.google.android.play.core.tasks.h -> com.google.android.play.core.g.o:
+    java.lang.Object a -> a
+    java.util.Queue b -> b
+    boolean c -> c
+    void <init>() -> <init>
+    void a(com.google.android.play.core.tasks.g) -> a
+    void b(com.google.android.play.core.tasks.Task) -> a
+com.google.android.play.core.tasks.i -> com.google.android.play.core.g.p:
+    com.google.android.play.core.tasks.m a -> a
+    void <init>() -> <init>
+    void a(java.lang.Object) -> a
+    void b(java.lang.Exception) -> a
+    com.google.android.play.core.tasks.Task c() -> a
+    void d(java.lang.Exception) -> b
+    void e(java.lang.Object) -> b
+com.google.android.play.core.tasks.j -> com.google.android.play.core.g.q:
+    void <init>(java.lang.String) -> <init>
+    void <init>(java.lang.Throwable) -> <init>
+com.google.android.play.core.tasks.k -> com.google.android.play.core.g.r:
+    void <init>() -> <init>
+    void execute(java.lang.Runnable) -> execute
+com.google.android.play.core.tasks.l -> com.google.android.play.core.g.s:
+    android.os.Handler a -> a
+    void <init>() -> <init>
+    void execute(java.lang.Runnable) -> execute
+com.google.android.play.core.tasks.m -> com.google.android.play.core.g.t:
+    java.lang.Object a -> a
+    com.google.android.play.core.tasks.h b -> b
+    boolean c -> c
+    java.lang.Object d -> d
+    java.lang.Exception e -> e
+    void <init>() -> <init>
+    boolean isComplete() -> a
+    boolean isSuccessful() -> b
+    java.lang.Object getResult() -> c
+    java.lang.Exception getException() -> d
+    com.google.android.play.core.tasks.Task addOnSuccessListener(com.google.android.play.core.tasks.OnSuccessListener) -> a
+    com.google.android.play.core.tasks.Task addOnSuccessListener(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnSuccessListener) -> a
+    com.google.android.play.core.tasks.Task addOnFailureListener(java.util.concurrent.Executor,com.google.android.play.core.tasks.OnFailureListener) -> a
+    com.google.android.play.core.tasks.Task addOnCompleteListener(com.google.android.play.core.tasks.OnCompleteListener) -> a
+    void a(java.lang.Object) -> a
+    boolean b(java.lang.Object) -> b
+    void c(java.lang.Exception) -> a
+    boolean d(java.lang.Exception) -> b
+    void e() -> e
+    void f() -> f
+    void g() -> g
+com.google.android.play.core.tasks.n -> com.google.android.play.core.g.u:
+    java.util.concurrent.CountDownLatch a -> a
+    void <init>() -> <init>
+    void onSuccess(java.lang.Object) -> onSuccess
+    void onFailure(java.lang.Exception) -> a
+    void a() -> a
+    void <init>(byte[]) -> <init>
+com.google.androidgamesdk.ChoreographerCallback -> com.google.androidgamesdk.ChoreographerCallback:
+    java.lang.String LOG_TAG -> LOG_TAG
+    long mCookie -> mCookie
+    com.google.androidgamesdk.ChoreographerCallback$a mLooper -> mLooper
+    void <init>(long) -> <init>
+    void postFrameCallback() -> postFrameCallback
+    void postFrameCallbackDelayed(long) -> postFrameCallbackDelayed
+    void terminate() -> terminate
+    void doFrame(long) -> doFrame
+    void nOnChoreographer(long,long) -> nOnChoreographer
+com.google.androidgamesdk.ChoreographerCallback$1 -> com.google.androidgamesdk.ChoreographerCallback$1:
+    com.google.androidgamesdk.ChoreographerCallback a -> a
+    void <init>(com.google.androidgamesdk.ChoreographerCallback) -> <init>
+    void run() -> run
+com.google.androidgamesdk.ChoreographerCallback$a -> com.google.androidgamesdk.ChoreographerCallback$a:
+    android.os.Handler a -> a
+    com.google.androidgamesdk.ChoreographerCallback b -> b
+    void <init>(com.google.androidgamesdk.ChoreographerCallback) -> <init>
+    void run() -> run
+    void <init>(com.google.androidgamesdk.ChoreographerCallback,byte) -> <init>
+com.google.androidgamesdk.SwappyDisplayManager -> com.google.androidgamesdk.SwappyDisplayManager:
+    java.lang.String LOG_TAG -> LOG_TAG
+    boolean DEBUG -> DEBUG
+    long ONE_MS_IN_NS -> ONE_MS_IN_NS
+    long ONE_S_IN_NS -> ONE_S_IN_NS
+    long mCookie -> mCookie
+    android.app.Activity mActivity -> mActivity
+    android.view.WindowManager mWindowManager -> mWindowManager
+    android.view.Display$Mode mCurrentMode -> mCurrentMode
+    com.google.androidgamesdk.SwappyDisplayManager$a mLooper -> mLooper
+    boolean modeMatchesCurrentResolution(android.view.Display$Mode) -> modeMatchesCurrentResolution
+    void <init>(long,android.app.Activity) -> <init>
+    void updateSupportedRefreshRates(android.view.Display) -> updateSupportedRefreshRates
+    void setPreferredRefreshRate(int) -> setPreferredRefreshRate
+    void terminate() -> terminate
+    void onDisplayAdded(int) -> onDisplayAdded
+    void onDisplayRemoved(int) -> onDisplayRemoved
+    void onDisplayChanged(int) -> onDisplayChanged
+    boolean callNativeCallback() -> callNativeCallback
+    void nSetSupportedRefreshRates(long,long[],int[]) -> nSetSupportedRefreshRates
+    void nOnRefreshRateChanged(long,long,long,long) -> nOnRefreshRateChanged
+    android.app.Activity access$100(com.google.androidgamesdk.SwappyDisplayManager) -> access$100
+com.google.androidgamesdk.SwappyDisplayManager$1 -> com.google.androidgamesdk.SwappyDisplayManager$1:
+    int a -> a
+    com.google.androidgamesdk.SwappyDisplayManager b -> b
+    void <init>(com.google.androidgamesdk.SwappyDisplayManager,int) -> <init>
+    void run() -> run
+com.google.androidgamesdk.SwappyDisplayManager$a -> com.google.androidgamesdk.SwappyDisplayManager$a:
+    android.os.Handler a -> a
+    java.util.concurrent.locks.Lock c -> c
+    java.util.concurrent.locks.Condition d -> d
+    com.google.androidgamesdk.SwappyDisplayManager b -> b
+    void <init>(com.google.androidgamesdk.SwappyDisplayManager) -> <init>
+    void start() -> start
+    void run() -> run
+    void <init>(com.google.androidgamesdk.SwappyDisplayManager,byte) -> <init>
+com.unity3d.player.AudioVolumeHandler -> com.unity3d.player.AudioVolumeHandler:
+    com.unity3d.player.b a -> a
+    void onAudioVolumeChanged(int) -> onAudioVolumeChanged
+    void <init>(android.content.Context) -> <init>
+    void a() -> a
+com.unity3d.player.BuildConfig -> com.unity3d.player.BuildConfig:
+    boolean DEBUG -> DEBUG
+    java.lang.String LIBRARY_PACKAGE_NAME -> LIBRARY_PACKAGE_NAME
+    java.lang.String BUILD_TYPE -> BUILD_TYPE
+    int VERSION_CODE -> VERSION_CODE
+    java.lang.String VERSION_NAME -> VERSION_NAME
+    void <init>() -> <init>
+com.unity3d.player.Camera2Wrapper -> com.unity3d.player.Camera2Wrapper:
+    android.content.Context a -> a
+    com.unity3d.player.c b -> b
+    int c -> c
+    void <init>(android.content.Context) -> <init>
+    void a() -> a
+    void initCamera2Jni() -> initCamera2Jni
+    void deinitCamera2Jni() -> deinitCamera2Jni
+    void nativeFrameReady(java.lang.Object,java.lang.Object,java.lang.Object,int,int,int) -> nativeFrameReady
+    void nativeSurfaceTextureReady(java.lang.Object) -> nativeSurfaceTextureReady
+    int getCamera2Count() -> getCamera2Count
+    int getCamera2SensorOrientation(int) -> getCamera2SensorOrientation
+    boolean isCamera2FrontFacing(int) -> isCamera2FrontFacing
+    int getCamera2FocalLengthEquivalent(int) -> getCamera2FocalLengthEquivalent
+    int[] getCamera2Resolutions(int) -> getCamera2Resolutions
+    boolean initializeCamera2(int,int,int,int,int) -> initializeCamera2
+    boolean isCamera2AutoFocusPointSupported(int) -> isCamera2AutoFocusPointSupported
+    boolean setAutoFocusPoint(float,float) -> setAutoFocusPoint
+    android.graphics.Rect getFrameSizeCamera2() -> getFrameSizeCamera2
+    void closeCamera2() -> closeCamera2
+    void startCamera2() -> startCamera2
+    void pauseCamera2() -> pauseCamera2
+    void stopCamera2() -> stopCamera2
+    int a(float) -> a
+    java.lang.Object getCameraFocusArea(float,float) -> getCameraFocusArea
+    void a(java.lang.Object,java.lang.Object,java.lang.Object,int,int,int) -> a
+    void a(java.lang.Object) -> a
+com.unity3d.player.GoogleARCoreApi -> com.unity3d.player.GoogleARCoreApi:
+    void <init>() -> <init>
+    void initializeARCore(android.app.Activity) -> initializeARCore
+    void pauseARCore() -> pauseARCore
+    void resumeARCore() -> resumeARCore
+com.unity3d.player.HFPStatus -> com.unity3d.player.HFPStatus:
+    android.content.Context a -> a
+    android.content.BroadcastReceiver b -> b
+    android.content.Intent c -> c
+    boolean d -> d
+    android.media.AudioManager e -> e
+    int f -> f
+    void initHFPStatusJni() -> initHFPStatusJni
+    void deinitHFPStatusJni() -> deinitHFPStatusJni
+    void <init>(android.content.Context) -> <init>
+    void a() -> a
+    void requestHFPStat() -> requestHFPStat
+    boolean getHFPStat() -> getHFPStat
+    boolean a(com.unity3d.player.HFPStatus) -> a
+    android.media.AudioManager b(com.unity3d.player.HFPStatus) -> b
+    boolean a(com.unity3d.player.HFPStatus,boolean) -> a
+    int a(com.unity3d.player.HFPStatus,int) -> a
+    int c(com.unity3d.player.HFPStatus) -> c
+com.unity3d.player.HFPStatus$1 -> com.unity3d.player.HFPStatus$1:
+    com.unity3d.player.HFPStatus a -> a
+    void <init>(com.unity3d.player.HFPStatus) -> <init>
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.unity3d.player.HFPStatus$a -> com.unity3d.player.HFPStatus$a:
+    int a -> a
+    int b -> b
+    int c -> c
+    int[] d -> d
+    void <clinit>() -> <clinit>
+com.unity3d.player.IAssetPackManagerDownloadStatusCallback -> com.unity3d.player.IAssetPackManagerDownloadStatusCallback:
+    void onStatusUpdate(java.lang.String,int,long,long,int,int) -> onStatusUpdate
+com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback -> com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback:
+    void onMobileDataConfirmationResult(boolean) -> onMobileDataConfirmationResult
+com.unity3d.player.IAssetPackManagerStatusQueryCallback -> com.unity3d.player.IAssetPackManagerStatusQueryCallback:
+    void onStatusResult(long,java.lang.String[],int[],int[]) -> onStatusResult
+com.unity3d.player.IPermissionRequestCallbacks -> com.unity3d.player.IPermissionRequestCallbacks:
+    void onPermissionGranted(java.lang.String) -> onPermissionGranted
+    void onPermissionDenied(java.lang.String) -> onPermissionDenied
+    void onPermissionDeniedAndDontAskAgain(java.lang.String) -> onPermissionDeniedAndDontAskAgain
+com.unity3d.player.IUnityPlayerLifecycleEvents -> com.unity3d.player.IUnityPlayerLifecycleEvents:
+    void onUnityPlayerUnloaded() -> onUnityPlayerUnloaded
+    void onUnityPlayerQuitted() -> onUnityPlayerQuitted
+com.unity3d.player.MultiWindowSupport -> com.unity3d.player.MultiWindowSupport:
+    java.lang.String RESIZABLE_WINDOW -> RESIZABLE_WINDOW
+    void <init>() -> <init>
+    boolean isInMultiWindowMode(android.app.Activity) -> isInMultiWindowMode
+    boolean getAllowResizableWindow(android.app.Activity) -> getAllowResizableWindow
+com.unity3d.player.NativeLoader -> com.unity3d.player.NativeLoader:
+    boolean load(java.lang.String) -> load
+    boolean unload() -> unload
+com.unity3d.player.NetworkConnectivity -> com.unity3d.player.NetworkConnectivity:
+    int a -> a
+    int b -> b
+    int c -> c
+    int d -> d
+    android.net.ConnectivityManager e -> e
+    android.net.ConnectivityManager$NetworkCallback f -> f
+    int a() -> a
+    void <init>(android.content.Context) -> <init>
+    void b() -> b
+    int a(com.unity3d.player.NetworkConnectivity,int) -> a
+com.unity3d.player.NetworkConnectivity$1 -> com.unity3d.player.NetworkConnectivity$1:
+    com.unity3d.player.NetworkConnectivity a -> a
+    void <init>(com.unity3d.player.NetworkConnectivity) -> <init>
+    void onAvailable(android.net.Network) -> onAvailable
+    void onCapabilitiesChanged(android.net.Network,android.net.NetworkCapabilities) -> onCapabilitiesChanged
+    void onUnavailable() -> onUnavailable
+    void onLost(android.net.Network) -> onLost
+com.unity3d.player.PlatformSupport -> com.unity3d.player.PlatformSupport:
+    boolean LOLLIPOP_SUPPORT -> LOLLIPOP_SUPPORT
+    boolean MARSHMALLOW_SUPPORT -> MARSHMALLOW_SUPPORT
+    boolean NOUGAT_SUPPORT -> NOUGAT_SUPPORT
+    void <init>() -> <init>
+    void <clinit>() -> <clinit>
+com.unity3d.player.PlayAssetDeliveryUnityWrapper -> com.unity3d.player.PlayAssetDeliveryUnityWrapper:
+    com.unity3d.player.PlayAssetDeliveryUnityWrapper a -> a
+    com.unity3d.player.d b -> b
+    void <init>(android.content.Context) -> <init>
+    com.unity3d.player.PlayAssetDeliveryUnityWrapper getInstance() -> getInstance
+    com.unity3d.player.PlayAssetDeliveryUnityWrapper init(android.content.Context) -> init
+    com.unity3d.player.d a(android.content.Context) -> a
+    void getAssetPackState(java.lang.String,com.unity3d.player.IAssetPackManagerStatusQueryCallback) -> getAssetPackState
+    void getAssetPackStates(java.lang.String[],com.unity3d.player.IAssetPackManagerStatusQueryCallback) -> getAssetPackStates
+    void downloadAssetPack(java.lang.String,com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> downloadAssetPack
+    void downloadAssetPacks(java.lang.String[],com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> downloadAssetPacks
+    java.lang.Object registerDownloadStatusListener(com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> registerDownloadStatusListener
+    void unregisterDownloadStatusListener(java.lang.Object) -> unregisterDownloadStatusListener
+    void requestToUseMobileData(android.app.Activity,com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback) -> requestToUseMobileData
+    java.lang.String getAssetPackPath(java.lang.String) -> getAssetPackPath
+    void cancelAssetPackDownload(java.lang.String) -> cancelAssetPackDownload
+    void cancelAssetPackDownloads(java.lang.String[]) -> cancelAssetPackDownloads
+    void removeAssetPack(java.lang.String) -> removeAssetPack
+    boolean playCoreApiMissing() -> playCoreApiMissing
+    void a() -> a
+com.unity3d.player.R -> com.unity3d.player.R:
+    void <init>() -> <init>
+com.unity3d.player.R$id -> com.unity3d.player.R$id:
+    int native_share_app_icon -> native_share_app_icon
+    int native_share_app_name -> native_share_app_name
+    int native_share_grid_view_holder -> native_share_grid_view_holder
+    void <init>() -> <init>
+com.unity3d.player.R$layout -> com.unity3d.player.R$layout:
+    int native_share_custom_dialog_holder -> native_share_custom_dialog_holder
+    int native_share_grid_element -> native_share_grid_element
+    int native_share_grid_view -> native_share_grid_view
+    void <init>() -> <init>
+com.unity3d.player.R$string -> com.unity3d.player.R$string:
+    int app_name -> app_name
+    void <init>() -> <init>
+com.unity3d.player.R$style -> com.unity3d.player.R$style:
+    int BaseUnityTheme -> BaseUnityTheme
+    int Theme_NativeShareTransparent -> Theme_NativeShareTransparent
+    int UnityThemeSelector -> UnityThemeSelector
+    int UnityThemeSelector_Translucent -> UnityThemeSelector_Translucent
+    void <init>() -> <init>
+com.unity3d.player.ReflectionHelper -> com.unity3d.player.ReflectionHelper:
+    boolean LOG -> LOG
+    boolean LOGV -> LOGV
+    com.unity3d.player.ReflectionHelper$a[] a -> a
+    long b -> b
+    void <init>() -> <init>
+    boolean a(com.unity3d.player.ReflectionHelper$a) -> a
+    void a(com.unity3d.player.ReflectionHelper$a,java.lang.reflect.Member) -> a
+    java.lang.reflect.Constructor getConstructorID(java.lang.Class,java.lang.String) -> getConstructorID
+    java.lang.reflect.Method getMethodID(java.lang.Class,java.lang.String,java.lang.String,boolean) -> getMethodID
+    java.lang.reflect.Field getFieldID(java.lang.Class,java.lang.String,java.lang.String,boolean) -> getFieldID
+    java.lang.String getFieldSignature(java.lang.reflect.Field) -> getFieldSignature
+    float a(java.lang.Class,java.lang.Class) -> a
+    float a(java.lang.Class,java.lang.Class[],java.lang.Class[]) -> a
+    java.lang.Class[] a(java.lang.String) -> a
+    java.lang.Class a(java.lang.String,int[]) -> a
+    java.lang.Object nativeProxyInvoke(long,java.lang.String,java.lang.Object[]) -> nativeProxyInvoke
+    void nativeProxyFinalize(long) -> nativeProxyFinalize
+    void nativeProxyLogJNIInvokeException(long) -> nativeProxyLogJNIInvokeException
+    void endUnityLaunch() -> endUnityLaunch
+    java.lang.Object newProxyInstance(long,java.lang.Class) -> newProxyInstance
+    void setNativeExceptionOnProxy(java.lang.Object,long,boolean) -> setNativeExceptionOnProxy
+    java.lang.Object newProxyInstance(long,java.lang.Class[]) -> newProxyInstance
+    long a() -> a
+    void a(long) -> a
+    java.lang.Object a(long,java.lang.String,java.lang.Object[]) -> a
+    void b(long) -> b
+    void <clinit>() -> <clinit>
+com.unity3d.player.ReflectionHelper$1 -> com.unity3d.player.ReflectionHelper$1:
+    long c -> c
+    long d -> d
+    boolean e -> e
+    long a -> a
+    java.lang.Class[] b -> b
+    void <init>(long,java.lang.Class[]) -> <init>
+    java.lang.Object a(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> a
+    java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> invoke
+    void a(long,boolean) -> a
+    void finalize() -> finalize
+com.unity3d.player.ReflectionHelper$a -> com.unity3d.player.ReflectionHelper$a:
+    java.lang.Class b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    int e -> e
+    java.lang.reflect.Member a -> a
+    void <init>(java.lang.Class,java.lang.String,java.lang.String) -> <init>
+    int hashCode() -> hashCode
+    boolean equals(java.lang.Object) -> equals
+com.unity3d.player.ReflectionHelper$b -> com.unity3d.player.ReflectionHelper$b:
+    void a(long,boolean) -> a
+com.unity3d.player.UnityCoreAssetPacksStatusCallbacks -> com.unity3d.player.UnityCoreAssetPacksStatusCallbacks:
+    void <init>() -> <init>
+    void nativeStatusQueryResult(java.lang.String,int,int) -> nativeStatusQueryResult
+    void onStatusResult(long,java.lang.String[],int[],int[]) -> onStatusResult
+    void onStatusUpdate(java.lang.String,int,long,long,int,int) -> onStatusUpdate
+com.unity3d.player.UnityPermissions -> com.unity3d.player.UnityPermissions:
+    java.lang.String SKIP_DIALOG_METADATA_NAME -> SKIP_DIALOG_METADATA_NAME
+    void <init>() -> <init>
+    boolean checkInfoForMetadata(android.content.pm.PackageItemInfo) -> checkInfoForMetadata
+    boolean skipPermissionsDialog(android.app.Activity) -> skipPermissionsDialog
+    boolean hasUserAuthorizedPermission(android.app.Activity,java.lang.String) -> hasUserAuthorizedPermission
+    void requestUserPermissions(android.app.Activity,java.lang.String[],com.unity3d.player.IPermissionRequestCallbacks) -> requestUserPermissions
+com.unity3d.player.UnityPermissions$ModalWaitForPermissionResponse -> com.unity3d.player.UnityPermissions$ModalWaitForPermissionResponse:
+    boolean haveResponse -> haveResponse
+    void <init>() -> <init>
+    void onPermissionGranted(java.lang.String) -> onPermissionGranted
+    void onPermissionDenied(java.lang.String) -> onPermissionDenied
+    void onPermissionDeniedAndDontAskAgain(java.lang.String) -> onPermissionDeniedAndDontAskAgain
+    void waitForResponse() -> waitForResponse
+com.unity3d.player.UnityPlayer -> com.unity3d.player.UnityPlayer:
+    android.app.Activity currentActivity -> currentActivity
+    int mInitialScreenOrientation -> mInitialScreenOrientation
+    boolean mMainDisplayOverride -> mMainDisplayOverride
+    boolean mIsFullscreen -> mIsFullscreen
+    com.unity3d.player.l mState -> mState
+    java.util.concurrent.ConcurrentLinkedQueue m_Events -> m_Events
+    android.content.BroadcastReceiver mKillingIsMyBusiness -> mKillingIsMyBusiness
+    android.view.OrientationEventListener mOrientationListener -> mOrientationListener
+    int mNaturalOrientation -> mNaturalOrientation
+    int ANR_TIMEOUT_SECONDS -> ANR_TIMEOUT_SECONDS
+    int RUN_STATE_CHANGED_MSG_CODE -> RUN_STATE_CHANGED_MSG_CODE
+    com.unity3d.player.UnityPlayer$e m_MainThread -> m_MainThread
+    boolean m_AddPhoneCallListener -> m_AddPhoneCallListener
+    com.unity3d.player.UnityPlayer$c m_PhoneCallListener -> m_PhoneCallListener
+    android.telephony.TelephonyManager m_TelephonyManager -> m_TelephonyManager
+    android.content.ClipboardManager m_ClipboardManager -> m_ClipboardManager
+    com.unity3d.player.j m_SplashScreen -> m_SplashScreen
+    com.unity3d.player.h m_PersistentUnitySurface -> m_PersistentUnitySurface
+    com.unity3d.player.GoogleARCoreApi m_ARCoreApi -> m_ARCoreApi
+    com.unity3d.player.UnityPlayer$a m_FakeListener -> m_FakeListener
+    com.unity3d.player.Camera2Wrapper m_Camera2Wrapper -> m_Camera2Wrapper
+    com.unity3d.player.HFPStatus m_HFPStatus -> m_HFPStatus
+    com.unity3d.player.AudioVolumeHandler m_AudioVolumeHandler -> m_AudioVolumeHandler
+    android.net.Uri m_launchUri -> m_launchUri
+    com.unity3d.player.NetworkConnectivity m_NetworkConnectivity -> m_NetworkConnectivity
+    com.unity3d.player.IUnityPlayerLifecycleEvents m_UnityPlayerLifecycleEvents -> m_UnityPlayerLifecycleEvents
+    android.content.Context mContext -> mContext
+    android.view.SurfaceView mGlView -> mGlView
+    boolean mQuitting -> mQuitting
+    boolean mProcessKillRequested -> mProcessKillRequested
+    com.unity3d.player.n mVideoPlayerProxy -> mVideoPlayerProxy
+    com.unity3d.player.i mSoftInputDialog -> mSoftInputDialog
+    java.lang.String SPLASH_ENABLE_METADATA_NAME -> SPLASH_ENABLE_METADATA_NAME
+    java.lang.String SPLASH_MODE_METADATA_NAME -> SPLASH_MODE_METADATA_NAME
+    java.lang.String ARCORE_ENABLE_METADATA_NAME -> ARCORE_ENABLE_METADATA_NAME
+    void <init>(android.content.Context) -> <init>
+    void <init>(android.content.Context,com.unity3d.player.IUnityPlayerLifecycleEvents) -> <init>
+    int getNaturalOrientation(int) -> getNaturalOrientation
+    void onUnityPlayerUnloaded() -> onUnityPlayerUnloaded
+    void onUnityPlayerQuitted() -> onUnityPlayerQuitted
+    void toggleGyroscopeSensor(boolean) -> toggleGyroscopeSensor
+    java.lang.String GetGlViewContentDescription(android.content.Context) -> GetGlViewContentDescription
+    void DisableStaticSplashScreen() -> DisableStaticSplashScreen
+    void EarlyEnableFullScreenIfVrLaunched(android.app.Activity) -> EarlyEnableFullScreenIfVrLaunched
+    boolean IsWindowTranslucent() -> IsWindowTranslucent
+    android.view.SurfaceView CreateGlView() -> CreateGlView
+    void sendSurfaceChangedEvent() -> sendSurfaceChangedEvent
+    void updateGLDisplay(int,android.view.Surface) -> updateGLDisplay
+    boolean updateDisplayInternal(int,android.view.Surface) -> updateDisplayInternal
+    boolean displayChanged(int,android.view.Surface) -> displayChanged
+    void UnitySendMessage(java.lang.String,java.lang.String,java.lang.String) -> UnitySendMessage
+    void nativeUnitySendMessage(java.lang.String,java.lang.String,byte[]) -> nativeUnitySendMessage
+    void finish() -> finish
+    void runOnAnonymousThread(java.lang.Runnable) -> runOnAnonymousThread
+    void runOnUiThread(java.lang.Runnable) -> runOnUiThread
+    void postOnUiThread(java.lang.Runnable) -> postOnUiThread
+    void init(int,boolean) -> init
+    android.view.View getView() -> getView
+    android.os.Bundle getSettings() -> getSettings
+    void quit() -> quit
+    void newIntent(android.content.Intent) -> newIntent
+    void destroy() -> destroy
+    void kill() -> kill
+    void pause() -> pause
+    void pauseUnity() -> pauseUnity
+    void resume() -> resume
+    void lowMemory() -> lowMemory
+    void shutdown() -> shutdown
+    void unload() -> unload
+    void checkResumePlayer() -> checkResumePlayer
+    boolean skipPermissionsDialog() -> skipPermissionsDialog
+    void requestUserAuthorization(java.lang.String) -> requestUserAuthorization
+    int getNetworkConnectivity() -> getNetworkConnectivity
+    void configurationChanged(android.content.res.Configuration) -> configurationChanged
+    void windowFocusChanged(boolean) -> windowFocusChanged
+    boolean loadLibrary(java.lang.String) -> loadLibrary
+    void addPhoneCallListener() -> addPhoneCallListener
+    void initJni(android.content.Context) -> initJni
+    boolean nativeRender() -> nativeRender
+    void nativeSetInputArea(int,int,int,int) -> nativeSetInputArea
+    void nativeSetKeyboardIsVisible(boolean) -> nativeSetKeyboardIsVisible
+    void nativeSetInputString(java.lang.String) -> nativeSetInputString
+    void nativeSetInputSelection(int,int) -> nativeSetInputSelection
+    void nativeSoftInputCanceled() -> nativeSoftInputCanceled
+    void nativeSoftInputLostFocus() -> nativeSoftInputLostFocus
+    void nativeReportKeyboardConfigChanged() -> nativeReportKeyboardConfigChanged
+    boolean nativePause() -> nativePause
+    void nativeResume() -> nativeResume
+    void nativeLowMemory() -> nativeLowMemory
+    void nativeApplicationUnload() -> nativeApplicationUnload
+    void nativeFocusChanged(boolean) -> nativeFocusChanged
+    void nativeRecreateGfxState(int,android.view.Surface) -> nativeRecreateGfxState
+    void nativeSendSurfaceChangedEvent() -> nativeSendSurfaceChangedEvent
+    boolean nativeDone() -> nativeDone
+    void nativeSoftInputClosed() -> nativeSoftInputClosed
+    boolean nativeInjectEvent(android.view.InputEvent) -> nativeInjectEvent
+    boolean nativeIsAutorotationOn() -> nativeIsAutorotationOn
+    void nativeMuteMasterAudio(boolean) -> nativeMuteMasterAudio
+    void nativeRestartActivityIndicator() -> nativeRestartActivityIndicator
+    void nativeSetLaunchURL(java.lang.String) -> nativeSetLaunchURL
+    void nativeOrientationChanged(int,int) -> nativeOrientationChanged
+    java.lang.String logLoadLibMainError(java.lang.String,java.lang.String) -> logLoadLibMainError
+    java.lang.String loadNative(java.lang.String) -> loadNative
+    void unloadNative() -> unloadNative
+    java.lang.String getUnityNativeLibraryPath(android.content.Context) -> getUnityNativeLibraryPath
+    void showSoftInput(java.lang.String,int,boolean,boolean,boolean,boolean,java.lang.String,int,boolean,boolean) -> showSoftInput
+    void hideSoftInput() -> hideSoftInput
+    void setSoftInputStr(java.lang.String) -> setSoftInputStr
+    void setCharacterLimit(int) -> setCharacterLimit
+    void setHideInputField(boolean) -> setHideInputField
+    void setSelection(int,int) -> setSelection
+    java.lang.String getKeyboardLayout() -> getKeyboardLayout
+    void reportSoftInputStr(java.lang.String,int,boolean) -> reportSoftInputStr
+    void reportSoftInputSelection(int,int) -> reportSoftInputSelection
+    void reportSoftInputArea(android.graphics.Rect) -> reportSoftInputArea
+    void reportSoftInputIsVisible(boolean) -> reportSoftInputIsVisible
+    void setClipboardText(java.lang.String) -> setClipboardText
+    java.lang.String getClipboardText() -> getClipboardText
+    java.lang.String getLaunchURL() -> getLaunchURL
+    boolean initializeGoogleAr() -> initializeGoogleAr
+    boolean showVideoPlayer(java.lang.String,int,int,int,boolean,int,int) -> showVideoPlayer
+    void pauseJavaAndCallUnloadCallback() -> pauseJavaAndCallUnloadCallback
+    boolean isUaaLUseCase() -> isUaaLUseCase
+    int getUaaLLaunchProcessType() -> getUaaLLaunchProcessType
+    java.lang.String getProcessName() -> getProcessName
+    android.content.pm.ApplicationInfo getApplicationInfo() -> getApplicationInfo
+    boolean getSplashEnabled() -> getSplashEnabled
+    boolean getARCoreEnabled() -> getARCoreEnabled
+    int getSplashMode() -> getSplashMode
+    void executeGLThreadJobs() -> executeGLThreadJobs
+    void disableLogger() -> disableLogger
+    void queueGLThreadEvent(java.lang.Runnable) -> queueGLThreadEvent
+    void queueGLThreadEvent(com.unity3d.player.UnityPlayer$f) -> queueGLThreadEvent
+    boolean isFinishing() -> isFinishing
+    void hideStatusBar() -> hideStatusBar
+    boolean injectEvent(android.view.InputEvent) -> injectEvent
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    boolean onKeyMultiple(int,int,android.view.KeyEvent) -> onKeyMultiple
+    boolean onKeyLongPress(int,android.view.KeyEvent) -> onKeyLongPress
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onGenericMotionEvent(android.view.MotionEvent) -> onGenericMotionEvent
+    void swapViews(android.view.View,android.view.View) -> swapViews
+    boolean addViewToPlayer(android.view.View,boolean) -> addViewToPlayer
+    void removeViewFromPlayer(android.view.View) -> removeViewFromPlayer
+    void reportError(java.lang.String,java.lang.String) -> reportError
+    java.lang.String getNetworkProxySettings(java.lang.String) -> getNetworkProxySettings
+    boolean startOrientationListener(int) -> startOrientationListener
+    boolean stopOrientationListener() -> stopOrientationListener
+    void access$000(com.unity3d.player.UnityPlayer,boolean) -> access$000
+    boolean access$100(com.unity3d.player.UnityPlayer) -> access$100
+    void access$200(com.unity3d.player.UnityPlayer) -> access$200
+    boolean access$300(com.unity3d.player.UnityPlayer) -> access$300
+    void access$400(com.unity3d.player.UnityPlayer) -> access$400
+    void access$500(com.unity3d.player.UnityPlayer,java.lang.String) -> access$500
+    void access$600(com.unity3d.player.UnityPlayer,int,int) -> access$600
+    void access$800(com.unity3d.player.UnityPlayer,boolean) -> access$800
+    com.unity3d.player.j access$1000(com.unity3d.player.UnityPlayer) -> access$1000
+    com.unity3d.player.j access$1002(com.unity3d.player.UnityPlayer,com.unity3d.player.j) -> access$1002
+    void access$1100(com.unity3d.player.UnityPlayer,int,android.view.Surface) -> access$1100
+    com.unity3d.player.h access$1200(com.unity3d.player.UnityPlayer) -> access$1200
+    void access$1300(com.unity3d.player.UnityPlayer) -> access$1300
+    android.view.SurfaceView access$1400(com.unity3d.player.UnityPlayer) -> access$1400
+    void access$1500(com.unity3d.player.UnityPlayer) -> access$1500
+    void access$1600(com.unity3d.player.UnityPlayer,int,android.view.Surface) -> access$1600
+    boolean access$1700(com.unity3d.player.UnityPlayer) -> access$1700
+    void access$1800(com.unity3d.player.UnityPlayer) -> access$1800
+    boolean access$1900(com.unity3d.player.UnityPlayer) -> access$1900
+    boolean access$2002(com.unity3d.player.UnityPlayer,boolean) -> access$2002
+    void access$2100(com.unity3d.player.UnityPlayer) -> access$2100
+    void access$2200(com.unity3d.player.UnityPlayer) -> access$2200
+    android.content.Context access$2300(com.unity3d.player.UnityPlayer) -> access$2300
+    void access$2400(com.unity3d.player.UnityPlayer) -> access$2400
+    void access$2500(com.unity3d.player.UnityPlayer) -> access$2500
+    void access$2700(com.unity3d.player.UnityPlayer) -> access$2700
+    void access$2800(com.unity3d.player.UnityPlayer,java.lang.String) -> access$2800
+    void access$2900(com.unity3d.player.UnityPlayer) -> access$2900
+    void access$3000(com.unity3d.player.UnityPlayer,int,int) -> access$3000
+    void access$3100(com.unity3d.player.UnityPlayer,int,int,int,int) -> access$3100
+    void access$3200(com.unity3d.player.UnityPlayer,boolean) -> access$3200
+    com.unity3d.player.n access$3302(com.unity3d.player.UnityPlayer,com.unity3d.player.n) -> access$3302
+    boolean access$3400(com.unity3d.player.UnityPlayer) -> access$3400
+    int access$3500(com.unity3d.player.UnityPlayer) -> access$3500
+    com.unity3d.player.IUnityPlayerLifecycleEvents access$3600(com.unity3d.player.UnityPlayer) -> access$3600
+    int access$3700(com.unity3d.player.UnityPlayer) -> access$3700
+    void <clinit>() -> <clinit>
+com.unity3d.player.UnityPlayer$1 -> com.unity3d.player.UnityPlayer$1:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.unity3d.player.UnityPlayer$10 -> com.unity3d.player.UnityPlayer$10:
+    boolean a -> a
+    java.lang.String b -> b
+    int c -> c
+    com.unity3d.player.UnityPlayer d -> d
+    void <init>(com.unity3d.player.UnityPlayer,boolean,java.lang.String,int) -> <init>
+    void a() -> a
+com.unity3d.player.UnityPlayer$11 -> com.unity3d.player.UnityPlayer$11:
+    int a -> a
+    int b -> b
+    com.unity3d.player.UnityPlayer c -> c
+    void <init>(com.unity3d.player.UnityPlayer,int,int) -> <init>
+    void a() -> a
+com.unity3d.player.UnityPlayer$12 -> com.unity3d.player.UnityPlayer$12:
+    android.graphics.Rect a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,android.graphics.Rect) -> <init>
+    void a() -> a
+com.unity3d.player.UnityPlayer$13 -> com.unity3d.player.UnityPlayer$13:
+    boolean a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,boolean) -> <init>
+    void a() -> a
+com.unity3d.player.UnityPlayer$14 -> com.unity3d.player.UnityPlayer$14:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void a() -> a
+com.unity3d.player.UnityPlayer$15 -> com.unity3d.player.UnityPlayer$15:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$16 -> com.unity3d.player.UnityPlayer$16:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$17 -> com.unity3d.player.UnityPlayer$17:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer,android.content.Context,int) -> <init>
+    void onOrientationChanged(int) -> onOrientationChanged
+com.unity3d.player.UnityPlayer$18 -> com.unity3d.player.UnityPlayer$18:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$19 -> com.unity3d.player.UnityPlayer$19:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void surfaceCreated(android.view.SurfaceHolder) -> surfaceCreated
+    void surfaceChanged(android.view.SurfaceHolder,int,int,int) -> surfaceChanged
+    void surfaceDestroyed(android.view.SurfaceHolder) -> surfaceDestroyed
+com.unity3d.player.UnityPlayer$2 -> com.unity3d.player.UnityPlayer$2:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$20 -> com.unity3d.player.UnityPlayer$20:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$21 -> com.unity3d.player.UnityPlayer$21:
+    int a -> a
+    android.view.Surface b -> b
+    java.util.concurrent.Semaphore c -> c
+    com.unity3d.player.UnityPlayer d -> d
+    void <init>(com.unity3d.player.UnityPlayer,int,android.view.Surface,java.util.concurrent.Semaphore) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$22 -> com.unity3d.player.UnityPlayer$22:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$23 -> com.unity3d.player.UnityPlayer$23:
+    java.util.concurrent.Semaphore a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,java.util.concurrent.Semaphore) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$24 -> com.unity3d.player.UnityPlayer$24:
+    java.util.concurrent.Semaphore a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,java.util.concurrent.Semaphore) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$3 -> com.unity3d.player.UnityPlayer$3:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$3$1 -> com.unity3d.player.UnityPlayer$3$1:
+    com.unity3d.player.UnityPlayer$3 a -> a
+    void <init>(com.unity3d.player.UnityPlayer$3) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$4 -> com.unity3d.player.UnityPlayer$4:
+    com.unity3d.player.UnityPlayer a -> a
+    java.lang.String b -> b
+    int c -> c
+    boolean d -> d
+    boolean e -> e
+    boolean f -> f
+    boolean g -> g
+    java.lang.String h -> h
+    int i -> i
+    boolean j -> j
+    boolean k -> k
+    com.unity3d.player.UnityPlayer l -> l
+    void <init>(com.unity3d.player.UnityPlayer,com.unity3d.player.UnityPlayer,java.lang.String,int,boolean,boolean,boolean,boolean,java.lang.String,int,boolean,boolean) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$4$1 -> com.unity3d.player.UnityPlayer$4$1:
+    com.unity3d.player.UnityPlayer$4 a -> a
+    void <init>(com.unity3d.player.UnityPlayer$4) -> <init>
+    void onCancel(android.content.DialogInterface) -> onCancel
+com.unity3d.player.UnityPlayer$5 -> com.unity3d.player.UnityPlayer$5:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$6 -> com.unity3d.player.UnityPlayer$6:
+    java.lang.String a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,java.lang.String) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$7 -> com.unity3d.player.UnityPlayer$7:
+    int a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,int) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$8 -> com.unity3d.player.UnityPlayer$8:
+    boolean a -> a
+    com.unity3d.player.UnityPlayer b -> b
+    void <init>(com.unity3d.player.UnityPlayer,boolean) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$9 -> com.unity3d.player.UnityPlayer$9:
+    int a -> a
+    int b -> b
+    com.unity3d.player.UnityPlayer c -> c
+    void <init>(com.unity3d.player.UnityPlayer,int,int) -> <init>
+    void run() -> run
+com.unity3d.player.UnityPlayer$a -> com.unity3d.player.UnityPlayer$a:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
+    void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
+com.unity3d.player.UnityPlayer$b -> com.unity3d.player.UnityPlayer$b:
+    int a -> a
+    int b -> b
+    int c -> c
+    int[] d -> d
+    void <clinit>() -> <clinit>
+com.unity3d.player.UnityPlayer$c -> com.unity3d.player.UnityPlayer$c:
+    com.unity3d.player.UnityPlayer a -> a
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void onCallStateChanged(int,java.lang.String) -> onCallStateChanged
+    void <init>(com.unity3d.player.UnityPlayer,byte) -> <init>
+com.unity3d.player.UnityPlayer$d -> com.unity3d.player.UnityPlayer$d:
+    com.unity3d.player.UnityPlayer$d a -> a
+    com.unity3d.player.UnityPlayer$d b -> b
+    com.unity3d.player.UnityPlayer$d c -> c
+    com.unity3d.player.UnityPlayer$d d -> d
+    com.unity3d.player.UnityPlayer$d e -> e
+    com.unity3d.player.UnityPlayer$d f -> f
+    com.unity3d.player.UnityPlayer$d g -> g
+    com.unity3d.player.UnityPlayer$d h -> h
+    com.unity3d.player.UnityPlayer$d i -> i
+    com.unity3d.player.UnityPlayer$d j -> j
+    com.unity3d.player.UnityPlayer$d[] k -> k
+    void <init>(java.lang.String,int) -> <init>
+    void <clinit>() -> <clinit>
+com.unity3d.player.UnityPlayer$e -> com.unity3d.player.UnityPlayer$e:
+    android.os.Handler a -> a
+    boolean b -> b
+    boolean c -> c
+    int d -> d
+    int e -> e
+    int f -> f
+    int g -> g
+    int h -> h
+    com.unity3d.player.UnityPlayer i -> i
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+    void a() -> a
+    void b() -> b
+    void a(java.lang.Runnable) -> a
+    void c() -> c
+    void d() -> d
+    void b(java.lang.Runnable) -> b
+    void c(java.lang.Runnable) -> c
+    void d(java.lang.Runnable) -> d
+    void e() -> e
+    void a(com.unity3d.player.UnityPlayer$d) -> a
+    void a(int,int) -> a
+    void <init>(com.unity3d.player.UnityPlayer,byte) -> <init>
+com.unity3d.player.UnityPlayer$e$1 -> com.unity3d.player.UnityPlayer$e$1:
+    com.unity3d.player.UnityPlayer$e a -> a
+    void <init>(com.unity3d.player.UnityPlayer$e) -> <init>
+    void a() -> a
+    boolean handleMessage(android.os.Message) -> handleMessage
+com.unity3d.player.UnityPlayer$f -> com.unity3d.player.UnityPlayer$f:
+    com.unity3d.player.UnityPlayer e -> e
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    void run() -> run
+    void a() -> a
+    void <init>(com.unity3d.player.UnityPlayer,byte) -> <init>
+com.unity3d.player.UnityPlayerActivity -> com.unity3d.player.UnityPlayerActivity:
+    com.unity3d.player.UnityPlayer mUnityPlayer -> mUnityPlayer
+    void <init>() -> <init>
+    java.lang.String updateUnityCommandLineArguments(java.lang.String) -> updateUnityCommandLineArguments
+    void onCreate(android.os.Bundle) -> onCreate
+    void onUnityPlayerUnloaded() -> onUnityPlayerUnloaded
+    void onUnityPlayerQuitted() -> onUnityPlayerQuitted
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void onDestroy() -> onDestroy
+    void onStop() -> onStop
+    void onStart() -> onStart
+    void onPause() -> onPause
+    void onResume() -> onResume
+    void onLowMemory() -> onLowMemory
+    void onTrimMemory(int) -> onTrimMemory
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onGenericMotionEvent(android.view.MotionEvent) -> onGenericMotionEvent
+com.unity3d.player.a -> com.unity3d.player.a:
+    com.unity3d.player.a a -> a
+    com.google.android.play.core.assetpacks.AssetPackManager b -> b
+    java.util.HashSet c -> c
+    java.lang.Object d -> d
+    void <init>(android.content.Context) -> <init>
+    com.unity3d.player.d a(android.content.Context) -> a
+    void a(java.lang.String[],com.unity3d.player.IAssetPackManagerStatusQueryCallback) -> a
+    void a(java.lang.String[],com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> a
+    void a(java.lang.String,com.unity3d.player.IAssetPackManagerDownloadStatusCallback,android.os.Looper) -> a
+    java.lang.Object a(com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> a
+    void a(java.lang.Object) -> a
+    void a(android.app.Activity,com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback) -> a
+    java.lang.String a(java.lang.String) -> a
+    void a(java.lang.String[]) -> a
+    void b(java.lang.String) -> b
+    com.unity3d.player.a a() -> a
+    void a(com.unity3d.player.a,java.lang.String,com.unity3d.player.IAssetPackManagerDownloadStatusCallback,android.os.Looper) -> a
+    java.util.HashSet a(com.unity3d.player.a) -> a
+    java.lang.Object b(com.unity3d.player.a) -> b
+    java.lang.Object c(com.unity3d.player.a) -> c
+com.unity3d.player.a$a -> com.unity3d.player.a$a:
+    java.util.Set a -> a
+    java.lang.String b -> b
+    int c -> c
+    long d -> d
+    long e -> e
+    int f -> f
+    int g -> g
+    void <init>(java.util.Set,java.lang.String,int,long,long,int,int) -> <init>
+    void run() -> run
+com.unity3d.player.a$b -> com.unity3d.player.a$b:
+    java.util.HashSet b -> b
+    android.os.Looper c -> c
+    com.unity3d.player.a a -> a
+    void <init>(com.unity3d.player.a,com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> <init>
+    void <init>(com.unity3d.player.a,com.unity3d.player.IAssetPackManagerDownloadStatusCallback,android.os.Looper) -> <init>
+    void a(com.google.android.play.core.assetpacks.AssetPackState) -> a
+    void a(com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> a
+    java.util.Set a(java.util.HashSet) -> a
+    void onStateUpdate(java.lang.Object) -> onStateUpdate
+com.unity3d.player.a$c -> com.unity3d.player.a$c:
+    com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback a -> a
+    android.os.Looper b -> b
+    void <init>(com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback) -> <init>
+    void a(java.lang.Integer) -> a
+    void onSuccess(java.lang.Object) -> onSuccess
+com.unity3d.player.a$c$a -> com.unity3d.player.a$c$a:
+    com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback a -> a
+    boolean b -> b
+    void <init>(com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback,boolean) -> <init>
+    void run() -> run
+com.unity3d.player.a$d -> com.unity3d.player.a$d:
+    com.unity3d.player.IAssetPackManagerDownloadStatusCallback a -> a
+    android.os.Looper b -> b
+    java.lang.String c -> c
+    void <init>(com.unity3d.player.IAssetPackManagerDownloadStatusCallback,java.lang.String) -> <init>
+    void onComplete(com.google.android.play.core.tasks.Task) -> onComplete
+    void a(java.lang.String,int,int,long) -> a
+com.unity3d.player.a$e -> com.unity3d.player.a$e:
+    com.unity3d.player.IAssetPackManagerStatusQueryCallback a -> a
+    android.os.Looper b -> b
+    java.lang.String[] c -> c
+    void <init>(com.unity3d.player.IAssetPackManagerStatusQueryCallback,java.lang.String[]) -> <init>
+    void onComplete(com.google.android.play.core.tasks.Task) -> onComplete
+com.unity3d.player.a$e$a -> com.unity3d.player.a$e$a:
+    com.unity3d.player.IAssetPackManagerStatusQueryCallback a -> a
+    long b -> b
+    java.lang.String[] c -> c
+    int[] d -> d
+    int[] e -> e
+    void <init>(com.unity3d.player.IAssetPackManagerStatusQueryCallback,long,java.lang.String[],int[],int[]) -> <init>
+    void run() -> run
+com.unity3d.player.b -> com.unity3d.player.b:
+    android.content.Context a -> a
+    android.media.AudioManager b -> b
+    com.unity3d.player.b$a c -> c
+    void <init>(android.content.Context) -> <init>
+    void a(com.unity3d.player.b$b) -> a
+    void a() -> a
+com.unity3d.player.b$a -> com.unity3d.player.b$a:
+    com.unity3d.player.b$b b -> b
+    android.media.AudioManager c -> c
+    int d -> d
+    int e -> e
+    com.unity3d.player.b a -> a
+    void <init>(com.unity3d.player.b,android.os.Handler,android.media.AudioManager,int,com.unity3d.player.b$b) -> <init>
+    void onChange(boolean,android.net.Uri) -> onChange
+    boolean deliverSelfNotifications() -> deliverSelfNotifications
+com.unity3d.player.b$b -> com.unity3d.player.b$b:
+    void onAudioVolumeChanged(int) -> onAudioVolumeChanged
+com.unity3d.player.c -> com.unity3d.player.c:
+    com.unity3d.player.e a -> a
+    android.hardware.camera2.CameraManager b -> b
+    java.lang.String[] c -> c
+    android.hardware.camera2.CameraDevice d -> d
+    java.util.concurrent.Semaphore e -> e
+    android.os.HandlerThread f -> f
+    android.os.Handler g -> g
+    android.graphics.Rect h -> h
+    android.graphics.Rect i -> i
+    int j -> j
+    int k -> k
+    float l -> l
+    float m -> m
+    int n -> n
+    int o -> o
+    boolean p -> p
+    android.util.Range q -> q
+    android.media.ImageReader r -> r
+    android.media.Image s -> s
+    android.hardware.camera2.CaptureRequest$Builder t -> t
+    android.hardware.camera2.CameraCaptureSession u -> u
+    java.lang.Object v -> v
+    int w -> w
+    android.graphics.SurfaceTexture x -> x
+    android.view.Surface y -> y
+    int z -> z
+    android.hardware.camera2.CameraCaptureSession$CaptureCallback A -> A
+    android.hardware.camera2.CameraDevice$StateCallback B -> B
+    android.media.ImageReader$OnImageAvailableListener C -> C
+    android.graphics.SurfaceTexture$OnFrameAvailableListener D -> D
+    void <init>(com.unity3d.player.e) -> <init>
+    android.hardware.camera2.CameraManager b(android.content.Context) -> b
+    java.lang.String[] c(android.content.Context) -> c
+    int a(android.content.Context) -> a
+    int a(android.content.Context,int) -> a
+    boolean b(android.content.Context,int) -> b
+    boolean c(android.content.Context,int) -> c
+    int d(android.content.Context,int) -> d
+    android.util.Size[] a(android.hardware.camera2.CameraCharacteristics) -> a
+    int[] e(android.content.Context,int) -> e
+    void g() -> g
+    void h() -> h
+    boolean a(android.content.Context,int,int,int,int,int) -> a
+    void b(android.hardware.camera2.CameraCharacteristics) -> b
+    boolean a(float,float) -> a
+    android.graphics.Rect a() -> a
+    void b() -> b
+    void i() -> i
+    void a(java.lang.Object) -> a
+    void j() -> j
+    void k() -> k
+    void c() -> c
+    void d() -> d
+    void e() -> e
+    void a(android.hardware.camera2.CameraDevice) -> a
+    android.graphics.Rect a(android.util.Size[],double,double) -> a
+    int a(android.util.Range[],int) -> a
+    void a(com.unity3d.player.c,java.lang.Object) -> a
+    android.hardware.camera2.CameraDevice a(com.unity3d.player.c) -> a
+    java.lang.Object b(com.unity3d.player.c) -> b
+    android.hardware.camera2.CameraCaptureSession a(com.unity3d.player.c,android.hardware.camera2.CameraCaptureSession) -> a
+    android.hardware.camera2.CaptureRequest$Builder a(com.unity3d.player.c,android.hardware.camera2.CaptureRequest$Builder) -> a
+    android.view.Surface c(com.unity3d.player.c) -> c
+    android.hardware.camera2.CaptureRequest$Builder d(com.unity3d.player.c) -> d
+    android.media.ImageReader e(com.unity3d.player.c) -> e
+    android.util.Range f(com.unity3d.player.c) -> f
+    void g(com.unity3d.player.c) -> g
+    android.hardware.camera2.CameraDevice a(com.unity3d.player.c,android.hardware.camera2.CameraDevice) -> a
+    java.util.concurrent.Semaphore f() -> f
+    void b(com.unity3d.player.c,android.hardware.camera2.CameraDevice) -> b
+    com.unity3d.player.e h(com.unity3d.player.c) -> h
+    android.media.Image i(com.unity3d.player.c) -> i
+    android.media.Image a(com.unity3d.player.c,android.media.Image) -> a
+    void <clinit>() -> <clinit>
+com.unity3d.player.c$1 -> com.unity3d.player.c$1:
+    com.unity3d.player.c a -> a
+    void <init>(com.unity3d.player.c) -> <init>
+    void onCaptureCompleted(android.hardware.camera2.CameraCaptureSession,android.hardware.camera2.CaptureRequest,android.hardware.camera2.TotalCaptureResult) -> onCaptureCompleted
+    void onCaptureFailed(android.hardware.camera2.CameraCaptureSession,android.hardware.camera2.CaptureRequest,android.hardware.camera2.CaptureFailure) -> onCaptureFailed
+    void onCaptureSequenceCompleted(android.hardware.camera2.CameraCaptureSession,int,long) -> onCaptureSequenceCompleted
+    void onCaptureSequenceAborted(android.hardware.camera2.CameraCaptureSession,int) -> onCaptureSequenceAborted
+com.unity3d.player.c$2 -> com.unity3d.player.c$2:
+    com.unity3d.player.c a -> a
+    void <init>(com.unity3d.player.c) -> <init>
+    void onConfigured(android.hardware.camera2.CameraCaptureSession) -> onConfigured
+    void onConfigureFailed(android.hardware.camera2.CameraCaptureSession) -> onConfigureFailed
+com.unity3d.player.c$3 -> com.unity3d.player.c$3:
+    com.unity3d.player.c a -> a
+    void <init>(com.unity3d.player.c) -> <init>
+    void onOpened(android.hardware.camera2.CameraDevice) -> onOpened
+    void onClosed(android.hardware.camera2.CameraDevice) -> onClosed
+    void onDisconnected(android.hardware.camera2.CameraDevice) -> onDisconnected
+    void onError(android.hardware.camera2.CameraDevice,int) -> onError
+com.unity3d.player.c$4 -> com.unity3d.player.c$4:
+    com.unity3d.player.c a -> a
+    void <init>(com.unity3d.player.c) -> <init>
+    void onImageAvailable(android.media.ImageReader) -> onImageAvailable
+com.unity3d.player.c$5 -> com.unity3d.player.c$5:
+    com.unity3d.player.c a -> a
+    void <init>(com.unity3d.player.c) -> <init>
+    void onFrameAvailable(android.graphics.SurfaceTexture) -> onFrameAvailable
+com.unity3d.player.c$a -> com.unity3d.player.c$a:
+    int a -> a
+    int b -> b
+    int c -> c
+    int[] d -> d
+    void <clinit>() -> <clinit>
+com.unity3d.player.d -> com.unity3d.player.d:
+    void a(java.lang.String[],com.unity3d.player.IAssetPackManagerStatusQueryCallback) -> a
+    void a(java.lang.String[],com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> a
+    java.lang.Object a(com.unity3d.player.IAssetPackManagerDownloadStatusCallback) -> a
+    void a(java.lang.Object) -> a
+    void a(android.app.Activity,com.unity3d.player.IAssetPackManagerMobileDataConfirmationCallback) -> a
+    java.lang.String a(java.lang.String) -> a
+    void a(java.lang.String[]) -> a
+    void b(java.lang.String) -> b
+com.unity3d.player.e -> com.unity3d.player.e:
+    void a(java.lang.Object,java.lang.Object,java.lang.Object,int,int,int) -> a
+    void a(java.lang.Object) -> a
+com.unity3d.player.f -> com.unity3d.player.f:
+    boolean a -> a
+    void Log(int,java.lang.String) -> Log
+    void <clinit>() -> <clinit>
+com.unity3d.player.g -> com.unity3d.player.g:
+    com.unity3d.player.IPermissionRequestCallbacks a -> a
+    android.app.Activity b -> b
+    android.os.Looper c -> c
+    void <init>() -> <init>
+    void <init>(android.app.Activity,com.unity3d.player.IPermissionRequestCallbacks) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+com.unity3d.player.g$a -> com.unity3d.player.g$a:
+    com.unity3d.player.IPermissionRequestCallbacks b -> b
+    java.lang.String c -> c
+    int d -> d
+    boolean e -> e
+    com.unity3d.player.g a -> a
+    void <init>(com.unity3d.player.g,com.unity3d.player.IPermissionRequestCallbacks,java.lang.String,int,boolean) -> <init>
+    void run() -> run
+com.unity3d.player.h -> com.unity3d.player.h:
+    java.lang.ref.WeakReference a -> a
+    android.app.Activity b -> b
+    android.view.View c -> c
+    void <init>(android.content.Context) -> <init>
+    void a() -> a
+    void a(android.view.SurfaceView) -> a
+    void a(android.view.ViewGroup) -> a
+    void b(android.view.ViewGroup) -> b
+    void onActivityResumed(android.app.Activity) -> onActivityResumed
+    void onActivityCreated(android.app.Activity,android.os.Bundle) -> onActivityCreated
+    void onActivityDestroyed(android.app.Activity) -> onActivityDestroyed
+    void onActivityPaused(android.app.Activity) -> onActivityPaused
+    void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle) -> onActivitySaveInstanceState
+    void onActivityStarted(android.app.Activity) -> onActivityStarted
+    void onActivityStopped(android.app.Activity) -> onActivityStopped
+com.unity3d.player.h$a -> com.unity3d.player.h$a:
+    android.graphics.Bitmap a -> a
+    com.unity3d.player.h b -> b
+    void <init>(com.unity3d.player.h,android.content.Context) -> <init>
+    void onPixelCopyFinished(int) -> onPixelCopyFinished
+    void a(android.view.SurfaceView) -> a
+com.unity3d.player.i -> com.unity3d.player.i:
+    android.content.Context b -> b
+    com.unity3d.player.UnityPlayer c -> c
+    int d -> d
+    int e -> e
+    int f -> f
+    boolean a -> a
+    void <init>(android.content.Context,com.unity3d.player.UnityPlayer,java.lang.String,int,boolean,boolean,boolean,java.lang.String,int,boolean,boolean) -> <init>
+    void a(boolean) -> a
+    void a(android.widget.EditText,java.lang.String,int,boolean,boolean,boolean,java.lang.String,int) -> a
+    void afterTextChanged(android.text.Editable) -> afterTextChanged
+    void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    int a(int,boolean,boolean,boolean) -> a
+    void a(java.lang.String,boolean) -> a
+    void onClick(android.view.View) -> onClick
+    void onBackPressed() -> onBackPressed
+    boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
+    android.view.View createSoftInputView() -> createSoftInputView
+    java.lang.String b() -> b
+    void a(java.lang.String) -> a
+    void a(int) -> a
+    void a(int,int) -> a
+    java.lang.String a() -> a
+    com.unity3d.player.UnityPlayer a(com.unity3d.player.i) -> a
+    java.lang.String b(com.unity3d.player.i) -> b
+    void a(com.unity3d.player.i,java.lang.String,boolean) -> a
+    android.content.Context c(com.unity3d.player.i) -> c
+    void <clinit>() -> <clinit>
+com.unity3d.player.i$1 -> com.unity3d.player.i$1:
+    android.view.View a -> a
+    com.unity3d.player.i b -> b
+    void <init>(com.unity3d.player.i,android.view.View) -> <init>
+    void onGlobalLayout() -> onGlobalLayout
+com.unity3d.player.i$2 -> com.unity3d.player.i$2:
+    com.unity3d.player.i a -> a
+    void <init>(com.unity3d.player.i) -> <init>
+    void onFocusChange(android.view.View,boolean) -> onFocusChange
+com.unity3d.player.i$3 -> com.unity3d.player.i$3:
+    com.unity3d.player.i a -> a
+    void <init>(com.unity3d.player.i,android.content.Context) -> <init>
+    boolean onKeyPreIme(int,android.view.KeyEvent) -> onKeyPreIme
+    void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    void onSelectionChanged(int,int) -> onSelectionChanged
+com.unity3d.player.i$4 -> com.unity3d.player.i$4:
+    com.unity3d.player.i a -> a
+    void <init>(com.unity3d.player.i) -> <init>
+    boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
+com.unity3d.player.j -> com.unity3d.player.j:
+    int a -> a
+    int b -> b
+    android.graphics.Bitmap c -> c
+    android.graphics.Bitmap d -> d
+    void <init>(android.content.Context,int) -> <init>
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void onDetachedFromWindow() -> onDetachedFromWindow
+com.unity3d.player.j$1 -> com.unity3d.player.j$1:
+    int[] a -> a
+    void <clinit>() -> <clinit>
+com.unity3d.player.j$a -> com.unity3d.player.j$a:
+    int a -> a
+    int b -> b
+    int c -> c
+    int[] d -> d
+    int[] a() -> a
+    void <clinit>() -> <clinit>
+com.unity3d.player.k -> com.unity3d.player.k:
+    java.lang.Thread$UncaughtExceptionHandler a -> a
+    void <init>() -> <init>
+    boolean a() -> a
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+com.unity3d.player.l -> com.unity3d.player.l:
+    boolean a -> a
+    boolean b -> b
+    boolean c -> c
+    boolean d -> d
+    boolean e -> e
+    void <init>() -> <init>
+    void a() -> a
+    void b() -> b
+    boolean c() -> c
+    void a(boolean) -> a
+    void b(boolean) -> b
+    boolean d() -> d
+    void c(boolean) -> c
+    boolean e() -> e
+    void d(boolean) -> d
+    boolean e(boolean) -> e
+    boolean f() -> f
+    java.lang.String toString() -> toString
+    void <clinit>() -> <clinit>
+com.unity3d.player.m -> com.unity3d.player.m:
+    boolean a -> a
+    android.content.Context b -> b
+    android.view.SurfaceView c -> c
+    android.view.SurfaceHolder d -> d
+    java.lang.String e -> e
+    int f -> f
+    int g -> g
+    boolean h -> h
+    long i -> i
+    long j -> j
+    android.widget.FrameLayout k -> k
+    android.view.Display l -> l
+    int m -> m
+    int n -> n
+    int o -> o
+    int p -> p
+    android.media.MediaPlayer q -> q
+    android.widget.MediaController r -> r
+    boolean s -> s
+    boolean t -> t
+    int u -> u
+    boolean v -> v
+    boolean w -> w
+    com.unity3d.player.m$a x -> x
+    com.unity3d.player.m$b y -> y
+    int z -> z
+    void b(java.lang.String) -> b
+    void <init>(android.content.Context,java.lang.String,int,int,int,boolean,long,long,com.unity3d.player.m$a) -> <init>
+    boolean a() -> a
+    void a(int) -> a
+    void destroyPlayer() -> destroyPlayer
+    void c() -> c
+    void CancelOnPrepare() -> CancelOnPrepare
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void onBufferingUpdate(android.media.MediaPlayer,int) -> onBufferingUpdate
+    void onCompletion(android.media.MediaPlayer) -> onCompletion
+    void onVideoSizeChanged(android.media.MediaPlayer,int,int) -> onVideoSizeChanged
+    void onPrepared(android.media.MediaPlayer) -> onPrepared
+    void surfaceChanged(android.view.SurfaceHolder,int,int,int) -> surfaceChanged
+    void surfaceDestroyed(android.view.SurfaceHolder) -> surfaceDestroyed
+    void surfaceCreated(android.view.SurfaceHolder) -> surfaceCreated
+    void doCleanUp() -> doCleanUp
+    void d() -> d
+    void updateVideoLayout() -> updateVideoLayout
+    boolean canPause() -> canPause
+    boolean canSeekBackward() -> canSeekBackward
+    boolean canSeekForward() -> canSeekForward
+    int getBufferPercentage() -> getBufferPercentage
+    int getCurrentPosition() -> getCurrentPosition
+    int getDuration() -> getDuration
+    boolean isPlaying() -> isPlaying
+    void pause() -> pause
+    void seekTo(int) -> seekTo
+    void start() -> start
+    int getAudioSessionId() -> getAudioSessionId
+    boolean b() -> b
+    void a(java.lang.String) -> a
+    void <clinit>() -> <clinit>
+com.unity3d.player.m$a -> com.unity3d.player.m$a:
+    void a(int) -> a
+com.unity3d.player.m$b -> com.unity3d.player.m$b:
+    com.unity3d.player.m b -> b
+    boolean c -> c
+    com.unity3d.player.m a -> a
+    void <init>(com.unity3d.player.m,com.unity3d.player.m) -> <init>
+    void run() -> run
+    void a() -> a
+com.unity3d.player.n -> com.unity3d.player.n:
+    com.unity3d.player.UnityPlayer a -> a
+    android.content.Context b -> b
+    com.unity3d.player.n$a c -> c
+    java.util.concurrent.Semaphore d -> d
+    java.util.concurrent.locks.Lock e -> e
+    com.unity3d.player.m f -> f
+    int g -> g
+    boolean h -> h
+    boolean i -> i
+    void <init>(com.unity3d.player.UnityPlayer) -> <init>
+    boolean a(android.content.Context,java.lang.String,int,int,int,boolean,long,long,com.unity3d.player.n$a) -> a
+    void d() -> d
+    void a() -> a
+    void b() -> b
+    void c() -> c
+    void runOnUiThread(java.lang.Runnable) -> runOnUiThread
+    com.unity3d.player.m a(com.unity3d.player.n) -> a
+    int a(com.unity3d.player.n,int) -> a
+    java.util.concurrent.Semaphore b(com.unity3d.player.n) -> b
+    com.unity3d.player.m a(com.unity3d.player.n,com.unity3d.player.m) -> a
+    android.content.Context c(com.unity3d.player.n) -> c
+    java.util.concurrent.locks.Lock d(com.unity3d.player.n) -> d
+    boolean e(com.unity3d.player.n) -> e
+    void f(com.unity3d.player.n) -> f
+    com.unity3d.player.UnityPlayer g(com.unity3d.player.n) -> g
+    boolean h(com.unity3d.player.n) -> h
+com.unity3d.player.n$1 -> com.unity3d.player.n$1:
+    java.lang.String a -> a
+    int b -> b
+    int c -> c
+    int d -> d
+    boolean e -> e
+    long f -> f
+    long g -> g
+    com.unity3d.player.n h -> h
+    void <init>(com.unity3d.player.n,java.lang.String,int,int,int,boolean,long,long) -> <init>
+    void run() -> run
+com.unity3d.player.n$1$1 -> com.unity3d.player.n$1$1:
+    com.unity3d.player.n$1 a -> a
+    void <init>(com.unity3d.player.n$1) -> <init>
+    void a(int) -> a
+com.unity3d.player.n$1$1$1 -> com.unity3d.player.n$1$1$1:
+    com.unity3d.player.n$1$1 a -> a
+    void <init>(com.unity3d.player.n$1$1) -> <init>
+    void run() -> run
+com.unity3d.player.n$2 -> com.unity3d.player.n$2:
+    com.unity3d.player.n a -> a
+    void <init>(com.unity3d.player.n) -> <init>
+    void run() -> run
+com.unity3d.player.n$3 -> com.unity3d.player.n$3:
+    com.unity3d.player.n a -> a
+    void <init>(com.unity3d.player.n) -> <init>
+    void run() -> run
+com.unity3d.player.n$4 -> com.unity3d.player.n$4:
+    com.unity3d.player.n a -> a
+    void <init>(com.unity3d.player.n) -> <init>
+    void run() -> run
+com.unity3d.player.n$a -> com.unity3d.player.n$a:
+    void a() -> a
+com.yasirkula.unity.FileBrowser -> com.yasirkula.unity.FileBrowser:
+    java.lang.StringBuilder stringBuilder -> stringBuilder
+    void <init>() -> <init>
+    java.lang.String GetExternalDrives(android.content.Context) -> GetExternalDrives
+    int CheckPermission(android.content.Context) -> CheckPermission
+    void RequestPermission(android.content.Context,com.yasirkula.unity.FileBrowserPermissionReceiver,int) -> RequestPermission
+    boolean CheckSAF() -> CheckSAF
+    void PickSAFFolder(android.content.Context,com.yasirkula.unity.FileBrowserDirectoryReceiver) -> PickSAFFolder
+    java.lang.String FetchSAFQuickLinks(android.content.Context) -> FetchSAFQuickLinks
+    void CopyFile(android.content.Context,java.lang.String,java.lang.String,boolean) -> CopyFile
+    void CopyDirectory(android.content.Context,java.lang.String,java.lang.String,boolean) -> CopyDirectory
+    java.lang.String OpenSAFFolder(android.content.Context,java.lang.String) -> OpenSAFFolder
+    java.lang.String CreateSAFEntry(android.content.Context,java.lang.String,boolean,java.lang.String) -> CreateSAFEntry
+    void WriteToSAFEntry(android.content.Context,java.lang.String,java.lang.String,boolean) -> WriteToSAFEntry
+    void ReadFromSAFEntry(android.content.Context,java.lang.String,java.lang.String) -> ReadFromSAFEntry
+    void CopySAFEntry(android.content.Context,java.lang.String,java.lang.String) -> CopySAFEntry
+    boolean SAFEntryExists(android.content.Context,java.lang.String,boolean) -> SAFEntryExists
+    boolean SAFEntryDirectory(android.content.Context,java.lang.String) -> SAFEntryDirectory
+    java.lang.String SAFEntryName(android.content.Context,java.lang.String) -> SAFEntryName
+    long SAFEntrySize(android.content.Context,java.lang.String) -> SAFEntrySize
+    long SAFEntryLastModified(android.content.Context,java.lang.String) -> SAFEntryLastModified
+    java.lang.String RenameSAFEntry(android.content.Context,java.lang.String,java.lang.String) -> RenameSAFEntry
+    boolean DeleteSAFEntry(android.content.Context,java.lang.String) -> DeleteSAFEntry
+    java.lang.String GetParentDirectory(android.content.Context,java.lang.String) -> GetParentDirectory
+    void CopyRawFile(java.lang.String,java.lang.String) -> CopyRawFile
+    void CopySAFDirectoryRecursively(android.content.Context,com.yasirkula.unity.FileBrowserSAFEntry,java.lang.String,boolean) -> CopySAFDirectoryRecursively
+    void CopyRawDirectoryRecursively(android.content.Context,java.io.File,java.lang.String,boolean) -> CopyRawDirectoryRecursively
+    void DeleteRawDirectoryRecursively(java.io.File) -> DeleteRawDirectoryRecursively
+    java.lang.String FindSAFEntryWithNameOrCreateNew(android.content.Context,java.lang.String,java.util.ArrayList,boolean,java.lang.String) -> FindSAFEntryWithNameOrCreateNew
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.FileBrowser$1 -> com.yasirkula.unity.FileBrowser$1:
+com.yasirkula.unity.FileBrowser$UriPermissionSorter -> com.yasirkula.unity.FileBrowser$UriPermissionSorter:
+    void <init>() -> <init>
+    int compare(android.content.UriPermission,android.content.UriPermission) -> compare
+    int compare(java.lang.Object,java.lang.Object) -> compare
+    void <init>(com.yasirkula.unity.FileBrowser$1) -> <init>
+com.yasirkula.unity.FileBrowserDirectoryPickerFragment -> com.yasirkula.unity.FileBrowserDirectoryPickerFragment:
+    int DIRECTORY_PICK_REQUEST_CODE -> DIRECTORY_PICK_REQUEST_CODE
+    com.yasirkula.unity.FileBrowserDirectoryReceiver directoryReceiver -> directoryReceiver
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.FileBrowserDirectoryReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.yasirkula.unity.FileBrowserDirectoryReceiver -> com.yasirkula.unity.FileBrowserDirectoryReceiver:
+    void OnDirectoryPicked(java.lang.String,java.lang.String) -> OnDirectoryPicked
+com.yasirkula.unity.FileBrowserPermissionFragment -> com.yasirkula.unity.FileBrowserPermissionFragment:
+    int PERMISSIONS_REQUEST_CODE -> PERMISSIONS_REQUEST_CODE
+    com.yasirkula.unity.FileBrowserPermissionReceiver permissionReceiver -> permissionReceiver
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.FileBrowserPermissionReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+com.yasirkula.unity.FileBrowserPermissionReceiver -> com.yasirkula.unity.FileBrowserPermissionReceiver:
+    void OnPermissionResult(int) -> OnPermissionResult
+com.yasirkula.unity.FileBrowserSAFEntry -> com.yasirkula.unity.FileBrowserSAFEntry:
+    java.lang.String TAG -> TAG
+    android.content.Context mContext -> mContext
+    android.net.Uri mUri -> mUri
+    com.yasirkula.unity.FileBrowserSAFEntry fromTreeUri(android.content.Context,android.net.Uri) -> fromTreeUri
+    void <init>(android.content.Context,android.net.Uri) -> <init>
+    com.yasirkula.unity.FileBrowserSAFEntry createFile(java.lang.String,java.lang.String) -> createFile
+    com.yasirkula.unity.FileBrowserSAFEntry createDirectory(java.lang.String) -> createDirectory
+    android.net.Uri getUri() -> getUri
+    java.lang.String getName() -> getName
+    java.lang.String getType() -> getType
+    boolean isDirectory() -> isDirectory
+    boolean isFile() -> isFile
+    long lastModified() -> lastModified
+    long length() -> length
+    boolean canRead() -> canRead
+    boolean canWrite() -> canWrite
+    boolean delete() -> delete
+    boolean exists() -> exists
+    java.util.ArrayList listFiles() -> listFiles
+    java.lang.String renameTo(java.lang.String) -> renameTo
+    java.lang.String getRawType() -> getRawType
+    java.lang.String queryForString(java.lang.String,java.lang.String) -> queryForString
+    int queryForInt(java.lang.String,int) -> queryForInt
+    long queryForLong(java.lang.String,long) -> queryForLong
+com.yasirkula.unity.NativeFilePicker -> com.yasirkula.unity.NativeFilePicker:
+    boolean UseDefaultFilePickerApp -> UseDefaultFilePickerApp
+    void <init>() -> <init>
+    void PickFiles(android.content.Context,com.yasirkula.unity.NativeFilePickerResultReceiver,boolean,java.lang.String,java.lang.String[],java.lang.String) -> PickFiles
+    void ExportFiles(android.content.Context,com.yasirkula.unity.NativeFilePickerResultReceiver,java.lang.String[],int) -> ExportFiles
+    int CheckPermission(android.content.Context,boolean) -> CheckPermission
+    void RequestPermission(android.content.Context,com.yasirkula.unity.NativeFilePickerPermissionReceiver,boolean,int) -> RequestPermission
+    void OpenSettings(android.content.Context) -> OpenSettings
+    java.lang.String GetMimeTypeFromExtension(java.lang.String) -> GetMimeTypeFromExtension
+    boolean CanPickMultipleFiles() -> CanPickMultipleFiles
+    boolean CanExportFiles() -> CanExportFiles
+    boolean CanExportMultipleFiles() -> CanExportMultipleFiles
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeFilePickerExportFragment -> com.yasirkula.unity.NativeFilePickerExportFragment:
+    int EXPORT_FILE_CODE -> EXPORT_FILE_CODE
+    java.lang.String FILES_ID -> FILES_ID
+    com.yasirkula.unity.NativeFilePickerResultReceiver resultReceiver -> resultReceiver
+    java.util.ArrayList files -> files
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeFilePickerResultReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    java.lang.String GetMimeTypeFromFile(java.lang.String) -> GetMimeTypeFromFile
+    boolean ExportMultipleFilesToDirectory(java.util.ArrayList,android.net.Uri) -> ExportMultipleFilesToDirectory
+    boolean WriteFileToStream(java.io.File,java.io.OutputStream) -> WriteFileToStream
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.yasirkula.unity.NativeFilePickerPermissionFragment -> com.yasirkula.unity.NativeFilePickerPermissionFragment:
+    java.lang.String READ_PERMISSION_ONLY -> READ_PERMISSION_ONLY
+    int PERMISSIONS_REQUEST_CODE -> PERMISSIONS_REQUEST_CODE
+    com.yasirkula.unity.NativeFilePickerPermissionReceiver permissionReceiver -> permissionReceiver
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeFilePickerPermissionReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+com.yasirkula.unity.NativeFilePickerPermissionReceiver -> com.yasirkula.unity.NativeFilePickerPermissionReceiver:
+    void OnPermissionResult(int) -> OnPermissionResult
+com.yasirkula.unity.NativeFilePickerPickFragment -> com.yasirkula.unity.NativeFilePickerPickFragment:
+    int PICK_FILE_CODE -> PICK_FILE_CODE
+    java.lang.String SELECT_MULTIPLE_ID -> SELECT_MULTIPLE_ID
+    java.lang.String SAVE_PATH_ID -> SAVE_PATH_ID
+    java.lang.String MIMES_ID -> MIMES_ID
+    java.lang.String TITLE_ID -> TITLE_ID
+    int PICKER_MODE_DEFAULT -> PICKER_MODE_DEFAULT
+    int PICKER_MODE_GET_CONTENT -> PICKER_MODE_GET_CONTENT
+    int PICKER_MODE_OPEN_DOCUMENT -> PICKER_MODE_OPEN_DOCUMENT
+    int pickerMode -> pickerMode
+    boolean tryPreserveFilenames -> tryPreserveFilenames
+    boolean showProgressbar -> showProgressbar
+    com.yasirkula.unity.NativeFilePickerResultReceiver resultReceiver -> resultReceiver
+    boolean selectMultiple -> selectMultiple
+    java.lang.String savePathDirectory -> savePathDirectory
+    java.lang.String savePathFilename -> savePathFilename
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeFilePickerResultReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    java.lang.String getCombinedMimeType(java.util.ArrayList) -> getCombinedMimeType
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeFilePickerPickResultFragment -> com.yasirkula.unity.NativeFilePickerPickResultFragment:
+    int uiUpdateInterval -> uiUpdateInterval
+    java.lang.String progressBarLabel -> progressBarLabel
+    com.yasirkula.unity.NativeFilePickerPickResultOperation resultOperation -> resultOperation
+    android.widget.ProgressBar progressBar -> progressBar
+    android.os.Handler uiUpdateHandler -> uiUpdateHandler
+    java.lang.Runnable progressBarUpdateTask -> progressBarUpdateTask
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeFilePickerPickResultOperation) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
+    void onActivityCreated(android.os.Bundle) -> onActivityCreated
+    void onDetach() -> onDetach
+    void onDismiss(android.content.DialogInterface) -> onDismiss
+    void onDestroy() -> onDestroy
+    com.yasirkula.unity.NativeFilePickerPickResultOperation access$000(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> access$000
+    android.widget.ProgressBar access$100(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> access$100
+    java.lang.Runnable access$200(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> access$200
+    android.os.Handler access$300(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> access$300
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeFilePickerPickResultFragment$1 -> com.yasirkula.unity.NativeFilePickerPickResultFragment$1:
+    com.yasirkula.unity.NativeFilePickerPickResultFragment this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> <init>
+    void run() -> run
+com.yasirkula.unity.NativeFilePickerPickResultFragment$2 -> com.yasirkula.unity.NativeFilePickerPickResultFragment$2:
+    com.yasirkula.unity.NativeFilePickerPickResultFragment this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> <init>
+    void run() -> run
+com.yasirkula.unity.NativeFilePickerPickResultFragment$3 -> com.yasirkula.unity.NativeFilePickerPickResultFragment$3:
+    com.yasirkula.unity.NativeFilePickerPickResultFragment this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeFilePickerPickResultFragment) -> <init>
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.yasirkula.unity.NativeFilePickerPickResultOperation -> com.yasirkula.unity.NativeFilePickerPickResultOperation:
+    android.content.Context context -> context
+    com.yasirkula.unity.NativeFilePickerResultReceiver mediaReceiver -> mediaReceiver
+    android.content.Intent data -> data
+    boolean selectMultiple -> selectMultiple
+    java.lang.String savePathDirectory -> savePathDirectory
+    java.lang.String savePathFilename -> savePathFilename
+    java.util.ArrayList savedFiles -> savedFiles
+    boolean finished -> finished
+    boolean sentResult -> sentResult
+    int progress -> progress
+    boolean cancelled -> cancelled
+    java.lang.String unityResult -> unityResult
+    void <init>(android.content.Context,com.yasirkula.unity.NativeFilePickerResultReceiver,android.content.Intent,boolean,java.lang.String,java.lang.String) -> <init>
+    void execute() -> execute
+    void cancel() -> cancel
+    void sendResultToUnity() -> sendResultToUnity
+    java.lang.String getPathFromURI(android.net.Uri) -> getPathFromURI
+    java.lang.String copyToTempFile(android.net.Uri) -> copyToTempFile
+com.yasirkula.unity.NativeFilePickerResultReceiver -> com.yasirkula.unity.NativeFilePickerResultReceiver:
+    void OnFilePicked(java.lang.String) -> OnFilePicked
+    void OnMultipleFilesPicked(java.lang.String) -> OnMultipleFilesPicked
+    void OnFilesExported(boolean) -> OnFilesExported
+com.yasirkula.unity.NativeFilePickerSAFEntry -> com.yasirkula.unity.NativeFilePickerSAFEntry:
+    java.lang.String TAG -> TAG
+    android.content.Context mContext -> mContext
+    android.net.Uri mUri -> mUri
+    com.yasirkula.unity.NativeFilePickerSAFEntry fromTreeUri(android.content.Context,android.net.Uri) -> fromTreeUri
+    void <init>(android.content.Context,android.net.Uri) -> <init>
+    com.yasirkula.unity.NativeFilePickerSAFEntry createFile(java.lang.String,java.lang.String) -> createFile
+    com.yasirkula.unity.NativeFilePickerSAFEntry createDirectory(java.lang.String) -> createDirectory
+    android.net.Uri getUri() -> getUri
+    java.lang.String getName() -> getName
+    java.lang.String getType() -> getType
+    boolean isDirectory() -> isDirectory
+    boolean isFile() -> isFile
+    long lastModified() -> lastModified
+    long length() -> length
+    boolean canRead() -> canRead
+    boolean canWrite() -> canWrite
+    boolean delete() -> delete
+    boolean exists() -> exists
+    java.util.ArrayList listFiles() -> listFiles
+    java.lang.String renameTo(java.lang.String) -> renameTo
+    java.lang.String getRawType() -> getRawType
+    java.lang.String queryForString(java.lang.String,java.lang.String) -> queryForString
+    int queryForInt(java.lang.String,int) -> queryForInt
+    long queryForLong(java.lang.String,long) -> queryForLong
+com.yasirkula.unity.NativeFilePickerUtils -> com.yasirkula.unity.NativeFilePickerUtils:
+    java.lang.String secondaryStoragePath -> secondaryStoragePath
+    int isXiaomiOrMIUI -> isXiaomiOrMIUI
+    void <init>() -> <init>
+    boolean IsXiaomiOrMIUI() -> IsXiaomiOrMIUI
+    java.lang.String GetPathFromURI(android.content.Context,android.net.Uri) -> GetPathFromURI
+    java.lang.String GetSecondaryStoragePathFor(java.lang.String) -> GetSecondaryStoragePathFor
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeGallery -> com.yasirkula.unity.NativeGallery:
+    int MEDIA_TYPE_IMAGE -> MEDIA_TYPE_IMAGE
+    int MEDIA_TYPE_VIDEO -> MEDIA_TYPE_VIDEO
+    int MEDIA_TYPE_AUDIO -> MEDIA_TYPE_AUDIO
+    boolean overwriteExistingMedia -> overwriteExistingMedia
+    boolean mediaSaveOmitDCIM -> mediaSaveOmitDCIM
+    void <init>() -> <init>
+    java.lang.String SaveMedia(android.content.Context,int,java.lang.String,java.lang.String) -> SaveMedia
+    void MediaDeleteFile(android.content.Context,java.lang.String,int) -> MediaDeleteFile
+    void PickMedia(android.content.Context,com.yasirkula.unity.NativeGalleryMediaReceiver,int,boolean,java.lang.String,java.lang.String,java.lang.String) -> PickMedia
+    int CheckPermission(android.content.Context,boolean) -> CheckPermission
+    void RequestPermission(android.content.Context,com.yasirkula.unity.NativeGalleryPermissionReceiver,boolean,int) -> RequestPermission
+    void OpenSettings(android.content.Context) -> OpenSettings
+    boolean CanSelectMultipleMedia() -> CanSelectMultipleMedia
+    boolean CanSelectMultipleMediaTypes() -> CanSelectMultipleMediaTypes
+    java.lang.String GetMimeTypeFromExtension(java.lang.String) -> GetMimeTypeFromExtension
+    java.lang.String LoadImageAtPath(android.content.Context,java.lang.String,java.lang.String,int) -> LoadImageAtPath
+    java.lang.String GetImageProperties(android.content.Context,java.lang.String) -> GetImageProperties
+    java.lang.String GetVideoProperties(android.content.Context,java.lang.String) -> GetVideoProperties
+    java.lang.String GetVideoThumbnail(android.content.Context,java.lang.String,java.lang.String,boolean,int,double) -> GetVideoThumbnail
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeGalleryMediaPickerFragment -> com.yasirkula.unity.NativeGalleryMediaPickerFragment:
+    int MEDIA_REQUEST_CODE -> MEDIA_REQUEST_CODE
+    java.lang.String MEDIA_TYPE_ID -> MEDIA_TYPE_ID
+    java.lang.String SELECT_MULTIPLE_ID -> SELECT_MULTIPLE_ID
+    java.lang.String SAVE_PATH_ID -> SAVE_PATH_ID
+    java.lang.String MIME_ID -> MIME_ID
+    java.lang.String TITLE_ID -> TITLE_ID
+    boolean preferGetContent -> preferGetContent
+    boolean tryPreserveFilenames -> tryPreserveFilenames
+    boolean showProgressbar -> showProgressbar
+    boolean useDefaultGalleryApp -> useDefaultGalleryApp
+    com.yasirkula.unity.NativeGalleryMediaReceiver mediaReceiver -> mediaReceiver
+    boolean selectMultiple -> selectMultiple
+    java.lang.String savePathDirectory -> savePathDirectory
+    java.lang.String savePathFilename -> savePathFilename
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeGalleryMediaReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeGalleryMediaPickerResultFragment -> com.yasirkula.unity.NativeGalleryMediaPickerResultFragment:
+    int uiUpdateInterval -> uiUpdateInterval
+    java.lang.String progressBarLabel -> progressBarLabel
+    com.yasirkula.unity.NativeGalleryMediaPickerResultOperation resultOperation -> resultOperation
+    android.widget.ProgressBar progressBar -> progressBar
+    android.os.Handler uiUpdateHandler -> uiUpdateHandler
+    java.lang.Runnable progressBarUpdateTask -> progressBarUpdateTask
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeGalleryMediaPickerResultOperation) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
+    void onActivityCreated(android.os.Bundle) -> onActivityCreated
+    void onDetach() -> onDetach
+    void onDismiss(android.content.DialogInterface) -> onDismiss
+    void onDestroy() -> onDestroy
+    com.yasirkula.unity.NativeGalleryMediaPickerResultOperation access$000(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> access$000
+    android.widget.ProgressBar access$100(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> access$100
+    java.lang.Runnable access$200(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> access$200
+    android.os.Handler access$300(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> access$300
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeGalleryMediaPickerResultFragment$1 -> com.yasirkula.unity.NativeGalleryMediaPickerResultFragment$1:
+    com.yasirkula.unity.NativeGalleryMediaPickerResultFragment this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> <init>
+    void run() -> run
+com.yasirkula.unity.NativeGalleryMediaPickerResultFragment$2 -> com.yasirkula.unity.NativeGalleryMediaPickerResultFragment$2:
+    com.yasirkula.unity.NativeGalleryMediaPickerResultFragment this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> <init>
+    void run() -> run
+com.yasirkula.unity.NativeGalleryMediaPickerResultFragment$3 -> com.yasirkula.unity.NativeGalleryMediaPickerResultFragment$3:
+    com.yasirkula.unity.NativeGalleryMediaPickerResultFragment this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeGalleryMediaPickerResultFragment) -> <init>
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.yasirkula.unity.NativeGalleryMediaPickerResultOperation -> com.yasirkula.unity.NativeGalleryMediaPickerResultOperation:
+    android.content.Context context -> context
+    com.yasirkula.unity.NativeGalleryMediaReceiver mediaReceiver -> mediaReceiver
+    android.content.Intent data -> data
+    boolean selectMultiple -> selectMultiple
+    java.lang.String savePathDirectory -> savePathDirectory
+    java.lang.String savePathFilename -> savePathFilename
+    java.util.ArrayList savedFiles -> savedFiles
+    boolean finished -> finished
+    boolean sentResult -> sentResult
+    int progress -> progress
+    boolean cancelled -> cancelled
+    java.lang.String unityResult -> unityResult
+    void <init>(android.content.Context,com.yasirkula.unity.NativeGalleryMediaReceiver,android.content.Intent,boolean,java.lang.String,java.lang.String) -> <init>
+    void execute() -> execute
+    void cancel() -> cancel
+    void sendResultToUnity() -> sendResultToUnity
+    java.lang.String getPathFromURI(android.net.Uri) -> getPathFromURI
+    java.lang.String copyToTempFile(android.net.Uri) -> copyToTempFile
+com.yasirkula.unity.NativeGalleryMediaReceiver -> com.yasirkula.unity.NativeGalleryMediaReceiver:
+    void OnMediaReceived(java.lang.String) -> OnMediaReceived
+    void OnMultipleMediaReceived(java.lang.String) -> OnMultipleMediaReceived
+com.yasirkula.unity.NativeGalleryPermissionFragment -> com.yasirkula.unity.NativeGalleryPermissionFragment:
+    java.lang.String READ_PERMISSION_ONLY -> READ_PERMISSION_ONLY
+    int PERMISSIONS_REQUEST_CODE -> PERMISSIONS_REQUEST_CODE
+    com.yasirkula.unity.NativeGalleryPermissionReceiver permissionReceiver -> permissionReceiver
+    void <init>() -> <init>
+    void <init>(com.yasirkula.unity.NativeGalleryPermissionReceiver) -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+com.yasirkula.unity.NativeGalleryPermissionReceiver -> com.yasirkula.unity.NativeGalleryPermissionReceiver:
+    void OnPermissionResult(int) -> OnPermissionResult
+com.yasirkula.unity.NativeGalleryUtils -> com.yasirkula.unity.NativeGalleryUtils:
+    java.lang.String secondaryStoragePath -> secondaryStoragePath
+    int isXiaomiOrMIUI -> isXiaomiOrMIUI
+    void <init>() -> <init>
+    boolean IsXiaomiOrMIUI() -> IsXiaomiOrMIUI
+    java.lang.String GetPathFromURI(android.content.Context,android.net.Uri) -> GetPathFromURI
+    java.lang.String GetSecondaryStoragePathFor(java.lang.String) -> GetSecondaryStoragePathFor
+    boolean WriteFileToStream(java.io.File,java.io.OutputStream) -> WriteFileToStream
+    android.graphics.BitmapFactory$Options GetImageMetadata(java.lang.String) -> GetImageMetadata
+    int GetImageOrientation(android.content.Context,java.lang.String) -> GetImageOrientation
+    android.graphics.Matrix GetImageOrientationCorrectionMatrix(int,float) -> GetImageOrientationCorrectionMatrix
+    java.lang.String LoadImageAtPath(android.content.Context,java.lang.String,java.lang.String,int) -> LoadImageAtPath
+    java.lang.String GetImageProperties(android.content.Context,java.lang.String) -> GetImageProperties
+    java.lang.String GetVideoProperties(android.content.Context,java.lang.String) -> GetVideoProperties
+    java.lang.String GetVideoThumbnail(android.content.Context,java.lang.String,java.lang.String,boolean,int,double) -> GetVideoThumbnail
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeShare -> com.yasirkula.unity.NativeShare:
+    java.lang.String authority -> authority
+    com.yasirkula.unity.NativeShareResultReceiver shareResultReceiver -> shareResultReceiver
+    boolean alwaysUseCustomShareDialog -> alwaysUseCustomShareDialog
+    int isXiaomiOrMIUI -> isXiaomiOrMIUI
+    void <init>() -> <init>
+    void Share(android.content.Context,com.yasirkula.unity.NativeShareResultReceiver,java.lang.String[],java.lang.String[],java.lang.String[],java.lang.String[],java.lang.String,java.lang.String,java.lang.String) -> Share
+    android.content.Intent CreateIntentFromBundle(android.content.Context,android.os.Bundle) -> CreateIntentFromBundle
+    java.lang.String GetAuthority(android.content.Context) -> GetAuthority
+    java.util.ArrayList ConvertArrayToArrayList(java.lang.String[]) -> ConvertArrayToArrayList
+    boolean IsUnityInLandscapeMode(android.app.Activity) -> IsUnityInLandscapeMode
+    boolean IsXiaomiOrMIUI() -> IsXiaomiOrMIUI
+    boolean TargetExists(android.content.Context,java.lang.String,java.lang.String) -> TargetExists
+    java.lang.String FindMatchingTarget(android.content.Context,java.lang.String,java.lang.String) -> FindMatchingTarget
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeShareBroadcastListener -> com.yasirkula.unity.NativeShareBroadcastListener:
+    void <init>() -> <init>
+    android.content.IntentSender Initialize(android.content.Context) -> Initialize
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.yasirkula.unity.NativeShareContentProvider -> com.yasirkula.unity.NativeShareContentProvider:
+    java.lang.String[] COLUMNS -> COLUMNS
+    java.lang.String META_DATA_FILE_PROVIDER_PATHS -> META_DATA_FILE_PROVIDER_PATHS
+    java.lang.String TAG_ROOT_PATH -> TAG_ROOT_PATH
+    java.lang.String TAG_FILES_PATH -> TAG_FILES_PATH
+    java.lang.String TAG_CACHE_PATH -> TAG_CACHE_PATH
+    java.lang.String TAG_EXTERNAL -> TAG_EXTERNAL
+    java.lang.String ATTR_NAME -> ATTR_NAME
+    java.lang.String ATTR_PATH -> ATTR_PATH
+    java.io.File DEVICE_ROOT -> DEVICE_ROOT
+    java.util.HashMap sCache -> sCache
+    com.yasirkula.unity.NativeShareContentProvider$PathStrategy mStrategy -> mStrategy
+    void <init>() -> <init>
+    boolean onCreate() -> onCreate
+    void attachInfo(android.content.Context,android.content.pm.ProviderInfo) -> attachInfo
+    android.net.Uri getUriForFile(android.content.Context,java.lang.String,java.io.File) -> getUriForFile
+    android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    java.lang.String getType(android.net.Uri) -> getType
+    android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
+    com.yasirkula.unity.NativeShareContentProvider$PathStrategy getPathStrategy(android.content.Context,java.lang.String) -> getPathStrategy
+    com.yasirkula.unity.NativeShareContentProvider$PathStrategy parsePathStrategy(android.content.Context,java.lang.String) -> parsePathStrategy
+    int modeToMode(java.lang.String) -> modeToMode
+    java.io.File buildPath(java.io.File,java.lang.String[]) -> buildPath
+    java.lang.String[] copyOf(java.lang.String[],int) -> copyOf
+    java.lang.Object[] copyOf(java.lang.Object[],int) -> copyOf
+    void <clinit>() -> <clinit>
+com.yasirkula.unity.NativeShareContentProvider$PathStrategy -> com.yasirkula.unity.NativeShareContentProvider$PathStrategy:
+    android.net.Uri getUriForFile(java.io.File) -> getUriForFile
+    java.io.File getFileForUri(android.net.Uri) -> getFileForUri
+com.yasirkula.unity.NativeShareContentProvider$SimplePathStrategy -> com.yasirkula.unity.NativeShareContentProvider$SimplePathStrategy:
+    java.lang.String mAuthority -> mAuthority
+    java.util.HashMap mRoots -> mRoots
+    void <init>(java.lang.String) -> <init>
+    void addRoot(java.lang.String,java.io.File) -> addRoot
+    android.net.Uri getUriForFile(java.io.File) -> getUriForFile
+    java.io.File getFileForUri(android.net.Uri) -> getFileForUri
+com.yasirkula.unity.NativeShareCustomShareDialog -> com.yasirkula.unity.NativeShareCustomShareDialog:
+    boolean sentShareResult -> sentShareResult
+    void <init>() -> <init>
+    android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
+    void onPause() -> onPause
+    void onDestroy() -> onDestroy
+    void onDismiss(android.content.DialogInterface) -> onDismiss
+    void StartTargetActivity(android.content.Intent,android.content.pm.ActivityInfo) -> StartTargetActivity
+    void access$300(com.yasirkula.unity.NativeShareCustomShareDialog,android.content.Intent,android.content.pm.ActivityInfo) -> access$300
+com.yasirkula.unity.NativeShareCustomShareDialog$1 -> com.yasirkula.unity.NativeShareCustomShareDialog$1:
+    com.yasirkula.unity.NativeShareCustomShareDialog this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeShareCustomShareDialog) -> <init>
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.yasirkula.unity.NativeShareCustomShareDialog$2 -> com.yasirkula.unity.NativeShareCustomShareDialog$2:
+    android.content.Intent val$shareIntent -> val$shareIntent
+    com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter val$shareDialogAdapter -> val$shareDialogAdapter
+    com.yasirkula.unity.NativeShareCustomShareDialog this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeShareCustomShareDialog,android.content.Intent,com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter) -> <init>
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.yasirkula.unity.NativeShareCustomShareDialog$3 -> com.yasirkula.unity.NativeShareCustomShareDialog$3:
+    com.yasirkula.unity.NativeShareCustomShareDialog this$0 -> this$0
+    void <init>(com.yasirkula.unity.NativeShareCustomShareDialog) -> <init>
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter -> com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter:
+    android.app.Activity unityActivity -> unityActivity
+    android.content.pm.PackageManager packageManager -> packageManager
+    void <init>(android.app.Activity,java.util.List) -> <init>
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    void <init>(android.app.Activity,java.util.List,com.yasirkula.unity.NativeShareCustomShareDialog$1) -> <init>
+com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter$ViewHolder -> com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter$ViewHolder:
+    android.widget.TextView label -> label
+    android.widget.ImageView icon -> icon
+    void <init>(android.widget.TextView,android.widget.ImageView) -> <init>
+    android.widget.TextView access$000(com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter$ViewHolder) -> access$000
+    android.widget.ImageView access$100(com.yasirkula.unity.NativeShareCustomShareDialog$CustomShareDialogAdapter$ViewHolder) -> access$100
+com.yasirkula.unity.NativeShareCustomShareDialogActivity -> com.yasirkula.unity.NativeShareCustomShareDialogActivity:
+    boolean dialogDisplayed -> dialogDisplayed
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle,android.os.PersistableBundle) -> onCreate
+    void onStart() -> onStart
+com.yasirkula.unity.NativeShareFragment -> com.yasirkula.unity.NativeShareFragment:
+    int SHARE_RESULT_CODE -> SHARE_RESULT_CODE
+    java.lang.String TARGET_PACKAGE_ID -> TARGET_PACKAGE_ID
+    java.lang.String TARGET_CLASS_ID -> TARGET_CLASS_ID
+    java.lang.String FILES_ID -> FILES_ID
+    java.lang.String MIMES_ID -> MIMES_ID
+    java.lang.String SUBJECT_ID -> SUBJECT_ID
+    java.lang.String TEXT_ID -> TEXT_ID
+    java.lang.String TITLE_ID -> TITLE_ID
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.yasirkula.unity.NativeShareResultReceiver -> com.yasirkula.unity.NativeShareResultReceiver:
+    void OnShareCompleted(int,java.lang.String) -> OnShareCompleted
+    boolean HasManagedCallback() -> HasManagedCallback
+com.yasirkula.unity.R -> com.yasirkula.unity.R:
+    void <init>() -> <init>
+com.yasirkula.unity.R$id -> com.yasirkula.unity.R$id:
+    int native_share_app_icon -> native_share_app_icon
+    int native_share_app_name -> native_share_app_name
+    int native_share_grid_view_holder -> native_share_grid_view_holder
+    void <init>() -> <init>
+com.yasirkula.unity.R$layout -> com.yasirkula.unity.R$layout:
+    int native_share_custom_dialog_holder -> native_share_custom_dialog_holder
+    int native_share_grid_element -> native_share_grid_element
+    int native_share_grid_view -> native_share_grid_view
+    void <init>() -> <init>
+com.yasirkula.unity.R$style -> com.yasirkula.unity.R$style:
+    int Theme_NativeShareTransparent -> Theme_NativeShareTransparent
+    void <init>() -> <init>
+org.fmod.FMODAudioDevice -> org.fmod.FMODAudioDevice:
+    java.lang.Thread a -> a
+    boolean b -> b
+    android.media.AudioTrack c -> c
+    boolean d -> d
+    java.nio.ByteBuffer e -> e
+    byte[] f -> f
+    org.fmod.a g -> g
+    int h -> h
+    int i -> i
+    int j -> j
+    int k -> k
+    void <init>() -> <init>
+    void start() -> start
+    void stop() -> stop
+    void close() -> close
+    boolean isRunning() -> isRunning
+    void run() -> run
+    void releaseAudioTrack() -> releaseAudioTrack
+    int fmodGetInfo(int) -> fmodGetInfo
+    int fmodProcess(java.nio.ByteBuffer) -> fmodProcess
+    int fmodProcessMicData(java.nio.ByteBuffer,int) -> fmodProcessMicData
+    int startAudioRecord(int,int,int) -> startAudioRecord
+    void stopAudioRecord() -> stopAudioRecord
+    void <clinit>() -> <clinit>
+org.fmod.a -> org.fmod.a:
+    org.fmod.FMODAudioDevice a -> a
+    java.nio.ByteBuffer b -> b
+    int c -> c
+    int d -> d
+    int e -> e
+    java.lang.Thread f -> f
+    boolean g -> g
+    android.media.AudioRecord h -> h
+    boolean i -> i
+    void <init>(org.fmod.FMODAudioDevice,int,int) -> <init>
+    int a() -> a
+    void b() -> b
+    void c() -> c
+    void run() -> run
+    void d() -> d

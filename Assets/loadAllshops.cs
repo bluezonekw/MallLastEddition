@@ -12,11 +12,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class loadAllshops : MonoBehaviour
 {
     public static AllGiftBox AllGiftBox;
-    public Material Day,Night;
- public static Hall Halls_info;
-public static DataStore[] d;
+    public Material Day, Night;
+    public static Hall Halls_info;
+    public static DataStore[] d;
     public static ShopData s;
-  
+
 
     // Start is called before the first frame update
     void Awake()
@@ -27,10 +27,10 @@ public static DataStore[] d;
         s.NameShop = new string[331];
         try
         {
-           
-            
-          
-            if (File.Exists(Application.persistentDataPath + Path.DirectorySeparatorChar+"Shop.txt"))
+
+
+
+            if (File.Exists(Application.persistentDataPath + Path.DirectorySeparatorChar + "Shop.txt"))
             {
 
                 BinaryFormatter bf = new BinaryFormatter();
@@ -45,32 +45,35 @@ public static DataStore[] d;
 
         }
 
-       
+
         loadAllGift();
-      
-        
- if(int.Parse( DateTime.Now.ToString("HH"))>18 || int.Parse( DateTime.Now.ToString("HH"))<6){
-
-RenderSettings.skybox=Night;
 
 
- }
-else{
+        if (int.Parse(DateTime.Now.ToString("HH")) > 18 || int.Parse(DateTime.Now.ToString("HH")) < 6)
+        {
 
-RenderSettings.skybox=Day;
+            RenderSettings.skybox = Night;
 
 
-}
-        try{
-d=new DataStore[330];
-        var client = new RestClient(@"http://mymall-kw.com/api/V1/get-stores-pagination?from=1&to=330");
-        client.Timeout = -1;
-        var request = new RestRequest(Method.GET);
-        request.AddHeader("password_api", "mall_2021_m3m");
-        request.AddHeader("lang_api", "en");
-        request.AlwaysMultipartFormData = true;
-        IRestResponse response = client.Execute(request);
-        Halls_info = JsonConvert.DeserializeObject<Hall>(response.Content);
+        }
+        else
+        {
+
+            RenderSettings.skybox = Day;
+
+
+        }
+        try
+        {
+            d = new DataStore[330];
+            var client = new RestClient(@"http://mymall-kw.com/api/V1/get-stores-pagination?from=1&to=330");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("password_api", "mall_2021_m3m");
+            request.AddHeader("lang_api", "en");
+            request.AlwaysMultipartFormData = true;
+            IRestResponse response = client.Execute(request);
+            Halls_info = JsonConvert.DeserializeObject<Hall>(response.Content);
 
 
             int y = 0;
@@ -100,18 +103,18 @@ d=new DataStore[330];
 
 
             }
-           
+
             for (int x = 0; x < Halls_info.data.Count; x++)
             {
                 s.NameShop[Halls_info.data[x].id] = Halls_info.data[x].name;
-                
+
                 if (s.BannerUrl[Halls_info.data[x].id] != Halls_info.data[x].banner)
                 {
                     s.BannerUrl[Halls_info.data[x].id] = Halls_info.data[x].banner;
 
                     StartCoroutine(DownloadBannerFile(Halls_info.data[x].banner, Halls_info.data[x].id.ToString()));
 
-                  
+
                 }
 
 
@@ -142,18 +145,18 @@ d=new DataStore[330];
                 file.Close();
             }
 
-
+            ImageLoad=  true;
 
         }
         catch
         {
 
-            
+
         }
 
     }
 
-
+    public static bool ImageLoad=false;
     IEnumerator DownloadBannerFile(string URL, string fileName)
     {
         var uwr = new UnityWebRequest(URL, UnityWebRequest.kHttpVerbGET);
@@ -161,8 +164,8 @@ d=new DataStore[330];
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/Banner");
         }
-       // Debug.Log(Application.persistentDataPath + "/Banner/" + fileName + ".png");
-       
+        // Debug.Log(Application.persistentDataPath + "/Banner/" + fileName + ".png");
+
         string path = Path.Combine(Application.persistentDataPath + "/Banner/" + fileName + ".png");
         uwr.downloadHandler = new DownloadHandlerFile(path);
         yield return uwr.SendWebRequest();
@@ -191,13 +194,13 @@ d=new DataStore[330];
         else
         {
 
-           
+
         }
     }
     public string AuthToken()
     {
 
-        if(!UPDownMenu.Login)
+        if (!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
@@ -209,7 +212,8 @@ d=new DataStore[330];
 
         }
     }
-    public void loadAllGift(){
+    public void loadAllGift()
+    {
         try
         {
             var client = new RestClient("http://mymall-kw.com/api/V1/gifts");
@@ -242,27 +246,27 @@ d=new DataStore[330];
     }
 }
 [System.Serializable]
-    public class GiftBoxData
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int floor { get; set; }
-        public List<string> hall { get; set; }
-        public List<string> stores { get; set; }
-        public string code { get; set; }
-        public int discount { get; set; }
-        public int min_price_discount { get; set; }
-        public int coins { get; set; }
-        public string start_date { get; set; }
-        public string end_date { get; set; }
-        public List<int> users { get; set; }
-        public int is_active { get; set; }
-    }
+public class GiftBoxData
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public int floor { get; set; }
+    public List<string> hall { get; set; }
+    public List<string> stores { get; set; }
+    public string code { get; set; }
+    public int discount { get; set; }
+    public int min_price_discount { get; set; }
+    public int coins { get; set; }
+    public string start_date { get; set; }
+    public string end_date { get; set; }
+    public List<int> users { get; set; }
+    public int is_active { get; set; }
+}
 
-    public class AllGiftBox
-    {
-        public int statsu { get; set; }
-        public string message { get; set; }
-        public List<GiftBoxData> data { get; set; }
-    }
+public class AllGiftBox
+{
+    public int statsu { get; set; }
+    public string message { get; set; }
+    public List<GiftBoxData> data { get; set; }
+}
 

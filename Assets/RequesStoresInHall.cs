@@ -15,27 +15,33 @@ public GameObject WelcomMessage;
 public GameObject Parent;
 
 
-
-    void Start()
+    IEnumerator loadDoorAndBanner()
     {
+
+
+        yield return new WaitUntil(() => loadAllshops.ImageLoad=true);
         try
         {
             var ILoadImages = transform.GetComponentsInChildren<ILoadImage>(false);
-      
-        foreach (var i in ILoadImages)
-        {
 
-           
+            foreach (var i in ILoadImages)
+            {
+
+
                 StartCoroutine(i.DownloadMatrial());
                 StartCoroutine(i.DownloadRawImage());
-          
 
-        }
+
+            }
         }
         catch
         {
 
         }
+    }
+    void Start()
+    {
+        StartCoroutine(loadDoorAndBanner());
 
         foreach (Transform child in Parent.transform)
         {

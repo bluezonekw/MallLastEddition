@@ -15,41 +15,42 @@ public class SingleSToreRequest : MonoBehaviour
     public bool Loaded;
     public FirstStoreRequest SingleStore;
     public List<string> product1, URL1, product2, URL2, product3, URL3, product4, URL4, product5, URL5, product6, URL6, product7, URL7, product8, URL8, product9, URL9;
-    public Dictionary<int, int> SectionId= new Dictionary<int, int>(9);
+    public Dictionary<int, int> SectionId = new Dictionary<int, int>(9);
     public List<String> SlidderRight, slidderLeft, sliddderFront;
     SectionRequest s1;
     public static int StaticStoreId;
     public int StoreId;
     public int NumberOFProductPerRequest;
 
-//public List<Transform> Childreen;
+    //public List<Transform> Childreen;
 
-private void OnDisable() {
+    private void OnDisable()
+    {
 
-}
- 
+    }
+
     // Start is called before the first frame update
     public GameObject GiftBox;
     void Start()
     {
-      /*  Childreen.AddRange( this.transform.GetComponentsInChildren<Transform>(true));
-     
-        for (int x=0;x< Childreen.Count;x++)
-        {
-            print(Childreen[x].gameObject.name);
+        /*  Childreen.AddRange( this.transform.GetComponentsInChildren<Transform>(true));
 
-            if (Childreen[x].gameObject.tag != "UIShop")
-            {
-                Childreen.RemoveAt(x);
-            }
-            else
-            {
-                Childreen[x].gameObject.SetActive(true);
-            }
+          for (int x=0;x< Childreen.Count;x++)
+          {
+              print(Childreen[x].gameObject.name);
+
+              if (Childreen[x].gameObject.tag != "UIShop")
+              {
+                  Childreen.RemoveAt(x);
+              }
+              else
+              {
+                  Childreen[x].gameObject.SetActive(true);
+              }
 
 
-        }
-    */
+          }
+      */
         // System.Random random = new System.Random();
         try
         {
@@ -57,7 +58,7 @@ private void OnDisable() {
             {
                 if (gift.stores.Contains(gameObject.name))
                 {
-
+                    print(gift.name);
                     GameObject g = GameObject.Instantiate(GiftBox, transform);
                     g.GetComponent<BoxGiftcollect>().code = gift.code;
                     g.GetComponent<BoxGiftcollect>().coins = 0;
@@ -65,33 +66,35 @@ private void OnDisable() {
                     g.GetComponent<BoxGiftcollect>().id = gift.id;
                 }
             }
-             
+
         }
         catch
         {
 
         }
-StoreId=int.Parse( gameObject.name);
-       StaticStoreId=StoreId;
+        StoreId = int.Parse(gameObject.name);
+        StaticStoreId = StoreId;
 
     }
-  public string AuthToken()
+    public string AuthToken()
     {
-        try{
-
-        if(!UPDownMenu.Login)
-        {
-            return ApiClasses.Register.data.token;
-        }
-        else
-
+        try
         {
 
-            return ApiClasses.Login.data.original.access_token;
+            if (!UPDownMenu.Login)
+            {
+                return ApiClasses.Register.data.token;
+            }
+            else
 
+            {
+
+                return ApiClasses.Login.data.original.access_token;
+
+            }
         }
-        }
-        catch{
+        catch
+        {
             return " ";
         }
 
@@ -100,7 +103,7 @@ StoreId=int.Parse( gameObject.name);
     {
 
 
-      
+
         var client = new RestClient(@"https://mymall-kw.com/api/V1/get-single-store?store_id=" + StoreId.ToString());
         client.Timeout = -1;
         var request = new RestRequest(Method.GET);
@@ -110,20 +113,20 @@ StoreId=int.Parse( gameObject.name);
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         SingleStore = JsonConvert.DeserializeObject<FirstStoreRequest>(response.Content);
-       if (SingleStore.data.store.parent_id == null)
-            {
+        if (SingleStore.data.store.parent_id == null)
+        {
 
 
 
-                GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
-            }
-            else
-            {
+            GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
+        }
+        else
+        {
 
 
-                GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
+            GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
 
-            }
+        }
         yield return response.Content;
     }
     public void RequestBanneAndLogo()
@@ -133,11 +136,11 @@ StoreId=int.Parse( gameObject.name);
 
         if (CheckEnterShop.EnterShop && CheckEnterShop.EnteredStore == this.gameObject.name)
         {
-              welc=GameObject.Instantiate(requesStores.WelcomMessage, GameObject.FindGameObjectWithTag("MainCanvas").transform);
-    	    StartCoroutine(WaitWelcomeMessage());
+            welc = GameObject.Instantiate(requesStores.WelcomMessage, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+            StartCoroutine(WaitWelcomeMessage());
             StartCoroutine(LoadStoreInfo());
             Loaded = true;
-           
+
 
             try
             {
@@ -149,14 +152,16 @@ StoreId=int.Parse( gameObject.name);
 
                 }
 
-}
-catch{
+            }
+            catch
+            {
 
 
 
-}
+            }
 
-try{
+            try
+            {
                 foreach (RightSlidder s in SingleStore.data.sliders.right)
                 {
                     SlidderRight.Add(s.src);
@@ -164,14 +169,16 @@ try{
 
                 }
 
-}
-catch{
+            }
+            catch
+            {
 
 
 
-}
+            }
 
-try{
+            try
+            {
                 foreach (CenterSlidder s in SingleStore.data.sliders.center)
                 {
                     sliddderFront.Add(s.src);
@@ -180,132 +187,138 @@ try{
 
                 }
 
-}
-catch{
+            }
+            catch
+            {
 
 
 
-}
+            }
 
-                foreach (var sectionms in SingleStore.data.sections)
+            foreach (var sectionms in SingleStore.data.sections)
+            {
+
+
+                if (sectionms.wall == "right" && sectionms.position == "right")
                 {
-                    
-                    
-                    if (sectionms.wall == "right" && sectionms.position == "right")
+                    SectionId.Add(0, sectionms.id);
+
+
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(0,sectionms.id);
-       
+                        foreach (var product in sectionms.products)
+                        {
+                            product1.Add(product.id.ToString());
+                            URL1.Add(product.img);
+                        }
 
-if (sectionms.product!=null)
-{
-                        product1.Add(sectionms.product.id.ToString());
-                        URL1.Add(sectionms.product.img);
-
-}
-
-
-                    }
-                    if (sectionms.wall == "right" && sectionms.position == "center")
-                    {
-                        SectionId.Add(1, sectionms.id);
-
-                    if (sectionms.product!=null)
-{
-                        product2.Add(sectionms.product.id.ToString());
-                        URL2.Add(sectionms.product.img);
-}
-                    }
-
-                    if (sectionms.wall == "right" && sectionms.position == "left")
-                    {
-                        SectionId.Add(2, sectionms.id);
-        
-                    if (sectionms.product!=null)
-{
-                        product3.Add(sectionms.product.id.ToString());
-                        URL3.Add(sectionms.product.img);
-}
                     }
 
 
-                    if (sectionms.wall == "center" && sectionms.position == "right")
+                }
+                if (sectionms.wall == "right" && sectionms.position == "center")
+                {
+                    SectionId.Add(1, sectionms.id);
+
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(3, sectionms.id);
-  
-                    if (sectionms.product!=null)
-{
-                        product4.Add(sectionms.product.id.ToString());
-                        URL4.Add(sectionms.product.img);
-}
+                        foreach (var product in sectionms.products)
+                        {
+                            product2.Add(product.id.ToString());
+                            URL2.Add(product.img);
+                        }
                     }
+                }
 
-                    if (sectionms.wall == "center" && sectionms.position == "center")
+                if (sectionms.wall == "right" && sectionms.position == "left")
+                {
+                    SectionId.Add(2, sectionms.id);
+
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(4, sectionms.id);
-                   
-                    if (sectionms.product!=null)
-{
-                        product5.Add(sectionms.product.id.ToString());
-                        URL5.Add(sectionms.product.img);
-}
+                        foreach (var product in sectionms.products)
+                        {
+                            product3.Add(product.id.ToString());
+                            URL3.Add(product.img);
+                        }
                     }
+                }
 
 
+                if (sectionms.wall == "center" && sectionms.position == "right")
+                {
+                    SectionId.Add(3, sectionms.id);
 
-                    if (sectionms.wall == "center" && sectionms.position == "left")
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(5, sectionms.id);
-                  
-                    if (sectionms.product!=null)
-{
-                        product6.Add(sectionms.product.id.ToString());
-                        URL6.Add(sectionms.product.img);
-}
+                        foreach (var product in sectionms.products)
+                        {
+                            product4.Add(product.id.ToString());
+                            URL4.Add(product.img);
+                        }
                     }
+                }
 
+                if (sectionms.wall == "center" && sectionms.position == "center")
+                {
+                    SectionId.Add(4, sectionms.id);
 
-
-
-                    if (sectionms.wall == "left" && sectionms.position == "right")
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(6, sectionms.id);
-                   
-                    if (sectionms.product!=null)
-{
-                        product7.Add(sectionms.product.id.ToString());
-                        URL7.Add(sectionms.product.img);
-}
+                        foreach (var product in sectionms.products)
+                        {
+                            product5.Add(product.id.ToString());
+                            URL5.Add(product.img);
+                        }
                     }
+                }
 
 
-                    if (sectionms.wall == "left" && sectionms.position == "center")
+
+                if (sectionms.wall == "center" && sectionms.position == "left")
+                {
+                    SectionId.Add(5, sectionms.id);
+
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(7, sectionms.id);
-                  
-                    if (sectionms.product!=null)
-{
-                        product8.Add(sectionms.product.id.ToString());
-                        URL8.Add(sectionms.product.img);
-}
+                        foreach (var product in sectionms.products)
+                        {
+                            product6.Add(product.id.ToString());
+                            URL6.Add(product.img);
+                        }
                     }
+                }
 
 
 
 
+                if (sectionms.wall == "left" && sectionms.position == "right")
+                {
+                    SectionId.Add(6, sectionms.id);
 
-
-                    if (sectionms.wall == "left" && sectionms.position == "left")
+                    if (sectionms.products.Count != 0)
                     {
-                        SectionId.Add(8, sectionms.id);
-                   
-                    if (sectionms.product!=null)
-{
-                        product9.Add(sectionms.product.id.ToString());
-                        URL9.Add(sectionms.product.img);
-}
+                        foreach (var product in sectionms.products)
+                        {
+                            product7.Add(product.id.ToString());
+                            URL7.Add(product.img);
+                        }
                     }
+                }
 
-               
+
+                if (sectionms.wall == "left" && sectionms.position == "center")
+                {
+                    SectionId.Add(7, sectionms.id);
+
+                    if (sectionms.products.Count != 0)
+                    {
+                        foreach (var product in sectionms.products)
+                        {
+                            product8.Add(product.id.ToString());
+                            URL8.Add(product.img);
+                        }
+                    }
                 }
 
 
@@ -313,6 +326,22 @@ if (sectionms.product!=null)
 
 
 
+                if (sectionms.wall == "left" && sectionms.position == "left")
+                {
+                    SectionId.Add(8, sectionms.id);
+
+                    if (sectionms.products.Count != 0)
+                    {
+                        foreach (var product in sectionms.products)
+                        {
+                            product9.Add(product.id.ToString());
+                            URL9.Add(product.img);
+                        }
+                    }
+                }
+
+
+            }
 
 
 
@@ -320,11 +349,17 @@ if (sectionms.product!=null)
 
 
 
-          
+
+
+
+
+
+
+
         }
 
     }
-GameObject welc;
+    GameObject welc;
     // Update is called once per frame
     void Update()
     {
@@ -335,20 +370,21 @@ GameObject welc;
 
 
         }
-       
+
     }
 
 
-IEnumerator WaitWelcomeMessage(){
+    IEnumerator WaitWelcomeMessage()
+    {
         StartCoroutine(DownloadRawImage(welc.GetComponent<WelcomeMessageToShop>().ShopLogo));
-        welc.GetComponent<WelcomeMessageToShop>().ShopName.Text= loadAllshops.s.NameShop[int.Parse(gameObject.name)];
-         
-yield return new WaitForSeconds(5);
-Destroy(welc);
-}
+        welc.GetComponent<WelcomeMessageToShop>().ShopName.Text = loadAllshops.s.NameShop[int.Parse(gameObject.name)];
+
+        yield return new WaitForSeconds(5);
+        Destroy(welc);
+    }
 
 
-   IEnumerator DownloadRawImage( RawImage I)
+    IEnumerator DownloadRawImage(RawImage I)
     {
 
         if (File.Exists(Application.persistentDataPath + "/Door/" + gameObject.name + ".png"))

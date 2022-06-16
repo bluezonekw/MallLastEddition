@@ -23,7 +23,7 @@ public class chooseCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         if (ApiClasses.Vistor)
         {
 

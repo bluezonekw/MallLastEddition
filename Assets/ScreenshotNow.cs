@@ -84,13 +84,13 @@ TPrice.alignment= TextAnchor.MiddleLeft;
 
 
 
-/*
+
         if (Application.platform == RuntimePlatform.Android)
         {
             UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             context = currentActivity.Call<AndroidJavaObject>("getApplicationContext");
-        }*/
+        }
     }
     public void showToastOnUiThread(string toastString)
     {
@@ -148,5 +148,6 @@ TPrice.alignment= TextAnchor.MiddleLeft;
         //new NativeShare().AddFile(filePath).SetSubject("My Mall").SetText("My Recipt").Share();
 
         showToastOnUiThread("Saved in     "+filePath);
+        Closescreen();
     }
 }

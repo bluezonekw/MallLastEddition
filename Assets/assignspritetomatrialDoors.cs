@@ -19,12 +19,12 @@ private Material LocalMat;
         GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
         LocalMat = GetComponent<MeshRenderer>().materials[0];
 
-        if (File.Exists(Application.persistentDataPath + "/Door/" + gameObject.name+ ".png"))
+        if (File.Exists(Application.persistentDataPath + "/Banner/" + gameObject.name+ ".png"))
        
         {
             try
             {
-                byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
+                byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Banner/" + gameObject.name + ".png");
                
                 Texture2D texture = new Texture2D(1, 1);
 

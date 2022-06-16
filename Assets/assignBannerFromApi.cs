@@ -25,11 +25,11 @@ public class assignBannerFromApi : MonoBehaviour, ILoadImage
 
     IEnumerator ILoadImage.DownloadRawImage()
     {
-        if (File.Exists(Path.Combine(Application.persistentDataPath + "/Banner/" +int.Parse( gameObject.name).ToString()+".png")))
+        if (File.Exists(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse( gameObject.name).ToString()+".png")))
         {
             try
             {
-                byte[] byteArray = File.ReadAllBytes(Path.Combine(Application.persistentDataPath + "/Banner/" + int.Parse(gameObject.name).ToString() + ".png"));
+                byte[] byteArray = File.ReadAllBytes(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse(gameObject.name).ToString() + ".png"));
 
 
                 Texture2D texture = new Texture2D(1, 1);

@@ -10,16 +10,16 @@ public class NotifictionItem : MonoBehaviour
 {
     public GameObject Player;
     public RawImage Icon;
-    public RTLTextMeshPro text,Time;
-    public string typeid,type;
-    public GameObject ProductPanel,OrderItem;
+    public RTLTextMeshPro text, Time;
+    public string typeid, type;
+    public GameObject ProductPanel, OrderItem;
     public GameObject Viewbtn;
 
     public GameObject Loading;
     // Start is called before the first frame update
     public void ShowNotification()
     {
-    
+
         var client = new RestClient("http://mymall-kw.com/api/V1/notifications/show");
         client.Timeout = -1;
         var request = new RestRequest(Method.POST);
@@ -38,9 +38,9 @@ public class NotifictionItem : MonoBehaviour
         request.AlwaysMultipartFormData = true;
         request.AddParameter("notificaton_id", gameObject.name);
         IRestResponse response = client.Execute(request);
-        
+
         print(response.Content);
-     
+
 
     }
     public string AuthToken()
@@ -132,8 +132,8 @@ public class NotifictionItem : MonoBehaviour
         else
         if (type == "Store")
         {
-            Gotostore(int.Parse(typeid));
-           
+            Gotostore(int.Parse(typeid) - 1);
+
 
         }
         else
@@ -169,16 +169,16 @@ public class NotifictionItem : MonoBehaviour
         request.AddParameter("notificaton_id", gameObject.name);
         IRestResponse response = client.Execute(request);
 
-        print(gameObject.name+response.Content);
+        print(gameObject.name + response.Content);
         UPDownMenu.instance.UpdateNotificationCount();
         n.NumberofNotification.text = UPDownMenu.instance.NotificationText.text;
     }
     public loadnotification n;
-     void Start()
+    void Start()
     {
         Player = GameObject.FindWithTag("Player");
-        n =FindObjectOfType<loadnotification>();
-       
+        n = FindObjectOfType<loadnotification>();
+
         n.NumberofNotification.text = UPDownMenu.instance.NotificationText.text;
     }
 

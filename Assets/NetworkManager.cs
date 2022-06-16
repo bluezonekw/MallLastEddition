@@ -5,10 +5,12 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using System;
+
+/*
 #if PLATFORM_ANDROID
 using UnityEngine.Android;
 #endif
-
+*/
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
@@ -36,7 +38,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
    
     void Start()
     {
-        
+       /* 
 #if PLATFORM_ANDROID
             if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
             {
@@ -44,6 +46,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
                 dialog = new GameObject();
             }
 #endif
+       */
         //connect();
         // i1.text="sad"+DateTime.Now.Second.ToString();
         try

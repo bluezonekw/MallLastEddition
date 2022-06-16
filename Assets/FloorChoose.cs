@@ -17,6 +17,7 @@ public GameObject boxGift,boxgiftPrefabs;
         {
             foreach (var gift in loadAllshops.AllGiftBox.data)
             {
+                
                 if (gift.hall.Contains(gameObject.name))
                 {
                     System.Random random = new System.Random();

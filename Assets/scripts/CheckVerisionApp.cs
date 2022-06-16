@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class CheckVerisionApp : MonoBehaviour
@@ -18,7 +19,7 @@ public class CheckVerisionApp : MonoBehaviour
         IRestResponse response = client.Execute(request);
         VerisionApi myDeserializedClass = JsonConvert.DeserializeObject<VerisionApi>(response.Content);
         verisionNumber = myDeserializedClass.data;
-        print(Application.version);
+       
         if (Application.version== verisionNumber)
         {
             AppStart.SetActive(true);

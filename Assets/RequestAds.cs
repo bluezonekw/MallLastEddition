@@ -43,6 +43,7 @@ public class RequestAds : MonoBehaviour
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         AdsRequest1 = JsonConvert.DeserializeObject<AdsRequest>(response.Content);
+               // print(response.Content);
         ///Front1
         try
         {
@@ -183,7 +184,7 @@ g.transform.localScale= new Vector3(0, 1, 1);
         try
         {
 
-            I.SetTexture("_MainTex", www.texture);
+            I.SetTexture("_BaseMap", www.texture);
 
         }
         catch

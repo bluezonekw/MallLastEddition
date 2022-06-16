@@ -41,7 +41,7 @@ public GameObject loginGameobject;
 
 
 public void LoadDetailsProduct(){
-print(ApiClasses.Vistor);
+
 if(ApiClasses.Vistor){
     GameObject.Instantiate(loginGameobject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
  }else
@@ -66,9 +66,12 @@ if(ApiClasses.Vistor){
 			IRestResponse response = client.Execute(request);
 
 			print(response.Content);
+            
 
+    GetDetailsProduct.ProductRequst=JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+            loadimageFromApi.ProductRequst = GetDetailsProduct.ProductRequst;
 GameObject g= GameObject.Instantiate(ProductPanel,GameObject.FindGameObjectWithTag("MainCanvas").transform);
-		GetDetailsProduct.ProductRequst=JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+	
             }
 		
 

@@ -2030,6 +2030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+  loginGameobject: {fileID: 0}
 --- !u!1 &2420182525898889135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,7 +2397,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 10
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2420182526093536819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2481,40 +2482,24 @@ MonoBehaviour:
   anim2: {fileID: 7400000, guid: 689c514565461b14891c5e301735b526, type: 2}
   ImageExample: {fileID: 2420182525127684557}
   Panel: {fileID: 1039704508387273546, guid: 4711d1ae64a30d740b19c194c8ef1720, type: 3}
-  PanelLocation: {fileID: 0}
   CostText: {fileID: 274752953727501076}
   SecondDesc: {fileID: 2420182526554693260}
   SecondName: {fileID: 2420182525310703663}
   signs: {fileID: 2420182525809802793}
   Toggles: []
-  toggleEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6766844087706246104}
-        m_TargetAssemblyTypeName: GetDetailsProduct, Assembly-CSharp
-        m_MethodName: Calculate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OptionsId: []
   Quntity: {fileID: 2420182526707964997}
   Popup: {fileID: 3263271564192845684, guid: 3a0e71c7bf9cfb14a8770188d16183e7, type: 3}
-  ToggleExample: {fileID: 3139639525117386616, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
   CostwithDetails: {fileID: 1127705876680694457}
   MessageObject: {fileID: 3371469773755465817}
-  MessageErorr: {fileID: 9018953629134505896}
   MoreDetails: {fileID: 2420182526099797519}
   Total: {fileID: 3849976607575777616}
   Buy: {fileID: 4134460784968201212}
   Options: {fileID: 4047976929036123621}
   Main: {fileID: 2420182525700813129}
   More: {fileID: 2420182524870329489}
+  CartMenu: {fileID: 0}
+  loginGameobject: {fileID: 0}
 --- !u!1 &2420182526099797517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,7 +4104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.500264, y: 0}
+  m_AnchoredPosition: {x: -0.06738515, y: 0}
   m_SizeDelta: {x: 3, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &914895978934978767
@@ -5415,7 +5400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3139639525123901024, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
       propertyPath: m_Text
-      value: "\uFE94\uFEE0\uFEE4\uFEA3 \uFE8E\uFEE7\u0627\n\u0649\uFEAA\uFEA3\u0648\u0627"
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230375936290868535, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
@@ -5518,6 +5507,10 @@ PrefabInstance:
     - target: {fileID: 3139639525117386616, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
       propertyPath: m_Name
       value: Toggle (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139639525123901024, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8230375936290868535, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
       propertyPath: m_Text
@@ -5627,7 +5620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8230375936290868535, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
       propertyPath: m_Text
-      value: 
+      value: "K.D\n\u0664\u0665"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
@@ -5735,6 +5728,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8230375936290868535, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
 --- !u!224 &9199783631291488261 stripped
@@ -5836,6 +5833,10 @@ PrefabInstance:
     - target: {fileID: 3139639525117386616, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
       propertyPath: m_Name
       value: Toggle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139639525123901024, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8230375936290868535, guid: 1545e180b587bb64894d536d5e79338b, type: 3}
       propertyPath: m_Text

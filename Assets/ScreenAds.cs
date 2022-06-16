@@ -30,9 +30,17 @@ request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
 
  Requestclass = JsonConvert.DeserializeObject<ScreenAdsRequest>(response.Content);
-
+            if (Requestclass.data.Count == 0)
+            {
+                //GameObject.Destroy(gameObject);
+            }
 foreach(var image in Requestclass.data){
-    foreach(var slid in image.slider ){
+                if (image.slider.Count == 0)
+                {
+
+                  //  GameObject.Destroy(gameObject);
+                }
+                    foreach (var slid in image.slider ){
 GameObject g=GameObject.Instantiate(imageExample,ImageParent);
 g.name=slid.ads_id.ToString();
 g.SetActive(true);
@@ -58,7 +66,7 @@ StartCoroutine(DownloadRawImage(slid.file,g.GetComponent<RawImage>()));
     }
 
 }
-
+            index = ImageParent.childCount-1;
 ImageParent.GetChild(index).gameObject.GetComponent<Animation>().Play("Show");
 
         }
@@ -83,12 +91,12 @@ if(index==ImageParent.childCount){
 
 ImageParent.GetChild(index).gameObject.GetComponent<Animation>().Play("Show");
 if(ImageParent.GetChild(index).gameObject.GetComponent<UniGifImage>()){
-
-yield return new WaitForSeconds(10f);
+           
+            yield return new WaitForSeconds(10f);
 
 }else{
-
-        yield return new WaitForSeconds(5f);
+           
+        yield return new WaitForSeconds(12f);
 }
         isstartanimate=false;
     }

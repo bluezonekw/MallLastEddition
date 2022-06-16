@@ -36,10 +36,10 @@ public class StoreInfo
     public int id { get; set; }
     public int is_active { get; set; }
     public int category_id { get; set; }
-public string logo{ get; set; }
+    public string logo { get; set; }
     public string parent_id { get; set; }
-  public string name { get; set; }
-  public string welcome_message { get; set; }
+    public string name { get; set; }
+    public string welcome_message { get; set; }
     public StoreProfile profile { get; set; }
 }
 
@@ -74,7 +74,8 @@ public class ProductInfo
     public string img { get; set; }
     public int section_id { get; set; }
     public bool in_favorite { get; set; }
-
+    public string name { get; set; }
+    public string description { get; set; }
 
 }
 
@@ -83,7 +84,7 @@ public class SectionInfo
     public int id { get; set; }
     public string wall { get; set; }
     public string position { get; set; }
-    public ProductInfo product { get; set; }
+    public List<ProductInfo> products { get; set; }
 }
 
 public class SingleStoreRequest

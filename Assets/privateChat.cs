@@ -197,7 +197,7 @@ if(EventSystem.current.currentSelectedGameObject.name.Contains("$"))
     friendicon.texture=EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.GetComponent<MyFriendData>().Icon.texture;
 }
      
-      print( FriendNameInserver+"              00       "+gameObject.name);
+     Debug.Log( FriendNameInserver+"              00       "+gameObject.name);
      
 
 
@@ -258,8 +258,9 @@ request.AlwaysMultipartFormData = true;
 request.AddParameter("paginat", "100");
 request.AddParameter("friend_id",gameObject.name);
 IRestResponse response = client.Execute(request);
-ChatHistory chatHistory=JsonConvert.DeserializeObject<ChatHistory>(response.Content);
-            print(response.Content);
+       Debug.Log(response.Content);
+        ChatHistory chatHistory=JsonConvert.DeserializeObject<ChatHistory>(response.Content);
+           
 if(chatHistory.statsu==1){
 foreach(var message in chatHistory.data){
 
@@ -291,7 +292,7 @@ Create_Send_Voice(recordingNew, message.id.ToString());
    
  }else{
 
-     print(message.text);
+    Debug.Log(message.text);
  }
 
 
@@ -389,7 +390,7 @@ NativeFilePicker.Permission permission = NativeFilePicker.PickFile( ( paths ) =>
             
 
               bytes = File.ReadAllBytes(path);
-              print(bytes.Length);
+             Debug.Log(bytes.Length);
               
             tex.LoadImage(bytes);
             tex.Apply();
@@ -456,7 +457,7 @@ public void SendPrivateVoice(){
         recording.GetData(data, 0);
        recordingNew.SetData(data, 0);
 
-            print("Length   "+((int)((Time.time - startRecordingTime) * recording.frequency)).ToString()+  "   channels  "+recording.channels.ToString()+   "  frequency  "+recording.frequency.ToString());
+           Debug.Log("Length   "+((int)((Time.time - startRecordingTime) * recording.frequency)).ToString()+  "   channels  "+recording.channels.ToString()+   "  frequency  "+recording.frequency.ToString());
 print(data.Length.ToString());
              
             string enc = ArrayOfFloatToString(data);
@@ -493,7 +494,7 @@ public void Create_Send_Voice(AudioClip message,string id){
            var createdtext = GameObject.Instantiate(sendVoiceNote);
            createdtext.GetComponent<VoiceNote>().clip=message;
         createdtext.GetComponent<VoiceNote>().clip.name = id;
-        print(id);
+       Debug.Log(id);
             createdtext.transform.parent = MessageListParent;
              createdtext.transform.localScale = new Vector3(1f, 1f, 1f);
           createdtext.SetActive(true);
@@ -543,10 +544,10 @@ request.AddParameter("text", message);
 request.AddParameter("friend_id", id);
 request.AddParameter("type", type);
 IRestResponse response = client.Execute(request);
-Console.WriteLine(response.Content);
+       Debug.Log(response.Content);
 
-AcceptRequest a=JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
-        print(response.Content);
+        AcceptRequest a=JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
+       Debug.Log(response.Content);
 if(a.statsu==0){
   return false;
 }
@@ -570,17 +571,17 @@ return true;
         {
        MainChat.SendPrivateMessageslocal("Text$$$"+WriteMessageprivate.text,FriendNameInserver);
           if(!SendMessageInMallServer("Text$$$"+WriteMessageprivate.text,FriendNameInserver,"Text")){
-                    print("failed  " + "Text$$$" + WriteMessageprivate.text+"  "+ FriendNameInserver);
+                   Debug.Log("failed  " + "Text$$$" + WriteMessageprivate.text+"  "+ FriendNameInserver);
          return;
        }
 
        Create_Send_Text(WriteMessageprivate.text);
-                print("success  " + "Text$$$" + WriteMessageprivate.text + "  " + FriendNameInserver);
+               Debug.Log("success  " + "Text$$$" + WriteMessageprivate.text + "  " + FriendNameInserver);
                 WriteMessageprivate.text="";
         }
     }
     catch{
-            print("catch  " + "Text$$$" + WriteMessageprivate.text + "  " + FriendNameInserver);
+           Debug.Log("catch  " + "Text$$$" + WriteMessageprivate.text + "  " + FriendNameInserver);
         }
     }
 }

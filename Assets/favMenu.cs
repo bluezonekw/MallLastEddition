@@ -46,6 +46,7 @@ public class favMenu : MonoBehaviour
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
         FavRequest = JsonConvert.DeserializeObject<FavRequest>(response.Content);
         if (FavRequest.data.data.Count == 0)
         {
@@ -58,7 +59,7 @@ public class favMenu : MonoBehaviour
             GameObject.Instantiate(FullMenu, this.transform);
 
         }
-        print(response.Content);
+       Debug.Log(response.Content);
     }
     public void  DestroyFav()
     {

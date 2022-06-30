@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class FullMenuFav : MonoBehaviour
@@ -41,13 +42,23 @@ public class FullMenuFav : MonoBehaviour
     }
     IEnumerator DownLoadSprite(string URL, RawImage s)
     {
-
-        WWW www = new WWW(URL);
-        yield return www;
-
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(URL);
+        yield return www.SendWebRequest();
 
 
-        s.texture = www.texture;
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(URL);
+            s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+        }
+
+
+     
 
     }
     public void DestroyFavMenu()

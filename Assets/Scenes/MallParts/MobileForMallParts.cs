@@ -19,7 +19,7 @@ public class MobileForMallParts : MobileDisableAutoSwitchControls
         }
         catch
         {
-           // print("›‘·       ");
+           //Debug.Log("›‘·       ");
         }
         }
 

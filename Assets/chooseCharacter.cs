@@ -11,7 +11,7 @@ public class chooseCharacter : MonoBehaviour
     
     public NetworkManager n1;
     public GameObject  Male1, Male2, Male3, Female,allScene,ChooseScene;
-    public GameObject Message;
+ 
     public Avatar MaleAvatar1, MaleAvatar2, MaleAvatar3, FemaleAvater;
     public Animator a1;
     public GameObject CameraPostion;
@@ -47,7 +47,7 @@ public class chooseCharacter : MonoBehaviour
                     a1.avatar = FemaleAvater;
                     ChooseScene.SetActive(false);
                     allScene.SetActive(true);
-                    Message.SetActive(true);
+                  
                     isChooseChar = true;
                     n1.play();
                     CameraPostion.transform.localPosition = new Vector3(-0.05f, 1.375f, 0);
@@ -71,7 +71,7 @@ public class chooseCharacter : MonoBehaviour
                         a1.avatar = FemaleAvater;
                         ChooseScene.SetActive(false);
                         allScene.SetActive(true);
-                        Message.SetActive(true);
+                      
                         isChooseChar = true;
                         n1.play();
                         CameraPostion.transform.localPosition = new Vector3(-0.05f, 1.375f, 0);
@@ -103,7 +103,7 @@ public class chooseCharacter : MonoBehaviour
         a1.avatar = MaleAvatar1;
         ChooseScene.SetActive(false);
         allScene.SetActive(true);
-        Message.SetActive(true);
+
         isChooseChar = true;
 n1.play();
 
@@ -118,7 +118,7 @@ Playerobject.SetActive(true);
         a1.avatar = MaleAvatar2;
         ChooseScene.SetActive(false);
         allScene.SetActive(true);
-        Message.SetActive(true);
+
         isChooseChar = true;
        n1.play();
        CameraPostion.transform.localPosition=new Vector3 (-0.05f,1.375f,0);
@@ -131,7 +131,7 @@ Playerobject.SetActive(true);
         a1.avatar = MaleAvatar3;
         ChooseScene.SetActive(false);
         allScene.SetActive(true);
-        Message.SetActive(true);
+
         isChooseChar = true;
         if(!ApiClasses.Vistor){
        n1.play();

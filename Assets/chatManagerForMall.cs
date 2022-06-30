@@ -24,7 +24,7 @@ public class chatManagerForMall : MonoBehaviour , IChatClientListener
     public void DebugReturn (ExitGames.Client.Photon.DebugLevel level, string message)
     {
        
-        print(message);
+       Debug.Log(message);
     }
 
     public void OnDisconnected ()

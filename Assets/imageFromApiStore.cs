@@ -16,9 +16,21 @@ public class imageFromApiStore : MonoBehaviour
     }
     IEnumerator DownloadImage(string url,Image I)
     {
-        WWW www = new WWW(url);
-        yield return www;
-        I.sprite = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(url);
+            Texture2D t = ((DownloadHandlerTexture)www.downloadHandler).texture;
+ I.sprite = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0, 0));
+        }
+
 
     }
     // Update is called once per frame

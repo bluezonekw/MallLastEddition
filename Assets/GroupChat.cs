@@ -37,7 +37,7 @@ public float privatesizescroll;
 
     public void OnGetPublicMessages(string[] senders, object[] messages)
     { 
-        print(senders[0]+"      "+ messages[0].ToString()+"       00000000");
+       Debug.Log(senders[0]+"      "+ messages[0].ToString()+"       00000000");
        for(int i=0 ;i<senders.Length ;i++){
            if(senders[i]!=ID().ToString()){
  PrivateRecieve.text=messages[i].ToString()+"   : "+senders[i];

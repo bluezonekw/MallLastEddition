@@ -65,7 +65,7 @@ public class TestBanner : MonoBehaviour
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
 
-
+       Debug.Log(response.Content);
         Hall = JsonConvert.DeserializeObject<Hall>(response.Content);
         yield return 0;
     }
@@ -104,7 +104,7 @@ public class TestBanner : MonoBehaviour
         else
         {
 
-          //  print(path);
+          // Debug.Log(path);
         }
     }
 

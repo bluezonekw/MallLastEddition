@@ -111,9 +111,9 @@ Floor3_2.SetActive(true);
 
 
 EmptyShops1.SetActive(true);
-EmptyShops4.SetActive(true);
 EmptyShops2.SetActive(true);
 EmptyShops3.SetActive(false);
+EmptyShops4.SetActive(true);
 EmptyShops5.SetActive(true);
 EmptyShops6.SetActive(false);
 

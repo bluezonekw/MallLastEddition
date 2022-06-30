@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class imageUrl : MonoBehaviour
@@ -22,7 +23,7 @@ public class imageUrl : MonoBehaviour
         UImage = RawImageurl;
         loadimage = true;
 
-        print("ddddddddddddddddd");
+       Debug.Log("ddddddddddddddddd");
         return i;
 
 
@@ -36,49 +37,55 @@ public class imageUrl : MonoBehaviour
             StartCoroutine(DownloadRawImage(UImage, i));
 
             loadimage = false;
-            print("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+           Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
         }
         
     }
     IEnumerator DownloadRawImage(string url, RawImage I)
     {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
 
 
-        WWW www = new WWW(url);
-        yield return www;
-        try
+        if (www.result != UnityWebRequest.Result.Success)
         {
-
-            I.texture = www.texture;
-            print(" Error is          :  " + www.error);
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(url);
+            I.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
-        catch (Exception ex)
-        {
 
-            print("eeeeeeeeeeeeeeeeee             " + ex.Message);
-
-        }
+       
 
     }
 
     IEnumerator DownloadImage(string url, RawImage I)
     {
-        WWW www = new WWW(url);
-        yield return www;
-        try
-        {
 
-            I.texture = www.texture;
-            print(" Error is          :  " + www.error);
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(url);
+            I.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
-        catch(Exception ex)
-        {
 
-            print("eeeeeeeeeeeeeeeeee             " + ex.Message);
 
-        }
+
+
+
+
+       
 
     }
 }

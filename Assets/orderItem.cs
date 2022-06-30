@@ -30,12 +30,22 @@ public void OpenOrderDetails()
 public IEnumerator DownLoadSprite(string URL)
     {
 
-        WWW www = new WWW(URL);
-        yield return www;
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(URL);
+        yield return www.SendWebRequest();
 
 
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(URL);
+            Icon.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
-        Icon.texture = www.texture;
+        }
+
+       
 
     }
     // Update is called once per frame

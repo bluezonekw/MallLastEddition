@@ -371,7 +371,7 @@ if (privateScroll.size != privatesizescroll)
         }
         else
         {
-            print("message is spare");
+           Debug.Log("message is spare");
         }
 
     }
@@ -408,10 +408,10 @@ if (privateScroll.size != privatesizescroll)
         chatClient.AddFriends(friends.ToArray());
         /*List<string> friendsStatus=new List<string>();
         PhotonNetwork.FindFriends(friendsStatus.ToArray());
-        print(friendsStatus.Count);
+       Debug.Log(friendsStatus.Count);
          foreach(var p in  PhotonNetwork.PlayerList )
          {
-        print(p.ToStringFull());
+       Debug.Log(p.ToStringFull());
 
 
          }*/
@@ -433,7 +433,7 @@ if (privateScroll.size != privatesizescroll)
                 m.sender = senders[i];
                 m.message = messages[i].ToString();
                 chatMessages.Insert(0, m);
-                print(messages[i] + "/" + senders[i]);
+               Debug.Log(messages[i] + "/" + senders[i]);
                 EnterChat = true;
             }
         }

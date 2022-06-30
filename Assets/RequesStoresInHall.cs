@@ -14,7 +14,7 @@ public GameObject WelcomMessage;
     public List<GameObject> ShopLocker;
 public GameObject Parent;
 
-
+    public GameObject banner,Door;
     IEnumerator loadDoorAndBanner()
     {
 
@@ -22,17 +22,14 @@ public GameObject Parent;
         yield return new WaitUntil(() => loadAllshops.ImageLoad=true);
         try
         {
-            var ILoadImages = transform.GetComponentsInChildren<ILoadImage>(false);
-
-            foreach (var i in ILoadImages)
-            {
+            
 
 
-                StartCoroutine(i.DownloadMatrial());
-                StartCoroutine(i.DownloadRawImage());
+                StartCoroutine(Door.GetComponent<assignspritetomatrialDoors>().DownloadMatrial());
+                StartCoroutine(banner.GetComponent<assignBannerFromApi>().DownloadRawImage());
 
 
-            }
+            
         }
         catch
         {

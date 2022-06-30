@@ -17,6 +17,7 @@ public class CheckVerisionApp : MonoBehaviour
         var request = new RestRequest(Method.GET);
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
         VerisionApi myDeserializedClass = JsonConvert.DeserializeObject<VerisionApi>(response.Content);
         verisionNumber = myDeserializedClass.data;
        
@@ -32,7 +33,12 @@ public class CheckVerisionApp : MonoBehaviour
         
     }
 
+    public void DestoryMessage()
+    {
 
+ AppStart.SetActive(true);
+   Error.SetActive(false);
+    }
     public void tryAgain()
     {
 

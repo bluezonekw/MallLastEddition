@@ -56,7 +56,7 @@ public class cartController : MonoBehaviour
    /* public void saveTotal()
     {
         string total = totalPrice.Text.Replace(" جنيه", "");
-        print(total);
+       Debug.Log(total);
         PlayerPrefs.SetString("MallCost", total);
     }*/
    /* public void back()
@@ -79,7 +79,7 @@ public class cartController : MonoBehaviour
 
 /*    IEnumerator getCartItems(string url)
     {
-        print(finished);
+       Debug.Log(finished);
         while (!finished)
         {
             yield return new WaitForSeconds(0.1f);
@@ -122,7 +122,7 @@ public class cartController : MonoBehaviour
 
  /*   void Parse(string response)
     {
-        print(response);
+       Debug.Log(response);
         float total = 0.0f;
         for (int i = content.transform.childCount - 1; i >= 0; i--)
         {

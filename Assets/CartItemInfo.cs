@@ -62,9 +62,9 @@ request.AddHeader("password-api", "mall_2021_m3m");
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
+           Debug.Log(response.Content);
 
-
-var foundCanvasObjects = FindObjectsOfType<CartInfo>();
+            var foundCanvasObjects = FindObjectsOfType<CartInfo>();
 foundCanvasObjects[0].counterController.Text=(int.Parse(foundCanvasObjects[0].counterController.Text)-1).ToString();
 Destroy(this.gameObject);
 
@@ -92,9 +92,9 @@ else {
         request.AddParameter("quantity", RealQuntity);
         request.AddParameter("_method", "put");
         IRestResponse response = client.Execute(request);
+           Debug.Log(response.Content);
 
-
-}
+        }
 
 
     }

@@ -58,8 +58,8 @@ public void ProductDetailsMenu ()
 			request.AddHeader("auth-token",AuthToken());
 			request.AlwaysMultipartFormData = true;
 			IRestResponse response = client.Execute(request);
-
-			loadimageFromApi.ProductRequst=JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+           Debug.Log(response.Content);
+            loadimageFromApi.ProductRequst=JsonConvert.DeserializeObject<StoreProduct>(response.Content);
 
 GameObject.Instantiate(ProductPanel,GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			}
@@ -92,7 +92,7 @@ GameObject.Instantiate(ProductPanel,GameObject.FindGameObjectWithTag("MainCanvas
             request.AlwaysMultipartFormData = true;
             request.AddParameter("product_id", PeoductId);
             IRestResponse response = client.Execute(request);
-            
+           Debug.Log(response.Content);
             issign = !issign;
             if (issign)
             {
@@ -109,7 +109,7 @@ GameObject.Instantiate(ProductPanel,GameObject.FindGameObjectWithTag("MainCanvas
         }
         catch
         {
-            print("conectionFailed");
+           Debug.Log("conectionFailed");
         }
 var foundCanvasObjects = FindObjectsOfType<FavMenuConfig>();
 foundCanvasObjects[0].Counts.Text=(int.Parse(foundCanvasObjects[0].Counts.Text)-1).ToString();

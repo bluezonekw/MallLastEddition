@@ -3,6 +3,7 @@ using RestSharp;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class CartInfo : MonoBehaviour
@@ -69,7 +70,8 @@ else
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
-CheckEnterShop.CartEmpty=true;
+       Debug.Log(response.Content);
+        CheckEnterShop.CartEmpty=true;
         cartController.CartResponse = null;
         foreach(Transform child in CartItemTransform)
         {
@@ -137,10 +139,10 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
 
 
-
-cartController.CartResponse=JsonConvert.DeserializeObject<CartResponse>(response.Content);
+        cartController.CartResponse=JsonConvert.DeserializeObject<CartResponse>(response.Content);
 
         if (cartController.CartResponse.statsu == 1)
         {
@@ -167,7 +169,7 @@ cartController.CartResponse=JsonConvert.DeserializeObject<CartResponse>(response
         else
         {
 
-            print(cartController.CartResponse.message.ToString());
+           Debug.Log(cartController.CartResponse.message.ToString());
 
         }
 
@@ -208,8 +210,9 @@ foundCanvasObjects[0].UpdateCartCount();
             request.AddHeader("auth-token", AuthToken());
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
+           Debug.Log(response.Content);
             cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
-            print(response.Content);
+           Debug.Log(response.Content);
             if (cartController.CartResponse.data.Carts.Count == 0)
             {
               
@@ -220,14 +223,21 @@ foundCanvasObjects[0].UpdateCartCount();
     }
     IEnumerator DownLoadSprite(string URL, RawImage s)
     {
-
-        WWW www = new WWW(URL);
-        yield return www;
-
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(URL);
+        yield return www.SendWebRequest();
 
 
-        s.texture = www.texture;
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+           
+        }
 
+  
     }
     // Update is called once per frame
     void Update()

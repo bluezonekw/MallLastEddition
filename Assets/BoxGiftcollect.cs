@@ -55,7 +55,8 @@ request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
 GetGift getGift=JsonConvert.DeserializeObject<GetGift>(response.Content);
-if(getGift.statsu==0){
+       Debug.Log(response.Content);
+        if (getGift.statsu==0){
 GameObject g=  GameObject.Instantiate(Code, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 
 g.GetComponent<optionPopUp>().Message.Text=getGift.message;

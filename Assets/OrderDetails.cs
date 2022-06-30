@@ -5,6 +5,8 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+
 public class OrderDetails : MonoBehaviour
 {
 public Transform Item;
@@ -132,13 +134,22 @@ catch{}
 }
 IEnumerator DownLoadSprite(string URL,RawImage I1)
     {
-
-        WWW www = new WWW(URL);
-        yield return www;
-
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(URL);
+        yield return www.SendWebRequest();
 
 
-        I1.texture = www.texture;
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(URL);
+            I1.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+        }
+
+
 
     }
 public string AuthToken()

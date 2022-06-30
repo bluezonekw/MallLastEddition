@@ -28,7 +28,7 @@ public int ID()
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
        
-      print(newPlayer.ToStringFull());
+     Debug.Log(newPlayer.ToStringFull());
       createplayer(newPlayer.NickName);
  //   PhotonNetwork.InstantiateRoomObject(playerPerfab.name,new Vector3(-60.2f,-0.8f,-85f),Quaternion.identity);
       

@@ -58,7 +58,8 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
+       Debug.Log(response.Content);
+        AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
 if(myDeserializedClass.statsu==0){
 
     return;
@@ -91,7 +92,8 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
+       Debug.Log(response.Content);
+        AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
 if(myDeserializedClass.statsu==0){
 
     return;
@@ -123,9 +125,9 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
 
-
-AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
+        AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
 if(myDeserializedClass.statsu==0){
 
     return;
@@ -159,7 +161,8 @@ request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 request.AddParameter("user_id", gameObject.name);
 IRestResponse response = client.Execute(request);
-AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
+       Debug.Log(response.Content);
+        AcceptRequest myDeserializedClass = JsonConvert.DeserializeObject<AcceptRequest>(response.Content);
 if(myDeserializedClass.statsu==0){
 
     return;

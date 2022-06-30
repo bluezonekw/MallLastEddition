@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 using System.IO;
 using TMPro;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public class loadAllshops : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class loadAllshops : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        s = new ShopData();
+        DontDestroyOnLoad(this);
+        s = (ShopData)ScriptableObject.CreateInstance(typeof(ShopData));
         s.BannerUrl = new string[331];
         s.DoorUrl = new string[331];
         s.NameShop = new string[331];
@@ -46,7 +48,7 @@ public class loadAllshops : MonoBehaviour
         }
 
 
-        loadAllGift();
+     
 
 
         if (int.Parse(DateTime.Now.ToString("HH")) > 18 || int.Parse(DateTime.Now.ToString("HH")) < 6)
@@ -104,29 +106,43 @@ public class loadAllshops : MonoBehaviour
 
             }
 
-            for (int x = 0; x < Halls_info.data.Count; x++)
-            {
-                s.NameShop[Halls_info.data[x].id] = Halls_info.data[x].name;
-
-                if (s.BannerUrl[Halls_info.data[x].id] != Halls_info.data[x].banner)
-                {
-                    s.BannerUrl[Halls_info.data[x].id] = Halls_info.data[x].banner;
-
-                    StartCoroutine(DownloadBannerFile(Halls_info.data[x].banner, Halls_info.data[x].id.ToString()));
 
 
-                }
 
 
-                if (Halls_info.data[x].logo != s.DoorUrl[Halls_info.data[x].id])
-                {
-                    s.DoorUrl[Halls_info.data[x].id] = Halls_info.data[x].logo;
-                    StartCoroutine(DownloadDoorFile(Halls_info.data[x].logo, Halls_info.data[x].id.ToString()));
+
+            StartCoroutine(DownloadBannerFile());
+            StartCoroutine(DownloadDoorFile());
+            StartCoroutine(LoadImage());
+  StartCoroutine(loadGifts());
+
+        }
+        catch
+        {
 
 
-                }
-            }
+        }
 
+    }
+    public bool Door, Banner;
+
+    IEnumerator loadGifts()
+    {
+       Debug.Log("Y");
+        yield return new WaitUntil(() => SceneManager.GetActiveScene().buildIndex==1);
+       Debug.Log("X");
+
+
+        loadAllGift();
+    }
+
+
+        IEnumerator LoadImage()
+    {
+
+        yield return new WaitUntil(() => (Door && Banner));
+        try
+        {
             if (!File.Exists(Application.persistentDataPath + Path.DirectorySeparatorChar + "Shop.txt"))
             {
 
@@ -144,59 +160,127 @@ public class loadAllshops : MonoBehaviour
                 bf.Serialize(file, json);
                 file.Close();
             }
-
-            ImageLoad=  true;
-
         }
         catch
         {
 
-
         }
+        ImageLoad = true;
+
+
 
     }
 
-    public static bool ImageLoad=false;
-    IEnumerator DownloadBannerFile(string URL, string fileName)
+    public static bool ImageLoad = false;
+    IEnumerator DownloadBannerFile()
     {
-        var uwr = new UnityWebRequest(URL, UnityWebRequest.kHttpVerbGET);
-        if (!Directory.Exists(Application.persistentDataPath + "/Banner"))
+        string URL = "", fileName = "";
+        for (int x = 0; x < Halls_info.data.Count; x++)
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/Banner");
-        }
-        // Debug.Log(Application.persistentDataPath + "/Banner/" + fileName + ".png");
+            s.NameShop[Halls_info.data[x].id] = Halls_info.data[x].name;
 
-        string path = Path.Combine(Application.persistentDataPath + "/Banner/" + fileName + ".png");
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-        if (uwr.result != UnityWebRequest.Result.Success)
-            Debug.LogError(uwr.error);
-        else
-        {
+            if (s.BannerUrl[Halls_info.data[x].id] != Halls_info.data[x].banner)
+            {
+                s.BannerUrl[Halls_info.data[x].id] = Halls_info.data[x].banner;
+                URL = Halls_info.data[x].banner;
+                fileName = Halls_info.data[x].id.ToString();
+                var uwr = new UnityWebRequest(URL, UnityWebRequest.kHttpVerbGET);
+                if (!Directory.Exists(Application.persistentDataPath + "/Banner"))
+                {
+                    Directory.CreateDirectory(Application.persistentDataPath + "/Banner");
+                }
+                // Debug.Log(Application.persistentDataPath + "/Banner/" + fileName + ".png");
+
+                string path = Path.Combine(Application.persistentDataPath + "/Banner/" + fileName + ".png");
+                try
+                {
+                    uwr.downloadHandler = new DownloadHandlerFile(path);
+                }
+                catch
+                {
+
+
+                }
+
+                yield return uwr.SendWebRequest();
+                if (uwr.result != UnityWebRequest.Result.Success)
+                    Debug.LogError(uwr.error);
+                else
+                {
+
+                }
+
+
+
+
+
+            }
 
         }
+
+        Banner = true;
+
     }
 
 
 
-    IEnumerator DownloadDoorFile(string URL, string fileName)
+    IEnumerator DownloadDoorFile()
     {
-        var uwr = new UnityWebRequest(URL, UnityWebRequest.kHttpVerbGET);
-        if (!Directory.Exists(Application.persistentDataPath + "/Door"))
-        {
-            Directory.CreateDirectory(Application.persistentDataPath + "/Door");
-        }
-        string path = Path.Combine(Application.persistentDataPath + "/Door/" + fileName + ".png");
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-        if (uwr.result != UnityWebRequest.Result.Success)
-            Debug.LogError(uwr.error);
-        else
+        string URL = "", fileName = "";
+        for (int x = 0; x < Halls_info.data.Count; x++)
         {
 
 
+
+
+
+
+
+
+
+
+
+
+
+            if (Halls_info.data[x].logo != s.DoorUrl[Halls_info.data[x].id])
+            {
+                s.DoorUrl[Halls_info.data[x].id] = Halls_info.data[x].logo;
+
+                URL = Halls_info.data[x].logo;
+                fileName = Halls_info.data[x].id.ToString();
+                var uwr = new UnityWebRequest(URL, UnityWebRequest.kHttpVerbGET);
+                if (!Directory.Exists(Application.persistentDataPath + "/Door"))
+                {
+                    Directory.CreateDirectory(Application.persistentDataPath + "/Door");
+                }
+                string path = Path.Combine(Application.persistentDataPath + "/Door/" + fileName + ".png");
+                try
+                {
+                    uwr.downloadHandler = new DownloadHandlerFile(path);
+                }
+                catch
+                {
+
+
+                }
+                yield return uwr.SendWebRequest();
+                if (uwr.result != UnityWebRequest.Result.Success)
+                    Debug.LogError(uwr.error);
+                else
+                {
+
+
+                }
+            }
+
+
+
+
         }
+
+        Door = true;
     }
+
     public string AuthToken()
     {
 

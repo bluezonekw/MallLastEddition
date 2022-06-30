@@ -37,7 +37,7 @@ public class SingleSToreRequest : MonoBehaviour
 
           for (int x=0;x< Childreen.Count;x++)
           {
-              print(Childreen[x].gameObject.name);
+             Debug.Log(Childreen[x].gameObject.name);
 
               if (Childreen[x].gameObject.tag != "UIShop")
               {
@@ -58,7 +58,7 @@ public class SingleSToreRequest : MonoBehaviour
             {
                 if (gift.stores.Contains(gameObject.name))
                 {
-                    print(gift.name);
+                   Debug.Log(gift.name);
                     GameObject g = GameObject.Instantiate(GiftBox, transform);
                     g.GetComponent<BoxGiftcollect>().code = gift.code;
                     g.GetComponent<BoxGiftcollect>().coins = 0;

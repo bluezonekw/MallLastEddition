@@ -62,6 +62,7 @@ public class RequestDiscount : MonoBehaviour
         request.AddParameter("coupon_code", CouponCode);
         request.AddParameter("store_id", SingleSToreRequest.StaticStoreId);
         IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
         coupon coupon= JsonConvert.DeserializeObject<coupon>(response.Content);
         if (coupon.statsu == 1)
         {

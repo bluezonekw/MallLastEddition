@@ -1377,7 +1377,7 @@ Halls[0].SetActive(true);
 
             }
 
-
+            setfalse();
         }
 
 

@@ -3,6 +3,7 @@ using RestSharp;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class loadnotification : MonoBehaviour
@@ -30,6 +31,7 @@ public class loadnotification : MonoBehaviour
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
         notification = JsonConvert.DeserializeObject<NotificationResponse>(response.Content);
       
         foreach (var n in notification.data)
@@ -64,12 +66,22 @@ public class loadnotification : MonoBehaviour
     }
     IEnumerator DownloadRawImage(string url,RawImage image)
     {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(url);
+            image.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+        }
+
       
-
-            WWW www = new WWW(url);
-            yield return www;
-
-          image.texture = www.texture;
 
      
 

@@ -39,7 +39,7 @@ public class NotifictionItem : MonoBehaviour
         request.AddParameter("notificaton_id", gameObject.name);
         IRestResponse response = client.Execute(request);
 
-        print(response.Content);
+       Debug.Log(response.Content);
 
 
     }
@@ -87,7 +87,7 @@ public class NotifictionItem : MonoBehaviour
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
 
-            print(response.Content);
+           Debug.Log(response.Content);
 
             GameObject g = GameObject.Instantiate(ProductPanel, GameObject.FindGameObjectWithTag("MainCanvas").transform);
             GetDetailsProduct.ProductRequst = JsonConvert.DeserializeObject<StoreProduct>(response.Content);
@@ -169,7 +169,7 @@ public class NotifictionItem : MonoBehaviour
         request.AddParameter("notificaton_id", gameObject.name);
         IRestResponse response = client.Execute(request);
 
-        print(gameObject.name + response.Content);
+       Debug.Log(gameObject.name + response.Content);
         UPDownMenu.instance.UpdateNotificationCount();
         n.NumberofNotification.text = UPDownMenu.instance.NotificationText.text;
     }

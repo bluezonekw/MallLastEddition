@@ -121,16 +121,24 @@ public class GetData : MonoBehaviour
             url= ApiClasses.Login.data.original.user.image;
 
         }
-         if(url!=""){
-            url=@"https://mymall-kw.com/assets/users/"+url;
+        if (url != "") {
+           url = @"https://mymall-kw.com/assets/users/" + url;
 
-                WWW wWW =new WWW(url);
-       yield return wWW;
-       print(wWW.texture.EncodeToPNG().Length);
-       t.texture=wWW.texture;
-         }else{
-        yield  return null;
-         }
+        }
+            UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+            yield return www.SendWebRequest();
+
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(url);
+            t.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+        }
    
     }
     
@@ -166,8 +174,8 @@ request.AddHeader("lang-api", "en");
 request.AddHeader("auth-token", AuthToken());
 request.AddFile("image", path);
 IRestResponse response = client.Execute(request);
-
-UploadImageResponse UploadImageResponse=JsonConvert.DeserializeObject<UploadImageResponse>(response.Content);
+       Debug.Log(response.Content);
+        UploadImageResponse UploadImageResponse=JsonConvert.DeserializeObject<UploadImageResponse>(response.Content);
 
     if(UploadImageResponse.statsu==1){
 

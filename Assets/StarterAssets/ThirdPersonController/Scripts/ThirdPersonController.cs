@@ -116,7 +116,7 @@ namespace StarterAssets
 		private void Update()
 		{
 			_hasAnimator = TryGetComponent(out _animator);
-			
+
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -144,12 +144,15 @@ namespace StarterAssets
 
 			// update animator if using character
 			if (_hasAnimator)
-			{try {
-				_animator.SetBool(_animIDGrounded, Grounded);
-			}
-			catch{
+			{
+				try
+				{
+					//_animator.SetBool(_animIDGrounded, Grounded);
+				}
+				catch
+				{
 
-			}
+				}
 			}
 		}
 
@@ -227,7 +230,7 @@ namespace StarterAssets
 			if (_hasAnimator)
 			{
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
-				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+				//_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
 			}
 		}
 
@@ -241,17 +244,21 @@ namespace StarterAssets
 				// update animator if using character
 				if (_hasAnimator)
 				{
-					try{
+					try
+					{
 
-					_animator.SetBool(_animIDJump, false);
+						//_animator.SetBool(_animIDJump, false);
 					}
-					catch{
+					catch
+					{
 
 					}
-					try{
-					_animator.SetBool(_animIDFreeFall, false);
+					try
+					{
+						//_animator.SetBool(_animIDFreeFall, false);
 					}
-					catch{
+					catch
+					{
 
 					}
 				}
@@ -271,10 +278,12 @@ namespace StarterAssets
 					// update animator if using character
 					if (_hasAnimator)
 					{
-						try{
-						_animator.SetBool(_animIDJump, true);
+						try
+						{
+							_animator.SetBool(_animIDJump, true);
 						}
-						catch{
+						catch
+						{
 
 						}
 					}
@@ -301,12 +310,14 @@ namespace StarterAssets
 					// update animator if using character
 					if (_hasAnimator)
 					{
-						try{
-						_animator.SetBool(_animIDFreeFall, true);
+						try
+						{
+							//_animator.SetBool(_animIDFreeFall, true);
 						}
-						catch{
+						catch
+						{
 
-							
+
 						}
 					}
 				}
@@ -336,7 +347,7 @@ namespace StarterAssets
 
 			if (Grounded) Gizmos.color = transparentGreen;
 			else Gizmos.color = transparentRed;
-			
+
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}

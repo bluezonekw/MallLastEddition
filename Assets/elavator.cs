@@ -25,7 +25,7 @@ public class elavator : MonoBehaviour
         currentindex=double.Parse(gameObject.name);
 foreach(Transform child in ParentOfsteps.transform)
  {
-     print(child.gameObject.name);
+    Debug.Log(child.gameObject.name);
      steps.Add(child);
  }        if(UPOrDown==typeofElavator.Up){
 Stepper=-1f;
@@ -94,7 +94,7 @@ print(Elavators.Count.ToString()+"   "+gameObject.name);
              Stepindex++;
              }
 
-     print("HaHaahhhh"+"    "+Stepindex.ToString()+"            "+ gameObject.name);
+    Debug.Log("HaHaahhhh"+"    "+Stepindex.ToString()+"            "+ gameObject.name);
       yield return waitTime;
       }
              

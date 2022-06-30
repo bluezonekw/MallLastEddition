@@ -59,7 +59,7 @@ public  void SendPrivateMessageslocal(string Message,string FriendName)
         {
        
            chatClient.SendPrivateMessage(FriendName,Message);
-           print("Message Sent");
+          Debug.Log("Message Sent");
         }
     }
     catch{
@@ -269,7 +269,7 @@ FooterGroupChat.SetActive(true);
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-          print(senders[0]+"      "+ messages[0].ToString()+"      11111111");
+         Debug.Log(senders[0]+"      "+ messages[0].ToString()+"      11111111");
       Gchat.OnGetPublicMessages(senders,messages);
     }
 
@@ -280,7 +280,7 @@ FooterGroupChat.SetActive(true);
 
         
 GameObject.Find(sender).GetComponent<privateChat>().iGetPrivateMessagelocal(message.ToString(),"send");
- print(sender+"   sssss   "+ message.ToString());
+Debug.Log(sender+"   sssss   "+ message.ToString());
      }
     catch{
 

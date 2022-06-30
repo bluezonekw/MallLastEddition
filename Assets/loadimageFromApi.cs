@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using RestSharp;
 using Newtonsoft.Json;
+using UnityEngine.Networking;
 
 public class loadimageFromApi : MonoBehaviour
 {
@@ -34,21 +35,10 @@ public class loadimageFromApi : MonoBehaviour
     {
 
 
-        //loadallProductinsections(0);
-        //loadallProductinsections(1);
-        //loadallProductinsections(2);
-        //loadallProductinsections(3);
-        //loadallProductinsections(4);
-        //loadallProductinsections(5);
-        //loadallProductinsections(6);
-        //loadallProductinsections(0);
 
-        //loadallProductinsections(7);
-        //loadallProductinsections(8);
 
-      
-       
-       
+
+
 
         for (int x = 0; x < 5; x++)
         {
@@ -117,16 +107,17 @@ public class loadimageFromApi : MonoBehaviour
 
 
 
-        print(Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name + "      product id");
+
 
         try
         {
-            if (MenuCreated!=null) {
+            if (MenuCreated != null)
+            {
                 GameObject.DestroyImmediate(MenuCreated);
             }
-           
-            var client = new RestClient(@"http://mymall-kw.com/api/V1/get-single-product/" + Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] ).gameObject.name);
-        
+
+            var client = new RestClient(@"http://mymall-kw.com/api/V1/get-single-product/" + Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.name);
+
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("password-api", "mall_2021_m3m");
@@ -140,22 +131,24 @@ public class loadimageFromApi : MonoBehaviour
                 request.AddHeader("lang-api", "ar");
 
             }
-            if(AuthToken()!="0"){
-            request.AddHeader("auth-token", AuthToken());
-          
+            if (AuthToken() != "0")
+            {
+                request.AddHeader("auth-token", AuthToken());
+
             }
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
-           
-            ProductRequst = JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+            Debug.Log(response.Content);
             
+            ProductRequst = JsonConvert.DeserializeObject<StoreProduct>(response.Content);
+          
             if (ProductRequst.statsu == 1)
             {
-            
-                     MenuCreated = GameObject.Instantiate(DetailsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+
+                MenuCreated = GameObject.Instantiate(DetailsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 
 
-               
+
             }
         }
         catch
@@ -164,7 +157,7 @@ public class loadimageFromApi : MonoBehaviour
         }
 
 
-       
+
     }
     public void Loadslidders(GameObject Parent, string Url, int Rotation)
     {
@@ -202,13 +195,25 @@ public class loadimageFromApi : MonoBehaviour
 
     IEnumerator DownLoadSprite(string URL, RawImage s)
     {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(URL);
+        yield return www.SendWebRequest();
 
-        WWW www = new WWW(URL);
-        yield return www;
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            try
+            {
+                s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+            }
+            catch
+            {
 
+            }
+        }
 
-
-        s.texture = www.texture;
 
     }
     public string AuthToken()
@@ -370,7 +375,7 @@ public class loadimageFromApi : MonoBehaviour
 
         if (StoreRequest.Loaded && !Startassign)
         {
-            StartCoroutine(Load5Image());
+            //   StartCoroutine(Load5Image());
             Startassign = true;
             foreach (string s in StoreRequest.sliddderFront)
             {
@@ -396,163 +401,238 @@ public class loadimageFromApi : MonoBehaviour
 
 
             }
-            try
-            {
-
-                for (int i = 0; i < StoreRequest.URL1.Count; i++)
-                {
-                    LoadIntialProduct(Sections[0], StoreRequest.URL1[i], StoreRequest.product1[i], "01", 0, StoreRequest.SectionId[0].ToString());
-                }
-
-            }
-            catch
-            {
-
-
-
-            }
-
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL2.Count; i++)
-                {
-                    /// load RightWall CenterPostion
-                    LoadIntialProduct(Sections[1], StoreRequest.URL2[i], StoreRequest.product2[i], "01", 0, StoreRequest.SectionId[1].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL3.Count; i++)
-                {
-                    /// load RightWall LeftPostion
-
-                    LoadIntialProduct(Sections[2], StoreRequest.URL3[i], StoreRequest.product3[i], "01", 0, StoreRequest.SectionId[2].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
-
-
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL4.Count; i++)
-                {
-                    /// load CenterWall RightPostion
-                    LoadIntialProduct(Sections[3], StoreRequest.URL4[i], StoreRequest.product4[i], "01", 1, StoreRequest.SectionId[3].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
-
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL5.Count; i++)
-                {
-                    /// load CenterWall CenterPostion
-                    LoadIntialProduct(Sections[4], StoreRequest.URL5[i], StoreRequest.product5[i], "01", 1, StoreRequest.SectionId[4].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
-            /// load CenterWall LeftPostion
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL6.Count; i++)
-                {
-                    LoadIntialProduct(Sections[5], StoreRequest.URL6[i], StoreRequest.product6[i], "01", 1, StoreRequest.SectionId[5].ToString());
-                }
-            }
-            catch
-            {
-
-            }
-
-
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL7.Count; i++)
-                {
-                    /// load LeftWall RightPostion
-                    LoadIntialProduct(Sections[6], StoreRequest.URL7[i], StoreRequest.product7[i], "01", 2, StoreRequest.SectionId[6].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
-            try
-            {
-                for (int i = 0; i < StoreRequest.URL8.Count; i++)
-                {
-                    /// load LeftWall CenterPostion
-                    LoadIntialProduct(Sections[7], StoreRequest.URL8[i], StoreRequest.product8[i], "01", 2, StoreRequest.SectionId[7].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
-
-            try
-            {
-                /// load LeftWall LeftPostion
-                for (int i = 0; i < StoreRequest.URL9.Count; i++)
-                {
-                    LoadIntialProduct(Sections[8], StoreRequest.URL9[i], StoreRequest.product9[i], "01", 2, StoreRequest.SectionId[8].ToString());
-                }
-            }
-            catch
-            {
-
-
-
-            }
+            StartCoroutine(loadProduct());
 
         }
 
 
     }
-    public void LoadIntialProduct(GameObject Parent, string Url, string ID, string AnimitionName, int Rotation, string SectionID)
+    IEnumerator loadProduct()
+    {
+        try
+        {
+            Sections[0].gameObject.name = StoreRequest.SectionId[0].ToString();
+        }
+        catch
+        {
+
+
+
+        }
+        if (Sections[0] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL1.Count; i++)
+            {
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[0], StoreRequest.URL1[i], StoreRequest.product1[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[0], StoreRequest.URL1[i], StoreRequest.product1[i], "02"));
+            }
+
+        }
+
+        try
+        {
+            Sections[1].gameObject.name = StoreRequest.SectionId[1].ToString();
+        } 
+        catch
+        {
+
+
+
+        }
+        if (Sections[1] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL2.Count; i++)
+            {
+                /// load RightWall CenterPostion
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[1], StoreRequest.URL2[i], StoreRequest.product2[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[1], StoreRequest.URL2[i], StoreRequest.product2[i], "02"));
+
+            }
+        }
+        try
+        {
+            Sections[2].gameObject.name = StoreRequest.SectionId[2].ToString();
+}
+        catch
+        {
+
+
+
+        }
+        if (Sections[2] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL3.Count; i++)
+            {
+                /// load RightWall LeftPostion
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[2], StoreRequest.URL3[i], StoreRequest.product3[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[2], StoreRequest.URL3[i], StoreRequest.product3[i], "02"));
+            }
+
+        }
+
+        try
+        {
+            Sections[3].gameObject.name = StoreRequest.SectionId[3].ToString();
+  }
+        catch
+        {
+
+
+
+        }
+        if (Sections[3] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL4.Count; i++)
+            {
+                /// load CenterWall RightPostion
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[3], StoreRequest.URL4[i], StoreRequest.product4[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[3], StoreRequest.URL4[i], StoreRequest.product4[i], "02"));
+            }
+
+        }
+        try
+        {
+            Sections[4].gameObject.name = StoreRequest.SectionId[4].ToString();
+ }
+        catch
+        {
+
+
+
+        }
+        if (Sections[4] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL5.Count; i++)
+            {
+                /// load CenterWall CenterPostion
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[4], StoreRequest.URL5[i], StoreRequest.product5[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[4], StoreRequest.URL5[i], StoreRequest.product5[i], "02"));
+
+
+            }
+        }
+        /// load CenterWall LeftPostion
+        try
+        {
+            Sections[5].gameObject.name = StoreRequest.SectionId[5].ToString();
+}
+        catch
+        {
+
+        }
+        if (Sections[5] != null)
+        {
+            for (int i = 0; i < StoreRequest.URL6.Count; i++)
+            {
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[5], StoreRequest.URL6[i], StoreRequest.product6[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[5], StoreRequest.URL6[i], StoreRequest.product6[i], "02"));
+            }
+
+        }
+
+        try
+        {
+            Sections[6].gameObject.name = StoreRequest.SectionId[6].ToString();
+ }
+        catch
+        {
+
+
+
+        }
+        if (Sections[6] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL7.Count; i++)
+            {
+                /// load LeftWall RightPostion
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[6], StoreRequest.URL7[i], StoreRequest.product7[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[6], StoreRequest.URL7[i], StoreRequest.product7[i], "02"));
+            }
+        }
+        try
+        {
+
+            Sections[7].gameObject.name = StoreRequest.SectionId[7].ToString();
+        }
+        catch
+        {
+
+
+
+        }
+        if (Sections[7] != null)
+        {
+
+            for (int i = 0; i < StoreRequest.URL8.Count; i++)
+            {
+                /// load LeftWall CenterPostion
+
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[7], StoreRequest.URL8[i], StoreRequest.product8[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[7], StoreRequest.URL8[i], StoreRequest.product8[i], "02"));
+
+
+            }
+        }
+
+        try
+        {
+            Sections[8].gameObject.name = StoreRequest.SectionId[8].ToString();
+  }
+        catch
+        {
+
+
+
+        }
+        if (Sections[8] != null)
+        {
+
+            /// load LeftWall LeftPostion
+            for (int i = 0; i < StoreRequest.URL9.Count; i++)
+            {
+
+                if (i == 0)
+                    yield return StartCoroutine(LoadIntialProduct(Sections[8], StoreRequest.URL9[i], StoreRequest.product9[i], "01"));
+                else
+                    yield return StartCoroutine(LoadIntialProduct(Sections[8], StoreRequest.URL9[i], StoreRequest.product9[i], "02"));
+
+            }
+        }
+    }
+     IEnumerator LoadIntialProduct(GameObject Parent, string Url, string ID, string AnimitionName)
     {
 
-        childObject = Instantiate(ProductDefault) as GameObject;
-        childObject.transform.parent = Parent.transform;
+        childObject = GameObject.Instantiate(ProductDefault, Parent.transform);
         childObject.transform.localPosition = new Vector3(0, 0, 0);
         childObject.transform.localScale = new Vector3(1, 1, 1);
-        StartCoroutine(DownLoadSprite(Url, childObject.GetComponent<RawImage>()));
+    yield return    StartCoroutine(DownLoadSprite(Url, childObject.GetComponent<RawImage>()));
         childObject.GetComponent<Animation>().Play(AnimitionName);
         childObject.name = ID;
-        childObject.transform.parent.gameObject.name = SectionID;
-        if (Rotation == 1)
-        {
-            childObject.transform.Rotate(new Vector3(0, -90, 0));
-        }
-        if (Rotation == 2)
-        {
-            childObject.transform.Rotate(new Vector3(0, 180, 0));
-        }
+
+
+
 
 
 
@@ -592,28 +672,28 @@ public class loadimageFromApi : MonoBehaviour
         if (Sections[sectionIdLocal].transform.childCount > 1)
         {
             if (PostionImage[sectionIdLocal] == 0)
-        {
-            Sections[sectionIdLocal].transform.GetChild(Sections[sectionIdLocal].transform.childCount - 1).gameObject.GetComponent<Animation>().clip = pervious1;
-            Sections[sectionIdLocal].transform.GetChild(Sections[sectionIdLocal].transform.childCount - 1).gameObject.GetComponent<Animation>().Play();
-        }
-        else
-        {
-            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] - 1).gameObject.GetComponent<Animation>().clip = pervious1;
-            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] - 1).gameObject.GetComponent<Animation>().Play();
+            {
+                Sections[sectionIdLocal].transform.GetChild(Sections[sectionIdLocal].transform.childCount - 1).gameObject.GetComponent<Animation>().clip = pervious1;
+                Sections[sectionIdLocal].transform.GetChild(Sections[sectionIdLocal].transform.childCount - 1).gameObject.GetComponent<Animation>().Play();
+            }
+            else
+            {
+                Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] - 1).gameObject.GetComponent<Animation>().clip = pervious1;
+                Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal] - 1).gameObject.GetComponent<Animation>().Play();
+
+            }
+            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().clip = pervious2;
+            Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().Play();
+
+
+            PostionImage[sectionIdLocal]--;
+
+            if (PostionImage[sectionIdLocal] == -1)
+            {
+                PostionImage[sectionIdLocal] = Sections[sectionIdLocal].transform.childCount - 1;
+            }
 
         }
-        Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().clip = pervious2;
-        Sections[sectionIdLocal].transform.GetChild(PostionImage[sectionIdLocal]).gameObject.GetComponent<Animation>().Play();
-
-
-        PostionImage[sectionIdLocal]--;
-
-        if (PostionImage[sectionIdLocal] == -1)
-        {
-            PostionImage[sectionIdLocal] = Sections[sectionIdLocal].transform.childCount - 1;
-        }
-
-    }
     }
     public void nextSection(int sectionIdLocal)
     {
@@ -786,7 +866,7 @@ public class loadimageFromApi : MonoBehaviour
     //        }
     //        catch
     //        {
-    //            print("Failed");
+    //            Debug.Log("Failed");
 
 
 

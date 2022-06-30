@@ -11,9 +11,9 @@ public class mapController : MonoBehaviour
     public GameObject map;
     public void movePlayer(int id)
     {
-        print(storesLocations[id - 1]);
+       Debug.Log(storesLocations[id - 1]);
         Player.localPosition = storesLocations[id - 1];
-        print(yStoresRotation[id - 1]);
+       Debug.Log(yStoresRotation[id - 1]);
         PlayerRotation.CameraAngleY = yStoresRotation[id - 1];
         //Player.eulerAngles = new Vector3(0f, yStoresRotation[id - 1], 0f);
         map.SetActive(false);

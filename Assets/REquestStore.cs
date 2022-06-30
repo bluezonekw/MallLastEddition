@@ -20,9 +20,9 @@ public class REquestStore : MonoBehaviour
         request.AddHeader("lang_api", "en");
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
-        print(response.Content);
+       Debug.Log(response.Content);
         IdStores idStores= JsonConvert.DeserializeObject<IdStores>(response.Content);
-        print("Size   :   " + idStores.data.Capacity);
+       Debug.Log("Size   :   " + idStores.data.Capacity);
         for(int x = 0; x < idStores.data.Capacity; x++)
         {
             try
@@ -62,7 +62,7 @@ public class REquestStore : MonoBehaviour
 
         T.texture = DownloadHandlerTexture.GetContent(www);
 
-        print(T);
+       Debug.Log(T);
 
     }
     // Update is called once per frame
@@ -81,7 +81,7 @@ public class REquestStore : MonoBehaviour
         request.AddHeader("lang_api", "ar");
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
-        print(response.Content);
+       Debug.Log(response.Content);
         return JsonConvert.DeserializeObject<RequestStore>(response.Content);
 
     }

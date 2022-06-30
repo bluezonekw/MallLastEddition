@@ -237,8 +237,8 @@ print(s);
         request.AlwaysMultipartFormData = true;
         request.AddParameter("email", ForgetEmail.text);
         IRestResponse response = client.Execute(request);
-      
-         checkEmail= JsonConvert.DeserializeObject<CheckEmailResponse>(response.Content);
+       Debug.Log(response.Content);
+        checkEmail = JsonConvert.DeserializeObject<CheckEmailResponse>(response.Content);
         if (checkEmail.statsu == 1)
         {
             msg = "تم ارسال اللينك عبر البريد الالكترونى";
@@ -273,8 +273,8 @@ print(s);
         request.AddParameter("user_id", PlayerPrefs.GetInt("Forgetid", 0));
         request.AddParameter("code", VertificationCode.text);
         IRestResponse response = client.Execute(request);
-        print(PlayerPrefs.GetInt("Forgetid", 0) + "   " + VertificationCode.text);
-        print(response.Content);
+       Debug.Log(PlayerPrefs.GetInt("Forgetid", 0) + "   " + VertificationCode.text);
+       Debug.Log(response.Content);
         checkEmail = JsonConvert.DeserializeObject<CheckEmailResponse>(response.Content);
         if (checkEmail.statsu == 1)
         {
@@ -308,6 +308,7 @@ print(s);
         request.AddParameter("user_id", PlayerPrefs.GetInt("Forgetid", 0));
         request.AddParameter("password", NewPasswordIF.text);
         IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
         ResetPasswordResponse ResetPasswordResponse = JsonConvert.DeserializeObject<ResetPasswordResponse>(response.Content);
         if (ResetPasswordResponse.statsu == 1)
         {

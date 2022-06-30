@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 1ac9b3b3266eabe40a0db4d617393e9c, type: 3}
+  m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 720
   defaultScreenHeight: 1080
@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 6.0
+  bundleVersion: 6.0.1
   preloadedAssets:
   - {fileID: 11400000, guid: 109038f85493cdb4282967768808b3a2, type: 2}
   - {fileID: 337988642090541156, guid: ebe4c7b1b7264704c808b2eadb524502, type: 2}
@@ -164,7 +164,7 @@ PlayerSettings:
     iPhone: 6.0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
-  AndroidBundleVersionCode: 9
+  AndroidBundleVersionCode: 10
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 0
@@ -175,7 +175,7 @@ PlayerSettings:
   ForceInternetPermission: 1
   ForceSDCardPermission: 1
   CreateWallpaper: 0
-  APKExpansionFiles: 1
+  APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
   VertexChannelCompressionMask: 4054
@@ -217,7 +217,7 @@ PlayerSettings:
   iOSLaunchScreeniPadFillPct: 100
   iOSLaunchScreeniPadSize: 100
   iOSLaunchScreeniPadCustomXibPath: 
-  iOSLaunchScreenCustomStoryboardPath: 
+  iOSLaunchScreenCustomStoryboardPath: Assets/Wall/1258.png
   iOSLaunchScreeniPadCustomStoryboardPath: 
   iOSDeviceRequirements: []
   iOSURLSchemes: []
@@ -250,7 +250,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 1
-  androidSplashScreen: {fileID: 2800000, guid: 1ac9b3b3266eabe40a0db4d617393e9c, type: 3}
+  androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: '{inproject}: KeyStore/MyMall.keystore'
   AndroidKeyaliasName: mymallkw
   AndroidBuildApkPerCpuArchitecture: 0
@@ -275,7 +275,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 1ac9b3b3266eabe40a0db4d617393e9c, type: 3}
+      m_Icon: {fileID: 2800000, guid: 48ebfc8d8a98a3142bb588a1c0869046, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -601,9 +601,9 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
-  locationUsageDescription: 
-  microphoneUsageDescription: 
+  cameraUsageDescription: changePicture
+  locationUsageDescription: nothing
+  microphoneUsageDescription: voicechat
   bluetoothUsageDescription: 
   switchNMETAOverride: 
   switchNetLibKey: 

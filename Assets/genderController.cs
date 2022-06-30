@@ -28,7 +28,7 @@ public class genderController : MonoBehaviour
     }
     public void changeGender(int index)
     {
-        print(index);
+       Debug.Log(index);
         if (index == 0)
         {
             male.SetActive(true); 

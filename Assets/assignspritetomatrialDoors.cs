@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class assignspritetomatrialDoors : MonoBehaviour,ILoadImage
+public class assignspritetomatrialDoors : MonoBehaviour
 {
    public Material DefaultMat;
   
@@ -15,42 +15,41 @@ private Material LocalMat;
 
     public IEnumerator DownloadMatrial()
     {
-
-        GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
-        LocalMat = GetComponent<MeshRenderer>().materials[0];
-
-        if (File.Exists(Application.persistentDataPath + "/Banner/" + gameObject.name+ ".png"))
-       
+        foreach (Transform child in transform)
         {
-            try
-            {
-                byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Banner/" + gameObject.name + ".png");
-               
-                Texture2D texture = new Texture2D(1, 1);
+            child.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
+            LocalMat = child.GetComponent<MeshRenderer>().materials[0];
 
-                texture.LoadImage(byteArray);
-                texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
-                texture.Apply();
-                LocalMat.SetTexture("_BaseMap", texture);
-                texture = null;
+            if (File.Exists(Application.persistentDataPath + "/Banner/" + child.gameObject.name + ".png"))
+
+            {
+                try
+                {
+                    byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Banner/" + child.gameObject.name + ".png");
+
+                    Texture2D texture = new Texture2D(1, 1);
+
+                    texture.LoadImage(byteArray);
+                    texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
+                    texture.Apply();
+                    LocalMat.SetTexture("_BaseMap", texture);
+                    texture = null;
+                }
+                catch
+                {
+
+                }
             }
-            catch
+            else
             {
 
+
             }
-        }
-        else
-        {
-            
-          
         }
         yield return 0;
     }
 
-    public IEnumerator DownloadRawImage()
-    {
-        yield return 0;
-    }
+
 
  
 

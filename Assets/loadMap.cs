@@ -10,37 +10,24 @@ using UnityEngine.UI;
 namespace UI.Pagination
 {
     public class loadMap : MonoBehaviour
-{
-    public CategoryRequest category;
-    public Transform TabLocation;
-        
-    public GameObject TabExample;
-    GameObject g;
+    {
+        public CategoryRequest category;
+        public Transform TabLocation;
+
+        public GameObject TabExample;
+        GameObject g;
         // Start is called before the first frame update
-         void Start()
+        void Start()
         {
             try
             {
                 var client = new RestClient("http://mymall-kw.com/api/V1/get-all-categories");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
-                request.AddHeader("password-api", "mall_2021_m3m");
-                if (UPDownMenu.LanguageValue == 1)
-                {
-                    request.AddHeader("lang-api", "en");
-                }
-                else
-                {
-                    request.AddHeader("lang-api", "ar");
-
-
-                }
-
-
                 request.AlwaysMultipartFormData = true;
                 IRestResponse response = client.Execute(request);
+               Debug.Log(response.Content);
                 category = JsonConvert.DeserializeObject<CategoryRequest>(response.Content);
-
                 for (int index = 0; index < category.data.Count; index++)
                 {
                     g = GameObject.Instantiate(TabExample, TabLocation);
@@ -56,25 +43,37 @@ namespace UI.Pagination
 
             }
         }
-    
+
 
         IEnumerator LoadIcon(string url, RawImage s)
         {
-            
+            UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+            yield return www.SendWebRequest();
 
-            WWW www = new WWW(url);
-            yield return www;
-            s.texture = www.texture;
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                try
+                {
+                    s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+                }
+                catch
+                {
+
+                }
+            }
+
+
+
 
         }
-       
 
-        // Update is called once per frame
-        void Update()
-    {
-        
+
+
     }
-}
 }
 
 

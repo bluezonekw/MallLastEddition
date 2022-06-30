@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RestSharp;
 using Newtonsoft.Json;
+using UnityEngine.Networking;
+
 public class RequestAds : MonoBehaviour
 {
     public Material DefaultMat;
@@ -42,110 +44,16 @@ public class RequestAds : MonoBehaviour
         request.AddHeader("auth_token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
-        AdsRequest1 = JsonConvert.DeserializeObject<AdsRequest>(response.Content);
-               // print(response.Content);
-        ///Front1
-        try
-        {
-            foreach (FrontSlider FS in AdsRequest1.data[0].front_slider)
-            {
-                g = GameObject.Instantiate(FrontExample, FrontLeft.transform);
-                g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
-                StartCoroutine(DownloadRawImage(FS.file, g.GetComponent<MeshRenderer>().materials[0]));
-g.transform.localScale= new Vector3(0, 1, 1);
-                LeftFront.Add(g);
+               Debug.Log(response.Content);
+                AdsRequest1 = JsonConvert.DeserializeObject<AdsRequest>(response.Content);
+                StartCoroutine(loadImageads());
 
-            }
-            if (AdsRequest1.data[0].front_slider.Count == 0)
-            {
-                Left.SetActive(false);
-            }
-        }
-        catch
-        {
-            Left.SetActive(false);
-        }
-
-
-        ///Front2
-        try
-        {
-            foreach (FrontSlider FS in AdsRequest1.data[1].front_slider)
-            {
-                g = GameObject.Instantiate(FrontExample, FrontRight.transform);
-                g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
-
-                StartCoroutine(DownloadRawImage(FS.file, g.GetComponent<MeshRenderer>().materials[0]));
-g.transform.localScale= new Vector3(0, 1, 1);
-                Rightfront.Add(g);
-            }
-            if (AdsRequest1.data[1].front_slider.Count == 0)
-            {
-                Right.SetActive(false);
-            }
-        }
-        catch
-        {
-            Right.SetActive(false);
-        }
-
-
-        ///back1
-        try
-        {
-            foreach (BackSlider BS in AdsRequest1.data[0].back_slider)
-            {
-                g = GameObject.Instantiate(BackeExample, BackLeft.transform);
-                g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
-                g.GetComponent<MeshRenderer>().materials[0].SetTextureScale("_MainTex", new Vector2(-1f, -1f));
-
-                StartCoroutine(DownloadRawImage(BS.file, g.GetComponent<MeshRenderer>().materials[0]));
-g.transform.localScale= new Vector3(0, 1, 1);
-                LeftBack.Add(g);
-            }
-            if (AdsRequest1.data[0].back_slider.Count == 0)
-            {
-                Left.SetActive(false);
-            }
+       
+     
 
 
 
-
-          
-        }
-        catch
-        {
-            Left.SetActive(false);
-        }
-
-        ///back2
-        try
-        {
-            foreach (BackSlider BS in AdsRequest1.data[1].back_slider)
-            {
-                g = GameObject.Instantiate(BackeExample, BackRight.transform);
-                g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
-                g.GetComponent<MeshRenderer>().materials[0].SetTextureScale("_MainTex", new Vector2(-1f, -1f));
-
-                StartCoroutine(DownloadRawImage(BS.file, g.GetComponent<MeshRenderer>().materials[0]));
-g.transform.localScale= new Vector3(0, 1, 1);
-                RightBack.Add(g);
-            }
-            if (AdsRequest1.data[1].back_slider.Count == 0)
-            {
-                Right.SetActive(false);
-            }
-
-
-        }
-        catch
-        {
-            Right.SetActive(false);
-        }
-
-
-
-        startAnimation1=startAnimation2=startAnimation3=startAnimation4 = true;
+       
         }
 
 
@@ -156,7 +64,108 @@ g.transform.localScale= new Vector3(0, 1, 1);
         }
     }
 
+    IEnumerator loadImageads()
+    {
 
+        if (AdsRequest1.data.Count > 0)
+        {
+            if (AdsRequest1.data[0].front_slider != null)
+            {
+                foreach (FrontSlider FS in AdsRequest1.data[0].front_slider)
+                {
+                    g = GameObject.Instantiate(FrontExample, FrontLeft.transform);
+                    g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
+                    yield return StartCoroutine(DownloadRawImage(FS.file, g.GetComponent<MeshRenderer>().materials[0]));
+                    g.transform.localScale = new Vector3(0, 1, 1);
+                    LeftFront.Add(g);
+
+                }
+                if (AdsRequest1.data[0].front_slider.Count == 0)
+                {
+                    Left.SetActive(false);
+                }
+            }
+
+        }
+
+
+        ///Front2
+        if (AdsRequest1.data.Count>1)
+        {
+            if (AdsRequest1.data[1].front_slider != null)
+            {
+                foreach (FrontSlider FS in AdsRequest1.data[1].front_slider)
+                {
+                    g = GameObject.Instantiate(FrontExample, FrontRight.transform);
+                    g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
+
+                    yield return StartCoroutine(DownloadRawImage(FS.file, g.GetComponent<MeshRenderer>().materials[0]));
+                    g.transform.localScale = new Vector3(0, 1, 1);
+                    Rightfront.Add(g);
+                }
+                if (AdsRequest1.data[1].front_slider.Count == 0)
+                {
+                    Right.SetActive(false);
+                }
+            }
+        }
+
+        ///back1
+
+        if (AdsRequest1.data.Count > 0)
+        {
+            if (AdsRequest1.data[0].back_slider != null)
+            {
+                foreach (BackSlider BS in AdsRequest1.data[0].back_slider)
+                {
+                    g = GameObject.Instantiate(BackeExample, BackLeft.transform);
+                    g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
+                    g.GetComponent<MeshRenderer>().materials[0].SetTextureScale("_MainTex", new Vector2(-1f, -1f));
+
+                    yield return StartCoroutine(DownloadRawImage(BS.file, g.GetComponent<MeshRenderer>().materials[0]));
+                    g.transform.localScale = new Vector3(0, 1, 1);
+                    LeftBack.Add(g);
+                }
+                if (AdsRequest1.data[0].back_slider.Count == 0)
+                {
+                    Left.SetActive(false);
+                }
+            }
+
+        }
+
+
+        ///back2
+        if (AdsRequest1.data.Count > 1)
+        {
+            if (AdsRequest1.data[1].back_slider != null)
+            {
+                foreach (BackSlider BS in AdsRequest1.data[1].back_slider)
+                {
+                    g = GameObject.Instantiate(BackeExample, BackRight.transform);
+                    g.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
+                    g.GetComponent<MeshRenderer>().materials[0].SetTextureScale("_MainTex", new Vector2(-1f, -1f));
+
+                    yield return StartCoroutine(DownloadRawImage(BS.file, g.GetComponent<MeshRenderer>().materials[0]));
+                    g.transform.localScale = new Vector3(0, 1, 1);
+                    RightBack.Add(g);
+                }
+                if (AdsRequest1.data[1].back_slider.Count == 0)
+                {
+                    Right.SetActive(false);
+                }
+            }
+
+        }
+
+
+        startAnimation1 = startAnimation2 = startAnimation3 = startAnimation4 = true;
+
+
+
+
+
+    }
     public string AuthToken()
     {
 
@@ -177,21 +186,23 @@ g.transform.localScale= new Vector3(0, 1, 1);
 
     IEnumerator DownloadRawImage(string url, Material I)
     {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
 
 
-        WWW www = new WWW(url);
-        yield return www;
-        try
+        if (www.result != UnityWebRequest.Result.Success)
         {
-
-            I.SetTexture("_BaseMap", www.texture);
+            Debug.Log(www.error);
+        }
+        else
+        {
+           Debug.Log(url);
+            I.SetTexture("_BaseMap", ((DownloadHandlerTexture)www.downloadHandler).texture);
 
         }
-        catch
-        {
 
 
-        }
+        
 
     }
     // Update is called once per frame

@@ -63,8 +63,9 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-Request = JsonConvert.DeserializeObject<CoinPackageRequest>(response.Content);
-print(response.Content);
+       Debug.Log(response.Content);
+        Request = JsonConvert.DeserializeObject<CoinPackageRequest>(response.Content);
+
 foreach(var i in Request.data){
 g=GameObject.Instantiate(ItemPackage, ScrollLocation);
 singlePackage=g.GetComponent<PackgeInfo>();

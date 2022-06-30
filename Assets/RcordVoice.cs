@@ -72,7 +72,7 @@ public void playAudio(){
 
 
      /// A.Play();
-       //  print("play");
+       // Debug.Log("play");
 
         //this.recording = recordingNew;
       

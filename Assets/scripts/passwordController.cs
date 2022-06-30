@@ -12,13 +12,13 @@ public class passwordController : MonoBehaviour
     }
     public void changeContentType(Text placeHolder)
     {
-        print(password);
+       Debug.Log(password);
         if (password)
         {
             this.GetComponent<InputField>().contentType = InputField.ContentType.Standard;
             placeHolder.text = this.GetComponent<InputField>().text;
 
-            print(placeHolder.text);
+           Debug.Log(placeHolder.text);
             password = false;
         }
         else

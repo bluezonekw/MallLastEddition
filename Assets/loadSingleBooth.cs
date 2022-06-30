@@ -9,17 +9,18 @@ using UnityEngine.UI;
 public class loadSingleBooth : MonoBehaviour
 {
     public Material DefaultMat;
-    public GameObject Logo1, Logo2,logo1_1;
+    public GameObject Logo1, Logo2, logo1_1;
     private Material LocalMat1, LocalMat2, LocalMat1_1;
-    
+
     public BoothResponse booth;
-    public RawImage B1, B2,b3;
+    public RawImage B1, B2, b3;
     public List<Dataforproduct> AllProduct = new List<Dataforproduct>();
     public GameObject productExample;
+    GameObject g;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject g = new GameObject();
+
         try
         {
             var client = new RestClient("http://mymall-kw.com/api/V1/get-single-booth?booth_id=" + gameObject.name);
@@ -29,12 +30,15 @@ public class loadSingleBooth : MonoBehaviour
             request.AddHeader("lang_api", "en");
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
+           Debug.Log(response.Content);
             booth = JsonConvert.DeserializeObject<BoothResponse>(response.Content);
 
         }
         catch
         {
-            booth = new BoothResponse();
+            GameObject.Destroy(gameObject);
+            return;
+
         }
         if (booth.data == null || booth.data.booth.is_active != 1)
         {
@@ -44,61 +48,63 @@ public class loadSingleBooth : MonoBehaviour
         }
         else
         {
-            StartCoroutine(LoadLogo(booth.data.booth.logo));
-          
-            ///////to be changed
-            StartCoroutine(GetTexture(booth.data.booth.banner,b3));
-            StartCoroutine(GetTexture(booth.data.booth.banner_left, B1));
-            StartCoroutine(GetTexture(booth.data.booth.banner_right, B2));
-            foreach (var product in booth.data.products)
+
+            StartCoroutine(loadBoothData());
+
+        }
+
+    }
+
+
+
+
+
+    IEnumerator loadBoothData()
+    {
+
+        yield return StartCoroutine(LoadLogo(booth.data.booth.logo));
+
+        ///////to be changed
+        yield return StartCoroutine(GetTexture(booth.data.booth.banner, b3));
+        yield return StartCoroutine(GetTexture(booth.data.booth.banner_left, B1));
+        yield return StartCoroutine(GetTexture(booth.data.booth.banner_right, B2));
+        foreach (var product in booth.data.products)
+        {
+            g = GameObject.Instantiate(productExample, productExample.transform.parent);
+            yield return StartCoroutine(loadTexture(product.img, g.GetComponent<LoadBoothProduct>().Icon));
+
+            g.gameObject.name = product.id.ToString();
+
+
+            g.gameObject.GetComponent<LoadBoothProduct>().Name.text = product.name;
+
+            if (product.sale_price == null)
             {
-               g = GameObject.Instantiate(productExample, productExample.transform.parent);
-                  StartCoroutine(loadTexture(product.img, g.GetComponent<LoadBoothProduct>().Icon));
-               
-               g.gameObject.name = product.id.ToString();
-
-
-                g.gameObject.GetComponent<LoadBoothProduct>().Name.text = product.name;
-
-                if (product.sale_price == null)
-                {
-                    g.gameObject.GetComponent<LoadBoothProduct>().Price.text = product.regular_price.ToString() + " KWD";
-                }
-                else
-                {
-                    g.gameObject.GetComponent<LoadBoothProduct>().Price.text = product.sale_price.ToString() + " KWD";
-
-                }
-
-                g.SetActive(true);
-
-
-
-
+                g.gameObject.GetComponent<LoadBoothProduct>().Price.text = product.regular_price.ToString() + " KWD";
+            }
+            else
+            {
+                g.gameObject.GetComponent<LoadBoothProduct>().Price.text = product.sale_price.ToString() + " KWD";
 
             }
+
+            g.SetActive(true);
 
 
 
 
 
         }
-       
-    }
 
 
 
 
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
 
 
-
-    IEnumerator GetTexture(string url , RawImage r)
+    IEnumerator GetTexture(string url, RawImage r)
     {
         if (url.ToLower().EndsWith("jp"))
         {
@@ -111,20 +117,21 @@ public class loadSingleBooth : MonoBehaviour
         {
             r.texture = DownloadHandlerTexture.GetContent(www);
         }
+
     }
     IEnumerator LoadLogo(string url)
     {
-        
+
         Logo1.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
         LocalMat1 = Logo1.GetComponent<MeshRenderer>().materials[0];
         logo1_1.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
         LocalMat1_1 = logo1_1.GetComponent<MeshRenderer>().materials[0];
 
 
-       
+
         Logo2.GetComponent<MeshRenderer>().materials[0] = new Material(DefaultMat.shader);
         LocalMat2 = Logo2.GetComponent<MeshRenderer>().materials[0];
-     
+
         if (url.ToLower().EndsWith("jp"))
         {
 

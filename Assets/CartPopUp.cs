@@ -43,8 +43,9 @@ using UnityEngine;
             request.AddHeader("auth-token", AuthToken());
             request.AlwaysMultipartFormData = true;
             IRestResponse response = client.Execute(request);
-            cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
-            print(response.Content);
+               Debug.Log(response.Content);
+                cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
+           Debug.Log(response.Content);
             if (cartController.CartResponse.data.Carts.Count >0)
             {
                 gameObject = GameObject.Instantiate(PopExitShop,GameObject.FindGameObjectWithTag("MainCanvas").transform);

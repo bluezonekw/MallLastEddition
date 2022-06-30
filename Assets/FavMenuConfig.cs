@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System;
 using RestSharp;
 using Newtonsoft.Json;
+using UnityEngine.Networking;
+
 public class FavMenuConfig : MonoBehaviour
 {
 
@@ -73,9 +75,23 @@ catch{
 
   IEnumerator DownLoadImagetexture(string URL, RawImage s)
     {
-        WWW www = new WWW(URL);
-        yield return www;
-        s.texture = www.texture;
+
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(URL);
+        yield return www.SendWebRequest();
+
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+        }
+
+
+     
        
     }
 
@@ -124,8 +140,8 @@ public void GetFavItem()
 	request.AddHeader("auth-token", AuthToken());
 	request.AlwaysMultipartFormData = true;
 	IRestResponse response = client.Execute(request);
- 
-       Response = JsonConvert.DeserializeObject<FavRequest>(response.Content);
+           Debug.Log(response.Content);
+            Response = JsonConvert.DeserializeObject<FavRequest>(response.Content);
 
 
             }

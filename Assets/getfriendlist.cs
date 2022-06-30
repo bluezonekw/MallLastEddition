@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class getfriendlist : MonoBehaviour
 {
@@ -14,28 +15,7 @@ public bool isMessageListFriend;
     public FriendListRequest friendList;
     public Transform Prentfriendlist;
     public GameObject Friend;
-    // Start is called before the first frame update
-    void Start()
-    {
-     /*  if(FriendsTabForChat.FriendsType==FriendsTabForChat.Friends.YourFriends){
-         LoadFrienList();
-        }
-        else
-         if(FriendsTabForChat.FriendsType==FriendsTabForChat.Friends.SearchFriends)
-        {
-LoadSearchlist("");
-        }
-        else
-        {
-             LoadFriendRequests();
-        }*/
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     public string AuthToken()
     {
 
@@ -99,9 +79,9 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
+       Debug.Log(response.Content);
 
-
-friendList=JsonConvert.DeserializeObject<FriendListRequest>(response.Content);
+        friendList =JsonConvert.DeserializeObject<FriendListRequest>(response.Content);
 GameObject g=new GameObject();
 if(friendList.statsu==0)
 {return;
@@ -148,7 +128,8 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-friendList=JsonConvert.DeserializeObject<FriendListRequest>(response.Content);
+           Debug.Log(response.Content);
+            friendList =JsonConvert.DeserializeObject<FriendListRequest>(response.Content);
 GameObject g=new GameObject();
 if(friendList.statsu==0)
 {
@@ -184,20 +165,33 @@ catch{
 
     }
 
- IEnumerator GetText(RawImage t,string url)
+    IEnumerator GetText(RawImage t, string url)
     {
-         if(!string.IsNullOrEmpty( url)){
-            url=@"https://mymall-kw.com/assets/users/"+url;
+        if (!string.IsNullOrEmpty(url))
+        {
+            url = @"https://mymall-kw.com/assets/users/" + url;
 
-                WWW wWW =new WWW(url);
-       yield return wWW;
-      
-       t.texture=wWW.texture;
-         }else{
 
-        yield  return null;
-         }
-   
+
+
+            UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+            yield return www.SendWebRequest();
+
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+               Debug.Log(url);
+                t.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+
+            }
+
+
+
+        }
     }
 public void LoadFriendRequests(){
 
@@ -218,7 +212,8 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-FriendRequests      FriendRequests=JsonConvert.DeserializeObject<FriendRequests>(response.Content);
+           Debug.Log(response.Content);
+            FriendRequests      FriendRequests=JsonConvert.DeserializeObject<FriendRequests>(response.Content);
 GameObject g=new GameObject();
 if(FriendRequests.statsu==0)
 {return;
@@ -272,7 +267,8 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-UserList UserList=JsonConvert.DeserializeObject<UserList>(response.Content);
+           Debug.Log(response.Content);
+            UserList UserList=JsonConvert.DeserializeObject<UserList>(response.Content);
 GameObject g=new GameObject();
 if(UserList.statsu==0)
 {
@@ -329,8 +325,9 @@ request.AddHeader("password-api", "mall_2021_m3m");
 request.AddHeader("auth-token", AuthToken());
 request.AlwaysMultipartFormData = true;
 IRestResponse response = client.Execute(request);
-MessageListFriend MessageListFriend=JsonConvert.DeserializeObject<MessageListFriend>(response.Content);
-        print(response.Content);
+           Debug.Log(response.Content);
+            MessageListFriend MessageListFriend=JsonConvert.DeserializeObject<MessageListFriend>(response.Content);
+       Debug.Log(response.Content);
 GameObject g=new GameObject();
 if(MessageListFriend.statsu==0)
 {return;

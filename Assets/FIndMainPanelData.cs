@@ -29,7 +29,7 @@ public class FIndMainPanelData : MonoBehaviour
         }
         catch
         {
-            print(g.name);
+           Debug.Log(g.name);
 
 
         }

@@ -5,66 +5,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AddProductPopUp : MonoBehaviour
+public class AddProductPopUp : MonoBehaviour, LangaueChange
 {
-    public ArabicText Message1,Open,Resume;
+    public ArabicText Message1, Open, Resume;
     public GameObject button;
     public GameObject Cart;
     // Start is called before the first frame update
     void Start()
     {
- 
+
         if (GetDetailsProduct.addTocartrequest.statsu == 1)
         {
-var foundObjects = FindObjectsOfType<UPDownMenu>();
-foundObjects[0].UpdateCartCount();
+            var foundObjects = FindObjectsOfType<UPDownMenu>();
+            foundObjects[0].UpdateCartCount();
             button.SetActive(true);
-            if (UPDownMenu.LanguageValue == 1)
-            {
-
-                Message1.Text ="Order Added Sucessfully";
-                Open.Text = "Go To Cart";
-                Resume.Text = "Resume Buying";
-            }
-            else
-            {
-
-                Message1.Text = "تم الاضافة بنجاح";
-
-                Open.Text = "الذهاب الى السلة";
-                Resume.Text = "متابعة الشراء";
 
 
-            }
-            
-        }else
+        }
+        else
         {
             button.SetActive(false);
 
-            if (UPDownMenu.LanguageValue == 1)
-            {
 
-                Message1.Text = "Please Try Again !!";
-                Resume.Text = "Resume Buying";
-
-            }
-            else
-            {
-
-                Message1.Text = "من فضلك حاول مرة اخرى ";
-                Resume.Text = "متابعة الشراء";
-
-
-            }
         }
+        ChangeLangaue(UPDownMenu.LanguageValue);
 
     }
-  
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
     public void DestroyCurrent()
     {
         GameObject.Destroy(gameObject);
@@ -79,18 +47,19 @@ foundObjects[0].UpdateCartCount();
         {
             request.AddHeader("lang-api", "en");
         }
-        else 
+        else
         {
 
             request.AddHeader("lang-api", "ar");
 
         }
-      
+
         request.AddHeader("auth-token", AuthToken());
         request.AlwaysMultipartFormData = true;
         IRestResponse response = client.Execute(request);
         cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
-        GameObject.Instantiate(Cart,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+       Debug.Log(response.Content);
+        GameObject.Instantiate(Cart, GameObject.FindGameObjectWithTag("MainCanvas").transform);
         DestroyCurrent();
 
 
@@ -102,7 +71,7 @@ foundObjects[0].UpdateCartCount();
     public string AuthToken()
     {
 
-        if(!UPDownMenu.Login)
+        if (!UPDownMenu.Login)
         {
             return ApiClasses.Register.data.token;
         }
@@ -113,6 +82,68 @@ foundObjects[0].UpdateCartCount();
             return ApiClasses.Login.data.original.access_token;
 
         }
+
+
+    }
+
+    public void ChangeLangaue(int Vaule)
+    {
+        if (GetDetailsProduct.addTocartrequest.statsu == 1)
+        {
+            if (Vaule == 1)
+            {
+
+                Message1.Text = "Order Added Sucessfully";
+                Open.Text = "Go To Cart";
+                Resume.Text = "Resume Buying";
+
+
+
+
+            }
+
+            else
+            {
+
+                Message1.Text = "تم الاضافة بنجاح";
+
+                Open.Text = "الذهاب الى السلة";
+                Resume.Text = "متابعة الشراء";
+
+
+
+
+
+            }
+        }
+        else
+        {
+
+            if (Vaule == 1)
+            {
+
+
+
+                Message1.Text = "Please Try Again !!";
+                Resume.Text = "Resume Buying";
+
+            }
+
+            else
+            {
+
+
+
+
+                Message1.Text = "من فضلك حاول مرة اخرى ";
+                Resume.Text = "متابعة الشراء";
+
+            }
+
+
+
+        }
+
 
 
     }

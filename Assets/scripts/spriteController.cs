@@ -10,7 +10,7 @@ public class spriteController : MonoBehaviour
     public Sprite menuon, menuoff;
     public void mapClicked()
     {
-        print(!map.activeSelf);
+       Debug.Log(!map.activeSelf);
         map.SetActive(!map.activeSelf);
     }
     public void menuBtn()

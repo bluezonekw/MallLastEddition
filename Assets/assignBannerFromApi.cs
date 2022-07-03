@@ -8,43 +8,87 @@ using System.IO;
 
 public class assignBannerFromApi : MonoBehaviour
 {
-    
+
+
+    private void Awake()
+    {
+    }
+
+
+
  
 
+  public   void deleteallbanners()
+    {
+        foreach (Transform child in this.GetComponentsInChildren<Transform>(true))
+        {
+            try
+            {
 
 
+                child.gameObject.GetComponent<RawImage>().texture = null;
+            }
+            catch
+            {
 
+            }
+
+
+        }
+
+        }
 
   
-
-  public  IEnumerator DownloadRawImage()
+    public Texture2D textures;
+    public byte[] byteArray;
+    public  IEnumerator DownloadRawImage()
     {
-        foreach (Transform child in transform)
+        foreach (RawImage child in GetComponentsInChildren<RawImage>(true))
         {
-            if (File.Exists(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse(child.gameObject.name).ToString() + ".png")))
-            {
-                
-                
-                try
+            
+      
+            try {
+              
+
+                if (File.Exists(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse(child.gameObject.name).ToString() + ".png")))
                 {
-                    byte[] byteArray = File.ReadAllBytes(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse(child.gameObject.name).ToString() + ".png"));
 
 
-                    Texture2D texture = new Texture2D(1, 1);
-                    texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
-                    texture.Apply();
-                    texture.LoadImage(byteArray);
-                    child.gameObject.GetComponent<RawImage>().texture = texture;
-                    texture = null;
-                }
-                catch
-                {
+                    try
+                    {
+                        byteArray = File.ReadAllBytes(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse(child.gameObject.name).ToString() + ".png"));
+
+
+
+                        textures = new Texture2D(1, 1);
+                        textures.SetPixels(textures.GetPixels(0, 0, textures.width, textures.height));
+                        textures.Apply();
+
+                        textures.LoadImage(byteArray);
+                    
+                        child.texture = textures;
+                        print(Path.Combine(Application.persistentDataPath + "/Door/" + int.Parse(child.gameObject.name).ToString() + ".png"));
+                     
+                    }
+                    catch (Exception ex)
+                    {
+                        print(ex.Message);
+                    }
+
 
                 }
             }
-        }
-          
-            yield return 0;
+            catch
+            {
+
+            }
+            
+            }
+        textures = new Texture2D(1, 1);
+        textures.SetPixels(textures.GetPixels(0, 0, textures.width, textures.height));
+        textures.Apply();
+        byteArray = null;
+        yield return 0;
         
     }
 

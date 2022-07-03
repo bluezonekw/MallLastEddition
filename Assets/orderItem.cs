@@ -44,8 +44,8 @@ public IEnumerator DownLoadSprite(string URL)
             Icon.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
+        www = null;
 
-       
 
     }
     // Update is called once per frame

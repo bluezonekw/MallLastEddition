@@ -56,9 +56,9 @@ public class FullMenuFav : MonoBehaviour
             s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
+        www = null;
 
 
-     
 
     }
     public void DestroyFavMenu()

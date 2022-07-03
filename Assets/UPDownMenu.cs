@@ -28,13 +28,18 @@ public class UPDownMenu : MonoBehaviour
 
 
     bool openchat;
-    public GameObject NotificationPrefab;
+
     public Text NotificationText;
     public GameObject Chat;
     public void OpenCloseChat()
     {
         if (!ApiClasses.Vistor)
         {
+            if (!openchat)
+            {
+                CloseAllMenus();
+            }
+
             openchat = !openchat;
             Chat.SetActive(openchat);
         }
@@ -52,7 +57,7 @@ public class UPDownMenu : MonoBehaviour
         {
             if (!ApiClasses.Vistor)
             {
-                GameObject.Instantiate(NotificationPrefab, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+                GameObject.Instantiate(Resources.Load<GameObject>("Notifications"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
             }
             else
             {
@@ -71,7 +76,7 @@ public class UPDownMenu : MonoBehaviour
     bool IsShow;
     public AnimationClip Up, Down;
     public Animation A1;
-    public GameObject Cart;
+
     public static int LanguageValue;
     public Dropdown D1;
     public GameObject Map;
@@ -83,16 +88,22 @@ public class UPDownMenu : MonoBehaviour
     public GameObject MainCanvasObject;
     public GameObject profile;
     public Text TCoinsNumber;
-    public GameObject Cart2;
+
     public GameObject loginGameobject;
     public Text RoomMember;
     public newGameManager mainmanager;
     public OrderDetails OrderDetailsObject;
 
+    public bool profileopend;
     public void openprofile()
     {
         if (!ApiClasses.Vistor)
         {
+            if (!profileopend)
+            {
+                CloseAllMenus();
+            }
+            profileopend = !profileopend;
             profile.SetActive(true);
         }
         else
@@ -190,7 +201,7 @@ public class UPDownMenu : MonoBehaviour
         }
         catch { }
         LoadStores.isactive = false;
-        Map.SetActive(LoadStores.isactive);
+        Map.SetActive(false);
         profile.SetActive(false);
         Chat.SetActive(false);
 
@@ -212,12 +223,17 @@ public class UPDownMenu : MonoBehaviour
         }
 
     }
-
+  
     public void CreateCoins()
     {
         if (!ApiClasses.Vistor)
         {
-            GameObject.Instantiate(CoinsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+           
+                CloseAllMenus();
+
+
+                GameObject.Instantiate(CoinsMenu, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+           
         }
         else
         {
@@ -348,7 +364,10 @@ public class UPDownMenu : MonoBehaviour
     }
     public void ShowHideMap()
     {
-
+        if (!LoadStores.isactive)
+        {
+            CloseAllMenus();
+        }
         LoadStores.isactive = !LoadStores.isactive;
 
         Map.SetActive(LoadStores.isactive);
@@ -382,35 +401,38 @@ public class UPDownMenu : MonoBehaviour
 
 
     }
+
     public void OpenCart()
     {
         try
         {
             if (!ApiClasses.Vistor)
-            {
+            {   
+              
+                    CloseAllMenus();
+                 
 
+                    var client = new RestClient("http://mymall-kw.com/api/V1/carts");
+                    client.Timeout = -1;
+                    var request = new RestRequest(Method.GET);
+                    request.AddHeader("password-api", "mall_2021_m3m");
+                    if (UPDownMenu.LanguageValue == 1)
+                    {
+                        request.AddHeader("lang-api", "en");
+                    }
+                    else
+                    {
 
-                var client = new RestClient("http://mymall-kw.com/api/V1/carts");
-                client.Timeout = -1;
-                var request = new RestRequest(Method.GET);
-                request.AddHeader("password-api", "mall_2021_m3m");
-                if (UPDownMenu.LanguageValue == 1)
-                {
-                    request.AddHeader("lang-api", "en");
-                }
-                else
-                {
+                        request.AddHeader("lang-api", "ar");
 
-                    request.AddHeader("lang-api", "ar");
-
-                }
-                request.AddHeader("auth-token", AuthToken());
-                request.AlwaysMultipartFormData = true;
-                IRestResponse response = client.Execute(request);
-               Debug.Log(response.Content);
-                cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
-                GameObject.Instantiate(Cart, GameObject.FindGameObjectWithTag("MainCanvas").transform);
-
+                    }
+                    request.AddHeader("auth-token", AuthToken());
+                    request.AlwaysMultipartFormData = true;
+                    IRestResponse response = client.Execute(request);
+                    Debug.Log(response.Content);
+                    cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
+                    GameObject.Instantiate(Resources.Load<GameObject>("CartInShopMain"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
+               
             }
 
             else
@@ -453,7 +475,7 @@ public class UPDownMenu : MonoBehaviour
                 IRestResponse response = client.Execute(request);
                Debug.Log(response.Content);
                 cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
-                GameObject.Instantiate(Cart2, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+                GameObject.Instantiate(Resources.Load<GameObject>("CartOutShop"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
             }
             else
             {

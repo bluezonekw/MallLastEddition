@@ -65,7 +65,7 @@ namespace UI.Pagination
 
                 }
             }
-
+            www = null;
 
 
 

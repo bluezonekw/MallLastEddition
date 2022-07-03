@@ -139,7 +139,7 @@ public class GetData : MonoBehaviour
             t.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
-   
+        www = null;
     }
     
 public void changeProfilePic(){

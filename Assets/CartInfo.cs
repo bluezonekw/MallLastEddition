@@ -12,9 +12,9 @@ public class CartInfo : MonoBehaviour
     public ArabicText counterController;
     public static double price,Shipping;
     public Transform CartItemTransform;
-    public GameObject CartItemGameObject;
+
     public static bool Cartvisible;
-    public GameObject PaymentPanelAr,PaymentPanelEn;
+
     public bool ResumeBuying;
     public ArabicText CartText, TotalText,ClearaCarttext,Paytext,ResumeBuyingText;
 
@@ -40,11 +40,11 @@ public GameObject Buybtn,Clearbtn;
     {
  if (UPDownMenu.LanguageValue == 1)
         {
- GameObject g=GameObject.Instantiate(PaymentPanelEn,GameObject.FindGameObjectWithTag("MainCanvas").transform);}
+ GameObject g=GameObject.Instantiate(Resources.Load<GameObject>("Payment/PayymentPanel(En)"), GameObject.FindGameObjectWithTag("MainCanvas").transform);}
 
 else
         {
-     GameObject g=GameObject.Instantiate(PaymentPanelAr,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+     GameObject g=GameObject.Instantiate(Resources.Load<GameObject>("Payment/PayymentPanel(Ar)"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
 }
         Destroy(gameObject);
 
@@ -148,7 +148,7 @@ IRestResponse response = client.Execute(request);
         {
             foreach (CartData i in cartController.CartResponse.data.Carts)
             {
-                g = GameObject.Instantiate(CartItemGameObject, CartItemTransform);
+                g = GameObject.Instantiate(Resources.Load<GameObject>("Cart/ItemInCart"), CartItemTransform);
                 price += i.total_price;
 
                 StartCoroutine(DownLoadSprite(i.img, g.GetComponent<CartItemInfo>().ProductImage));
@@ -237,7 +237,7 @@ foundCanvasObjects[0].UpdateCartCount();
            
         }
 
-  
+        www = null;
     }
     // Update is called once per frame
     void Update()

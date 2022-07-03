@@ -149,7 +149,7 @@ IEnumerator DownLoadSprite(string URL,RawImage I1)
 
         }
 
-
+        www = null;
 
     }
 public string AuthToken()

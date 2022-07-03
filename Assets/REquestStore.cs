@@ -52,9 +52,9 @@ public class REquestStore : MonoBehaviour
             renderer.SetTexture("_DetailAlbedoMap", ((DownloadHandlerTexture)www.downloadHandler).texture);
         }
 
-      
+        www = null;
 
-            }
+    }
     IEnumerator DownloadSpirte(string url, RawImage T)
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);

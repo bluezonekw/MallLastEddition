@@ -57,8 +57,9 @@ public class imageUrl : MonoBehaviour
             I.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
+        www = null;
 
-       
+
 
     }
 
@@ -80,12 +81,12 @@ public class imageUrl : MonoBehaviour
 
         }
 
+        www = null;
 
 
 
 
 
-       
 
     }
 }

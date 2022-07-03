@@ -9,7 +9,7 @@ public class RequesStoresInHall : MonoBehaviour
 {
     public int StoreidFrom,StoreidTo;
     
-    public List<GameObject> Category;
+
 public GameObject WelcomMessage;
     public List<GameObject> ShopLocker;
 public GameObject Parent;
@@ -33,12 +33,24 @@ public GameObject Parent;
         }
         catch
         {
-
+            print("test");
         }
+    }
+
+
+    private void OnEnable()
+    {
+          StartCoroutine(loadDoorAndBanner());
+    
+    }
+    private void OnDisable()
+    {
+        banner.GetComponent<assignBannerFromApi>().deleteallbanners();
+        Door.GetComponent<assignspritetomatrialDoors>().restalldoor();
     }
     void Start()
     {
-        StartCoroutine(loadDoorAndBanner());
+      
 
         foreach (Transform child in Parent.transform)
         {

@@ -9,7 +9,7 @@ public class AddProductPopUp : MonoBehaviour, LangaueChange
 {
     public ArabicText Message1, Open, Resume;
     public GameObject button;
-    public GameObject Cart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +59,7 @@ public class AddProductPopUp : MonoBehaviour, LangaueChange
         IRestResponse response = client.Execute(request);
         cartController.CartResponse = JsonConvert.DeserializeObject<CartResponse>(response.Content);
        Debug.Log(response.Content);
-        GameObject.Instantiate(Cart, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+        GameObject.Instantiate(Resources.Load<GameObject>("CartInShopMain"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
         DestroyCurrent();
 
 

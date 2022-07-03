@@ -200,9 +200,9 @@ public class RequestAds : MonoBehaviour
             I.SetTexture("_BaseMap", ((DownloadHandlerTexture)www.downloadHandler).texture);
 
         }
+        www = null;
 
 
-        
 
     }
     // Update is called once per frame

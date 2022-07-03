@@ -17,11 +17,16 @@ public class loadAllshops : MonoBehaviour
     public static Hall Halls_info;
     public static DataStore[] d;
     public static ShopData s;
-
+    public static List<string> CtegoryShop = new List<string> 
+    { "ClothesGeneral", "Cafe", "BEAUTY&HEALTH", "ELECTRONICS"
+    ,"Food","EQUIPMENT","ACCESSORIES","ACCESSORIES DECORATION &FURNITURE"
+    ,"MEDICAL STUFF","Pharmcy","Cars","PETS AND BIRDS"
+    ,"LIBRARIES","MenClothes","WomenClothes"};
 
     // Start is called before the first frame update
     void Awake()
     {
+        Application.lowMemory += OnLowMemory;
         DontDestroyOnLoad(this);
         s = (ShopData)ScriptableObject.CreateInstance(typeof(ShopData));
         s.BannerUrl = new string[331];
@@ -172,6 +177,15 @@ public class loadAllshops : MonoBehaviour
     }
 
     public static bool ImageLoad = false;
+
+    public void OnLowMemory() {
+        Debug.LogError("Memory is Low" + SystemInfo.systemMemorySize);
+        Resources.UnloadUnusedAssets();
+        Debug.LogError("Memory is mid " + SystemInfo.systemMemorySize);
+
+    
+    }
+
     IEnumerator DownloadBannerFile()
     {
         string URL = "", fileName = "";

@@ -20,7 +20,7 @@ public class LoadStores : MonoBehaviour
     void Start()
     {
         t = transform;
-
+       
     }
 
     public void OnShowPanel()
@@ -58,8 +58,7 @@ public class LoadStores : MonoBehaviour
                 g = GameObject.Instantiate(Child, ChildLocation);
                 g.name = s.id.ToString();
                 g.transform.GetChild(1).GetComponent<ArabicText>().Text = s.name;
-                StartCoroutine(LoadIcon(s.id.ToString(), g.transform.GetChild(0).GetComponent<RawImage>()));
-
+                OnEnable();
 
             }
 
@@ -70,19 +69,48 @@ public class LoadStores : MonoBehaviour
 
 
     }
+     void OnEnable()
+    {
+        StartCoroutine(loadallIcon());
+    }
+
+
+    public IEnumerator loadallIcon()
+    {
+        yield return new WaitUntil(() => loadAllshops.ImageLoad = true);
+        foreach (Transform g in ChildLocation)
+        {
+            yield return StartCoroutine(LoadIcon(g.gameObject.name, g.GetChild(0).GetComponent<RawImage>()));
+
+            print(g.gameObject.name);
+        }
+
+
+    }
+    private void OnDisable()
+    {
+        foreach (Transform g in ChildLocation)
+        {
+            g.GetChild(0).GetComponent<RawImage>().texture = null;
+            print("False " + g.gameObject.name);
+
+        }
+    }
+    Texture2D texture ;
+    byte[] byteArray;
     public IEnumerator LoadIcon(string storelogo, RawImage s)
     {
 
 
 
-
+       
         if (File.Exists(Application.persistentDataPath + "/Door/" + storelogo + ".png"))
 
         {
 
-            byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + storelogo + ".png");
+             byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + storelogo + ".png");
 
-            Texture2D texture = new Texture2D(1, 1);
+            texture = new Texture2D(1, 1);
             texture.LoadImage(byteArray);
             texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
             texture.Apply();
@@ -93,7 +121,8 @@ public class LoadStores : MonoBehaviour
         }
 
         yield return 0;
-
+  texture = null;
+        byteArray = null;
     }
 
     public static void showhidemap()

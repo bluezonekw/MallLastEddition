@@ -117,6 +117,7 @@ public class loadSingleBooth : MonoBehaviour
         {
             r.texture = DownloadHandlerTexture.GetContent(www);
         }
+        www = null;
 
     }
     IEnumerator LoadLogo(string url)
@@ -145,9 +146,12 @@ public class loadSingleBooth : MonoBehaviour
             LocalMat2.SetTexture("_BaseMap", DownloadHandlerTexture.GetContent(www));
             LocalMat1_1.SetTexture("_BaseMap", DownloadHandlerTexture.GetContent(www));
         }
-
+        www = null;
+        LocalMat1 = null;
+        LocalMat2 = null;
 
     }
+
     IEnumerator loadTexture(string url, RawImage r)
     {
         if (url.ToLower().EndsWith("jp"))
@@ -159,8 +163,15 @@ public class loadSingleBooth : MonoBehaviour
         yield return www.SendWebRequest();
         if (www.result == UnityWebRequest.Result.Success)
         {
-            r.texture = DownloadHandlerTexture.GetContent(www);
+           
+
+            r.texture =DownloadHandlerTexture.GetContent(www); 
+            print(r.texture.texelSize);
+           
+           
         }
+        
+        www = null;
     }
 }
 

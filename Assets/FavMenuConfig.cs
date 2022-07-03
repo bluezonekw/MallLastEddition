@@ -89,10 +89,10 @@ catch{
             s.texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
 
         }
+        www = null;
 
 
-     
-       
+
     }
 
 

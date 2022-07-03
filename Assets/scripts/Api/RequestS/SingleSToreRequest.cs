@@ -33,25 +33,7 @@ public class SingleSToreRequest : MonoBehaviour
     public GameObject GiftBox;
     void Start()
     {
-        /*  Childreen.AddRange( this.transform.GetComponentsInChildren<Transform>(true));
-
-          for (int x=0;x< Childreen.Count;x++)
-          {
-             Debug.Log(Childreen[x].gameObject.name);
-
-              if (Childreen[x].gameObject.tag != "UIShop")
-              {
-                  Childreen.RemoveAt(x);
-              }
-              else
-              {
-                  Childreen[x].gameObject.SetActive(true);
-              }
-
-
-          }
-      */
-        // System.Random random = new System.Random();
+        texture = new Texture2D(1, 1);
         try
         {
             foreach (var gift in loadAllshops.AllGiftBox.data)
@@ -118,14 +100,16 @@ public class SingleSToreRequest : MonoBehaviour
 
 
 
-            GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
+            // GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
+            GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/"+ loadAllshops.CtegoryShop[SingleStore.data.store.category_id - 1])  , CategoryParent.transform);
         }
         else
         {
 
 
-            GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
+            // GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
 
+            GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/" + loadAllshops.CtegoryShop[int.Parse(SingleStore.data.store.parent_id) - 1]), CategoryParent.transform);
         }
         yield return response.Content;
     }
@@ -382,18 +366,17 @@ public class SingleSToreRequest : MonoBehaviour
         yield return new WaitForSeconds(5);
         Destroy(welc);
     }
-
-
+    Texture2D texture;
+    byte[] byteArray;
     IEnumerator DownloadRawImage(RawImage I)
     {
 
         if (File.Exists(Application.persistentDataPath + "/Door/" + gameObject.name + ".png"))
 
         {
-
-            byte[] byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
+ byteArray = File.ReadAllBytes(Application.persistentDataPath + "/Door/" + gameObject.name + ".png");
             yield return byteArray;
-            Texture2D texture = new Texture2D(1, 1);
+         
             texture.SetPixels(texture.GetPixels(0, 0, texture.width, texture.height));
             texture.Apply();
             texture.LoadImage(byteArray);
@@ -406,7 +389,8 @@ public class SingleSToreRequest : MonoBehaviour
 
             yield return 0;
         }
-
+        texture=null;
+        byteArray=null;
     }
 
 }

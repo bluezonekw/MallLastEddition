@@ -130,12 +130,13 @@ public void Create_Recieve_Text(string message){
 
 
 
-
-public void iGetPrivateMessagelocal(string Message,string id){
+    byte[] bytes;
+    Texture2D t;
+    public void iGetPrivateMessagelocal(string Message,string id){
  if(Message.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]=="Image")
  {
-byte[] bytes;
-Texture2D t=new Texture2D(1,1) ;
+
+
 bytes=Convert.FromBase64String(Message.Split(new string[] { "$$$" }, StringSplitOptions.None)[1]);
 t.LoadImage(bytes);
 Create_Recieve_Image(t);
@@ -159,17 +160,18 @@ Create_Recieve_Voice(Message.Split(new string[] { "$$$" }, StringSplitOptions.No
          
 
         }
-     
-
-
- 
-             
-         
 
 
 
-         
 
+
+
+
+
+
+
+        t = null;
+        bytes = null;
 
 
 }
@@ -235,11 +237,11 @@ if(EventSystem.current.currentSelectedGameObject.name.Contains("$"))
     // Start is called before the first frame update
     void Start()
     {
-          
+
+        t = new Texture2D(1, 1);
 
 
-
-var client = new RestClient("http://mymall-kw.com/api/V1/friends/chat");
+        var client = new RestClient("http://mymall-kw.com/api/V1/friends/chat");
 client.Timeout = -1;
 var request = new RestRequest(Method.POST);
 request.AddHeader("password-api", "mall_2021_m3m");
@@ -268,8 +270,7 @@ if(message.type_user=="sender"){
 
  if(message.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[0]=="Image")
  {
-byte[] bytes;
-Texture2D t=new Texture2D(1,1) ;
+
 bytes=Convert.FromBase64String(message.text.Split(new string[] { "$$$" }, StringSplitOptions.None)[1]);
 t.LoadImage(bytes);
 Create_Send_Image(t);
@@ -355,11 +356,11 @@ SendPrivateVoice();
     }
 
 public void SendPrivateImage(){
- Texture2D tex = new Texture2D(2, 2);
+ 
  
  if( NativeFilePicker.IsFilePickerBusy() )
 			return;
-      byte [] bytes;
+    
 string path="";
 /////////////////
 
@@ -392,8 +393,8 @@ NativeFilePicker.Permission permission = NativeFilePicker.PickFile( ( paths ) =>
               bytes = File.ReadAllBytes(path);
              Debug.Log(bytes.Length);
               
-            tex.LoadImage(bytes);
-            tex.Apply();
+            t.LoadImage(bytes);
+            t.Apply();
             string enc = Convert.ToBase64String(bytes);
          
        MainChat.SendPrivateMessageslocal("Image$$$"+enc,FriendNameInserver);
@@ -401,7 +402,7 @@ NativeFilePicker.Permission permission = NativeFilePicker.PickFile( ( paths ) =>
 
          return;
        }
-        Create_Send_Image(tex);
+        Create_Send_Image(t);
          
           
        
@@ -410,13 +411,16 @@ NativeFilePicker.Permission permission = NativeFilePicker.PickFile( ( paths ) =>
 
     }
 
+        t = null;
+        bytes = null;
 
 
-}
+
+    }
 
 
 
-public void StartRecord(){
+    public void StartRecord(){
 
  foreach (var device in Microphone.devices)
         {

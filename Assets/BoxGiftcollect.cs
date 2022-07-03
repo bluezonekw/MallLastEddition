@@ -8,8 +8,8 @@ public class BoxGiftcollect : MonoBehaviour
 {
     public string code ;
     public int coins,discount, id;
-    public GameObject coinCollect;
-    public GameObject Code;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +57,8 @@ IRestResponse response = client.Execute(request);
 GetGift getGift=JsonConvert.DeserializeObject<GetGift>(response.Content);
        Debug.Log(response.Content);
         if (getGift.statsu==0){
-GameObject g=  GameObject.Instantiate(Code, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+GameObject g=  GameObject.Instantiate(
+Resources.Load<GameObject>("BoxGift/OptionPopUp 1"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
 
 g.GetComponent<optionPopUp>().Message.Text=getGift.message;
 return;
@@ -76,7 +77,8 @@ StartCoroutine(LoadCoins());
 
 }
 if(code!=null){
-GameObject g=  GameObject.Instantiate(Code, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+GameObject g=  GameObject.Instantiate(
+Resources.Load<GameObject>("BoxGift/OptionPopUp 1"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
 g.GetComponent<optionPopUp>().Message.Text=code;
             g.GetComponent<AudioSource>().Play();
 Destroy(gameObject);
@@ -93,7 +95,7 @@ Destroy(gameObject);
 
 
 
- GameObject g=  GameObject.Instantiate(coinCollect, GameObject.FindGameObjectWithTag("MainCanvas").transform);
+ GameObject g=  GameObject.Instantiate(Resources.Load<GameObject>("BoxGift/collectcoin"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
         g.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(6);
 Destroy(g);

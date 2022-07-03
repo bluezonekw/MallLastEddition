@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class storewithIdRequest : MonoBehaviour
 {
+    
     public int id;
     public RequestStore store;
     public bool GetData,Request;
@@ -86,7 +87,7 @@ public class storewithIdRequest : MonoBehaviour
 
         }
 
-
+        www = null;
 
 
     }

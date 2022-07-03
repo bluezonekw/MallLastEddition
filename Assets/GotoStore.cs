@@ -95,7 +95,7 @@ yield return new WaitForSeconds(3);
 
 
  Player.GetComponent<CharacterController>().enabled = true;
-        LoadStores.isactive = false;
+            UPDownMenu.instance.ShowHideMap();
         
     }
 

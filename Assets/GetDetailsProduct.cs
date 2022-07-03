@@ -234,7 +234,7 @@ public class GetDetailsProduct : MonoBehaviour
             }
         }
 
-
+        www = null;
 
 
     }

@@ -9,7 +9,7 @@ public class AttributePanel : MonoBehaviour
     public int numberOfAttribute;
     public float Max, Min,ValueofY;
     public Toggle.ToggleEvent toggleEvent;
-    public GameObject Attributtemplete, OptionTemplete;
+
     public GameObject AttributeCreated,OptionCreated;
     public float intialAttributYpos = 0.8f,intialoptionXpos=4.5f;
     public static List<Toggle> AllToggles;
@@ -46,7 +46,7 @@ NoAttributs.gameObject.SetActive(false);
             numberOfAttribute = GetDetailsProduct.ProductRequst.data.attributes.Count;
             foreach (ProductAttribute p in GetDetailsProduct.ProductRequst.data.attributes)
             {
-                AttributeCreated = GameObject.Instantiate(Attributtemplete, AllatributeLocation);
+                AttributeCreated = GameObject.Instantiate(Resources.Load<GameObject>("DetailsPanel/AttributeTemplete"), AllatributeLocation);
                 AttributeCreated.name = p.id.ToString();
                 AttributeCreated.transform.localPosition = new Vector3(0, intialAttributYpos, 0);
 
@@ -64,7 +64,7 @@ NoAttributs.gameObject.SetActive(false);
                 foreach (ProductOption optionss in p.options)
                 {
               
-                    OptionCreated = GameObject.Instantiate(OptionTemplete, AttributeCreated.GetComponent<AttributeForDetailsMenu>().OptionsPanel.transform);
+                    OptionCreated = GameObject.Instantiate(Resources.Load<GameObject>("DetailsPanel/OptionTemplet"), AttributeCreated.GetComponent<AttributeForDetailsMenu>().OptionsPanel.transform);
                     OptionCreated.transform.localPosition = new Vector3(intialoptionXpos, 0, 0);
                     OptionCreated.GetComponent<OptionForAttribute>().NameOption.Text = optionss.name;
 
@@ -128,7 +128,7 @@ NoAttributs.gameObject.SetActive(false);
             numberOfAttribute = loadimageFromApi.ProductRequst.data.attributes.Count;
             foreach (ProductAttribute p in loadimageFromApi.ProductRequst.data.attributes)
             {
-                AttributeCreated = GameObject.Instantiate(Attributtemplete, AllatributeLocation);
+                AttributeCreated = GameObject.Instantiate(Resources.Load<GameObject>("DetailsPanel/AttributeTemplete"), AllatributeLocation);
                 AttributeCreated.name = p.id.ToString();
                 AttributeCreated.transform.localPosition = new Vector3(0, intialAttributYpos, 0);
 
@@ -146,7 +146,7 @@ NoAttributs.gameObject.SetActive(false);
                 foreach (ProductOption optionss in p.options)
                 {
               
-                    OptionCreated = GameObject.Instantiate(OptionTemplete, AttributeCreated.GetComponent<AttributeForDetailsMenu>().OptionsPanel.transform);
+                    OptionCreated = GameObject.Instantiate(Resources.Load<GameObject>("DetailsPanel/OptionTemplet"), AttributeCreated.GetComponent<AttributeForDetailsMenu>().OptionsPanel.transform);
                     OptionCreated.transform.localPosition = new Vector3(intialoptionXpos, 0, 0);
                     OptionCreated.GetComponent<OptionForAttribute>().NameOption.Text = optionss.name;
 

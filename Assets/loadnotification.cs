@@ -81,12 +81,12 @@ public class loadnotification : MonoBehaviour
 
         }
 
-      
+        www = null;
 
-     
 
-         
-       
+
+
+
     }
     // Start is called before the first frame update
     void Start()

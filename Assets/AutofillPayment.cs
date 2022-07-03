@@ -14,10 +14,10 @@ public class AutofillPayment : MonoBehaviour
 
     public ArabicText Price,totalprice;
     public Order orderinfo;
-    public GameObject Recipt;
+
     private ScreenshotNow screenshotscript;
     public ArabicText Shippingprice;
-    public GameObject Cart;
+
     public GameObject Messageobject;
     public ArabicText MessageErorr;
 public BrowserOpener BrowserOpenr1;
@@ -55,7 +55,7 @@ public Toggle Qnet,Visa,Cash;
     }
     public void Back()
     {
-        GameObject.Instantiate(Cart,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+        GameObject.Instantiate(Resources.Load<GameObject>("CartOutShop"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
         destoryPayment();
 
 
@@ -220,7 +220,7 @@ EmptyFieldMessageAR();
 
         if (orderinfo.statsu == 1) {
 
-        GameObject g = GameObject.Instantiate(Recipt,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+        GameObject g = GameObject.Instantiate(Resources.Load<GameObject>("PaymentCart"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
         screenshotscript = g.GetComponent<ScreenshotNow>();
             screenshotscript.Name.Text = NameField.text;
             screenshotscript.Phone.Text = PhoneField.text;
@@ -318,7 +318,7 @@ if (UPDownMenu.LanguageValue == 1)
 
         if (orderinfo.statsu == 1) {
 
-        GameObject g = GameObject.Instantiate(Recipt,GameObject.FindGameObjectWithTag("MainCanvas").transform);
+        GameObject g = GameObject.Instantiate(Resources.Load<GameObject>("PaymentCart"), GameObject.FindGameObjectWithTag("MainCanvas").transform);
         screenshotscript = g.GetComponent<ScreenshotNow>();
             screenshotscript.Name.Text = NameField.text;
             screenshotscript.Phone.Text = PhoneField.text;

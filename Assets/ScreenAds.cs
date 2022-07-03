@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 
 public class ScreenAds : MonoBehaviour
 {
+    
 
     public ScreenAdsRequest Requestclass;
     public string Hall, Floor;
@@ -19,6 +20,7 @@ public class ScreenAds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    
 
         try
         {
@@ -134,7 +136,7 @@ public class ScreenAds : MonoBehaviour
 
 
 
-
+        www = null;
 
 
     }

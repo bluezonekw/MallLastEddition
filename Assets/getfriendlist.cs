@@ -189,7 +189,7 @@ catch{
 
             }
 
-
+            www = null;
 
         }
     }

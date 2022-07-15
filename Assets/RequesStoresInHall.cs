@@ -45,6 +45,7 @@ public GameObject Parent;
     }
     private void OnDisable()
     {
+       
         banner.GetComponent<assignBannerFromApi>().deleteallbanners();
         Door.GetComponent<assignspritetomatrialDoors>().restalldoor();
     }

@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,21 @@ public class LogOutConttroller : MonoBehaviour
    public void logout()
     {
 
-        SaveScript.DeleteSave();
+     string   savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "savedGames.sx";
+
+        if (File.Exists(savePath))
+        {
+            //SaveLoad.savedGames.Clear();
+            File.Delete(savePath);
+         
+            // Debug.Log( "Data delete in : (       " + savePath + "       )  ");
+
+        }
+        else
+        {
+            // Debug.Log("notdelete");
+
+        }
 
         loading.SetActive(true);
 

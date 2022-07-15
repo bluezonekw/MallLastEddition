@@ -28,6 +28,7 @@ public class ApiClasses : MonoBehaviour
     public float Waittime;
     public Dropdown dropdown;
     public  static bool Vistor;
+    public SaveScript s;
     private void Start()
     {
       
@@ -35,11 +36,11 @@ public class ApiClasses : MonoBehaviour
       
         isforget = PlayerPrefs.GetInt("isForgetPassword", 0);
         if (!VisitorLogin.logout){
-        SaveScript.LoadData();
-        if (SaveScript.GameEmail!= null  && SaveScript.GamePassword != null)
+        s.LoadData();
+        if (s.GameEmail!= null  && s.GamePassword != null)
         {
-            Sign_In_Email.text = SaveScript.GameEmail;
-            Sign_In_Password.text = SaveScript.GamePassword;
+            Sign_In_Email.text = s.GameEmail;
+            Sign_In_Password.text = s.GamePassword;
             Login_To_Mall();
 
         }
@@ -99,8 +100,8 @@ Vistor=true;
 
 
         }
-        SaveScript.GameEmail = Sign_In_Email.text;
-        SaveScript.GamePassword = Sign_In_Password.text;
+        s.GameEmail = Sign_In_Email.text;
+        s.GamePassword = Sign_In_Password.text;
     }
     IEnumerator showPopUp(string msg)
     {
@@ -213,7 +214,7 @@ print(s);
         {
             msg = Register.message[0];
             popUpFlag = true;
-            SaveScript.SaveData();
+            s.SaveData();
             UPDownMenu.Login=false;
             VisitorLogin.logout=false;
             Vistor=false;
@@ -361,7 +362,7 @@ print(s);
         if (Login.statsu == 1)
         {
             PlayerPrefs.SetInt("isForgetPassword", 0);
-            SaveScript.SaveData();
+            s.SaveData();
 UPDownMenu.Login=true;
 VisitorLogin.logout=false;
 Vistor=false;

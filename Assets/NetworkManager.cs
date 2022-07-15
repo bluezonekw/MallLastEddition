@@ -21,7 +21,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     private void Awake()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        if (!ApiClasses.Vistor)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public int ID()
@@ -36,31 +39,34 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         }
     }
+    public string Name()
+    {
+        if (!UPDownMenu.Login)
+        {
+            return ApiClasses.Register.data.user.name;
+        }
+        else
+        {
+            return ApiClasses.Login.data.original.user.name;
 
+        }
+    }
     GameObject dialog = null;
 
     void Start()
     {
-        /* 
- #if PLATFORM_ANDROID
-             if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
-             {
-                 Permission.RequestUserPermission(Permission.Camera);
-                 dialog = new GameObject();
-             }
- #endif
-        */
-        //connect();
-        // i1.text="sad"+DateTime.Now.Second.ToString();
-        try
+        if (!ApiClasses.Vistor)
         {
-            ConnectToPhoton(ID().ToString());
-        }
-        catch
-        {
+            try
+            {
+                ConnectToPhoton(ID().ToString() + "%%" + Name());
+            }
+            catch
+            {
 
+            }
         }
-        // pv.Owner.NickName=i1.text;
+       
 
     }
     private void CreatePhotonRoom(string RoomName)
@@ -136,6 +142,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
 
             PhotonNetwork.JoinRoom("Mymall");
+         
         }
         catch
         {
@@ -145,7 +152,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
                 {
 
                     PhotonNetwork.JoinRoom("Mymall2");
-
+                 
                 }
                 catch
                 {
@@ -159,11 +166,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
 
     }
-    public void play()
+    public int charid;
+    public void play(int id)
     {
 
         //PhotonNetwork.JoinLobby();
-
+        charid = id;
         StartCoroutine(joinRoomIntime());
     }
 
@@ -175,7 +183,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         //PhotonNetwork.LoadLevel(0);
 
-
+        newgamemanager.GetComponent<newGameManager>().createLocalplayer(charid);
 
 
     }
@@ -221,9 +229,5 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
    
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+  
 }

@@ -17,10 +17,10 @@ public class SaveScript : MonoBehaviour
 
 
 
-    public static string GamePassword { get; set; }
-    public static string GameEmail { get; set; }
+    public  string GamePassword { get; set; }
+    public  string GameEmail { get; set; }
 
-    public static string savePath, textView;
+    public  string savePath, textView;
     public Text Pathtext;
 
     void Start()
@@ -31,7 +31,7 @@ public class SaveScript : MonoBehaviour
     {
         Pathtext.text = textView;
     }
-    public static void SaveData()
+    public  void SaveData()
     {
         savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "savedGames.sx";
 
@@ -65,7 +65,7 @@ public class SaveScript : MonoBehaviour
     }
 
 
-    public static void DeleteSave()
+    public  void DeleteSave()
     {
         savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "savedGames.sx";
 
@@ -85,7 +85,7 @@ public class SaveScript : MonoBehaviour
         }
     }
 
-    public static void LoadData()
+    public  void LoadData()
     {
         savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "savedGames.sx";
 

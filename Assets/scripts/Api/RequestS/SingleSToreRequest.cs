@@ -21,14 +21,41 @@ public class SingleSToreRequest : MonoBehaviour
     public static int StaticStoreId;
     public int StoreId;
     public int NumberOFProductPerRequest;
+    public GameObject Category;
 
     //public List<Transform> Childreen;
 
     private void OnDisable()
     {
-
+        GameObject.Destroy(Category);
     }
 
+    private void OnEnable()
+    {
+        try
+        {
+            if (SingleStore.data.store.parent_id == null)
+            {
+
+
+
+                // GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
+                Category = GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/" + loadAllshops.CtegoryShop[SingleStore.data.store.category_id - 1]), CategoryParent.transform);
+            }
+            else
+            {
+
+
+                // GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
+
+                Category = GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/" + loadAllshops.CtegoryShop[int.Parse(SingleStore.data.store.parent_id) - 1]), CategoryParent.transform);
+            }
+        }
+        catch
+        {
+
+        }
+    }
     // Start is called before the first frame update
     public GameObject GiftBox;
     void Start()
@@ -101,7 +128,7 @@ public class SingleSToreRequest : MonoBehaviour
 
 
             // GameObject.Instantiate(requesStores.Category[SingleStore.data.store.category_id - 1], CategoryParent.transform);
-            GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/"+ loadAllshops.CtegoryShop[SingleStore.data.store.category_id - 1])  , CategoryParent.transform);
+            Category= GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/"+ loadAllshops.CtegoryShop[SingleStore.data.store.category_id - 1])  , CategoryParent.transform);
         }
         else
         {
@@ -109,7 +136,7 @@ public class SingleSToreRequest : MonoBehaviour
 
             // GameObject.Instantiate(requesStores.Category[int.Parse(SingleStore.data.store.parent_id) - 1], CategoryParent.transform);
 
-            GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/" + loadAllshops.CtegoryShop[int.Parse(SingleStore.data.store.parent_id) - 1]), CategoryParent.transform);
+            Category= GameObject.Instantiate(Resources.Load<GameObject>("Category Fbx/" + loadAllshops.CtegoryShop[int.Parse(SingleStore.data.store.parent_id) - 1]), CategoryParent.transform);
         }
         yield return response.Content;
     }

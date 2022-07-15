@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.Networking;
 using System.Linq;
+using Photon.Voice.Unity;
 
 public class CountNotification
 {
@@ -17,7 +18,7 @@ public class CountNotification
 }
 public class UPDownMenu : MonoBehaviour
 {
-
+    public GameObject LocalPlayer;
 
     public static UPDownMenu instance;
     public List<Vector3> StoreLocation;
@@ -31,6 +32,24 @@ public class UPDownMenu : MonoBehaviour
 
     public Text NotificationText;
     public GameObject Chat;
+   
+    public void EnableVoiceChat()
+    {
+       
+      
+   
+        LocalPlayer.GetComponent<checkCharacterOwn>().Openvoice();
+   
+       
+    }
+    public void DisableVoiceChat()
+    {
+
+
+        LocalPlayer.GetComponent<checkCharacterOwn>().closeVoice();
+
+    }
+
     public void OpenCloseChat()
     {
         if (!ApiClasses.Vistor)

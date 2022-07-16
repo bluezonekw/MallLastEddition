@@ -89,7 +89,7 @@ public class ScreenAds : MonoBehaviour
     {
 
         isstartanimate = true;
-        if (Requestclass.data.Count == 0)
+        if (Requestclass.data.Count != 0)
         {
             ImageParent.GetChild(index).gameObject.GetComponent<Animation>().Play("Hide");
             index++;

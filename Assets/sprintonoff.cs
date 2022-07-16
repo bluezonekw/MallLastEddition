@@ -21,15 +21,18 @@ namespace StarterAssets
         // Update is called once per frame
         void Update()
         {
+       
             if (Pressed)
             {
+                if(input.starterAssetsInputs != null)
                 input.VirtualSprintInput(true);
                 GetComponent<Button>().image.color = Color.gray;
 
             }
             else
             {
-                input.VirtualSprintInput(false);
+                if (input.starterAssetsInputs != null)
+                    input.VirtualSprintInput(false);
                 GetComponent<Button>().image.color = Color.white;
             }
         }
